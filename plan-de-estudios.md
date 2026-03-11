@@ -1,13 +1,15 @@
 # Plan de Estudios: Clases y Objetos en PHP
 
 ## Contexto
-Una alumna sin experiencia previa en programación (solo conoce variables, arrays y funciones en PHP) necesita aprender clases y objetos. El plan va de lo más básico a un nivel intermedio. Se usa una **tienda online** como hilo conductor para todos los ejemplos y ejercicios, haciendo los conceptos tangibles y conectados entre sí.
+
+Aprender clases y objetos. El plan va de lo más básico a un nivel intermedio. Se usa una **tienda online** como hilo conductor para todos los ejemplos y ejercicios, haciendo los conceptos tangibles y conectados entre sí.
 
 ---
 
 ## Estructura del plan
 
 Cada tema sigue el formato:
+
 1. **Explicación** breve del concepto
 2. **Ejemplo de código** con contexto de tienda online
 3. **Ejercicio práctico** para que la alumna resuelva
@@ -21,6 +23,7 @@ Cada tema sigue el formato:
 **Explicación:** Comparar con la vida real: una ficha de producto en una tienda tiene siempre los mismos campos (nombre, precio, stock). La clase es el molde de esa ficha; cada producto concreto es un objeto.
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -50,6 +53,7 @@ Crear una clase `Cliente` con los atributos `nombre`, `email` y `telefono`. Lueg
 **Explicación:** El constructor es una función especial que se ejecuta automáticamente al crear el objeto. Permite pasar los datos directamente al momento de crearlo.
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -80,6 +84,7 @@ Modificar la clase `Cliente` del tema anterior para que use constructor. Crear 2
 **Explicación:** Así como una ficha de producto puede tener acciones ("aplicar descuento", "reducir stock"), una clase puede tener funciones que trabajan con sus atributos.
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -123,6 +128,7 @@ $camiseta->mostrarInfo();       // Camiseta azul - Precio: $19.99 - Con descuent
 
 **Ejercicio:**
 Crear una clase `Cliente` con:
+
 - Atributos: `$nombre`, `$email`, `$puntos` (empieza en 0)
 - Un método `comprar($monto)` que sume 1 punto por cada $10 gastados (usar división entera)
 - Un método `mostrarPuntos()` que imprima el nombre del cliente y sus puntos acumulados
@@ -138,6 +144,7 @@ Crear un cliente, hacer varias compras y mostrar los puntos acumulados.
 **Explicación:** Un método puede imprimir directamente o devolver un valor para que lo usemos después. `return` es más flexible porque permite usar el resultado en otras operaciones.
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -171,6 +178,7 @@ $precioConEnvio = $producto->precioConIva(21) + 15;
 
 **Ejercicio:**
 Modificar la clase `Producto` para que el método `aplicarDescuento` use `return` (devuelva el precio con descuento) en vez de modificar el atributo directamente. Luego usar el valor devuelto para:
+
 1. Mostrar el precio con descuento
 2. Calcular el precio con descuento + 21% de IVA
 3. Comparar si el precio con descuento es menor a $15
@@ -188,6 +196,7 @@ Modificar la clase `Producto` para que el método `aplicarDescuento` use `return
 - `protected`: accesible dentro de la clase y sus clases hijas (se verá con herencia)
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -246,6 +255,7 @@ echo $producto->precio;
 
 **Ejercicio:**
 Crear una clase `CuentaCliente` con:
+
 - `public $nombre`
 - `private $saldo` (empieza en 0)
 - Método `depositar($cantidad)` — solo permite cantidades positivas
@@ -261,10 +271,12 @@ Crear un cliente, hacer depósitos y compras, y verificar que no se puede accede
 **Objetivo:** Aprender a leer y modificar atributos privados de forma controlada.
 
 **Explicación:** En el tema anterior vimos que los atributos privados no se pueden leer ni modificar desde fuera. Pero a veces necesitamos hacerlo de forma controlada. Para eso existen los getters y setters:
-- **Getter**: método que permite *leer* un atributo privado
-- **Setter**: método que permite *modificar* un atributo privado, pudiendo agregar validaciones o lógica extra
+
+- **Getter**: método que permite _leer_ un atributo privado
+- **Setter**: método que permite _modificar_ un atributo privado, pudiendo agregar validaciones o lógica extra
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -325,6 +337,7 @@ $producto->setPrecio(-50); // "El precio debe ser mayor a 0"
 
 **Ejercicio:**
 Modificar la clase `CuentaCliente` del tema anterior para que:
+
 - `depositar` y `comprar` sigan funcionando igual
 - Agregar un getter `getSaldo()` que devuelva el saldo
 - Agregar un atributo `private $limiteGasto` (se define en el constructor)
@@ -343,6 +356,7 @@ Modificar la clase `CuentaCliente` del tema anterior para que:
 **Explicación:** En una tienda online hay distintos tipos de productos: ropa, electrónica, comida. Todos tienen nombre, precio y stock, pero cada tipo puede tener atributos y comportamientos extra. En vez de repetir código, creamos una clase base y la extendemos.
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -405,6 +419,7 @@ $laptop->mostrarInfo();
 
 **Ejercicio:**
 Crear una clase base `Usuario` con `nombre` y `email`. Luego crear dos clases hijas:
+
 - `ClienteVip` que tenga un atributo extra `$descuentoVip` y un método `aplicarDescuento($precio)` que devuelva el precio con el descuento
 - `Administrador` que tenga un atributo extra `$nivel` y un método `puedeEliminarProductos()` que devuelva `true` si el nivel es mayor a 2
 
@@ -420,6 +435,7 @@ Crear una clase base `Usuario` con `nombre` y `email`. Luego crear dos clases hi
 - Un **método estático** se puede llamar sin crear un objeto, usando `NombreClase::metodo()`. Es útil para operaciones que no dependen de un objeto específico.
 
 **Ejemplo:**
+
 ```php
 class Producto {
     public $nombre;
@@ -462,15 +478,17 @@ $laptop->mostrarInfo(); // Laptop - Precio: $999.99 - Con IVA: $1209.9879
 ```
 
 **Nota para la explicación:** La diferencia clave:
+
 - `$this->precio` pertenece a UN producto específico (cada producto tiene su precio)
 - `self::$porcentajeIva` pertenece a la CLASE — es el mismo para todos los productos
 - Los métodos estáticos no pueden usar `$this` porque no están vinculados a un objeto
 
 **Ejercicio:**
 Crear una clase `Envio` con:
+
 - Una propiedad estática `$costoPorKilo` con valor 5 (el costo por kilo es igual para todos los envíos)
 - Un atributo `$destino` y un atributo `$pesoKg`
-- Un método estático `calcularCosto($peso)` que devuelva el costo de envío (peso * costo por kilo)
+- Un método estático `calcularCosto($peso)` que devuelva el costo de envío (peso \* costo por kilo)
 - Un método normal `getCostoEnvio()` que devuelva el costo de envío del objeto usando su propio peso
 - Un método `mostrarEnvio()` que muestre destino, peso y costo
 
@@ -491,6 +509,7 @@ Construir un sistema simple de tienda online que use todas las clases creadas du
 4. Clase `Pedido` (con contador estático de pedidos)
 
 Flujo del programa:
+
 ```
 - Crear varios productos de distintos tipos
 - Crear un cliente con saldo
@@ -503,23 +522,24 @@ Flujo del programa:
 
 ## Resumen de progresión
 
-| Tema | Concepto clave | Lo que aprende |
-|------|---------------|----------------|
-| 1 | Clase con atributos | Qué es una clase, `new`, `->` |
-| 2 | Constructor | `__construct`, `$this` |
-| 3 | Métodos | Funciones dentro de la clase |
-| 4 | Return vs echo | Métodos que devuelven valores |
-| 5 | Visibilidad | `public`, `private`, `protected` |
-| 6 | Getters y Setters | Acceso controlado, lógica en setters |
-| 7 | Herencia | `extends`, `parent::`, sobrescritura |
-| 8 | Estáticos | `static`, `self::`, IVA como dato compartido |
-| 9 | Integración | Proyecto que combina todo |
+| Tema | Concepto clave      | Lo que aprende                               |
+| ---- | ------------------- | -------------------------------------------- |
+| 1    | Clase con atributos | Qué es una clase, `new`, `->`                |
+| 2    | Constructor         | `__construct`, `$this`                       |
+| 3    | Métodos             | Funciones dentro de la clase                 |
+| 4    | Return vs echo      | Métodos que devuelven valores                |
+| 5    | Visibilidad         | `public`, `private`, `protected`             |
+| 6    | Getters y Setters   | Acceso controlado, lógica en setters         |
+| 7    | Herencia            | `extends`, `parent::`, sobrescritura         |
+| 8    | Estáticos           | `static`, `self::`, IVA como dato compartido |
+| 9    | Integración         | Proyecto que combina todo                    |
 
 ---
 
 ## Archivos a crear
 
 Se creará un archivo PHP por cada tema dentro de la carpeta del proyecto:
+
 - `tema1_clases_basicas.php`
 - `tema2_constructor.php`
 - `tema3_metodos.php`
@@ -533,5 +553,6 @@ Se creará un archivo PHP por cada tema dentro de la carpeta del proyecto:
 Cada archivo contendrá la explicación como comentarios, el ejemplo de código funcional y el ejercicio como comentario al final.
 
 ## Verificación
+
 - Cada archivo PHP debe ejecutarse sin errores con `php nombrearchivo.php`
 - Los ejemplos deben producir la salida esperada indicada en los comentarios
