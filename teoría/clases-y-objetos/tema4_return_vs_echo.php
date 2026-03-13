@@ -60,19 +60,3 @@ if ($producto->precioConIva(21) > 1000) {
     echo "Este producto supera los \$1000 con IVA\n";
 }
 
-// ============================================================
-// EJERCICIO:
-// Modificar la clase Producto para que el método
-// aplicarDescuento($porcentaje) use return (devuelva el precio
-// con descuento) en vez de modificar el atributo directamente.
-//
-// Luego usar el valor devuelto para:
-//   1. Mostrar el precio con descuento
-//   2. Calcular el precio con descuento + 21% de IVA
-//   3. Comparar si el precio con descuento es menor a $15
-//
-// Ejemplo:
-//   $camiseta = new Producto("Camiseta", 19.99);
-//   $conDescuento = $camiseta->aplicarDescuento(10);
-//   echo $conDescuento;  // 17.991
-// ============================================================

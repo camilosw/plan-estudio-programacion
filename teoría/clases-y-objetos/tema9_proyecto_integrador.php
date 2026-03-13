@@ -270,22 +270,3 @@ echo "\n📦 Stock actualizado:\n";
 $camiseta->mostrarInfo();
 $laptop->mostrarInfo();
 $zapatillas->mostrarInfo();
-
-// ============================================================
-// EJERCICIO PARA LA ALUMNA:
-// Construir este mismo sistema desde cero, paso a paso:
-//
-// 1. Crear la clase Producto con herencia (ProductoRopa,
-//    ProductoElectronico)
-// 2. Crear la clase Cliente con saldo privado
-// 3. Crear la clase CarritoDeCompras con métodos para agregar,
-//    calcular total y mostrar
-// 4. Crear la clase Pedido con contador estático y IVA estático
-//
-// Luego simular el flujo completo:
-//   - Crear productos variados
-//   - Crear un cliente
-//   - Agregar productos al carrito
-//   - Procesar el pedido
-//   - Mostrar el resumen
-// ============================================================

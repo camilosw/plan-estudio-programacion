@@ -44,12 +44,3 @@ echo "$camiseta->nombre - \$$camiseta->precio - Stock: $camiseta->stock\n";
 echo "$pantalon->nombre - \$$pantalon->precio - Stock: $pantalon->stock\n";
 echo "$zapatos->nombre - \$$zapatos->precio - Stock: $zapatos->stock\n";
 
-// ============================================================
-// EJERCICIO:
-// Modificar la clase Cliente del tema anterior para que use
-// constructor. Crear 2 clientes usando el constructor y
-// mostrar sus datos.
-//
-// Ejemplo de uso esperado:
-//   $cliente1 = new Cliente("Ana García", "ana@email.com", "555-1234");
-// ============================================================

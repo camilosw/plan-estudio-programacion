@@ -49,13 +49,3 @@ echo "Producto 2: $pantalon->nombre\n";
 echo "Precio: \$$pantalon->precio\n";
 echo "Stock: $pantalon->stock unidades\n";
 
-// ============================================================
-// EJERCICIO:
-// Crear una clase Cliente con los atributos:
-//   - $nombre
-//   - $email
-//   - $telefono
-//
-// Luego crear 2 clientes distintos y mostrar sus datos
-// con echo.
-// ============================================================

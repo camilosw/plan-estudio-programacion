@@ -107,31 +107,3 @@ echo "Precio de la laptop: \$" . $laptop->getPrecio() . "\n";
 // Pero no podemos acceder a protected desde fuera:
 // echo $laptop->precio;  // ERROR: precio es protected
 
-// ============================================================
-// EJERCICIO:
-// Crear una clase base Usuario con:
-//   - Atributos: $nombre, $email
-//   - Constructor y método mostrarInfo()
-//
-// Luego crear dos clases hijas:
-//
-// 1. ClienteVip que tenga:
-//    - Un atributo extra $descuentoVip (porcentaje)
-//    - Un método aplicarDescuento($precio) que devuelva el
-//      precio con el descuento VIP aplicado
-//    - Sobrescribir mostrarInfo() para mostrar también el
-//      descuento VIP
-//
-// 2. Administrador que tenga:
-//    - Un atributo extra $nivel (1, 2 o 3)
-//    - Un método puedeEliminarProductos() que devuelva true
-//      si el nivel es mayor a 2
-//    - Sobrescribir mostrarInfo() para mostrar también el nivel
-//
-// Ejemplo:
-//   $vip = new ClienteVip("Ana", "ana@email.com", 15);
-//   echo $vip->aplicarDescuento(100); // 85
-//
-//   $admin = new Administrador("Carlos", "carlos@email.com", 3);
-//   echo $admin->puedeEliminarProductos(); // true
-// ============================================================
