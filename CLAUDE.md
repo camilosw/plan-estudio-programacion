@@ -1,47 +1,47 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Diese Datei bietet Orientierung für Claude Code (claude.ai/code) bei der Arbeit mit dem Code in diesem Repository.
 
-## Project Overview
+## Projektübersicht
 
-This is a PHP teaching curriculum for learning programming from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are two modules so far:
+Dies ist ein PHP-Lehrplan zum Erlernen der Programmierung von Grund auf. Die Schülerin verfügt über grundlegende PHP-Kenntnisse (Variablen, Arrays, Funktionen). Es gibt bisher zwei Module:
 
-1. **OOP (classes and objects)** — using an **online store** as the unifying theme
-2. **Git and GitHub** — version control fundamentals, from installation to collaboration with Pull Requests
+1. **OOP (Klassen und Objekte)** — mit einem **Online-Shop** als verbindendem Thema
+2. **Git und GitHub** — Grundlagen der Versionsverwaltung, von der Installation bis zur Zusammenarbeit mit Pull Requests
 
-## Structure
+## Struktur
 
-### Module: OOP (clases y objetos)
+### Modul: OOP (Klassen und Objekte)
 
-- `teoría/clases-y-objetos/plan-de-estudios.md` — Curriculum plan with explanations, examples, and exercises
-- `teoría/clases-y-objetos/tema1_clases_basicas.php` through `tema9_proyecto_integrador.php` — One PHP file per topic, each containing explanatory comments, working example code, and an exercise at the end
-- `ejercicios/clases-y-objetos/ejercicio1_clases_basicas.php` through `ejercicio9_proyecto_integrador.php` — Exercise files
+- `theorie/klassen-und-objekte/lehrplan.md` — Lehrplan mit Erklärungen, Beispielen und Übungen
+- `theorie/klassen-und-objekte/thema1_grundlegende_klassen.php` bis `thema9_integrationsprojekt.php` — Eine PHP-Datei pro Thema, jeweils mit erklärenden Kommentaren, funktionierendem Beispielcode und einer Übung am Ende
+- `uebungen/klassen-und-objekte/uebung1_grundlegende_klassen.php` bis `uebung9_integrationsprojekt.php` — Übungsdateien
 
-Topics: classes → constructor → methods → return vs echo → visibility → getters/setters → magic methods (__get/__set) → inheritance → static properties → integrating project.
+Themen: Klassen → Konstruktor → Methoden → return vs echo → Sichtbarkeit → Getter/Setter → Magische Methoden (__get/__set) → Vererbung → Statische Eigenschaften → Integrationsprojekt.
 
-### Module: Git y GitHub
+### Modul: Git und GitHub
 
-- `teoría/git-y-github/plan-de-estudios.md` — Curriculum plan with explanations, examples, and exercises
-- `teoría/git-y-github/tema1_que_es_git.md` through `tema8_proyecto_integrador.md` — One Markdown file per topic with explanations, bash command examples with expected output, and exercises
-- `ejercicios/git-y-github/ejercicio1_que_es_git.md` through `ejercicio8_proyecto_integrador.md` — Exercise files with step-by-step instructions and verification sections
+- `theorie/git-und-github/lehrplan.md` — Lehrplan mit Erklärungen, Beispielen und Übungen
+- `theorie/git-und-github/thema1_was_ist_git.md` bis `thema8_integrationsprojekt.md` — Eine Markdown-Datei pro Thema mit Erklärungen, Bash-Befehlsbeispielen mit erwarteter Ausgabe und Übungen
+- `uebungen/git-und-github/uebung1_was_ist_git.md` bis `uebung8_integrationsprojekt.md` — Übungsdateien mit Schritt-für-Schritt-Anleitungen und Überprüfungsabschnitten
 
-Topics: what is Git → first repository → add/commit cycle → log/diff/gitignore → branches → GitHub → collaboration (issues/PRs) → integrating project.
+Themen: Was ist Git → Erstes Repository → Add/Commit-Zyklus → Log/Diff/Gitignore → Branches → GitHub → Zusammenarbeit (Issues/PRs) → Integrationsprojekt.
 
-## Running PHP Files
+## PHP-Dateien ausführen
 
-Each OOP module file is a standalone PHP script:
+Jede Datei des OOP-Moduls ist ein eigenständiges PHP-Skript:
 
 ```bash
-php teoría/clases-y-objetos/tema1_clases_basicas.php
+php theorie/klassen-und-objekte/thema1_grundlegende_klassen.php
 ```
 
-Every PHP file must execute without errors and produce the expected output shown in its comments.
+Jede PHP-Datei muss fehlerfrei ausgeführt werden und die in den Kommentaren gezeigte erwartete Ausgabe erzeugen.
 
-## Conventions
+## Konventionen
 
-- All content (comments, variable names, output) is in **Spanish**
-- OOP module: each PHP file follows the format: header comment block with explanation → working code example → exercise as a comment block at the end
-- OOP module: the online store domain uses consistent class names: `Producto`, `Cliente`, `CarritoDeCompras`, `Pedido`, `ProductoRopa`, `ProductoElectronico`
-- OOP module: files are self-contained — classes are redefined in each file as needed (no includes/requires between files)
-- Git module: each Markdown file follows the format: header → objective → explanation with analogy → bash command examples with expected output → exercise
-- Git module: exercises use very simple PHP code to keep focus on Git concepts, and include a verification section with commands and expected output
+- Alle Inhalte (Kommentare, Variablennamen, Ausgaben) sind auf **Deutsch**
+- OOP-Modul: Jede PHP-Datei folgt dem Format: Kopfkommentarblock mit Erklärung → funktionierendes Codebeispiel → Übung als Kommentarblock am Ende
+- OOP-Modul: Die Online-Shop-Domäne verwendet einheitliche Klassennamen: `Produkt`, `Kunde`, `Einkaufswagen`, `Bestellung`, `KleidungsProdukt`, `ElektronikProdukt`
+- OOP-Modul: Dateien sind eigenständig — Klassen werden in jeder Datei bei Bedarf neu definiert (keine includes/requires zwischen Dateien)
+- Git-Modul: Jede Markdown-Datei folgt dem Format: Überschrift → Ziel → Erklärung mit Analogie → Bash-Befehlsbeispiele mit erwarteter Ausgabe → Übung
+- Git-Modul: Übungen verwenden sehr einfachen PHP-Code, um den Fokus auf Git-Konzepte zu halten, und enthalten einen Überprüfungsabschnitt mit Befehlen und erwarteter Ausgabe
