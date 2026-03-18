@@ -347,6 +347,112 @@ Modificar la clase `CuentaCliente` del tema anterior para que:
 
 ---
 
+## Tema 6b: Métodos mágicos `__get` y `__set` — Acceso dinámico a atributos
+
+**Objetivo:** Conocer los métodos mágicos `__get` y `__set` de PHP, que permiten interceptar automáticamente la lectura y escritura de atributos privados.
+
+**Explicación:** En el tema anterior aprendimos a crear getters y setters explícitos (`getPrecio`, `setPrecio`). PHP ofrece otra forma: los métodos mágicos `__get` y `__set`. Se llaman automáticamente cuando alguien intenta leer o escribir un atributo privado. La ventaja es que con un solo método se manejan todos los atributos. El doble guión bajo (`__`) es la misma convención que `__construct`.
+
+- `__get($atributo)`: se llama al intentar **leer** un atributo privado
+- `__set($atributo, $valor)`: se llama al intentar **escribir** en un atributo privado
+
+**Ejemplo (parte 1 — con getters y setters del Tema 6):**
+
+```php
+class ProductoConGettersSetters {
+    public $nombre;
+    private $precio;
+    private $precioConDescuento;
+
+    function __construct($nombre, $precio) {
+        $this->nombre = $nombre;
+        $this->precio = $precio;
+        $this->precioConDescuento = $precio;
+    }
+
+    function getPrecio() {
+        return $this->precio;
+    }
+
+    function getPrecioConDescuento() {
+        return $this->precioConDescuento;
+    }
+
+    function setPrecio($nuevoPrecio) {
+        if ($nuevoPrecio > 0) {
+            $this->precio = $nuevoPrecio;
+            $this->precioConDescuento = $nuevoPrecio;
+            echo "Precio actualizado a \$$nuevoPrecio\n";
+        } else {
+            echo "El precio debe ser mayor a 0\n";
+        }
+    }
+}
+
+$producto = new ProductoConGettersSetters("Laptop", 999.99);
+echo $producto->getPrecio();             // 999.99
+$producto->setPrecio(1099.99);           // Precio actualizado a $1099.99
+```
+
+**Ejemplo (parte 2 — la misma clase con `__get` y `__set`):**
+
+```php
+class Producto {
+    private $nombre;
+    private $precio;
+    private $precioConDescuento;
+
+    function __construct($nombre, $precio) {
+        $this->nombre = $nombre;
+        $this->precio = $precio;
+        $this->precioConDescuento = $precio;
+    }
+
+    function __get($atributo) {
+        if ($atributo == "nombre") {
+            return $this->nombre;
+        } elseif ($atributo == "precio") {
+            return $this->precio;
+        } elseif ($atributo == "precioConDescuento") {
+            return $this->precioConDescuento;
+        } else {
+            echo "La propiedad '$atributo' no existe\n";
+            return null;
+        }
+    }
+
+    function __set($atributo, $valor) {
+        if ($atributo == "precio") {
+            if ($valor > 0) {
+                $this->precio = $valor;
+                $this->precioConDescuento = $valor;
+                echo "Precio actualizado a \$$valor\n";
+            } else {
+                echo "El precio debe ser mayor a 0\n";
+            }
+        } elseif ($atributo == "nombre") {
+            echo "El nombre no se puede cambiar\n";
+        } else {
+            echo "La propiedad '$atributo' no se puede modificar\n";
+        }
+    }
+}
+
+// Misma funcionalidad, sintaxis más natural:
+$producto = new Producto("Laptop", 999.99);
+echo $producto->precio;       // 999.99 (usa __get)
+$producto->precio = 1099.99;  // Precio actualizado a $1099.99 (usa __set)
+$producto->precio = -50;      // El precio debe ser mayor a 0
+$producto->nombre = "Tablet"; // El nombre no se puede cambiar
+```
+
+**Nota para la explicación:** El comportamiento es idéntico, pero la sintaxis cambia: `$producto->precio` en vez de `$producto->getPrecio()`. Los getters/setters explícitos son mejores cuando cada atributo tiene lógica muy distinta; los métodos mágicos son útiles cuando el manejo es uniforme.
+
+**Ejercicio:**
+Se da una clase `CuentaCliente` con getters y setters explícitos. Reemplazarlos por `__get` y `__set` manteniendo la misma lógica de validación (el saldo no puede ser negativo ni superar el límite de gasto, el límite debe ser positivo, el nombre no se puede cambiar).
+
+---
+
 ## Tema 7: Herencia — Clases que heredan de otras
 
 **Objetivo:** Reutilizar código creando clases hijas que extienden una clase padre.
@@ -530,6 +636,7 @@ Flujo del programa:
 | 4    | Return vs echo      | Métodos que devuelven valores                |
 | 5    | Visibilidad         | `public`, `private`, `protected`             |
 | 6    | Getters y Setters   | Acceso controlado, lógica en setters         |
+| 6b   | Métodos mágicos     | `__get`, `__set`, acceso dinámico             |
 | 7    | Herencia            | `extends`, `parent::`, sobrescritura         |
 | 8    | Estáticos           | `static`, `self::`, IVA como dato compartido |
 | 9    | Integración         | Proyecto que combina todo                    |
@@ -546,6 +653,7 @@ Se creará un archivo PHP por cada tema dentro de la carpeta del proyecto:
 - `tema4_return_vs_echo.php`
 - `tema5_visibilidad.php`
 - `tema6_getters_setters.php`
+- `tema6b_metodos_magicos.php`
 - `tema7_herencia.php`
 - `tema8_estaticos.php`
 - `tema9_proyecto_integrador.php`

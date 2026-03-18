@@ -17,7 +17,7 @@ This is a PHP teaching curriculum for learning programming from scratch. The stu
 - `teoría/clases-y-objetos/tema1_clases_basicas.php` through `tema9_proyecto_integrador.php` — One PHP file per topic, each containing explanatory comments, working example code, and an exercise at the end
 - `ejercicios/clases-y-objetos/ejercicio1_clases_basicas.php` through `ejercicio9_proyecto_integrador.php` — Exercise files
 
-Topics: classes → constructor → methods → return vs echo → visibility → getters/setters → inheritance → static properties → integrating project.
+Topics: classes → constructor → methods → return vs echo → visibility → getters/setters → magic methods (__get/__set) → inheritance → static properties → integrating project.
 
 ### Module: Git y GitHub
 
