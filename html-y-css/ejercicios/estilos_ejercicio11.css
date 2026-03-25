@@ -1,0 +1,90 @@
+/* ============================================================
+   ESTILOS EJERCICIO 11: Flexbox
+   Escribe tus estilos aquí.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Agrega font-family, font-size, color, background-color */
+}
+
+/* HEADER: logo a la izquierda, nav a la derecha */
+header {
+    /* display: flex; justify-content: space-between; align-items: center; */
+}
+
+.logo {
+
+}
+
+/* Nav: enlaces en fila con espacio entre ellos */
+nav {
+    /* display: flex; gap: ...; */
+}
+
+nav a {
+
+}
+
+/* Sección principal */
+main {
+
+}
+
+h1 {
+
+}
+
+/* Contenedor de tarjetas: flex con wrap */
+.contenedor-tarjetas {
+    /* display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; */
+}
+
+/* Tarjeta de producto: tamaño fijo y columna interna */
+.tarjeta-producto {
+    /* flex: 0 0 260px; */
+    /* display: flex; flex-direction: column; */
+}
+
+.tarjeta-producto img {
+
+}
+
+/* Contenido de la tarjeta: columna flexible */
+.tarjeta-contenido {
+    /* display: flex; flex-direction: column; flex: 1; padding: 16px; */
+}
+
+.tarjeta-contenido h3 {
+
+}
+
+.tarjeta-contenido p {
+    /* flex: 1; → empuja el precio hacia abajo */
+}
+
+.precio {
+    /* flex: 0; → no crece, queda al fondo */
+}
+
+/* FOOTER: tres columnas en fila */
+footer {
+    /* display: flex; justify-content: space-around; */
+}
+
+.footer-columna {
+
+}
+
+.footer-columna h4 {
+
+}
+
+.footer-columna p {
+
+}

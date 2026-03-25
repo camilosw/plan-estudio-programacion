@@ -1,0 +1,106 @@
+<!--
+============================================================
+TEMA 7: Selectores y colores
+============================================================
+
+OBJETIVO:
+Aprender a seleccionar elementos específicos para darles estilo,
+y conocer las formas de definir colores en CSS.
+
+EXPLICACIÓN:
+Los selectores son como instrucciones a un pintor:
+
+- Selector de etiqueta: "pinta todas las puertas de azul"
+  CSS: h2 { color: blue; }
+  Afecta a TODOS los elementos de ese tipo.
+
+- Selector de clase: "pinta las puertas que tienen el cartel 'especial'"
+  CSS: .especial { color: red; }
+  HTML: <p class="especial">...</p>
+  Una clase se puede aplicar a múltiples elementos.
+
+- Selector de ID: "pinta únicamente la puerta del salón #5"
+  CSS: #titulo-principal { font-size: 40px; }
+  HTML: <h1 id="titulo-principal">...</h1>
+  El ID debe ser único en toda la página (solo un elemento puede
+  tener ese ID).
+
+Colores en CSS — tres formas equivalentes:
+- Por nombre:      color: brown;
+- Hexadecimal:     color: #5c3317;    (# + 6 dígitos hexadecimales)
+- RGB:             color: rgb(92, 51, 23);   (rojo, verde, azul de 0 a 255)
+
+En este tema se introduce el archivo CSS externo, vinculado con:
+<link rel="stylesheet" href="estilos_tema7.css">
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema 7: Selectores y colores | La Cafetería de Sandra</title>
+
+    <!-- CSS externo: a partir de este tema se usa siempre esta forma -->
+    <link rel="stylesheet" href="estilos_tema7.css">
+</head>
+<body>
+
+    <!-- ID: único en la página -->
+    <h1 id="titulo-principal">La Cafetería de Sandra</h1>
+
+    <!-- Clases: se pueden reutilizar en múltiples elementos -->
+    <section class="seccion-historia">
+        <h2>Nuestra historia</h2>
+        <p>Desde 2010, preparamos el mejor café de la ciudad.</p>
+        <p class="destacado">Premio al mejor café de la región 2023.</p>
+    </section>
+
+    <section class="seccion-menu">
+        <h2>Nuestro menú</h2>
+        <p>Cafés de especialidad, tés e infusiones.</p>
+        <p class="destacado">¡Nuevo! Café de temporada disponible esta semana.</p>
+    </section>
+
+    <section class="seccion-horarios">
+        <h2>Horarios</h2>
+        <p>Lunes a viernes: 7:00 a 20:00</p>
+        <p>Sábados y domingos: 8:00 a 22:00</p>
+    </section>
+
+</body>
+</html>
+
+<!--
+============================================================
+EJERCICIO 7: Selectores y colores con archivo CSS externo
+============================================================
+
+Crear ejercicio7_selectores_y_colores.html y estilos_ejercicio7.css
+en la carpeta ejercicios/.
+
+En el HTML:
+1. Un <link> que vincule el archivo CSS externo
+2. Un h1 con id="titulo-principal"
+3. Al menos dos secciones con clases diferentes
+   (por ejemplo, class="seccion-menu" y class="seccion-contacto")
+4. Al menos dos párrafos con class="destacado"
+
+En el archivo CSS:
+1. Estilo para el selector de etiqueta: body y p
+2. Estilo para el ID #titulo-principal
+3. Estilo para al menos dos clases distintas
+4. Usar colores en los tres formatos:
+   - Al menos uno por nombre (ej: brown, darkgreen)
+   - Al menos uno en hexadecimal (ej: #5c3317)
+   - Al menos uno en RGB (ej: rgb(92, 51, 23))
+
+Verificación:
+- Abrir el archivo HTML en el navegador
+- Verificar que los estilos del CSS externo se aplican
+- En las DevTools (F12 → pestaña "Elements"), seleccionar un
+  elemento y verificar que los estilos del CSS externo aparecen
+  en el panel "Styles" de la derecha
+
+============================================================
+-->

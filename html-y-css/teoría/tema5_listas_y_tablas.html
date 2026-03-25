@@ -1,0 +1,184 @@
+<!--
+============================================================
+TEMA 5: Listas y tablas
+============================================================
+
+OBJETIVO:
+Organizar información en listas (desordenadas y ordenadas)
+y en tablas con filas y columnas.
+
+EXPLICACIÓN:
+
+Listas:
+- <ul> (unordered list): lista con viñetas. Los elementos no tienen
+  un orden específico, como las opciones de un menú.
+- <ol> (ordered list): lista numerada. El orden importa, como los
+  pasos de una receta.
+- <li>: cada elemento de la lista (list item). Siempre va dentro de
+  <ul> o <ol>. Las listas se pueden anidar (poner una dentro de otra).
+
+Tablas:
+Las tablas organizan datos en filas y columnas, como una planilla.
+- <table>: el contenedor de toda la tabla.
+- <thead>: agrupa la fila de encabezados de columna.
+- <tbody>: agrupa las filas de datos.
+- <tr> (table row): una fila de la tabla.
+- <th> (table header): celda de encabezado (texto en negrita por defecto).
+- <td> (table data): celda de datos normal.
+
+SINTAXIS:
+<ul>
+    <li>Elemento sin orden</li>
+    <li>Otro elemento</li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Columna 1</th>
+            <th>Columna 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dato 1</td>
+            <td>Dato 2</td>
+        </tr>
+    </tbody>
+</table>
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema 5: Listas y tablas | La Cafetería de Sandra</title>
+</head>
+<body>
+
+    <h1>La Cafetería de Sandra</h1>
+    <h2>Nuestro menú</h2>
+
+    <!-- Lista ordenada: los más vendidos tienen un ranking -->
+    <h3>Los 3 cafés más populares</h3>
+    <ol>
+        <li>Cappuccino</li>
+        <li>Café latte</li>
+        <li>Espresso doble</li>
+    </ol>
+
+    <!-- Lista desordenada con sublistas (listas anidadas) -->
+    <h3>Carta completa de bebidas</h3>
+    <ul>
+        <li>Cafés calientes
+            <ul>
+                <li>Espresso</li>
+                <li>Cappuccino</li>
+                <li>Café latte</li>
+                <li>Macchiato</li>
+            </ul>
+        </li>
+        <li>Bebidas frías
+            <ul>
+                <li>Café frappé</li>
+                <li>Cold brew</li>
+                <li>Smoothie de frutas</li>
+            </ul>
+        </li>
+        <li>Tés e infusiones
+            <ul>
+                <li>Té verde</li>
+                <li>Té negro</li>
+                <li>Manzanilla</li>
+            </ul>
+        </li>
+        <li>Pastelería
+            <ul>
+                <li>Croissant de mantequilla</li>
+                <li>Muffin de arándanos</li>
+                <li>Tarta de manzana</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <!-- Tabla de precios con encabezados y filas de datos -->
+    <h2>Lista de precios</h2>
+
+    <table border="1">
+        <!-- border="1" agrega bordes visibles; en el módulo de CSS los estilizaremos mejor -->
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Tamaño</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Espresso</td>
+                <td>Simple (30ml)</td>
+                <td>$2.50</td>
+            </tr>
+            <tr>
+                <td>Cappuccino</td>
+                <td>Mediano (250ml)</td>
+                <td>$4.00</td>
+            </tr>
+            <tr>
+                <td>Café latte</td>
+                <td>Grande (350ml)</td>
+                <td>$4.50</td>
+            </tr>
+            <tr>
+                <td>Café frappé</td>
+                <td>Grande (400ml)</td>
+                <td>$5.00</td>
+            </tr>
+            <tr>
+                <td>Croissant</td>
+                <td>Unidad</td>
+                <td>$3.00</td>
+            </tr>
+            <tr>
+                <td>Muffin</td>
+                <td>Unidad</td>
+                <td>$2.80</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+<!--
+============================================================
+EJERCICIO 5: Listas y tabla de precios
+============================================================
+
+Crear ejercicio5_listas_y_tablas.html con:
+
+1. Una lista ordenada <ol> con los 3 cafés más vendidos
+   (tú eliges cuáles son)
+
+2. Una lista desordenada <ul> con al menos 3 categorías de productos
+   (por ejemplo: bebidas calientes, bebidas frías, pastelería).
+   Cada categoría debe tener al menos 2 ítems como sublista.
+
+3. Una tabla de precios con:
+   - 3 columnas: Producto, Tamaño, Precio
+   - Un <thead> con los encabezados
+   - Un <tbody> con al menos 5 productos
+   - Usar border="1" para ver los bordes (los mejoraremos con CSS)
+
+Verificación:
+- La lista ordenada debe mostrar números (1, 2, 3)
+- La lista desordenada debe mostrar viñetas
+- Las sublistas deben verse indentadas dentro de la categoría
+- La tabla debe mostrar los datos en filas y columnas
+- Los encabezados de la tabla (<th>) deben verse en negrita
+
+============================================================
+-->

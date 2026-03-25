@@ -1,0 +1,132 @@
+<!--
+============================================================
+TEMA 6: CSS — Primeros pasos
+============================================================
+
+OBJETIVO:
+Entender que CSS es el lenguaje que controla la apariencia visual
+del HTML, y conocer las tres formas de agregarlo a una página.
+
+EXPLICACIÓN:
+Si HTML es la estructura de una casa (paredes, puertas, ventanas),
+CSS es la decoración (pintura, cortinas, muebles). Una misma
+estructura HTML puede tener decoraciones completamente distintas.
+
+CSS significa "Cascading Style Sheets" (Hojas de estilo en cascada).
+La sintaxis básica es:
+    selector { propiedad: valor; }
+
+Por ejemplo:
+    h1 { color: blue; font-size: 36px; }
+
+Las tres formas de agregar CSS:
+
+1. INLINE (en la etiqueta):
+   Se escribe directamente con el atributo style="".
+   Problema: es difícil de mantener, mezcla estructura con presentación.
+   Uso: raramente, solo para pruebas rápidas o estilos muy específicos.
+
+2. INTERNO (en el <head>):
+   Se escribe dentro de <style> en el <head> del documento.
+   Ventaja: todo en un solo archivo. Limitación: solo afecta a esa página.
+   Uso: páginas únicas o prototipos.
+
+3. EXTERNO (archivo .css separado):
+   Se crea un archivo .css separado y se vincula con <link>.
+   Ventaja: un archivo de estilos se aplica a todas las páginas del sitio.
+   Uso: cualquier sitio con más de una página (lo recomendado).
+
+A partir del Tema 7 se trabajará siempre con CSS externo.
+
+Propiedades introducidas en este tema:
+- color: color del texto
+- background-color: color de fondo del elemento
+- font-size: tamaño del texto (en píxeles o %)
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema 6: CSS primeros pasos | La Cafetería de Sandra</title>
+
+    <!-- OPCIÓN 2: CSS interno — reglas dentro del <head> -->
+    <style>
+        /* Este bloque afecta a TODA esta página */
+
+        body {
+            background-color: #f5f0eb; /* fondo crema cálido */
+        }
+
+        h1 {
+            color: #5c3317; /* marrón oscuro, color del café */
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #7a4628; /* marrón medio */
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333333; /* gris oscuro, más cómodo de leer que el negro puro */
+        }
+    </style>
+
+    <!-- OPCIÓN 3 (comentada por ahora): CSS externo -->
+    <!-- <link rel="stylesheet" href="estilos.css"> -->
+</head>
+<body>
+
+    <h1>La Cafetería de Sandra</h1>
+
+    <!--
+        OPCIÓN 1: CSS inline
+        Se usa el atributo style="" directamente en la etiqueta.
+        Nota: override del estilo interno — el inline tiene mayor prioridad.
+    -->
+    <h2 style="color: #a0522d;">Horarios de atención</h2>
+    <p>Lunes a viernes: 7:00 a 20:00</p>
+    <p>Sábados y domingos: 8:00 a 22:00</p>
+
+    <hr>
+
+    <!-- Estas secciones usan los estilos del bloque <style> del <head> -->
+    <h2>Nuestra historia</h2>
+    <p>Desde 2010, preparamos el mejor café de la ciudad con granos
+    seleccionados de Colombia y Brasil.</p>
+
+    <h2>Nuestro menú</h2>
+    <p>Cafés de especialidad, tés, infusiones y pastelería artesanal.</p>
+
+</body>
+</html>
+
+<!--
+============================================================
+EJERCICIO 6: Primeros estilos CSS
+============================================================
+
+Tomar el ejercicio del tema anterior (o crear uno nuevo) y agregar:
+
+1. Un estilo inline en al menos un elemento (por ejemplo, cambiar
+   el color de un <h2> específico con style="color: ...")
+
+2. Un bloque <style> en el <head> con estas reglas:
+   - body: background-color de tu elección
+   - h1: color y font-size
+   - h2: color diferente al de h1
+   - p: font-size de 16px
+
+Verificación:
+- El fondo de la página debe cambiar de color
+- Los h1 y h2 deben verse con los colores definidos
+- El párrafo con estilo inline debe verse diferente a los demás h2
+
+Nota: en el próximo tema pasaremos a usar archivos CSS externos,
+que es la forma correcta de trabajar en proyectos reales.
+
+============================================================
+-->

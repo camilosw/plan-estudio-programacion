@@ -1,0 +1,84 @@
+<!--
+============================================================
+EJERCICIO 10: Display y posición
+============================================================
+
+Objetivo:
+Crear un menú de navegación horizontal con display: inline-block,
+un badge posicionado con position: absolute, y un elemento oculto
+con display: none.
+
+Este archivo se vincula con estilos_ejercicio10.css.
+
+Instrucciones para el HTML:
+1. Un <nav> con una <ul> de 4 ítems:
+   <nav>
+       <ul>
+           <li><a href="#">Inicio</a></li>
+           <li><a href="#">Menú</a></li>
+           <li><a href="#">Nosotros</a></li>
+           <li><a href="#">Contacto</a></li>
+       </ul>
+   </nav>
+
+2. Un <h1> con el nombre de la cafetería
+
+3. Un <div class="contenedor-tarjetas"> con 3 tarjetas:
+   - Las primeras dos: tarjetas normales (sin badge)
+   - La tercera: tarjeta con badge (ver ejemplo abajo)
+
+   Estructura de la tarjeta con badge:
+   <div class="tarjeta-producto">
+       <span class="badge">Nuevo</span>
+       <img src="..." alt="...">
+       <h3>Nombre</h3>
+       <p class="precio">$X.XX</p>
+   </div>
+
+4. Un párrafo al final con class="oculto":
+   <p class="oculto">Este texto está oculto con display: none.</p>
+
+Instrucciones para estilos_ejercicio10.css:
+1. Menú horizontal:
+   nav ul { list-style: none; padding: 0; margin: 0; }
+   nav ul li { display: inline-block; margin-right: 8px; }
+   nav ul li a { color: ...; text-decoration: none; padding: 8px 12px; display: inline-block; }
+
+2. Tarjeta con badge:
+   .tarjeta-producto { position: relative; display: inline-block; vertical-align: top; ... }
+   .badge {
+       position: absolute;
+       top: 8px; right: 8px;
+       background-color: ...; color: white;
+       padding: 4px 10px; border-radius: 4px;
+       font-size: 0.75rem; font-weight: bold;
+   }
+
+3. Elemento oculto:
+   .oculto { display: none; }
+
+Verificación:
+- El menú debe estar en una sola fila horizontal
+- El badge debe aparecer en la esquina superior de la tarjeta
+- El párrafo .oculto no debe verse en la página
+- En las DevTools: seleccionar el .oculto y cambiar display:none
+  a display:block para verificar que el texto existe
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10: Display y posición</title>
+
+    <!-- Agrega aquí el <link> de Google Fonts si quieres (opcional) -->
+    <!-- Agrega aquí el <link> al CSS externo -->
+
+</head>
+<body>
+
+    <!-- Escribe tu código aquí -->
+
+</body>
+</html>

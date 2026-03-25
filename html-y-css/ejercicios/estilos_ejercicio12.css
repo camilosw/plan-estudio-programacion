@@ -1,0 +1,118 @@
+/* ============================================================
+   ESTILOS EJERCICIO 12: Responsive design
+   Estrategia: mobile first
+   Escribe tus estilos aquí.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Las imágenes nunca deben ser más anchas que su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   BASE (mobile first): estilos para móvil
+   ============================================================ */
+
+body {
+
+}
+
+header {
+    /* display: flex; flex-direction: column; align-items: center; */
+}
+
+.logo {
+
+}
+
+nav {
+    /* display: flex; flex-wrap: wrap; justify-content: center; */
+}
+
+nav a {
+
+}
+
+main {
+
+}
+
+h1 {
+
+}
+
+/* Una tarjeta por fila en móvil */
+.contenedor-tarjetas {
+    /* display: flex; flex-direction: column; gap: 16px; */
+}
+
+.tarjeta-producto {
+
+}
+
+.tarjeta-producto img {
+
+}
+
+.tarjeta-contenido {
+
+}
+
+.precio {
+
+}
+
+footer {
+    /* display: flex; flex-direction: column; */
+}
+
+.footer-columna {
+
+}
+
+/* ============================================================
+   TABLET: pantallas de 768px o más
+   ============================================================ */
+
+@media (min-width: 768px) {
+
+    header {
+        /* flex-direction: row; justify-content: space-between; */
+    }
+
+    nav {
+        /* flex-wrap: nowrap; justify-content: flex-end; */
+    }
+
+    /* Dos tarjetas por fila */
+    .contenedor-tarjetas {
+        /* flex-direction: row; flex-wrap: wrap; */
+    }
+
+    .tarjeta-producto {
+        /* flex: 0 0 calc(50% - 8px); */
+    }
+
+    footer {
+        /* flex-direction: row; justify-content: space-around; */
+    }
+}
+
+/* ============================================================
+   DESKTOP: pantallas de 1024px o más
+   ============================================================ */
+
+@media (min-width: 1024px) {
+
+    /* Tres tarjetas por fila */
+    .tarjeta-producto {
+        /* flex: 0 0 calc(33.333% - 12px); */
+    }
+
+}

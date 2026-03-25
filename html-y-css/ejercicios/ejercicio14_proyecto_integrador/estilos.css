@@ -1,0 +1,203 @@
+/* ============================================================
+   ESTILOS EJERCICIO 14: Proyecto integrador
+   Hoja de estilos compartida por todas las páginas del sitio.
+
+   Consejo: copia los estilos que te funcionaron en los
+   ejercicios anteriores y adáptalos aquí.
+   ============================================================ */
+
+/* --- RESET BÁSICO --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   BASE (mobile first): estilos generales y para móvil
+   ============================================================ */
+
+body {
+    /* font-family, font-size, line-height, color, background-color */
+}
+
+/* --- HEADER --- */
+header {
+    /* display: flex; flex-direction: column; align-items: center; */
+}
+
+.logo {
+    /* font-family (título), font-size, color */
+}
+
+nav {
+    /* display: flex; flex-wrap: wrap; justify-content: center; gap: ... */
+}
+
+nav a {
+    /* color, text-decoration, padding, border-radius */
+}
+
+nav a:hover,
+nav a.activo {
+    /* fondo destacado para el enlace activo */
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+    /* padding */
+}
+
+h1 {
+    /* font-family (título), font-size, color, text-align, margin-bottom */
+}
+
+h2 {
+    /* font-family (título), font-size, color, margin-bottom */
+}
+
+p {
+    /* font-size, line-height, margin-bottom */
+}
+
+/* --- TARJETAS DE PRODUCTO (para index.html) --- */
+.contenedor-tarjetas {
+    /* display: flex; flex-direction: column; gap: 16px; */
+}
+
+.tarjeta-producto {
+    /* background-color, border, border-radius, overflow: hidden */
+    /* display: flex; flex-direction: column; */
+    position: relative; /* para el badge */
+}
+
+.tarjeta-contenido {
+    /* padding, display: flex, flex-direction: column, flex: 1 */
+}
+
+.tarjeta-contenido h3 {
+
+}
+
+.tarjeta-contenido p {
+    /* flex: 1 para empujar el precio hacia abajo */
+}
+
+.precio {
+    /* font-weight: bold, color */
+}
+
+.badge {
+    /* position: absolute; top: 8px; left/right: 8px; */
+    /* background-color, color, padding, border-radius, font-size */
+}
+
+/* --- TABLA DE PRECIOS (para menu.html) --- */
+table {
+    /* width: 100%; border-collapse: collapse; margin-top: 16px; */
+}
+
+th, td {
+    /* padding, text-align, border-bottom */
+}
+
+th {
+    /* background-color, font-weight */
+}
+
+/* --- LISTAS (para menu.html) --- */
+.lista-menu {
+    /* list-style-type, padding-left */
+}
+
+/* --- FORMULARIO (para contacto.html) --- */
+.formulario-contacto {
+    /* max-width: 600px; margin: 0 auto; */
+}
+
+.campo-formulario {
+    /* margin-bottom: 20px; */
+}
+
+label {
+    /* display: block; font-weight: bold; margin-bottom: 6px; */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    /* width: 100%; padding: 10px 14px; border; border-radius; font-size; */
+}
+
+input:focus, select:focus, textarea:focus {
+    /* border-color: (marca); outline: none; */
+}
+
+.campo-checkbox {
+    /* display: flex; align-items: flex-start; gap: 10px; */
+}
+
+.campo-checkbox input[type="checkbox"] {
+    /* width: auto; */
+}
+
+.campo-checkbox label {
+    /* display: inline; font-weight: normal; */
+}
+
+.boton-enviar {
+    /* width: 100%; padding: 14px; background-color; color; border: none; cursor: pointer; */
+}
+
+.boton-enviar:hover {
+
+}
+
+/* --- FOOTER --- */
+footer {
+    /* background-color, color, text-align: center, padding */
+}
+
+/* ============================================================
+   TABLET: pantallas de 768px o más
+   ============================================================ */
+
+@media (min-width: 768px) {
+
+    header {
+        /* flex-direction: row; justify-content: space-between; */
+    }
+
+    .contenedor-tarjetas {
+        /* flex-direction: row; flex-wrap: wrap; justify-content: center; */
+    }
+
+    .tarjeta-producto {
+        /* flex: 0 0 calc(50% - 8px); */
+    }
+
+}
+
+/* ============================================================
+   DESKTOP: pantallas de 1024px o más
+   ============================================================ */
+
+@media (min-width: 1024px) {
+
+    .tarjeta-producto {
+        /* flex: 0 0 calc(33.333% - 14px); */
+    }
+
+}

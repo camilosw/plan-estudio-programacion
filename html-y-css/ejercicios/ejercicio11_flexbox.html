@@ -1,0 +1,86 @@
+<!--
+============================================================
+EJERCICIO 11: Flexbox — Header, tarjetas y footer
+============================================================
+
+Objetivo:
+Usar flexbox para crear el layout completo de una página:
+header con logo y nav, sección de tarjetas en fila y footer
+en columnas.
+
+Este archivo se vincula con estilos_ejercicio11.css.
+
+Instrucciones para el HTML:
+1. Un <header> con:
+   - <div class="logo"> con el nombre de la cafetería
+   - <nav> con 4 enlaces
+
+2. Un <main> con:
+   - Un <h1> con el título "Nuestros productos"
+   - Un <div class="contenedor-tarjetas"> con al menos 4 tarjetas
+
+   Estructura de cada tarjeta:
+   <div class="tarjeta-producto">
+       <img src="https://placehold.co/260x160?text=Producto" alt="...">
+       <div class="tarjeta-contenido">
+           <h3>Nombre del producto</h3>
+           <p>Descripción breve.</p>
+           <p class="precio">$X.XX</p>
+       </div>
+   </div>
+
+3. Un <footer> con 3 <div class="footer-columna">:
+   - "La Cafetería" + descripción breve
+   - "Horarios" + horarios
+   - "Contacto" + dirección y email
+
+Instrucciones para estilos_ejercicio11.css:
+
+1. header:
+   display: flex; justify-content: space-between; align-items: center;
+
+2. nav:
+   display: flex; gap: 8px;
+
+3. .contenedor-tarjetas:
+   display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
+
+4. .tarjeta-producto:
+   flex: 0 0 260px;    ← no crece, no encoge, base de 260px
+   display: flex; flex-direction: column; (imagen arriba, contenido abajo)
+
+5. .tarjeta-contenido:
+   display: flex; flex-direction: column; flex: 1; padding: 16px;
+
+6. .tarjeta-contenido p (la descripción):
+   flex: 1;   ← ocupa el espacio disponible, empuja el precio hacia abajo
+
+7. footer:
+   display: flex; justify-content: space-around;
+
+Verificación:
+- El logo del header debe estar a la izquierda y el nav a la derecha
+- Las tarjetas deben acomodarse en fila y pasar a la siguiente fila
+  si no hay espacio (reducir el ancho de la ventana para probarlo)
+- Los precios de todas las tarjetas deben estar alineados en la
+  parte inferior (gracias a flex: 1 en la descripción)
+- El footer debe mostrar las tres columnas en fila
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11: Flexbox</title>
+
+    <!-- Agrega aquí el <link> de Google Fonts si quieres (opcional) -->
+    <!-- Agrega aquí el <link> al CSS externo -->
+
+</head>
+<body>
+
+    <!-- Escribe tu código aquí -->
+
+</body>
+</html>

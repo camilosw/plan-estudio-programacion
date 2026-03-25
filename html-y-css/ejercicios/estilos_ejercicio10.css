@@ -1,0 +1,61 @@
+/* ============================================================
+   ESTILOS EJERCICIO 10: Display y posición
+   Escribe tus estilos aquí.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+}
+
+/* Menú de navegación horizontal */
+nav {
+
+}
+
+nav ul {
+    /* Quita las viñetas y el padding por defecto */
+}
+
+nav ul li {
+    /* Cambia a inline-block para la fila horizontal */
+}
+
+nav ul li a {
+
+}
+
+/* Contenido principal */
+h1 {
+
+}
+
+/* Tarjeta de producto: necesita position: relative para el badge */
+.tarjeta-producto {
+
+}
+
+.tarjeta-producto img {
+
+}
+
+.tarjeta-producto h3 {
+
+}
+
+.precio {
+
+}
+
+/* Badge: posicionado de forma absoluta respecto a la tarjeta */
+.badge {
+    /* position: absolute; top: ...; right: ...; */
+}
+
+/* Elemento oculto */
+.oculto {
+
+}

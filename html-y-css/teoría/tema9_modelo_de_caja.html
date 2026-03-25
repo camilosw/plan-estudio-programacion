@@ -1,0 +1,127 @@
+<!--
+============================================================
+TEMA 9: El modelo de caja — margin, padding, border
+============================================================
+
+OBJETIVO:
+Entender que todo elemento HTML es una caja con contenido,
+relleno, borde y margen exterior.
+
+EXPLICACIÓN:
+Cada elemento HTML es como un cuadro enmarcado en una exposición:
+- El CONTENIDO es la pintura (el texto, la imagen).
+- El PADDING es el paspartú: el espacio entre la pintura y el marco.
+- El BORDER es el marco que rodea el contenido.
+- El MARGIN es la distancia entre el cuadro y la pared o entre
+  un cuadro y el siguiente.
+
+Por defecto, cuando defines width: 250px, solo mides el contenido.
+El padding y el border se suman por fuera, haciendo que el elemento
+sea más grande de lo esperado. Con box-sizing: border-box le dices
+al navegador que el width incluya el padding y el border. Esto hace
+que los tamaños sean predecibles.
+
+Sintaxis de margin y padding:
+- Un valor:    margin: 16px;                → igual en los 4 lados
+- Dos valores: margin: 16px 8px;            → arriba/abajo | izquierda/derecha
+- Cuatro:      margin: 16px 8px 16px 8px;   → arriba | derecha | abajo | izquierda
+
+Propiedades nuevas en este tema:
+- margin: espacio exterior (fuera del borde)
+- padding: espacio interior (entre el contenido y el borde)
+- border: borde visible (grosor, estilo, color)
+- border-radius: esquinas redondeadas
+- box-sizing: cómo se calcula el tamaño total
+- width / height: dimensiones del elemento
+
+TIP: Para inspeccionar el box model, abre las DevTools (F12),
+selecciona un elemento y busca el diagrama de caja en la pestaña
+"Computed" o en la parte inferior del panel "Styles".
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema 9: Modelo de caja | La Cafetería de Sandra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos_tema9.css">
+</head>
+<body>
+
+    <h1>La Cafetería de Sandra</h1>
+    <p class="subtitulo">Nuestros productos</p>
+
+    <!-- Tarjetas de producto: cada una es una caja con padding, border y margin -->
+    <div class="contenedor-tarjetas">
+
+        <div class="tarjeta-producto">
+            <img src="https://placehold.co/220x140?text=Cappuccino"
+                 alt="Cappuccino" width="220" height="140">
+            <h3>Cappuccino</h3>
+            <p class="descripcion">Espresso con leche vaporizada y espuma cremosa.</p>
+            <p class="precio">$4.00</p>
+        </div>
+
+        <div class="tarjeta-producto">
+            <img src="https://placehold.co/220x140?text=Cafe+Latte"
+                 alt="Café latte" width="220" height="140">
+            <h3>Café Latte</h3>
+            <p class="descripcion">Espresso suave con abundante leche vaporizada.</p>
+            <p class="precio">$4.50</p>
+        </div>
+
+        <div class="tarjeta-producto">
+            <img src="https://placehold.co/220x140?text=Cold+Brew"
+                 alt="Cold brew" width="220" height="140">
+            <h3>Cold Brew</h3>
+            <p class="descripcion">Café extraído en frío durante 12 horas. Suave y refrescante.</p>
+            <p class="precio">$5.00</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<!--
+============================================================
+EJERCICIO 9: Tarjetas de producto con box model
+============================================================
+
+Crear ejercicio9_modelo_de_caja.html con su archivo
+estilos_ejercicio9.css en la carpeta ejercicios/.
+
+En el HTML:
+1. Tres tarjetas de producto dentro de un div.contenedor-tarjetas
+2. Cada tarjeta (div.tarjeta-producto) con:
+   - Una imagen de placeholder (220x140)
+   - Un h3 con el nombre del producto
+   - Un párrafo con la descripción
+   - Un párrafo con el precio
+
+En el CSS:
+1. Aplicar box-sizing: border-box a todos los elementos:
+   * { box-sizing: border-box; }
+2. .tarjeta-producto:
+   - width: 260px
+   - padding: 16px
+   - border: 1px solid con un color de tu elección
+   - border-radius: 8px
+   - margin: 16px
+3. Las imágenes dentro de las tarjetas deben tener:
+   - width: 100%
+   - height: auto
+   - display: block
+
+Verificación:
+- Abrir las DevTools (F12)
+- Hacer clic en el inspector de elementos (ícono de cursor)
+- Seleccionar una tarjeta
+- En la pestaña "Computed" verificar que aparece el diagrama
+  del box model con los valores correctos de margin, border y padding
+
+============================================================
+-->

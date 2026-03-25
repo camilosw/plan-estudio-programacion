@@ -1,0 +1,151 @@
+/* ============================================================
+   ESTILOS TEMA 13: Formularios
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f5f0eb;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #5c3317;
+    padding: 16px 32px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+main {
+    padding: 40px 16px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #5c3317;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #7a4628;
+    font-style: italic;
+    margin-bottom: 32px;
+}
+
+/* --- FORMULARIO: ancho máximo y centrado --- */
+
+.formulario-contacto {
+    max-width: 600px;    /* el formulario no se extiende demasiado en pantallas anchas */
+    margin: 0 auto;      /* centrado horizontal */
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #d4b896;
+}
+
+/* --- CAMPO DE FORMULARIO: label encima del input --- */
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;         /* el label ocupa una fila entera */
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #5c3317;
+    margin-bottom: 6px;
+}
+
+/* Estilo común para inputs, select y textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d4b896;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif; /* heredar la fuente del body */
+    color: #333333;
+    background-color: #fffaf5;
+    transition: border-color 0.2s; /* transición suave al enfocar */
+}
+
+/* Al hacer foco en un campo: resaltar con color de la marca */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #5c3317;
+    outline: none; /* quita el borde azul por defecto del navegador */
+    background-color: #ffffff;
+}
+
+textarea {
+    resize: vertical; /* solo se puede redimensionar verticalmente */
+    min-height: 120px;
+}
+
+/* --- CAMPO CHECKBOX --- */
+
+.campo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.campo-checkbox input[type="checkbox"] {
+    width: auto;       /* el checkbox no debe ocupar todo el ancho */
+    margin-top: 4px;   /* pequeño ajuste para alinearlo con el texto */
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.campo-checkbox label {
+    display: inline;   /* el label va al lado del checkbox */
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #555555;
+    cursor: pointer;
+}
+
+/* --- BOTÓN DE ENVÍO --- */
+
+.boton-enviar {
+    width: 100%;
+    background-color: #5c3317;
+    color: #ffffff;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background-color 0.2s;
+}
+
+.boton-enviar:hover {
+    background-color: #7a4628;
+}

@@ -1,0 +1,87 @@
+/* ============================================================
+   ESTILOS EJERCICIO 13: Formularios
+   Escribe tus estilos aquí.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+}
+
+header {
+
+}
+
+.logo {
+
+}
+
+main {
+
+}
+
+h1 {
+
+}
+
+.subtitulo {
+
+}
+
+/* Formulario: ancho máximo y centrado */
+.formulario-contacto {
+    /* max-width: 600px; margin: 0 auto; */
+}
+
+/* Cada campo: espacio entre campos */
+.campo-formulario {
+    /* margin-bottom: 20px; */
+}
+
+/* Etiqueta: encima del campo */
+label {
+    /* display: block; font-weight: bold; margin-bottom: 6px; */
+}
+
+/* Inputs, select y textarea: ancho completo con padding */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    /* width: 100%; padding: 10px 14px; border: 1px solid; border-radius: 6px; */
+}
+
+/* Al hacer foco: destacar el campo activo */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    /* border-color: (color de tu marca); outline: none; */
+}
+
+/* Checkbox: en fila con su label */
+.campo-checkbox {
+    /* display: flex; align-items: flex-start; gap: 10px; */
+}
+
+.campo-checkbox input[type="checkbox"] {
+    /* width: auto; */
+}
+
+.campo-checkbox label {
+    /* display: inline; font-weight: normal; */
+}
+
+/* Botón de envío */
+.boton-enviar {
+    /* width: 100%; padding: 14px; border: none; cursor: pointer; */
+}
+
+.boton-enviar:hover {
+
+}

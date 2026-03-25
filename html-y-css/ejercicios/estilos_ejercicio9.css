@@ -1,0 +1,42 @@
+/* ============================================================
+   ESTILOS EJERCICIO 9: Modelo de caja
+   Escribe tus estilos aquí.
+   ============================================================ */
+
+/* Reset: box-sizing a todos los elementos */
+* {
+
+}
+
+body {
+
+}
+
+h1 {
+
+}
+
+/* Tarjeta de producto: el box model completo */
+.tarjeta-producto {
+
+}
+
+/* Imágenes dentro de las tarjetas */
+.tarjeta-producto img {
+
+}
+
+/* Nombre del producto */
+.tarjeta-producto h3 {
+
+}
+
+/* Descripción del producto */
+.descripcion {
+
+}
+
+/* Precio del producto */
+.precio {
+
+}

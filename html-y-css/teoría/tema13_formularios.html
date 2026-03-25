@@ -1,0 +1,179 @@
+<!--
+============================================================
+TEMA 13: Formularios
+============================================================
+
+OBJETIVO:
+Crear formularios interactivos para que los usuarios envíen
+información, y aplicar estilos CSS para que se vean integrados.
+
+EXPLICACIÓN:
+Un formulario web es como un formulario en papel: tiene campos
+para completar, opciones para elegir y un botón para enviar.
+
+Elementos principales de un formulario:
+- <form>: contenedor del formulario. Atributos importantes:
+  · action: URL donde se envían los datos (se usa "#" en ejercicios)
+  · method: "post" para envíos reales, "get" para búsquedas
+- <input>: campo de entrada. Cambia según el atributo type:
+  · type="text": texto libre
+  · type="email": valida formato de email automáticamente
+  · type="tel": número de teléfono
+  · type="number": número con flechas
+  · type="password": texto oculto
+  · type="radio": opción única de un grupo
+  · type="checkbox": opción que se puede marcar/desmarcar
+- <textarea>: área de texto de múltiples líneas
+- <select> + <option>: lista desplegable
+- <button type="submit">: botón para enviar el formulario
+- <label>: etiqueta vinculada a un campo.
+  · El atributo for debe coincidir con el id del input.
+  · Hacer clic en el label activa el campo correspondiente.
+  · Importante para accesibilidad.
+- placeholder: texto de ayuda dentro del campo (desaparece al escribir)
+- required: marca el campo como obligatorio; el navegador lo valida
+- name: nombre del campo para identificarlo al enviarlo
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 13: Formularios | La Cafetería de Sandra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos_tema13.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">La Cafetería de Sandra</div>
+    </header>
+
+    <main>
+        <h1>Contacto</h1>
+        <p class="subtitulo">Escríbenos para reservas, catering o cualquier consulta.</p>
+
+        <form action="#" method="post" class="formulario-contacto">
+
+            <!-- Campo de texto: nombre completo (obligatorio) -->
+            <div class="campo-formulario">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text"
+                       id="nombre"
+                       name="nombre"
+                       placeholder="Sandra García"
+                       required>
+            </div>
+
+            <!-- Campo de email: el navegador valida el formato -->
+            <div class="campo-formulario">
+                <label for="email">Correo electrónico *</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="sandra@ejemplo.com"
+                       required>
+            </div>
+
+            <!-- Campo de teléfono: opcional -->
+            <div class="campo-formulario">
+                <label for="telefono">Teléfono (opcional)</label>
+                <input type="tel"
+                       id="telefono"
+                       name="telefono"
+                       placeholder="+54 11 1234-5678">
+            </div>
+
+            <!-- Lista desplegable: tipo de consulta -->
+            <div class="campo-formulario">
+                <label for="consulta">Tipo de consulta</label>
+                <select id="consulta" name="consulta">
+                    <option value="">Selecciona una opción</option>
+                    <option value="reserva">Reserva de mesa</option>
+                    <option value="catering">Catering para evento</option>
+                    <option value="pedido">Pedido especial</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <!-- Área de texto: mensaje libre -->
+            <div class="campo-formulario">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje"
+                          name="mensaje"
+                          rows="5"
+                          placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+
+            <!-- Checkbox: aceptar términos -->
+            <div class="campo-checkbox">
+                <input type="checkbox"
+                       id="terminos"
+                       name="terminos"
+                       required>
+                <label for="terminos">Acepto recibir comunicaciones de La Cafetería de Sandra</label>
+            </div>
+
+            <button type="submit" class="boton-enviar">Enviar mensaje</button>
+
+        </form>
+    </main>
+
+</body>
+</html>
+
+<!--
+============================================================
+EJERCICIO 13: Formulario de contacto
+============================================================
+
+Crear ejercicio13_formularios.html con su archivo
+estilos_ejercicio13.css en la carpeta ejercicios/.
+
+El formulario debe incluir:
+1. Campo nombre (type="text", required)
+2. Campo email (type="email", required)
+3. Campo teléfono (type="tel", opcional)
+4. Select con al menos 4 opciones de tipo de consulta
+5. Textarea para el mensaje (rows="5")
+6. Checkbox para aceptar términos (required)
+7. Botón de envío
+
+Estilos en el CSS:
+1. Los inputs, select y textarea deben tener:
+   - width: 100%
+   - padding: 10px 14px
+   - border: 1px solid #ccc
+   - border-radius: 6px
+   - font-size: 1rem
+   - margin-bottom: 16px
+
+2. Al hacer foco (focus) en un campo:
+   input:focus, select:focus, textarea:focus {
+       border-color: #5c3317;
+       outline: none;
+   }
+
+3. El botón de envío:
+   - background-color, color: white
+   - padding: 12px 24px
+   - border: none, border-radius, cursor: pointer
+
+4. El botón al pasar el mouse (:hover):
+   - background-color ligeramente más claro
+
+5. El formulario debe ser responsive:
+   - max-width: 600px, centrado con margin: 0 auto
+
+Verificación:
+- Intentar enviar sin completar un campo required: el navegador
+  debe mostrar un mensaje de error
+- Intentar escribir un email con formato incorrecto: el navegador
+  debe validarlo automáticamente
+- Verificar que el checkbox aparece correctamente vinculado al label
+
+============================================================
+-->

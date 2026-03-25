@@ -1,0 +1,183 @@
+<!--
+============================================================
+TEMA 14: Proyecto integrador — Sitio web completo de La Cafetería
+============================================================
+
+OBJETIVO:
+Integrar todos los conceptos aprendidos en un sitio web
+completo de varias páginas.
+
+Este archivo es la PÁGINA PRINCIPAL (index) del proyecto integrador.
+El proyecto completo vive en la carpeta html-y-css/ejercicios/ejercicio14_proyecto_integrador/
+y tiene su propia estructura de archivos.
+
+CONCEPTOS INTEGRADOS:
+- Estructura HTML básica (Tema 1)
+- Textos, encabezados y listas (Temas 2, 5)
+- Navegación entre páginas (Tema 3)
+- Imágenes con alt (Tema 4)
+- CSS externo con selectores, ID y clases (Tema 7)
+- Tipografía con Google Fonts (Tema 8)
+- Modelo de caja: padding, margin, border (Tema 9)
+- Display inline-block y position (Tema 10)
+- Flexbox para layout (Tema 11)
+- Responsive con media queries (Tema 12)
+- Formulario de contacto (Tema 13)
+
+ESTRUCTURA DEL PROYECTO INTEGRADOR:
+    ejercicio14_proyecto_integrador/
+        index.html      → Página principal
+        menu.html       → Menú con lista de bebidas y tabla de precios
+        nosotros.html   → Historia del local y el equipo
+        contacto.html   → Formulario de contacto
+        estilos.css     → Un único CSS compartido por todas las páginas
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cafetería de Sandra — Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos_tema14.css">
+</head>
+<body>
+
+    <!-- HEADER: se repite en todas las páginas -->
+    <header>
+        <div class="logo">La Cafetería de Sandra</div>
+        <nav>
+            <a href="tema14_proyecto_integrador.html" class="activo">Inicio</a>
+            <a href="#">Menú</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- HERO: imagen de bienvenida con texto encima -->
+    <section class="hero">
+        <img src="https://placehold.co/1200x400?text=La+Cafeteria+de+Sandra"
+             alt="Vista del local de La Cafetería de Sandra">
+        <div class="hero-texto">
+            <h1>El mejor café de la ciudad</h1>
+            <p>Café de especialidad desde 2010</p>
+            <a href="#" class="boton-hero">Ver nuestro menú</a>
+        </div>
+    </section>
+
+    <!-- DESTACADOS: tres tarjetas en fila -->
+    <section class="seccion-destacados">
+        <h2>Nuestros favoritos</h2>
+        <div class="contenedor-tarjetas">
+
+            <div class="tarjeta-producto">
+                <span class="badge">Más pedido</span>
+                <img src="https://placehold.co/380x220?text=Cappuccino"
+                     alt="Cappuccino con espuma cremosa">
+                <div class="tarjeta-contenido">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso con leche vaporizada y espuma sedosa.</p>
+                    <p class="precio">$4.00</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-producto">
+                <span class="badge badge-nuevo">Nuevo</span>
+                <img src="https://placehold.co/380x220?text=Cafe+de+Temporada"
+                     alt="Café de temporada con especias">
+                <div class="tarjeta-contenido">
+                    <h3>Café de Temporada</h3>
+                    <p>Nuestra mezcla especial con notas de vainilla y canela.</p>
+                    <p class="precio">$5.50</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="https://placehold.co/380x220?text=Croissant"
+                     alt="Croissant de mantequilla recién horneado">
+                <div class="tarjeta-contenido">
+                    <h3>Croissant de Mantequilla</h3>
+                    <p>Horneado cada mañana con mantequilla francesa.</p>
+                    <p class="precio">$3.00</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN INFORMATIVA -->
+    <section class="seccion-info">
+        <div class="info-bloque">
+            <h3>Horarios</h3>
+            <p>Lunes a viernes: 7:00–20:00<br>
+            Sábados y domingos: 8:00–22:00</p>
+        </div>
+        <div class="info-bloque">
+            <h3>Ubicación</h3>
+            <p>Av. Principal 123<br>
+            Centro histórico</p>
+        </div>
+        <div class="info-bloque">
+            <h3>Contacto</h3>
+            <p>info@lacafeteria.com<br>
+            +54 11 1234-5678</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 La Cafetería de Sandra. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+<!--
+============================================================
+EJERCICIO 14: Proyecto integrador
+============================================================
+
+Crear la carpeta html-y-css/ejercicios/ejercicio14_proyecto_integrador/
+con los siguientes archivos:
+
+ARCHIVOS A CREAR:
+- index.html          → Página principal
+- menu.html           → Menú de productos y tabla de precios
+- nosotros.html       → Historia y equipo
+- contacto.html       → Formulario de contacto
+- estilos.css         → Hoja de estilos compartida
+
+REQUISITOS MÍNIMOS:
+1. Estructura HTML: las 4 páginas con DOCTYPE, head y body correctos
+2. Navegación: header y nav en las 4 páginas con enlaces entre ellas
+3. CSS compartido: todas las páginas deben incluir <link rel="stylesheet" href="estilos.css">
+4. Imágenes: al menos 3 con atributo alt descriptivo
+5. Listas: lista desordenada en menu.html con categorías y sublistas
+6. Tabla: tabla de precios en menu.html con thead y tbody
+7. Formulario: formulario completo en contacto.html con campos required
+8. Flexbox: en el header y en el contenedor de tarjetas o sección de destacados
+9. Responsive: media queries para al menos dos breakpoints (768px y 1024px)
+10. Google Fonts: una fuente para títulos y otra para el texto
+
+SUGERENCIA DE ESTRUCTURA PARA index.html:
+- Header con logo y nav
+- Sección hero con imagen grande y texto encima
+- Sección de productos destacados (3 tarjetas con flexbox)
+- Sección informativa con horarios, ubicación y contacto
+- Footer
+
+SUGERENCIA PARA estilos.css:
+Copiar los estilos que ya funcionaron en los ejercicios anteriores
+y adaptarlos para un archivo compartido.
+
+Verificación:
+- Navegar entre las 4 páginas: los enlaces deben funcionar
+- Redimensionar la ventana: el diseño debe adaptarse
+- Enviar el formulario vacío: deben aparecer errores de validación
+- Abrir las DevTools y verificar que no hay errores de CSS ni de red
+
+============================================================
+-->

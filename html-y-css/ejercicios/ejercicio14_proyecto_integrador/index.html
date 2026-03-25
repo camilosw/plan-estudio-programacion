@@ -1,0 +1,72 @@
+<!--
+============================================================
+EJERCICIO 14: Proyecto integrador — Página principal
+============================================================
+
+Este es el archivo de la PÁGINA PRINCIPAL del sitio completo
+de La Cafetería de Sandra.
+
+El proyecto tiene 4 páginas y un CSS compartido:
+- index.html      → esta página (inicio)
+- menu.html       → menú de productos y tabla de precios
+- nosotros.html   → historia y equipo
+- contacto.html   → formulario de contacto
+- estilos.css     → hoja de estilos compartida
+
+Instrucciones para esta página (index.html):
+1. Estructura básica completa con meta viewport
+2. <link> a estilos.css (el archivo compartido de esta carpeta)
+3. <link> a Google Fonts (dos fuentes: una para títulos, otra para texto)
+4. HEADER con logo y navegación a las 4 páginas
+5. Sección HERO: imagen grande con texto encima
+   (usar https://placehold.co/1200x400?text=La+Cafeteria)
+6. Sección DESTACADOS: 3 tarjetas de productos con flexbox
+   (al menos una con badge "Nuevo" o "Más pedido")
+7. Sección INFORMATIVA: horarios, ubicación y contacto en fila
+8. FOOTER con el nombre del sitio
+
+REQUISITOS GENERALES DEL PROYECTO:
+- Navegación funcional entre las 4 páginas
+- La página activa en el nav debe tener un estilo diferente
+  (class="activo" en el enlace correspondiente)
+- Todas las páginas deben usar el mismo estilos.css
+- Diseño responsive (mobile y desktop como mínimo)
+- Google Fonts aplicada consistentemente
+- Al menos 3 imágenes con alt descriptivo en todo el proyecto
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cafetería de Sandra — Inicio</title>
+
+    <!-- Google Fonts: elige tus fuentes -->
+
+    <!-- CSS compartido del proyecto -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- HEADER: se repite en las 4 páginas -->
+    <header>
+        <div class="logo">La Cafetería de Sandra</div>
+        <nav>
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO DE ESTA PÁGINA: escribe aquí -->
+
+    <!-- FOOTER: se repite en las 4 páginas -->
+    <footer>
+        <p>&copy; 2024 La Cafetería de Sandra</p>
+    </footer>
+
+</body>
+</html>
