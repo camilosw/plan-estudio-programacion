@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a programming teaching curriculum for learning from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are three modules so far:
+This is a programming teaching curriculum for learning from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are four modules:
 
 1. **OOP (classes and objects)** — using an **online store** as the unifying theme
 2. **Git and GitHub** — version control fundamentals, from installation to collaboration with Pull Requests
 3. **HTML and CSS** — building web pages from scratch, using **La Cafetería de Sandra** as the unifying theme
+4. **WSL and Linux Terminal** — setting up WSL, navigating the file system, permissions, package management, zsh, and VS Code integration — using **"Tu Taller de Herramientas"** as the unifying analogy
 
 ## Structure
 
@@ -61,6 +62,20 @@ Every PHP file must execute without errors and produce the expected output shown
 - `html-y-css/ejercicios/ejercicio14_proyecto_integrador/` — Folder with 4 HTML pages and a shared CSS file
 
 Topics: HTML structure → text and headings → links → images → lists and tables → CSS basics → selectors and colors → typography → box model → display and position → flexbox → responsive design → forms → integrating project.
+
+### Module: WSL y Terminal Linux
+
+- `wsl-terminal-linux/teoría/plan-de-estudios.md` — Curriculum plan
+- `wsl-terminal-linux/teoría/tema1_que_es_wsl.md` through `tema8_proyecto_integrador.md` — One Markdown file per topic with explanations, bash command examples with expected output (no exercise section in theory files)
+- `wsl-terminal-linux/teoría/hoja-de-referencia.md` — Quick-reference cheat sheet of all commands organized by category
+- `wsl-terminal-linux/ejercicios/ejercicio1_que_es_wsl.md` through `ejercicio8_proyecto_integrador.md` — Exercise files with step-by-step instructions and verification sections
+
+Topics: what is WSL → the terminal → file navigation → file manipulation → permissions → packages/environment variables/zsh (including Oh My Zsh) → WSL and VS Code → integrating project.
+
+Key conventions for this module:
+- Theory files use the same banner format as the Git module (`===` headers, ALL-CAPS sections with dashed underlines) but **do NOT include an EJERCICIO section** — exercises are exclusively in the `ejercicios/` folder
+- Content uses neutral Spanish throughout (no Argentine voseo)
+- The unifying analogy is "Tu Taller de Herramientas": Windows=house, WSL=workshop, commands=tools, directories=shelves, permissions=locks, apt=supply store, VS Code=window between house and workshop
 
 ## Opening HTML Files
 
