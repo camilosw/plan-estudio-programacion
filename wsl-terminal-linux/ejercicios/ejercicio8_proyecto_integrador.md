@@ -2,7 +2,32 @@
 
 ## Objetivo
 
-Construir un proyecto completo desde cero combinando todos los conocimientos del módulo: estructura de carpetas, permisos, variables de entorno, instalación de paquetes, control de versiones con Git y apertura en VS Code.
+Construir un proyecto completo desde cero combinando todos los conocimientos del módulo: estructura de carpetas, permisos, variables de entorno, instalación de paquetes y apertura en VS Code.
+
+---
+
+## Lo que construirás
+
+Un proyecto llamado `mi-taller` con la siguiente estructura:
+
+```
+mi-taller/
+├── src/
+│   └── saludo.php
+├── scripts/
+│   └── ejecutar.sh
+├── docs/
+│   └── README.md
+└── .env
+```
+
+Cada archivo representa un concepto aprendido:
+- `saludo.php` — un script PHP que funciona desde WSL
+- `ejecutar.sh` — un script bash que necesita permisos de ejecución
+- `README.md` — documentación del proyecto
+- `.env` — variables de entorno del proyecto
+
+Al finalizar, el proyecto estará abierto en VS Code y podrás ejecutarlo todo desde la terminal.
 
 ---
 
@@ -101,9 +126,17 @@ tree .
 ls -l scripts/ejecutar.sh
 ```
 
+```
+-rw-r--r-- 1 sandra sandra 85 Apr  2 10:00 scripts/ejecutar.sh
+```
+
 ```bash
 chmod +x scripts/ejecutar.sh
 ls -l scripts/ejecutar.sh
+```
+
+```
+-rwxr-xr-x 1 sandra sandra 85 Apr  2 10:00 scripts/ejecutar.sh
 ```
 
 ### Paso 5: Ejecutar el script
@@ -125,87 +158,73 @@ Hola desde WSL, el taller está listo!
 cd ..
 ```
 
-### Paso 6: Cargar las variables de entorno
+### Paso 6: Usar variables de entorno desde PHP
+
+Primero, exporta las variables del archivo `.env` para que estén disponibles en la sesión:
 
 ```bash
 export $(cat .env | xargs)
-echo "Proyecto: $PROYECTO_NOMBRE"
-echo "Entorno: $ENTORNO"
 ```
 
-**Salida esperada:**
-
-```
-Proyecto: mi-taller
-Entorno: desarrollo
-```
-
-### Paso 7: Inicializar Git y hacer el primer commit
+Ahora actualiza `src/saludo.php` para que lea esas variables con `getenv()`:
 
 ```bash
-git init
-git config user.name "Sandra"
-git config user.email "sandra@ejemplo.com"
+cat > src/saludo.php << 'EOF'
+<?php
+$proyecto = getenv('PROYECTO_NOMBRE');
+$entorno  = getenv('ENTORNO');
+
+echo "=== $proyecto ===" . PHP_EOL;
+echo "Entorno: $entorno" . PHP_EOL;
+echo "Hola desde WSL, el taller está listo!" . PHP_EOL;
+EOF
 ```
 
-Crear `.gitignore` para excluir `.env`:
-
-```bash
-echo '.env' > .gitignore
-```
-
-Hacer el primer commit:
-
-```bash
-git add .
-git status
-```
-
-Verifica que `.env` NO aparece en la lista de archivos a commitear.
-
-```bash
-git commit -m "Agrega estructura inicial del proyecto mi-taller"
-```
-
-### Paso 8: Agregar más contenido y hacer un segundo commit
-
-```bash
-echo "## Uso" >> docs/README.md
-echo "Ejecuta \`scripts/ejecutar.sh\` para correr el proyecto." >> docs/README.md
-```
-
-```bash
-git add docs/README.md
-git commit -m "Agrega instrucciones de uso al README"
-```
-
-### Paso 9: Verificar el historial de Git
-
-```bash
-git log --oneline
-```
-
-**Salida esperada:**
-
-```
-b2c3d4e Agrega instrucciones de uso al README
-a1b2c3d Agrega estructura inicial del proyecto mi-taller
-```
-
-### Paso 10: Abrir en VS Code
-
-```bash
-code .
-```
-
-Desde la terminal integrada de VS Code, verifica que todo funciona:
+Ejecuta el script:
 
 ```bash
 php src/saludo.php
 ```
 
+**Salida esperada:**
+
+```
+=== mi-taller ===
+Entorno: desarrollo
+Hola desde WSL, el taller está listo!
+```
+
+Si abres otra terminal sin haber exportado las variables, `getenv()` devuelve una cadena vacía. Por eso el paso de `export` es necesario antes de ejecutar el script.
+
+Ahora cambia el valor de `ENTORNO` directamente en la consola y vuelve a ejecutar el script:
+
 ```bash
-git log --oneline
+export ENTORNO=produccion
+php src/saludo.php
+```
+
+**Salida esperada:**
+
+```
+=== mi-taller ===
+Entorno: produccion
+Hola desde WSL, el taller está listo!
+```
+
+El código PHP es exactamente el mismo — lo único que cambió fue la variable de entorno. Eso es la idea central: el comportamiento del programa varía según el entorno donde se ejecuta, sin tocar el código.
+
+### Paso 7: Abrir en VS Code
+
+```bash
+code .
+```
+
+VS Code se abre con el proyecto. Verifica que en la esquina inferior izquierda diga `WSL: Ubuntu`.
+
+Desde la terminal integrada de VS Code (Ctrl+\`), verifica que todo funciona:
+
+```bash
+php src/saludo.php
 ```
 
 ```bash
@@ -227,7 +246,6 @@ tree ~/mi-taller
 ```
 /home/sandra/mi-taller
 ├── .env
-├── .gitignore
 ├── docs
 │   └── README.md
 ├── scripts
@@ -235,7 +253,7 @@ tree ~/mi-taller
 └── src
     └── saludo.php
 
-3 directories, 5 files
+3 directories, 4 files
 ```
 
 **Comando 2:** Verificar permisos del script
@@ -250,20 +268,7 @@ ls -l ~/mi-taller/scripts/ejecutar.sh
 -rwxr-xr-x 1 sandra sandra 85 Apr  2 10:00 ejecutar.sh
 ```
 
-**Comando 3:** Verificar el historial de Git
-
-```bash
-cd ~/mi-taller && git log --oneline
-```
-
-**Salida esperada:**
-
-```
-b2c3d4e Agrega instrucciones de uso al README
-a1b2c3d Agrega estructura inicial del proyecto mi-taller
-```
-
-**Comando 4:** Ejecutar PHP desde la terminal
+**Comando 3:** Ejecutar PHP desde la terminal
 
 ```bash
 php ~/mi-taller/src/saludo.php
@@ -272,22 +277,24 @@ php ~/mi-taller/src/saludo.php
 **Salida esperada:**
 
 ```
+=== mi-taller ===
+Entorno: desarrollo
 Hola desde WSL, el taller está listo!
 ```
 
-**Comando 5:** Verificar que .env no está en Git
-
-```bash
-cd ~/mi-taller && git ls-files
-```
-
-**Salida esperada** (`.env` no debe aparecer):
-
-```
-.gitignore
-docs/README.md
-scripts/ejecutar.sh
-src/saludo.php
-```
-
 **Verificación visual en VS Code:** El indicador verde en la esquina inferior izquierda debe decir `WSL: Ubuntu`.
+
+---
+
+## ¿Qué aprendiste en este módulo?
+
+| Tema | Habilidad                                                  |
+|------|------------------------------------------------------------|
+| 1    | Instalar y configurar WSL con Ubuntu                       |
+| 2    | Leer el prompt y usar los primeros comandos               |
+| 3    | Navegar el sistema de archivos con `pwd`, `ls`, `cd`      |
+| 4    | Crear, copiar, mover y eliminar archivos                  |
+| 5    | Leer y modificar permisos con `chmod`                     |
+| 6    | Instalar software con `apt`, usar variables y zsh         |
+| 7    | Abrir proyectos de WSL en VS Code con `code .`           |
+| 8    | Integrar todo en un proyecto real                         |
