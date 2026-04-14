@@ -1,5 +1,5 @@
 /* ============================================================
-   ESTILOS EJERCICIO 11: Flexbox
+   ESTILOS EJERCICIO 10: Display y posición
    Escribe tus estilos aquí.
    ============================================================ */
 
@@ -8,83 +8,54 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    /* Agrega font-family, font-size, color, background-color */
-}
-
-/* HEADER: logo a la izquierda, nav a la derecha */
-header {
-    /* display: flex; justify-content: space-between; align-items: center; */
-}
-
-.logo {
 
 }
 
-/* Nav: enlaces en fila con espacio entre ellos */
+/* Menú de navegación horizontal */
 nav {
-    /* display: flex; gap: ...; */
-}
-
-nav a {
 
 }
 
-/* Sección principal */
-main {
+nav ul {
+    /* Quita las viñetas y el padding por defecto */
+}
+
+nav ul li {
+    /* Cambia a inline-block para la fila horizontal */
+}
+
+nav ul li a {
 
 }
 
+/* Contenido principal */
 h1 {
 
 }
 
-/* Contenedor de tarjetas: flex con wrap */
-.contenedor-tarjetas {
-    /* display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; */
-}
-
-/* Tarjeta de producto: tamaño fijo y columna interna */
+/* Tarjeta de producto: necesita position: relative para el badge */
 .tarjeta-producto {
-    /* flex: 0 0 260px; */
-    /* display: flex; flex-direction: column; */
+
 }
 
 .tarjeta-producto img {
 
 }
 
-/* Contenido de la tarjeta: columna flexible */
-.tarjeta-contenido {
-    /* display: flex; flex-direction: column; flex: 1; padding: 16px; */
-}
+.tarjeta-producto h3 {
 
-.tarjeta-contenido h3 {
-
-}
-
-.tarjeta-contenido p {
-    /* flex: 1; → empuja el precio hacia abajo */
 }
 
 .precio {
-    /* flex: 0; → no crece, queda al fondo */
-}
-
-/* FOOTER: tres columnas en fila */
-footer {
-    /* display: flex; justify-content: space-around; */
-}
-
-.footer-columna {
 
 }
 
-.footer-columna h4 {
-
+/* Badge: posicionado de forma absoluta respecto a la tarjeta */
+.badge {
+    /* position: absolute; top: ...; right: ...; */
 }
 
-.footer-columna p {
+/* Elemento oculto */
+.oculto {
 
 }

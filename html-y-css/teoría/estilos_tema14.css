@@ -1,332 +1,151 @@
 /* ============================================================
-   ESTILOS TEMA 14: Proyecto integrador
-   Este archivo integra los estilos de todos los temas anteriores.
+   ESTILOS TEMA 13: Formularios
    ============================================================ */
-
-/* --- RESET BÁSICO --- */
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* --- BASE (mobile first) --- */
-
-html {
-    font-size: 16px;
 }
 
 body {
     font-family: 'Lato', sans-serif;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
     color: #333333;
     background-color: #f5f0eb;
+    margin: 0;
+    padding: 0;
 }
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* --- HEADER --- */
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
     background-color: #5c3317;
-    padding: 16px;
+    padding: 16px 32px;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    color: #ffffff;
-    font-weight: 700;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-}
-
-nav a {
-    color: #e8d4c0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 6px 10px;
-    border-radius: 4px;
-}
-
-nav a:hover,
-nav a.activo {
-    background-color: #7a4628;
-    color: #ffffff;
-}
-
-/* --- HERO --- */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-}
-
-.hero-texto {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.65));
-    color: #ffffff;
-    padding: 24px 16px 20px;
-    text-align: center;
-}
-
-.hero-texto h1 {
-    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
+    color: #ffffff;
     font-weight: 700;
-    margin-bottom: 4px;
 }
 
-.hero-texto p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 16px;
-    text-align: center;
+main {
+    padding: 40px 16px;
 }
 
-.boton-hero {
-    display: inline-block;
-    background-color: #ffffff;
-    color: #5c3317;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.boton-hero:hover {
-    background-color: #f5f0eb;
-}
-
-/* --- SECCIÓN DESTACADOS --- */
-
-.seccion-destacados {
-    padding: 32px 16px;
-}
-
-.seccion-destacados h2 {
+h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: #5c3317;
     text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #7a4628;
+    font-style: italic;
+    margin-bottom: 32px;
+}
+
+/* --- FORMULARIO: ancho máximo y centrado --- */
+
+.formulario-contacto {
+    max-width: 600px;    /* el formulario no se extiende demasiado en pantallas anchas */
+    margin: 0 auto;      /* centrado horizontal */
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #d4b896;
+}
+
+/* --- CAMPO DE FORMULARIO: label encima del input --- */
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;         /* el label ocupa una fila entera */
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #5c3317;
+    margin-bottom: 6px;
+}
+
+/* Estilo común para inputs, select y textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d4b896;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif; /* heredar la fuente del body */
+    color: #333333;
+    background-color: #fffaf5;
+    transition: border-color 0.2s; /* transición suave al enfocar */
+}
+
+/* Al hacer foco en un campo: resaltar con color de la marca */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #5c3317;
+    outline: none; /* quita el borde azul por defecto del navegador */
+    background-color: #ffffff;
+}
+
+textarea {
+    resize: vertical; /* solo se puede redimensionar verticalmente */
+    min-height: 120px;
+}
+
+/* --- CAMPO CHECKBOX --- */
+
+.campo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     margin-bottom: 24px;
 }
 
-.contenedor-tarjetas {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.campo-checkbox input[type="checkbox"] {
+    width: auto;       /* el checkbox no debe ocupar todo el ancho */
+    margin-top: 4px;   /* pequeño ajuste para alinearlo con el texto */
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
-.tarjeta-producto {
-    position: relative;
-    background-color: #ffffff;
-    border: 1px solid #d4b896;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.campo-checkbox label {
+    display: inline;   /* el label va al lado del checkbox */
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #555555;
+    cursor: pointer;
 }
 
-.tarjeta-contenido {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
+/* --- BOTÓN DE ENVÍO --- */
 
-.tarjeta-contenido h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.125rem;
-    color: #5c3317;
-    margin-bottom: 8px;
-}
-
-.tarjeta-contenido p {
-    font-size: 0.875rem;
-    color: #666666;
-    flex: 1;
-    text-align: left;
-    margin-bottom: 8px;
-}
-
-.precio {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #5c3317;
-    text-align: right;
-    flex: 0;
-}
-
-.badge {
-    position: absolute;
-    top: 8px;
-    left: 8px;
+.boton-enviar {
+    width: 100%;
     background-color: #5c3317;
     color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.badge-nuevo {
-    background-color: #c0392b;
-}
-
-/* --- SECCIÓN INFORMATIVA --- */
-
-.seccion-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    background-color: #3d2210;
-    color: #f5f0eb;
-    padding: 32px 16px;
-}
-
-.info-bloque {
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.info-bloque:last-child {
-    border-bottom: none;
-}
-
-.info-bloque h3 {
-    font-family: 'Playfair Display', serif;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
     font-size: 1rem;
-    color: #d4b896;
-    margin-bottom: 8px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background-color 0.2s;
 }
 
-.info-bloque p {
-    font-size: 0.875rem;
-    color: #c4a882;
-    text-align: left;
-}
-
-/* --- FOOTER --- */
-
-footer {
-    background-color: #2a1509;
-    color: #c4a882;
-    text-align: center;
-    padding: 16px;
-    font-size: 0.8rem;
-}
-
-/* --- TABLET: min-width 768px --- */
-
-@media (min-width: 768px) {
-
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 16px 32px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    nav {
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        gap: 8px;
-    }
-
-    .hero img {
-        max-height: 400px;
-    }
-
-    .hero-texto h1 {
-        font-size: 2rem;
-    }
-
-    .seccion-destacados {
-        padding: 40px 32px;
-    }
-
-    .contenedor-tarjetas {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .tarjeta-producto {
-        flex: 0 0 calc(50% - 10px);
-        max-width: calc(50% - 10px);
-    }
-
-    .seccion-info {
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 40px 32px;
-    }
-
-    .info-bloque {
-        flex: 0 0 30%;
-        border-bottom: none;
-        padding: 0;
-    }
-}
-
-/* --- DESKTOP: min-width 1024px --- */
-
-@media (min-width: 1024px) {
-
-    header {
-        padding: 16px 48px;
-    }
-
-    .hero img {
-        max-height: 480px;
-    }
-
-    .hero-texto h1 {
-        font-size: 2.5rem;
-    }
-
-    .seccion-destacados {
-        padding: 48px;
-    }
-
-    .tarjeta-producto {
-        flex: 0 0 calc(33.333% - 14px);
-        max-width: calc(33.333% - 14px);
-    }
-
-    .seccion-info {
-        padding: 48px;
-    }
+.boton-enviar:hover {
+    background-color: #7a4628;
 }

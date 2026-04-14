@@ -1,0 +1,86 @@
+<!--
+============================================================
+EJERCICIO 13: Diseño responsive con media queries
+============================================================
+
+Objetivo:
+Hacer que la página del ejercicio anterior sea responsive:
+una columna en móvil, dos en tablet y tres en desktop.
+
+Puedes partir del ejercicio 11 o crear una nueva página.
+Este archivo se vincula con estilos_ejercicio13.css.
+
+Instrucciones para el HTML:
+1. Exactamente igual al ejercicio 11, pero AGREGAR:
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   (este meta es imprescindible para el diseño responsive)
+
+Instrucciones para estilos_ejercicio13.css:
+Usar el enfoque MOBILE FIRST: primero los estilos para móvil,
+luego las media queries para pantallas más grandes.
+
+/* BASE (móvil, menos de 768px) */
+
+- .contenedor-tarjetas:
+    display: flex; flex-direction: column; gap: 16px; padding: 16px;
+
+- header:
+    flex-direction: column; align-items: center; gap: 12px;
+
+- nav:
+    flex-wrap: wrap; justify-content: center;
+
+
+/* TABLET: @media (min-width: 768px) */
+
+- header:
+    flex-direction: row; justify-content: space-between;
+
+- .contenedor-tarjetas:
+    flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px;
+
+- .tarjeta-producto:
+    flex: 0 0 calc(50% - 8px);    ← 2 tarjetas por fila
+
+
+/* DESKTOP: @media (min-width: 1024px) */
+
+- .tarjeta-producto:
+    flex: 0 0 calc(33.333% - 12px);    ← 3 tarjetas por fila
+
+
+Agregar siempre:
+img { max-width: 100%; height: auto; }
+
+Verificación:
+- En menos de 768px:
+  · Nav debajo del logo (en columna)
+  · Una tarjeta por fila (todo el ancho)
+- Entre 768px y 1024px:
+  · Header en fila (logo izq, nav der)
+  · Dos tarjetas por fila
+- Más de 1024px:
+  · Tres tarjetas por fila
+Para probar: redimensionar la ventana del navegador o usar
+las DevTools (F12 → ícono de móvil para simular dispositivos)
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- meta viewport: imprescindible para responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12: Responsive</title>
+
+    <!-- Agrega aquí el <link> de Google Fonts si quieres (opcional) -->
+    <!-- Agrega aquí el <link> al CSS externo -->
+
+</head>
+<body>
+
+    <!-- Copia el HTML del ejercicio 11 o escribe el tuyo aquí -->
+
+</body>
+</html>

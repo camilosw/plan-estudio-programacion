@@ -1,0 +1,79 @@
+<!--
+  TEMA 11: Display y posición
+  Explicación completa: tema11_display_y_posicion.md
+-->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tema 11: Display y posición | La Cafetería de Sandra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="estilos_tema11.css" />
+  </head>
+  <body>
+    <!-- MENÚ DE NAVEGACIÓN HORIZONTAL con display: inline-block -->
+    <nav>
+      <!-- Los <li> son block por defecto. Con inline-block quedan en fila. -->
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Menú</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <h1>La Cafetería de Sandra</h1>
+
+    <!-- TARJETA CON BADGE: posición relativa + absoluta -->
+    <div class="contenedor-tarjetas">
+      <!-- Tarjeta normal -->
+      <div class="tarjeta-producto">
+        <img
+          src="https://placehold.co/220x140?text=Cappuccino"
+          alt="Cappuccino"
+          width="220"
+          height="140"
+        />
+        <h3>Cappuccino</h3>
+        <p class="precio">$4.00</p>
+      </div>
+
+      <!-- Tarjeta con badge "Nuevo": el badge está posicionado de forma absoluta -->
+      <div class="tarjeta-producto">
+        <!-- position: relative en .tarjeta-producto hace que el badge
+                 se posicione respecto a esta tarjeta, no respecto a la página -->
+        <span class="badge-nuevo">Nuevo</span>
+        <img
+          src="https://placehold.co/220x140?text=Cafe+de+Temporada"
+          alt="Café de temporada"
+          width="220"
+          height="140"
+        />
+        <h3>Café de Temporada</h3>
+        <p class="precio">$5.50</p>
+      </div>
+
+      <!-- Tarjeta normal -->
+      <div class="tarjeta-producto">
+        <img
+          src="https://placehold.co/220x140?text=Cold+Brew"
+          alt="Cold Brew"
+          width="220"
+          height="140"
+        />
+        <h3>Cold Brew</h3>
+        <p class="precio">$5.00</p>
+      </div>
+    </div>
+
+    <!-- display: none — este párrafo existe en el HTML pero no se muestra -->
+    <p class="aviso-cerrado">Hoy estamos cerrados por feriado.</p>
+
+    <!-- Nota: para ver el efecto de display:none, abrir las DevTools,
+         buscar el elemento .aviso-cerrado y cambiar display a block -->
+  </body>
+</html>

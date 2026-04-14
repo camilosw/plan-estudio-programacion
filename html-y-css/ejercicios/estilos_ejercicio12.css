@@ -1,6 +1,5 @@
 /* ============================================================
-   ESTILOS EJERCICIO 12: Responsive design
-   Estrategia: mobile first
+   ESTILOS EJERCICIO 11: Flexbox
    Escribe tus estilos aquí.
    ============================================================ */
 
@@ -8,37 +7,31 @@
     box-sizing: border-box;
 }
 
-/* Las imágenes nunca deben ser más anchas que su contenedor */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ============================================================
-   BASE (mobile first): estilos para móvil
-   ============================================================ */
-
 body {
-
+    margin: 0;
+    padding: 0;
+    /* Agrega font-family, font-size, color, background-color */
 }
 
+/* HEADER: logo a la izquierda, nav a la derecha */
 header {
-    /* display: flex; flex-direction: column; align-items: center; */
+    /* display: flex; justify-content: space-between; align-items: center; */
 }
 
 .logo {
 
 }
 
+/* Nav: enlaces en fila con espacio entre ellos */
 nav {
-    /* display: flex; flex-wrap: wrap; justify-content: center; */
+    /* display: flex; gap: ...; */
 }
 
 nav a {
 
 }
 
+/* Sección principal */
 main {
 
 }
@@ -47,72 +40,51 @@ h1 {
 
 }
 
-/* Una tarjeta por fila en móvil */
+/* Contenedor de tarjetas: flex con wrap */
 .contenedor-tarjetas {
-    /* display: flex; flex-direction: column; gap: 16px; */
+    /* display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; */
 }
 
+/* Tarjeta de producto: tamaño fijo y columna interna */
 .tarjeta-producto {
-
+    /* flex: 0 0 260px; */
+    /* display: flex; flex-direction: column; */
 }
 
 .tarjeta-producto img {
 
 }
 
+/* Contenido de la tarjeta: columna flexible */
 .tarjeta-contenido {
+    /* display: flex; flex-direction: column; flex: 1; padding: 16px; */
+}
 
+.tarjeta-contenido h3 {
+
+}
+
+.tarjeta-contenido p {
+    /* flex: 1; → empuja el precio hacia abajo */
 }
 
 .precio {
-
+    /* flex: 0; → no crece, queda al fondo */
 }
 
+/* FOOTER: tres columnas en fila */
 footer {
-    /* display: flex; flex-direction: column; */
+    /* display: flex; justify-content: space-around; */
 }
 
 .footer-columna {
 
 }
 
-/* ============================================================
-   TABLET: pantallas de 768px o más
-   ============================================================ */
+.footer-columna h4 {
 
-@media (min-width: 768px) {
-
-    header {
-        /* flex-direction: row; justify-content: space-between; */
-    }
-
-    nav {
-        /* flex-wrap: nowrap; justify-content: flex-end; */
-    }
-
-    /* Dos tarjetas por fila */
-    .contenedor-tarjetas {
-        /* flex-direction: row; flex-wrap: wrap; */
-    }
-
-    .tarjeta-producto {
-        /* flex: 0 0 calc(50% - 8px); */
-    }
-
-    footer {
-        /* flex-direction: row; justify-content: space-around; */
-    }
 }
 
-/* ============================================================
-   DESKTOP: pantallas de 1024px o más
-   ============================================================ */
-
-@media (min-width: 1024px) {
-
-    /* Tres tarjetas por fila */
-    .tarjeta-producto {
-        /* flex: 0 0 calc(33.333% - 12px); */
-    }
+.footer-columna p {
 
 }

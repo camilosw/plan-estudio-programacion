@@ -1,85 +1,68 @@
 /* ============================================================
-   ESTILOS TEMA 9: Modelo de caja — margin, padding, border
+   ESTILOS TEMA 8: Tipografía y estilos de texto
    ============================================================ */
 
-/* Buena práctica: aplicar border-box a todos los elementos */
-* {
-    box-sizing: border-box;
+/* Tamaño base del documento: todos los rem se calculan a partir de aquí */
+html {
+    font-size: 16px;
 }
 
+/* Fuente de texto para el cuerpo general */
 body {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-family: 'Lato', sans-serif; /* Google Font para el texto */
+    font-size: 1rem;       /* 16px — igual al tamaño base */
+    line-height: 1.6;      /* espacio entre líneas: 1.6 veces el tamaño de fuente */
     color: #333333;
     background-color: #f5f0eb;
-    /* margin: 0 auto no centra el body, pero padding lo separa de los bordes */
-    padding: 32px;
+}
+
+/* Fuente de títulos: diferente para dar personalidad al diseño */
+h1, h2 {
+    font-family: 'Playfair Display', serif; /* Google Font para títulos */
+    text-align: center;
+    color: #5c3317;
+    letter-spacing: 0.03em; /* pequeño espaciado entre letras */
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #5c3317;
-    text-align: center;
-    /* margin solo arriba y abajo */
-    margin-top: 0;
-    margin-bottom: 8px;
-}
-
-.subtitulo {
-    text-align: center;
-    font-style: italic;
-    color: #7a4628;
-    /* margin corto: 0 arriba, auto izquierda/derecha para centrar, 32px abajo */
-    margin: 0 auto 32px;
-}
-
-/* Contenedor de tarjetas: por ahora solo les damos margen */
-.contenedor-tarjetas {
-    margin-top: 24px;
-}
-
-/* Tarjeta de producto: el box model completo */
-.tarjeta-producto {
-    width: 260px;           /* ancho del elemento */
-    padding: 16px;          /* espacio interno entre contenido y borde */
-    border: 1px solid #d4b896; /* borde: grosor, estilo, color */
-    border-radius: 8px;     /* esquinas redondeadas */
-    margin: 0 16px 24px 0;  /* arriba=0, derecha=16px, abajo=24px, izquierda=0 */
-    background-color: #ffffff;
-    display: inline-block;  /* para que queden en fila (temporal; en Tema 11 usamos flexbox) */
-    vertical-align: top;
-}
-
-/* Imagen dentro de la tarjeta */
-.tarjeta-producto img {
-    width: 100%;     /* ocupa todo el ancho disponible de la tarjeta */
-    height: auto;    /* mantiene proporciones */
-    display: block;  /* evita el espacio inferior que tienen las imágenes inline */
-    border-radius: 4px;
-    margin-bottom: 12px;
-}
-
-.tarjeta-producto h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.125rem;
-    color: #5c3317;
-    margin-top: 0;
-    margin-bottom: 8px;
-}
-
-.tarjeta-producto .descripcion {
-    font-size: 0.875rem;
-    color: #666666;
-    margin: 0 0 12px 0;
-    text-align: left;
-}
-
-.tarjeta-producto .precio {
-    font-size: 1.25rem;
+    font-size: 2.5rem;   /* 40px = 16 * 2.5 */
     font-weight: 700;
+}
+
+h2 {
+    font-size: 1.75rem;  /* 28px = 16 * 1.75 */
+    font-weight: 400;    /* peso normal para los subtítulos */
+}
+
+/* Párrafos: justificados para una lectura más formal */
+p {
+    font-size: 1rem;     /* 16px */
+    text-align: justify;
+    max-width: 700px;    /* limita el ancho para mejor lectura */
+    margin: 0 auto 16px; /* centrado horizontal, margen inferior */
+}
+
+/* Clase para precios: destacado pero no exagerado */
+.precio {
+    font-size: 1.25rem;  /* 20px = 16 * 1.25 */
+    font-weight: 700;
+    text-align: center;
     color: #5c3317;
-    margin: 0;
-    text-align: right;
+    text-decoration: none;
+}
+
+/* Clase para el subtítulo principal */
+.subtitulo {
+    font-size: 1.125rem; /* 18px */
+    font-style: italic;
+    text-align: center;
+    color: #7a4628;
+}
+
+/* Clase para notas pequeñas */
+.nota {
+    font-size: 0.875rem; /* 14px = 16 * 0.875 */
+    font-style: italic;
+    color: #666666;
+    text-align: center;
 }

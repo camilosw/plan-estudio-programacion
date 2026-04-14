@@ -1,7 +1,8 @@
 /* ============================================================
-   ESTILOS TEMA 10: Display y posición
+   ESTILOS TEMA 9: Modelo de caja — margin, padding, border
    ============================================================ */
 
+/* Buena práctica: aplicar border-box a todos los elementos */
 * {
     box-sizing: border-box;
 }
@@ -12,114 +13,73 @@ body {
     line-height: 1.6;
     color: #333333;
     background-color: #f5f0eb;
-    padding: 0;
-    margin: 0;
+    /* margin: 0 auto no centra el body, pero padding lo separa de los bordes */
+    padding: 32px;
 }
-
-/* --- MENÚ DE NAVEGACIÓN HORIZONTAL con display: inline-block --- */
-
-nav {
-    background-color: #5c3317;
-    padding: 12px 24px;
-}
-
-nav ul {
-    list-style: none; /* quita las viñetas */
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block; /* los ítems van en fila */
-    margin-right: 8px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    padding: 8px 12px;
-    display: inline-block; /* para que el padding se aplique bien */
-}
-
-nav ul li a:hover {
-    background-color: #7a4628;
-    border-radius: 4px;
-}
-
-/* --- CONTENIDO PRINCIPAL --- */
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #5c3317;
     text-align: center;
-    padding: 32px 16px 16px;
+    /* margin solo arriba y abajo */
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
+.subtitulo {
+    text-align: center;
+    font-style: italic;
+    color: #7a4628;
+    /* margin corto: 0 arriba, auto izquierda/derecha para centrar, 32px abajo */
+    margin: 0 auto 32px;
+}
+
+/* Contenedor de tarjetas: por ahora solo les damos margen */
 .contenedor-tarjetas {
-    padding: 16px 24px;
+    margin-top: 24px;
 }
 
-/* --- TARJETA DE PRODUCTO con position: relative --- */
-
+/* Tarjeta de producto: el box model completo */
 .tarjeta-producto {
-    position: relative;    /* referencia para el badge con position: absolute */
-    display: inline-block; /* quedan en fila */
-    vertical-align: top;
-    width: 260px;
-    padding: 16px;
-    border: 1px solid #d4b896;
-    border-radius: 8px;
-    margin: 0 16px 24px 0;
+    width: 260px;           /* ancho del elemento */
+    padding: 16px;          /* espacio interno entre contenido y borde */
+    border: 1px solid #d4b896; /* borde: grosor, estilo, color */
+    border-radius: 8px;     /* esquinas redondeadas */
+    margin: 0 16px 24px 0;  /* arriba=0, derecha=16px, abajo=24px, izquierda=0 */
     background-color: #ffffff;
+    display: inline-block;  /* para que queden en fila (temporal; en Tema 11 usamos flexbox) */
+    vertical-align: top;
 }
 
+/* Imagen dentro de la tarjeta */
 .tarjeta-producto img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;     /* ocupa todo el ancho disponible de la tarjeta */
+    height: auto;    /* mantiene proporciones */
+    display: block;  /* evita el espacio inferior que tienen las imágenes inline */
     border-radius: 4px;
     margin-bottom: 12px;
 }
 
 .tarjeta-producto h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: #5c3317;
-    margin: 0 0 8px 0;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.tarjeta-producto .descripcion {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 0 0 12px 0;
+    text-align: left;
 }
 
 .tarjeta-producto .precio {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #5c3317;
     margin: 0;
     text-align: right;
-}
-
-/* --- BADGE "NUEVO": position absolute respecto a la tarjeta --- */
-
-.badge-nuevo {
-    position: absolute; /* sale del flujo normal */
-    top: 8px;           /* 8px desde el borde superior de la tarjeta */
-    right: 8px;         /* 8px desde el borde derecho de la tarjeta */
-    background-color: #c0392b;
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* --- ELEMENTO OCULTO con display: none --- */
-
-.aviso-cerrado {
-    display: none; /* no aparece en la página, pero existe en el HTML */
-    background-color: #e74c3c;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
 }

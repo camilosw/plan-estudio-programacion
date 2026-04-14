@@ -50,18 +50,18 @@ Every PHP file must execute without errors and produce the expected output shown
 - HTML/CSS module: each HTML file follows the format: header comment block with explanation and analogy → working HTML/CSS example with inline comments → exercise as a comment block at the end
 - HTML/CSS module: the coffee shop theme uses consistent CSS class names: `.tarjeta-producto`, `.tarjeta-contenido`, `.contenedor-tarjetas`, `.precio`, `.badge`, `.formulario-contacto`
 - HTML/CSS module: topic files use placeholder images from `https://placehold.co/` to avoid local image dependencies
-- HTML/CSS module: from topic 7 onward, CSS lives in external files named `estilos_temaN.css`
+- HTML/CSS module: from topic 8 onward, CSS lives in external files named `estilos_temaN.css`
 - Git module: exercises use very simple PHP code to keep focus on Git concepts, and include a verification section with commands and expected output
 
 ### Module: HTML y CSS
 
 - `html-y-css/teoría/plan-de-estudios.md` — Curriculum plan with explanations, examples, and exercises
-- `html-y-css/teoría/tema1_estructura_basica.html` through `tema14_proyecto_integrador.html` — One HTML file per topic, each containing explanatory comments, working example code, and an exercise at the end
-- `html-y-css/teoría/estilos_tema7.css` through `estilos_tema14.css` — External CSS files paired with theory files (topics 7–14)
-- `html-y-css/ejercicios/ejercicio1_estructura_basica.html` through `ejercicio13_formularios.html` — Exercise files
-- `html-y-css/ejercicios/ejercicio14_proyecto_integrador/` — Folder with 4 HTML pages and a shared CSS file
+- `html-y-css/teoría/tema1_estructura_basica.html` through `tema15_proyecto_integrador.html` — One HTML file per topic, each containing explanatory comments, working example code, and an exercise at the end
+- `html-y-css/teoría/estilos_tema8.css` through `estilos_tema15.css` — External CSS files paired with theory files (topics 8–15)
+- `html-y-css/ejercicios/ejercicio1_estructura_basica.html` through `ejercicio14_formularios.html` — Exercise files
+- `html-y-css/ejercicios/ejercicio15_proyecto_integrador/` — Folder with 4 HTML pages and a shared CSS file
 
-Topics: HTML structure → text and headings → links → images → lists and tables → CSS basics → selectors and colors → typography → box model → display and position → flexbox → responsive design → forms → integrating project.
+Topics: HTML structure → text and headings → HTML attributes → links → images → lists and tables → CSS basics → selectors and colors → typography → box model → display and position → flexbox → responsive design → forms → integrating project.
 
 ### Module: WSL y Terminal Linux
 

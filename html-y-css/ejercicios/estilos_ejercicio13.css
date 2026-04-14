@@ -1,5 +1,6 @@
 /* ============================================================
-   ESTILOS EJERCICIO 13: Formularios
+   ESTILOS EJERCICIO 12: Responsive design
+   Estrategia: mobile first
    Escribe tus estilos aquí.
    ============================================================ */
 
@@ -7,15 +8,34 @@
     box-sizing: border-box;
 }
 
+/* Las imágenes nunca deben ser más anchas que su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   BASE (mobile first): estilos para móvil
+   ============================================================ */
+
 body {
 
 }
 
 header {
-
+    /* display: flex; flex-direction: column; align-items: center; */
 }
 
 .logo {
+
+}
+
+nav {
+    /* display: flex; flex-wrap: wrap; justify-content: center; */
+}
+
+nav a {
 
 }
 
@@ -27,61 +47,72 @@ h1 {
 
 }
 
-.subtitulo {
+/* Una tarjeta por fila en móvil */
+.contenedor-tarjetas {
+    /* display: flex; flex-direction: column; gap: 16px; */
+}
+
+.tarjeta-producto {
 
 }
 
-/* Formulario: ancho máximo y centrado */
-.formulario-contacto {
-    /* max-width: 600px; margin: 0 auto; */
+.tarjeta-producto img {
+
 }
 
-/* Cada campo: espacio entre campos */
-.campo-formulario {
-    /* margin-bottom: 20px; */
+.tarjeta-contenido {
+
 }
 
-/* Etiqueta: encima del campo */
-label {
-    /* display: block; font-weight: bold; margin-bottom: 6px; */
+.precio {
+
 }
 
-/* Inputs, select y textarea: ancho completo con padding */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select,
-textarea {
-    /* width: 100%; padding: 10px 14px; border: 1px solid; border-radius: 6px; */
+footer {
+    /* display: flex; flex-direction: column; */
 }
 
-/* Al hacer foco: destacar el campo activo */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-select:focus,
-textarea:focus {
-    /* border-color: (color de tu marca); outline: none; */
+.footer-columna {
+
 }
 
-/* Checkbox: en fila con su label */
-.campo-checkbox {
-    /* display: flex; align-items: flex-start; gap: 10px; */
+/* ============================================================
+   TABLET: pantallas de 768px o más
+   ============================================================ */
+
+@media (min-width: 768px) {
+
+    header {
+        /* flex-direction: row; justify-content: space-between; */
+    }
+
+    nav {
+        /* flex-wrap: nowrap; justify-content: flex-end; */
+    }
+
+    /* Dos tarjetas por fila */
+    .contenedor-tarjetas {
+        /* flex-direction: row; flex-wrap: wrap; */
+    }
+
+    .tarjeta-producto {
+        /* flex: 0 0 calc(50% - 8px); */
+    }
+
+    footer {
+        /* flex-direction: row; justify-content: space-around; */
+    }
 }
 
-.campo-checkbox input[type="checkbox"] {
-    /* width: auto; */
-}
+/* ============================================================
+   DESKTOP: pantallas de 1024px o más
+   ============================================================ */
 
-.campo-checkbox label {
-    /* display: inline; font-weight: normal; */
-}
+@media (min-width: 1024px) {
 
-/* Botón de envío */
-.boton-enviar {
-    /* width: 100%; padding: 14px; border: none; cursor: pointer; */
-}
-
-.boton-enviar:hover {
+    /* Tres tarjetas por fila */
+    .tarjeta-producto {
+        /* flex: 0 0 calc(33.333% - 12px); */
+    }
 
 }

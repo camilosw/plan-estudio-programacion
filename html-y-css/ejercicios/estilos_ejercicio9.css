@@ -1,42 +1,39 @@
 /* ============================================================
-   ESTILOS EJERCICIO 9: Modelo de caja
+   ESTILOS EJERCICIO 8: Tipografía
    Escribe tus estilos aquí.
    ============================================================ */
 
-/* Reset: box-sizing a todos los elementos */
-* {
+/* Tamaño base del documento */
+html {
 
 }
 
+/* Fuente y espaciado del cuerpo */
 body {
 
 }
 
-h1 {
+/* Fuente y alineación de títulos */
+h1, h2 {
 
 }
 
-/* Tarjeta de producto: el box model completo */
-.tarjeta-producto {
+/* Estilo de párrafos */
+p {
 
 }
 
-/* Imágenes dentro de las tarjetas */
-.tarjeta-producto img {
+/* Clase para subtítulo principal */
+.subtitulo {
 
 }
 
-/* Nombre del producto */
-.tarjeta-producto h3 {
-
-}
-
-/* Descripción del producto */
-.descripcion {
-
-}
-
-/* Precio del producto */
+/* Clase para precios */
 .precio {
+
+}
+
+/* Clase para notas pequeñas */
+.nota {
 
 }

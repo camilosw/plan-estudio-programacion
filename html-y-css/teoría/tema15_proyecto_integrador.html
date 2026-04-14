@@ -1,0 +1,117 @@
+<!--
+  TEMA 15: Proyecto integrador — Sitio web completo de La Cafetería
+  Explicación completa: tema15_proyecto_integrador.md
+-->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Cafetería de Sandra — Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="estilos_tema15.css" />
+  </head>
+  <body>
+    <!-- HEADER: se repite en todas las páginas -->
+    <header>
+      <div class="logo">La Cafetería de Sandra</div>
+      <nav>
+        <a href="tema14_proyecto_integrador.html" class="activo">Inicio</a>
+        <a href="#">Menú</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- HERO: imagen de bienvenida con texto encima -->
+    <section class="hero">
+      <img
+        src="https://placehold.co/1200x400?text=La+Cafeteria+de+Sandra"
+        alt="Vista del local de La Cafetería de Sandra"
+      />
+      <div class="hero-texto">
+        <h1>El mejor café de la ciudad</h1>
+        <p>Café de especialidad desde 2010</p>
+        <a href="#" class="boton-hero">Ver nuestro menú</a>
+      </div>
+    </section>
+
+    <!-- DESTACADOS: tres tarjetas en fila -->
+    <section class="seccion-destacados">
+      <h2>Nuestros favoritos</h2>
+      <div class="contenedor-tarjetas">
+        <div class="tarjeta-producto">
+          <span class="badge">Más pedido</span>
+          <img
+            src="https://placehold.co/380x220?text=Cappuccino"
+            alt="Cappuccino con espuma cremosa"
+          />
+          <div class="tarjeta-contenido">
+            <h3>Cappuccino</h3>
+            <p>Espresso con leche vaporizada y espuma sedosa.</p>
+            <p class="precio">$4.00</p>
+          </div>
+        </div>
+
+        <div class="tarjeta-producto">
+          <span class="badge badge-nuevo">Nuevo</span>
+          <img
+            src="https://placehold.co/380x220?text=Cafe+de+Temporada"
+            alt="Café de temporada con especias"
+          />
+          <div class="tarjeta-contenido">
+            <h3>Café de Temporada</h3>
+            <p>Nuestra mezcla especial con notas de vainilla y canela.</p>
+            <p class="precio">$5.50</p>
+          </div>
+        </div>
+
+        <div class="tarjeta-producto">
+          <img
+            src="https://placehold.co/380x220?text=Croissant"
+            alt="Croissant de mantequilla recién horneado"
+          />
+          <div class="tarjeta-contenido">
+            <h3>Croissant de Mantequilla</h3>
+            <p>Horneado cada mañana con mantequilla francesa.</p>
+            <p class="precio">$3.00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN INFORMATIVA -->
+    <section class="seccion-info">
+      <div class="info-bloque">
+        <h3>Horarios</h3>
+        <p>
+          Lunes a viernes: 7:00–20:00<br />
+          Sábados y domingos: 8:00–22:00
+        </p>
+      </div>
+      <div class="info-bloque">
+        <h3>Ubicación</h3>
+        <p>
+          Av. Principal 123<br />
+          Centro histórico
+        </p>
+      </div>
+      <div class="info-bloque">
+        <h3>Contacto</h3>
+        <p>
+          info@lacafeteria.com<br />
+          +54 11 1234-5678
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2024 La Cafetería de Sandra. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

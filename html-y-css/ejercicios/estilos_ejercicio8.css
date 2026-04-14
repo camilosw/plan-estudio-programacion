@@ -1,39 +1,21 @@
 /* ============================================================
-   ESTILOS EJERCICIO 8: Tipografía
+   ESTILOS EJERCICIO 7: Selectores y colores
    Escribe tus estilos aquí.
    ============================================================ */
 
-/* Tamaño base del documento */
-html {
+/* Selector de etiqueta: body */
 
-}
 
-/* Fuente y espaciado del cuerpo */
-body {
+/* Selector de etiqueta: p */
 
-}
 
-/* Fuente y alineación de títulos */
-h1, h2 {
+/* Selector de ID: #titulo-principal */
 
-}
 
-/* Estilo de párrafos */
-p {
+/* Selector de clase: .destacado */
 
-}
 
-/* Clase para subtítulo principal */
-.subtitulo {
+/* Selector de clase: .seccion-menu */
 
-}
 
-/* Clase para precios */
-.precio {
-
-}
-
-/* Clase para notas pequeñas */
-.nota {
-
-}
+/* Selector de clase: .seccion-contacto */

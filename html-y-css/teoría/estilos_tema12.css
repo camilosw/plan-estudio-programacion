@@ -1,6 +1,5 @@
 /* ============================================================
-   ESTILOS TEMA 12: Responsive design y media queries
-   Estrategia: mobile first
+   ESTILOS TEMA 11: Flexbox
    ============================================================ */
 
 * {
@@ -17,47 +16,33 @@ body {
     padding: 0;
 }
 
-/* --- IMÁGENES FLUIDAS: nunca más anchas que su contenedor --- */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+/* --- HEADER con flexbox: logo a la izquierda, nav a la derecha --- */
 
-/* ============================================================
-   BASE (mobile first): diseño para pantallas pequeñas
-   ============================================================ */
-
-/* Header: columna (logo arriba, nav abajo) en móvil */
 header {
     display: flex;
-    flex-direction: column;  /* apilado en móvil */
-    align-items: center;
-    gap: 12px;
+    justify-content: space-between; /* los extremos se separan */
+    align-items: center;            /* centrado vertical */
     background-color: #5c3317;
-    padding: 16px;
+    padding: 16px 32px;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: #ffffff;
     font-weight: 700;
-    text-align: center;
 }
 
 nav {
-    display: flex;
-    flex-wrap: wrap;   /* si los enlaces no caben, se acomodan */
-    justify-content: center;
-    gap: 4px;
+    display: flex;  /* los enlaces del nav también en fila */
+    gap: 8px;       /* espacio entre enlaces */
 }
 
 nav a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.9rem;
-    padding: 6px 10px;
+    font-size: 0.95rem;
+    padding: 8px 12px;
     border-radius: 4px;
 }
 
@@ -65,40 +50,53 @@ nav a:hover {
     background-color: #7a4628;
 }
 
+/* --- SECCIÓN PRINCIPAL --- */
+
 main {
-    padding: 16px;
+    padding: 32px;
 }
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: #5c3317;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
-/* Contenedor: columna en móvil (una tarjeta por fila) */
+/* --- CONTENEDOR DE TARJETAS: flexbox con wrap --- */
+
 .contenedor-tarjetas {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-wrap: wrap;         /* las tarjetas pasan a la siguiente fila si no caben */
+    justify-content: center; /* centradas horizontalmente */
+    gap: 24px;               /* espacio entre tarjetas (fila y columna) */
 }
 
-/* Tarjeta: ocupa todo el ancho disponible en móvil */
+/* --- TARJETA DE PRODUCTO --- */
+
 .tarjeta-producto {
+    flex: 0 0 280px;   /* no crece, no encoge, base de 280px */
     background-color: #ffffff;
     border: 1px solid #d4b896;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden;  /* la imagen no se sale del border-radius */
+    /* display: flex en la tarjeta para la columna interna */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* imagen arriba, contenido abajo */
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .tarjeta-contenido {
-    padding: 16px;
     display: flex;
-    flex-direction: column;
-    flex: 1;
+    flex-direction: column; /* título, descripción y precio en columna */
+    flex: 1;                /* ocupa el espacio restante */
+    padding: 16px;
 }
 
 .tarjeta-contenido h3 {
@@ -112,123 +110,46 @@ h1 {
     font-size: 0.875rem;
     color: #666666;
     margin: 0 0 8px 0;
-    flex: 1;
     text-align: left;
+    flex: 1; /* empuja el precio hacia abajo */
 }
 
-.precio {
+.tarjeta-contenido .precio {
     font-size: 1.125rem;
     font-weight: 700;
     color: #5c3317;
     text-align: right;
     margin: 0;
-    flex: 0;
+    flex: 0; /* no crece; queda pegado al fondo */
 }
 
-/* Footer: columna en móvil */
+/* --- FOOTER con tres columnas flexbox --- */
+
 footer {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
+    justify-content: space-around; /* espacio equitativo entre columnas */
+    align-items: flex-start;       /* alineados al tope */
     background-color: #3d2210;
     color: #f5f0eb;
-    padding: 24px 16px;
-    margin-top: 32px;
+    padding: 32px;
+    margin-top: 48px;
+}
+
+.footer-columna {
+    flex: 0 0 200px; /* columnas de ancho fijo */
 }
 
 .footer-columna h4 {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     color: #d4b896;
-    margin: 0 0 8px 0;
+    margin-top: 0;
+    margin-bottom: 12px;
 }
 
 .footer-columna p {
     font-size: 0.875rem;
     color: #c4a882;
-    margin: 0;
     text-align: left;
-}
-
-/* ============================================================
-   TABLET: min-width 768px — dos columnas
-   ============================================================ */
-
-@media (min-width: 768px) {
-
-    /* Header: logo a la izquierda, nav a la derecha */
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 16px 32px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    nav {
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        gap: 8px;
-    }
-
-    main {
-        padding: 32px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    /* Contenedor: fila con wrap, dos tarjetas por fila */
-    .contenedor-tarjetas {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-    }
-
-    /* Cada tarjeta: aproximadamente la mitad del ancho disponible */
-    .tarjeta-producto {
-        flex: 0 0 calc(50% - 8px);
-        max-width: calc(50% - 8px);
-    }
-
-    /* Footer: fila con espacio entre columnas */
-    footer {
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 32px;
-    }
-}
-
-/* ============================================================
-   DESKTOP: min-width 1024px — tres columnas
-   ============================================================ */
-
-@media (min-width: 1024px) {
-
-    header {
-        padding: 16px 48px;
-    }
-
-    main {
-        padding: 40px 48px;
-    }
-
-    h1 {
-        font-size: 2.25rem;
-        margin-bottom: 40px;
-    }
-
-    .contenedor-tarjetas {
-        gap: 24px;
-    }
-
-    /* Cada tarjeta: un tercio del ancho disponible */
-    .tarjeta-producto {
-        flex: 0 0 calc(33.333% - 16px);
-        max-width: calc(33.333% - 16px);
-    }
+    margin: 0;
 }

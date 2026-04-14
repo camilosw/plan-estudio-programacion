@@ -1,5 +1,5 @@
 /* ============================================================
-   ESTILOS TEMA 11: Flexbox
+   ESTILOS TEMA 10: Display y posición
    ============================================================ */
 
 * {
@@ -12,144 +12,114 @@ body {
     line-height: 1.6;
     color: #333333;
     background-color: #f5f0eb;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- MENÚ DE NAVEGACIÓN HORIZONTAL con display: inline-block --- */
+
+nav {
+    background-color: #5c3317;
+    padding: 12px 24px;
+}
+
+nav ul {
+    list-style: none; /* quita las viñetas */
     margin: 0;
     padding: 0;
 }
 
-/* --- HEADER con flexbox: logo a la izquierda, nav a la derecha --- */
-
-header {
-    display: flex;
-    justify-content: space-between; /* los extremos se separan */
-    align-items: center;            /* centrado vertical */
-    background-color: #5c3317;
-    padding: 16px 32px;
+nav ul li {
+    display: inline-block; /* los ítems van en fila */
+    margin-right: 8px;
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: #ffffff;
-    font-weight: 700;
-}
-
-nav {
-    display: flex;  /* los enlaces del nav también en fila */
-    gap: 8px;       /* espacio entre enlaces */
-}
-
-nav a {
+nav ul li a {
     color: #ffffff;
     text-decoration: none;
     font-size: 0.95rem;
     padding: 8px 12px;
+    display: inline-block; /* para que el padding se aplique bien */
+}
+
+nav ul li a:hover {
+    background-color: #7a4628;
     border-radius: 4px;
 }
 
-nav a:hover {
-    background-color: #7a4628;
-}
-
-/* --- SECCIÓN PRINCIPAL --- */
-
-main {
-    padding: 32px;
-}
+/* --- CONTENIDO PRINCIPAL --- */
 
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     color: #5c3317;
     text-align: center;
-    margin-bottom: 32px;
+    padding: 32px 16px 16px;
 }
-
-/* --- CONTENEDOR DE TARJETAS: flexbox con wrap --- */
 
 .contenedor-tarjetas {
-    display: flex;
-    flex-wrap: wrap;         /* las tarjetas pasan a la siguiente fila si no caben */
-    justify-content: center; /* centradas horizontalmente */
-    gap: 24px;               /* espacio entre tarjetas (fila y columna) */
+    padding: 16px 24px;
 }
 
-/* --- TARJETA DE PRODUCTO --- */
+/* --- TARJETA DE PRODUCTO con position: relative --- */
 
 .tarjeta-producto {
-    flex: 0 0 280px;   /* no crece, no encoge, base de 280px */
-    background-color: #ffffff;
+    position: relative;    /* referencia para el badge con position: absolute */
+    display: inline-block; /* quedan en fila */
+    vertical-align: top;
+    width: 260px;
+    padding: 16px;
     border: 1px solid #d4b896;
     border-radius: 8px;
-    overflow: hidden;  /* la imagen no se sale del border-radius */
-    /* display: flex en la tarjeta para la columna interna */
-    display: flex;
-    flex-direction: column; /* imagen arriba, contenido abajo */
+    margin: 0 16px 24px 0;
+    background-color: #ffffff;
 }
 
 .tarjeta-producto img {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.tarjeta-contenido {
-    display: flex;
-    flex-direction: column; /* título, descripción y precio en columna */
-    flex: 1;                /* ocupa el espacio restante */
-    padding: 16px;
-}
-
-.tarjeta-contenido h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.125rem;
-    color: #5c3317;
-    margin: 0 0 8px 0;
-}
-
-.tarjeta-contenido p {
-    font-size: 0.875rem;
-    color: #666666;
-    margin: 0 0 8px 0;
-    text-align: left;
-    flex: 1; /* empuja el precio hacia abajo */
-}
-
-.tarjeta-contenido .precio {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #5c3317;
-    text-align: right;
-    margin: 0;
-    flex: 0; /* no crece; queda pegado al fondo */
-}
-
-/* --- FOOTER con tres columnas flexbox --- */
-
-footer {
-    display: flex;
-    justify-content: space-around; /* espacio equitativo entre columnas */
-    align-items: flex-start;       /* alineados al tope */
-    background-color: #3d2210;
-    color: #f5f0eb;
-    padding: 32px;
-    margin-top: 48px;
-}
-
-.footer-columna {
-    flex: 0 0 200px; /* columnas de ancho fijo */
-}
-
-.footer-columna h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: #d4b896;
-    margin-top: 0;
+    border-radius: 4px;
     margin-bottom: 12px;
 }
 
-.footer-columna p {
-    font-size: 0.875rem;
-    color: #c4a882;
-    text-align: left;
+.tarjeta-producto h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #5c3317;
+    margin: 0 0 8px 0;
+}
+
+.tarjeta-producto .precio {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #5c3317;
     margin: 0;
+    text-align: right;
+}
+
+/* --- BADGE "NUEVO": position absolute respecto a la tarjeta --- */
+
+.badge-nuevo {
+    position: absolute; /* sale del flujo normal */
+    top: 8px;           /* 8px desde el borde superior de la tarjeta */
+    right: 8px;         /* 8px desde el borde derecho de la tarjeta */
+    background-color: #c0392b;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- ELEMENTO OCULTO con display: none --- */
+
+.aviso-cerrado {
+    display: none; /* no aparece en la página, pero existe en el HTML */
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
 }

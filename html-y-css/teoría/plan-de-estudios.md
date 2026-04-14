@@ -71,7 +71,38 @@ Crear `ejercicio2_textos_y_encabezados.html`. La página debe tener: un `<h1>` c
 
 ---
 
-## Tema 3: Enlaces y navegación
+## Tema 3: Atributos HTML
+
+**Objetivo:** Entender qué son los atributos, cómo se escriben dentro de las etiquetas y para qué sirven los más comunes.
+
+**Explicación:** Los atributos son como las instrucciones adicionales que le das a una etiqueta. Si una etiqueta es una orden ("pon un enlace aquí"), el atributo es la especificación de esa orden ("...que vaya a esta dirección, y que se abra en una nueva pestaña"). Los atributos van siempre dentro de la etiqueta de apertura y tienen la forma `nombre="valor"`. Algunos atributos son globales (funcionan en cualquier etiqueta): `id` para identificar un elemento único, `class` para agrupar elementos con la misma etiqueta reutilizable, `title` para mostrar un globo de información al pasar el mouse. Otros atributos son propios de cada etiqueta: `href` en `<a>`, `src` y `alt` en `<img>`, `type` en `<input>`, etc.
+
+**Ejemplo:**
+
+```html
+<!-- Atributo id: identificador único en la página -->
+<h2 id="horarios">Horarios de atención</h2>
+
+<!-- Atributo class: reutilizable en varios elementos -->
+<p class="destacado">Café de temporada disponible.</p>
+<p class="destacado">Croissants recién horneados.</p>
+
+<!-- Atributo title: aparece como tooltip al pasar el mouse -->
+<span title="Café cultivado a más de 1500 metros de altura">de especialidad</span>
+
+<!-- Atributo booleano: su sola presencia activa la opción -->
+<button disabled>Reservar mesa</button>
+
+<!-- Varios atributos en una misma etiqueta -->
+<img src="foto.jpg" alt="Interior del local" width="600" height="200">
+```
+
+**Ejercicio:**
+Completar `ejercicio3_atributos.html`: agregar un `<h1>` con `id="nombre-cafeteria"`, dos párrafos de horarios con `class="horario"`, un `<span>` con `title` explicando qué es el "café de temporada", dos párrafos de novedades con `class="novedad"`, un botón desactivado con `disabled` y un botón activo, y una imagen con `src`, `alt`, `width` y `height`. Abrir en el navegador y verificar que el tooltip aparece al pasar el mouse sobre el span.
+
+---
+
+## Tema 4: Enlaces y navegación
 
 **Objetivo:** Entender cómo conectar páginas entre sí y con sitios externos usando enlaces.
 
@@ -91,11 +122,11 @@ Crear `ejercicio2_textos_y_encabezados.html`. La página debe tener: un `<h1>` c
 ```
 
 **Ejercicio:**
-Crear dos páginas: `ejercicio3_enlaces_y_navegacion.html` (la página principal) y una página de menú llamada `menu.html` en la misma carpeta. La página principal debe tener un enlace que lleve al menú y un enlace externo. La página del menú debe tener un enlace que regrese a la principal.
+Crear dos páginas: `ejercicio4_enlaces_y_navegacion.html` (la página principal) y una página de menú llamada `menu.html` en la misma carpeta. La página principal debe tener un enlace que lleve al menú y un enlace externo. La página del menú debe tener un enlace que regrese a la principal.
 
 ---
 
-## Tema 4: Imágenes
+## Tema 5: Imágenes
 
 **Objetivo:** Aprender a insertar imágenes y entender los atributos esenciales.
 
@@ -116,7 +147,7 @@ Agregar a la página del ejercicio anterior una imagen de encabezado con `src`, 
 
 ---
 
-## Tema 5: Listas y tablas
+## Tema 6: Listas y tablas
 
 **Objetivo:** Organizar información en listas y tablas.
 
@@ -167,11 +198,11 @@ Agregar a la página del ejercicio anterior una imagen de encabezado con `src`, 
 ```
 
 **Ejercicio:**
-Crear `ejercicio5_listas_y_tablas.html` con: una lista ordenada de los 3 cafés más vendidos, una lista desordenada de todas las bebidas organizadas por categoría (con sublistas), y una tabla de precios con al menos 5 productos y las columnas: Producto, Tamaño, Precio.
+Crear `ejercicio6_listas_y_tablas.html` con: una lista ordenada de los 3 cafés más vendidos, una lista desordenada de todas las bebidas organizadas por categoría (con sublistas), y una tabla de precios con al menos 5 productos y las columnas: Producto, Tamaño, Precio.
 
 ---
 
-## Tema 6: CSS — Primeros pasos
+## Tema 7: CSS — Primeros pasos
 
 **Objetivo:** Entender que CSS es el lenguaje que controla la apariencia visual del HTML, y conocer las tres formas de agregarlo.
 
@@ -218,7 +249,7 @@ Tomar la página del ejercicio anterior y agregarle estilos: un estilo inline en
 
 ---
 
-## Tema 7: Selectores y colores
+## Tema 8: Selectores y colores
 
 **Objetivo:** Aprender a seleccionar elementos específicos para darles estilo, y conocer las formas de definir colores en CSS.
 
@@ -269,11 +300,11 @@ h2 {
 ```
 
 **Ejercicio:**
-Crear `ejercicio7_selectores_y_colores.html` con su archivo `estilos_ejercicio7.css`. El HTML debe tener al menos dos clases distintas y un ID. El CSS debe usar colores en los tres formatos (nombre, hexadecimal y RGB) y aplicar estilos diferentes a cada sección.
+Crear `ejercicio8_selectores_y_colores.html` con su archivo `estilos_ejercicio8.css`. El HTML debe tener al menos dos clases distintas y un ID. El CSS debe usar colores en los tres formatos (nombre, hexadecimal y RGB) y aplicar estilos diferentes a cada sección.
 
 ---
 
-## Tema 8: Tipografía y estilos de texto
+## Tema 9: Tipografía y estilos de texto
 
 **Objetivo:** Controlar la apariencia del texto: fuente, tamaño, espaciado, alineación y decoración.
 
@@ -315,11 +346,11 @@ p {
 ```
 
 **Ejercicio:**
-Crear `ejercicio8_tipografia_y_textos.html` con dos fuentes de Google Fonts: una para los títulos, otra para el texto. Aplicarlas con CSS externo. Centrar los títulos, justificar los párrafos, ajustar `line-height` a 1.6 y usar `rem` para los tamaños de fuente.
+Crear `ejercicio9_tipografia_y_textos.html` con dos fuentes de Google Fonts: una para los títulos, otra para el texto. Aplicarlas con CSS externo. Centrar los títulos, justificar los párrafos, ajustar `line-height` a 1.6 y usar `rem` para los tamaños de fuente.
 
 ---
 
-## Tema 9: El modelo de caja — margin, padding, border
+## Tema 10: El modelo de caja — margin, padding, border
 
 **Objetivo:** Entender que todo elemento HTML es una caja con contenido, relleno, borde y margen.
 
@@ -349,11 +380,11 @@ Crear `ejercicio8_tipografia_y_textos.html` con dos fuentes de Google Fonts: una
 ```
 
 **Ejercicio:**
-Crear `ejercicio9_modelo_de_caja.html` con tres tarjetas de producto. Cada tarjeta debe tener `border`, `border-radius`, `padding` interno y `margin` entre tarjetas. Aplicar `box-sizing: border-box` a todos los elementos. Inspeccionar una tarjeta con las DevTools del navegador (F12 → seleccionar el elemento) y verificar los valores del box model.
+Crear `ejercicio10_modelo_de_caja.html` con tres tarjetas de producto. Cada tarjeta debe tener `border`, `border-radius`, `padding` interno y `margin` entre tarjetas. Aplicar `box-sizing: border-box` a todos los elementos. Inspeccionar una tarjeta con las DevTools del navegador (F12 → seleccionar el elemento) y verificar los valores del box model.
 
 ---
 
-## Tema 10: Display y posición
+## Tema 11: Display y posición
 
 **Objetivo:** Entender la diferencia entre elementos en bloque y en línea, y cómo cambiar su comportamiento.
 
@@ -393,11 +424,11 @@ nav ul li {
 ```
 
 **Ejercicio:**
-Crear `ejercicio10_display_y_posicion.html` con: un menú de navegación horizontal usando `display: inline-block` en los ítems de una lista, y una tarjeta de producto con un badge "Nuevo" posicionado con `position: absolute` en una esquina. También incluir un párrafo oculto con `display: none`.
+Crear `ejercicio11_display_y_posicion.html` con: un menú de navegación horizontal usando `display: inline-block` en los ítems de una lista, y una tarjeta de producto con un badge "Nuevo" posicionado con `position: absolute` en una esquina. También incluir un párrafo oculto con `display: none`.
 
 ---
 
-## Tema 11: Flexbox — Distribuir elementos fácilmente
+## Tema 12: Flexbox — Distribuir elementos fácilmente
 
 **Objetivo:** Aprender a distribuir y alinear elementos con Flexbox, el sistema de layout moderno de CSS.
 
@@ -434,7 +465,7 @@ Rediseñar la página de la cafetería usando flexbox: un header con el nombre d
 
 ---
 
-## Tema 12: Responsive design y media queries
+## Tema 13: Responsive design y media queries
 
 **Objetivo:** Hacer que la página se adapte a diferentes tamaños de pantalla.
 
@@ -484,7 +515,7 @@ Agregar el meta `viewport` a la página y crear media queries para tres breakpoi
 
 ---
 
-## Tema 13: Formularios
+## Tema 14: Formularios
 
 **Objetivo:** Crear formularios interactivos para que los usuarios envíen información.
 
@@ -546,11 +577,11 @@ button[type="submit"]:hover {
 ```
 
 **Ejercicio:**
-Crear `ejercicio13_formularios.html` con una página de contacto para la cafetería. El formulario debe incluir: nombre y email (obligatorios), teléfono (opcional), selector de tipo de consulta, campo de mensaje, checkbox de términos y condiciones, y botón de enviar. Estilizar el formulario con CSS externo para que sea consistente con el diseño del sitio. El formulario debe ser responsive.
+Crear `ejercicio14_formularios.html` con una página de contacto para la cafetería. El formulario debe incluir: nombre y email (obligatorios), teléfono (opcional), selector de tipo de consulta, campo de mensaje, checkbox de términos y condiciones, y botón de enviar. Estilizar el formulario con CSS externo para que sea consistente con el diseño del sitio. El formulario debe ser responsive.
 
 ---
 
-## Tema 14: Proyecto integrador — Sitio web completo de La Cafetería
+## Tema 15: Proyecto integrador — Sitio web completo de La Cafetería
 
 **Objetivo:** Integrar todos los conceptos aprendidos en un sitio web completo de varias páginas.
 
@@ -584,18 +615,19 @@ Requisitos mínimos del sitio:
 | ---- | ----------------------- | ------------------------------------------------------- |
 | 1    | Estructura HTML         | `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`, abrir en el navegador |
 | 2    | Textos y encabezados    | `<h1>`-`<h6>`, `<p>`, `<strong>`, `<em>`, jerarquía de contenido |
-| 3    | Enlaces                 | `<a href>`, navegación entre páginas, `target="_blank"` |
-| 4    | Imágenes                | `<img>`, `src`, `alt`, `width`, `height`                |
-| 5    | Listas y tablas         | `<ul>`, `<ol>`, `<li>`, `<table>`, `<tr>`, `<th>`, `<td>` |
-| 6    | CSS primeros pasos      | inline, interno, externo; `color`, `background-color`, `font-size` |
-| 7    | Selectores y colores    | `.clase`, `#id`, colores en nombre/hex/RGB, archivo CSS externo |
-| 8    | Tipografía              | `font-family`, Google Fonts, `px`/`em`/`rem`, `text-align`, `line-height` |
-| 9    | Modelo de caja          | `margin`, `padding`, `border`, `box-sizing`, DevTools   |
-| 10   | Display                 | `block`, `inline`, `inline-block`, `position: relative/absolute` |
-| 11   | Flexbox                 | `display: flex`, `justify-content`, `align-items`, `gap`, `flex-wrap` |
-| 12   | Responsive              | `@media`, breakpoints, `viewport`, `max-width`, mobile first |
-| 13   | Formularios             | `<form>`, `<input>`, `<select>`, `<label>`, `required`  |
-| 14   | Integración             | Sitio completo de cuatro páginas                        |
+| 3    | Atributos HTML          | `id`, `class`, `title`, atributos booleanos, sintaxis `nombre="valor"` |
+| 4    | Enlaces                 | `<a href>`, navegación entre páginas, `target="_blank"` |
+| 5    | Imágenes                | `<img>`, `src`, `alt`, `width`, `height`                |
+| 6    | Listas y tablas         | `<ul>`, `<ol>`, `<li>`, `<table>`, `<tr>`, `<th>`, `<td>` |
+| 7    | CSS primeros pasos      | inline, interno, externo; `color`, `background-color`, `font-size` |
+| 8    | Selectores y colores    | `.clase`, `#id`, colores en nombre/hex/RGB, archivo CSS externo |
+| 9    | Tipografía              | `font-family`, Google Fonts, `px`/`em`/`rem`, `text-align`, `line-height` |
+| 10   | Modelo de caja          | `margin`, `padding`, `border`, `box-sizing`, DevTools   |
+| 11   | Display                 | `block`, `inline`, `inline-block`, `position: relative/absolute` |
+| 12   | Flexbox                 | `display: flex`, `justify-content`, `align-items`, `gap`, `flex-wrap` |
+| 13   | Responsive              | `@media`, breakpoints, `viewport`, `max-width`, mobile first |
+| 14   | Formularios             | `<form>`, `<input>`, `<select>`, `<label>`, `required`  |
+| 15   | Integración             | Sitio completo de cuatro páginas                        |
 
 ---
 
@@ -604,34 +636,36 @@ Requisitos mínimos del sitio:
 **Teoría** (`html-y-css/teoría/`):
 - `tema1_estructura_basica.html`
 - `tema2_textos_y_encabezados.html`
-- `tema3_enlaces_y_navegacion.html`
-- `tema4_imagenes.html`
-- `tema5_listas_y_tablas.html`
-- `tema6_css_primeros_pasos.html`
-- `tema7_selectores_y_colores.html` + `estilos_tema7.css`
-- `tema8_tipografia_y_textos.html` + `estilos_tema8.css`
-- `tema9_modelo_de_caja.html` + `estilos_tema9.css`
-- `tema10_display_y_posicion.html` + `estilos_tema10.css`
-- `tema11_flexbox.html` + `estilos_tema11.css`
-- `tema12_responsive_y_media_queries.html` + `estilos_tema12.css`
-- `tema13_formularios.html` + `estilos_tema13.css`
-- `tema14_proyecto_integrador.html` + `estilos_tema14.css`
+- `tema3_atributos.html`
+- `tema4_enlaces_y_navegacion.html`
+- `tema5_imagenes.html`
+- `tema6_listas_y_tablas.html`
+- `tema7_css_primeros_pasos.html`
+- `tema8_selectores_y_colores.html` + `estilos_tema8.css`
+- `tema9_tipografia_y_textos.html` + `estilos_tema9.css`
+- `tema10_modelo_de_caja.html` + `estilos_tema10.css`
+- `tema11_display_y_posicion.html` + `estilos_tema11.css`
+- `tema12_flexbox.html` + `estilos_tema12.css`
+- `tema13_responsive_y_media_queries.html` + `estilos_tema13.css`
+- `tema14_formularios.html` + `estilos_tema14.css`
+- `tema15_proyecto_integrador.html` + `estilos_tema15.css`
 
 **Ejercicios** (`html-y-css/ejercicios/`):
 - `ejercicio1_estructura_basica.html`
 - `ejercicio2_textos_y_encabezados.html`
-- `ejercicio3_enlaces_y_navegacion.html`
-- `ejercicio4_imagenes.html`
-- `ejercicio5_listas_y_tablas.html`
-- `ejercicio6_css_primeros_pasos.html`
-- `ejercicio7_selectores_y_colores.html` + `estilos_ejercicio7.css`
-- `ejercicio8_tipografia_y_textos.html` + `estilos_ejercicio8.css`
-- `ejercicio9_modelo_de_caja.html` + `estilos_ejercicio9.css`
-- `ejercicio10_display_y_posicion.html` + `estilos_ejercicio10.css`
-- `ejercicio11_flexbox.html` + `estilos_ejercicio11.css`
-- `ejercicio12_responsive_y_media_queries.html` + `estilos_ejercicio12.css`
-- `ejercicio13_formularios.html` + `estilos_ejercicio13.css`
-- `ejercicio14_proyecto_integrador/` (carpeta con index.html, menu.html, nosotros.html, contacto.html, estilos.css)
+- `ejercicio3_atributos.html`
+- `ejercicio4_enlaces_y_navegacion.html`
+- `ejercicio5_imagenes.html`
+- `ejercicio6_listas_y_tablas.html`
+- `ejercicio7_css_primeros_pasos.html`
+- `ejercicio8_selectores_y_colores.html` + `estilos_ejercicio8.css`
+- `ejercicio9_tipografia_y_textos.html` + `estilos_ejercicio9.css`
+- `ejercicio10_modelo_de_caja.html` + `estilos_ejercicio10.css`
+- `ejercicio11_display_y_posicion.html` + `estilos_ejercicio11.css`
+- `ejercicio12_flexbox.html` + `estilos_ejercicio12.css`
+- `ejercicio13_responsive_y_media_queries.html` + `estilos_ejercicio13.css`
+- `ejercicio14_formularios.html` + `estilos_ejercicio14.css`
+- `ejercicio15_proyecto_integrador/` (carpeta con index.html, menu.html, nosotros.html, contacto.html, estilos.css)
 
 ## Verificación
 

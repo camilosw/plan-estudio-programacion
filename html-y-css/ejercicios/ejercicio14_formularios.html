@@ -1,0 +1,117 @@
+<!--
+============================================================
+EJERCICIO 14: Formulario de contacto
+============================================================
+
+Objetivo:
+Crear un formulario de contacto completo para la cafetería
+y aplicar estilos CSS para que se vea integrado al diseño.
+
+Este archivo se vincula con estilos_ejercicio14.css.
+
+Instrucciones para el HTML:
+1. Un <header> con el nombre de la cafetería
+2. Un <main> con:
+   - Un <h1> "Contacto"
+   - Un <p class="subtitulo"> con texto descriptivo
+   - Un <form action="#" method="post" class="formulario-contacto">
+     con los siguientes campos:
+
+     a) Nombre completo (obligatorio):
+        <div class="campo-formulario">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre"
+                   placeholder="Tu nombre" required>
+        </div>
+
+     b) Correo electrónico (obligatorio):
+        <div class="campo-formulario">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email"
+                   placeholder="tu@email.com" required>
+        </div>
+
+     c) Teléfono (opcional):
+        <div class="campo-formulario">
+            <label for="telefono">Teléfono (opcional)</label>
+            <input type="tel" id="telefono" name="telefono"
+                   placeholder="+54 11 1234-5678">
+        </div>
+
+     d) Tipo de consulta (select con 4 opciones):
+        <div class="campo-formulario">
+            <label for="consulta">Tipo de consulta</label>
+            <select id="consulta" name="consulta">
+                <option value="">Selecciona una opción</option>
+                <option value="reserva">Reserva de mesa</option>
+                <option value="catering">Catering para evento</option>
+                <option value="pedido">Pedido especial</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+     e) Mensaje (textarea):
+        <div class="campo-formulario">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5"
+                      placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+
+     f) Checkbox de términos (obligatorio):
+        <div class="campo-checkbox">
+            <input type="checkbox" id="terminos" name="terminos" required>
+            <label for="terminos">Acepto recibir comunicaciones</label>
+        </div>
+
+     g) Botón de envío:
+        <button type="submit" class="boton-enviar">Enviar mensaje</button>
+
+Instrucciones para estilos_ejercicio14.css:
+1. .formulario-contacto:
+   max-width: 600px; margin: 0 auto; padding: 32px;
+   background-color: #ffffff; border-radius: 8px;
+
+2. .campo-formulario: margin-bottom: 20px;
+
+3. label: display: block; font-weight: bold; margin-bottom: 6px;
+
+4. input[type="text"], input[type="email"], input[type="tel"], select, textarea:
+   width: 100%; padding: 10px 14px; border: 1px solid #ccc;
+   border-radius: 6px; font-size: 1rem;
+
+5. input:focus, select:focus, textarea:focus:
+   border-color: (color de la marca); outline: none;
+
+6. .campo-checkbox: display: flex; align-items: flex-start; gap: 10px;
+   .campo-checkbox input[type="checkbox"]: width: auto;
+
+7. .boton-enviar:
+   width: 100%; padding: 14px; background-color: (color de la marca);
+   color: white; border: none; border-radius: 6px; cursor: pointer;
+   .boton-enviar:hover: fondo ligeramente más claro
+
+Verificación:
+- Intentar enviar con el nombre vacío: debe aparecer error del navegador
+- Escribir un email sin formato correcto: debe aparecer error del navegador
+- Intentar enviar sin marcar el checkbox: debe aparecer error
+- Al hacer clic en un label, el campo correspondiente debe activarse
+
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13: Formularios</title>
+
+    <!-- Agrega aquí el <link> de Google Fonts si quieres (opcional) -->
+    <!-- Agrega aquí el <link> al CSS externo -->
+
+</head>
+<body>
+
+    <!-- Escribe tu código aquí -->
+
+</body>
+</html>

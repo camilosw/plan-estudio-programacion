@@ -1,0 +1,118 @@
+<!--
+  TEMA 3: Atributos HTML
+  Explicación completa: tema3_atributos.md
+-->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tema 3: Atributos | La Cafetería de Sandra</title>
+  </head>
+  <body>
+    <h1>La Cafetería de Sandra</h1>
+
+    <!--
+        ATRIBUTO id:
+        Identificador único en la página. Solo puede usarse una vez
+        por valor. Sirve para anclas (#seccion) y para CSS o JavaScript.
+    -->
+    <h2 id="bienvenida">Bienvenidos</h2>
+    <p>El mejor café de la ciudad, desde 2010.</p>
+
+    <!--
+        ATRIBUTO class:
+        Etiqueta reutilizable. Varios elementos pueden tener la misma clase.
+        Se usa para aplicar estilos CSS a un grupo de elementos.
+    -->
+    <p class="destacado">☕ Café de temporada disponible esta semana.</p>
+    <p class="destacado">🥐 Croissants recién horneados cada mañana.</p>
+
+    <hr />
+
+    <!--
+        ATRIBUTO lang:
+        Indica el idioma del contenido. Ayuda a los lectores de pantalla
+        y a los buscadores. Se puede aplicar a cualquier elemento.
+    -->
+    <p lang="en">Welcome to La Cafetería de Sandra.</p>
+
+    <hr />
+
+    <!--
+        ATRIBUTO title:
+        Texto que aparece como globo (tooltip) al pasar el mouse por encima.
+        Útil para agregar información extra sin ocupar espacio visual.
+    -->
+    <p>
+      Usamos granos
+      <span
+        title="Café cultivado a más de 1500 metros de altura, con mayor acidez y aroma"
+        >de especialidad</span
+      >
+      seleccionados de Colombia y Brasil.
+    </p>
+
+    <hr />
+
+    <h2>Nuestra dirección</h2>
+
+    <!--
+        ATRIBUTO href (en <a>):
+        Define el destino del enlace. Se verá en detalle en el tema siguiente.
+        Aquí se muestra como ejemplo de atributo con valor.
+    -->
+    <p>
+      Visítanos en
+      <a href="https://maps.google.com" target="_blank">Google Maps</a>.
+      <!-- target="_blank": abre en nueva pestaña -->
+    </p>
+
+    <hr />
+
+    <h2>Imagen del local</h2>
+
+    <!--
+        ATRIBUTOS src, alt, width, height (en <img>):
+        src    → dónde está la imagen (obligatorio)
+        alt    → descripción de la imagen (obligatorio, accesibilidad)
+        width  → ancho en píxeles
+        height → alto en píxeles
+        Se verán en detalle en el tema de imágenes.
+    -->
+    <img
+      src="https://placehold.co/600x200?text=La+Cafeteria+de+Sandra"
+      alt="Vista exterior de La Cafetería de Sandra"
+      width="600"
+      height="200"
+    />
+
+    <hr />
+
+    <h2>Sobre los atributos sin valor</h2>
+
+    <!--
+        Algunos atributos no necesitan valor: solo su presencia activa la opción.
+        Ejemplos: disabled, required, checked.
+        Al agregar "disabled" el botón queda desactivado visualmente.
+    -->
+    <button disabled>Botón desactivado (con atributo "disabled")</button>
+    <button>Botón activo (sin atributo "disabled")</button>
+
+    <!--
+        EJERCICIO
+        ===========================================================
+        Agregar a esta página los siguientes elementos:
+
+        1. Un <h3> con el id "horarios" y el texto "Horarios de atención".
+        2. Un <p> con la clase "destacado" que diga los horarios
+           (por ejemplo: "Lunes a viernes: 7:00 a 20:00").
+        3. Un <span> con el atributo title que explique qué significa
+           "café de especialidad" (puedes inventar la explicación).
+        4. Un <button> con el atributo disabled que diga "Reservar mesa".
+
+        Abre el archivo en el navegador y pasa el mouse sobre el <span>
+        para verificar que aparece el tooltip.
+        ===========================================================
+    -->
+  </body>
+</html>

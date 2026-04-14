@@ -1,68 +1,48 @@
 /* ============================================================
-   ESTILOS TEMA 8: Tipografía y estilos de texto
+   ESTILOS TEMA 7: Selectores y colores
    ============================================================ */
 
-/* Tamaño base del documento: todos los rem se calculan a partir de aquí */
-html {
+/* Selector de etiqueta: aplica a todos los elementos de ese tipo */
+body {
+    background-color: #f5f0eb; /* hexadecimal: crema cálido */
+    font-family: sans-serif;
+}
+
+p {
+    color: #333333; /* hexadecimal: gris oscuro */
     font-size: 16px;
 }
 
-/* Fuente de texto para el cuerpo general */
-body {
-    font-family: 'Lato', sans-serif; /* Google Font para el texto */
-    font-size: 1rem;       /* 16px — igual al tamaño base */
-    line-height: 1.6;      /* espacio entre líneas: 1.6 veces el tamaño de fuente */
-    color: #333333;
-    background-color: #f5f0eb;
+/* Selector de ID: aplica solo al elemento con id="titulo-principal" */
+#titulo-principal {
+    color: rgb(92, 51, 23); /* RGB: marrón oscuro */
+    font-size: 40px;
 }
 
-/* Fuente de títulos: diferente para dar personalidad al diseño */
-h1, h2 {
-    font-family: 'Playfair Display', serif; /* Google Font para títulos */
-    text-align: center;
-    color: #5c3317;
-    letter-spacing: 0.03em; /* pequeño espaciado entre letras */
+/* Selector de clase: aplica a todos los elementos con class="destacado" */
+.destacado {
+    color: darkgreen; /* nombre: verde oscuro */
+    font-weight: bold;
+    font-size: 18px;
 }
 
-h1 {
-    font-size: 2.5rem;   /* 40px = 16 * 2.5 */
-    font-weight: 700;
+/* Selector de clase: sección de historia */
+.seccion-historia {
+    background-color: #fff8f0; /* hexadecimal: blanco cálido */
+    padding: 16px;
+    margin-bottom: 16px;
 }
 
-h2 {
-    font-size: 1.75rem;  /* 28px = 16 * 1.75 */
-    font-weight: 400;    /* peso normal para los subtítulos */
+/* Selector de clase: sección del menú */
+.seccion-menu {
+    background-color: #f0e8d8; /* hexadecimal: beige */
+    padding: 16px;
+    margin-bottom: 16px;
 }
 
-/* Párrafos: justificados para una lectura más formal */
-p {
-    font-size: 1rem;     /* 16px */
-    text-align: justify;
-    max-width: 700px;    /* limita el ancho para mejor lectura */
-    margin: 0 auto 16px; /* centrado horizontal, margen inferior */
-}
-
-/* Clase para precios: destacado pero no exagerado */
-.precio {
-    font-size: 1.25rem;  /* 20px = 16 * 1.25 */
-    font-weight: 700;
-    text-align: center;
-    color: #5c3317;
-    text-decoration: none;
-}
-
-/* Clase para el subtítulo principal */
-.subtitulo {
-    font-size: 1.125rem; /* 18px */
-    font-style: italic;
-    text-align: center;
-    color: #7a4628;
-}
-
-/* Clase para notas pequeñas */
-.nota {
-    font-size: 0.875rem; /* 14px = 16 * 0.875 */
-    font-style: italic;
-    color: #666666;
-    text-align: center;
+/* Selector de clase: sección de horarios */
+.seccion-horarios {
+    background-color: rgb(245, 240, 235); /* RGB: equivalente al crema del body */
+    padding: 16px;
+    margin-bottom: 16px;
 }
