@@ -81,24 +81,26 @@ Key conventions for this module:
 ### Module: Bases de Datos con MariaDB
 
 - `bases-de-datos/teoría/plan-de-estudios.md` — Curriculum plan
-- `bases-de-datos/teoría/tema1_que_es_una_base_de_datos.md` through `tema13_backup_y_restauracion.md` — One Markdown file per topic, with explanations and command examples with expected output (no exercise section in theory files)
-- `bases-de-datos/teoría/tema14_php_pdo_conexion_y_consultas.php` through `tema16_integracion_oop_dao_repositorio.php` — PHP files following the OOP module format: header comment block → working example code → exercise stub as a comment at the end
+- The module alternates SQL (Markdown) and PHP+PDO (PHP) files so the student applies PHP as soon as the basic SQL operations are known. File extensions by topic:
+  - **Markdown (SQL):** temas 1, 2, 3, 4, 5, 6, 9, 10, 11, 13, 14, 15, 17
+  - **PHP (PHP + PDO):** temas 7, 8, 12, 16, 18
 - `bases-de-datos/teoría/hoja-de-referencia.md` — Quick-reference cheat sheet organized by category
 - `bases-de-datos/ejercicios/ejercicio1_que_es_una_base_de_datos.md` — Design exercise (reflexive, no SQL to run)
-- `bases-de-datos/ejercicios/ejercicio4_crear_base_y_tablas.md` through `ejercicio13_backup_y_restauracion.md` — Exercise files using the **tienda de música** domain (different from the biblioteca domain in theory files). Format: domain context → objective without step-by-step instructions → solution at the end for comparison
-- `bases-de-datos/ejercicios/ejercicio14_php_pdo_conexion_y_consultas.php` through `ejercicio16_integracion_oop_dao_repositorio.php` — PHP exercise files with TODO stubs (tienda de música domain) and solution in a block comment at the end
+- Exercise files mirror the theory numbering and file types. Markdown exercises use the **tienda de música** domain (different from the biblioteca domain in theory files). Format: domain context → objective without step-by-step instructions → solution at the end for comparison
+- PHP exercise files (ejercicios 7, 8, 12, 16, 18) use TODO stubs and a solution in a block comment at the end
 - **Topics 2 and 3 have no separate exercise file** — the theory files include a VERIFICACIÓN FINAL section at the end
 
-Topics: what is a relational DB → install MariaDB on WSL → CLI client + HeidiSQL → CREATE TABLE → INSERT/SELECT → UPDATE/DELETE/WHERE → data types + constraints → foreign keys + relations → JOINs → normalization → indexes + views → transactions → backup and restore → PHP PDO connection → prepared statements + security → OOP + repository pattern (integrating project).
+Topics: what is a relational DB → install MariaDB on WSL → CLI client + HeidiSQL → CREATE TABLE → INSERT/SELECT → UPDATE/DELETE/WHERE → **PHP PDO connection → prepared statements + security** → data types + constraints → foreign keys + relations → JOINs → **PHP PDO with JOINs** → normalization → indexes + views → transactions → **PHP PDO transactions** → backup and restore → OOP + repository pattern (integrating project).
 
 Key conventions for this module:
 - Content uses neutral Spanish throughout (no Argentine voseo)
 - Theory Markdown files use the same banner format as the WSL module (`===` headers, ALL-CAPS sections with dashed underlines) and do NOT include an exercise section — exercises are exclusively in `ejercicios/`
-- Theory PHP files (topics 14–16) follow the OOP module format: header comment block with explanation → working example code → solution stub as a block comment at the end
+- Theory PHP files (7, 8, 12, 16, 18) follow the OOP module format: header comment block with explanation → working example code → solution stub as a block comment at the end
+- The PHP bloques progress with the SQL knowledge so far: tema 7–8 use only flat tables (no JOINs, no formal FKs); tema 12 adds JOINs; tema 16 adds transactions; tema 18 integrates OOP
 - The unifying domain for **theory** is **Biblioteca personal**: tables `autores`, `libros`, `categorias`, `libros_categorias`, `socios`, `prestamos`
-- The unifying domain for **exercises** (topics 4–16) is **Tienda de música**: tables `artistas`, `albumes`, `canciones`, `generos`, `albumes_generos`, `clientes`, `compras`
-- Exercise format (topics 4–13): ## Dominio → ## Objetivo (goal without step-by-step) → ## Tu turno → ## Solución
-- Exercise format (topics 14–16): PHP file with TODO stubs and complete solution in a block comment `/* ... */` at the end
+- The unifying domain for **exercises** (topics 4–18) is **Tienda de música**: tables `artistas`, `albumes`, `canciones`, `generos`, `albumes_generos`, `clientes`, `compras`
+- Exercise format (Markdown topics): ## Dominio → ## Objetivo (goal without step-by-step) → ## Tu turno → ## Solución
+- Exercise format (PHP topics): PHP file with TODO stubs and complete solution in a block comment `/* ... */` at the end
 - Consistent class names for PHP exercises: `Artista`, `Album`, `AlbumRepositorio`, `Conexion`
 - Credentials in examples: user `sandra`, theory database `biblioteca`, exercise database `tienda_musica`, password shown as placeholder `'tu_contraseña_aqui'`
 - GUI client: **HeidiSQL** (Windows) — documented in topic 3. DBeaver and MySQL Workbench mentioned briefly as alternatives
@@ -106,12 +108,12 @@ Key conventions for this module:
 
 ## Running Database Module PHP Files
 
-Topics 14–16 and their exercises are standalone PHP scripts. They require MariaDB running and the respective database populated:
+PHP topics (7, 8, 12, 16, 18) and their exercises are standalone PHP scripts. They require MariaDB running and the respective database populated:
 
 ```bash
 sudo service mariadb start
-php bases-de-datos/teoría/tema14_php_pdo_conexion_y_consultas.php
-php bases-de-datos/ejercicios/ejercicio14_php_pdo_conexion_y_consultas.php
+php bases-de-datos/teoría/tema7_php_pdo_conexion_y_consultas.php
+php bases-de-datos/ejercicios/ejercicio7_php_pdo_conexion_y_consultas.php
 ```
 
 ## Opening HTML Files

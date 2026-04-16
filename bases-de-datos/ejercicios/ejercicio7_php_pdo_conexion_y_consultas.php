@@ -1,13 +1,16 @@
 <?php
 // ============================================================
-// EJERCICIO 14: PHP y PDO — Conexión y consultas básicas
+// EJERCICIO 7: PHP y PDO — Conexión y consultas básicas
 // ============================================================
 // Dominio: Tienda de música
 //
 // Antes de ejecutar:
 //   - MariaDB corriendo: sudo service mariadb start
-//   - Base de datos `tienda_musica` con datos cargados (ejercicios 4-9)
-//   - Ejecutar: php ejercicio14_php_pdo_conexion_y_consultas.php
+//   - Base de datos `tienda_musica` con las tablas `artistas` y
+//     `albumes` pobladas (ejercicios 4–6). Todavía no se vieron
+//     claves foráneas formales: `albumes.artista_id` es un entero
+//     que coincide con `artistas.id`.
+//   - Ejecutar: php ejercicio7_php_pdo_conexion_y_consultas.php
 // ============================================================
 //
 // OBJETIVO
@@ -15,7 +18,7 @@
 // Conectarse a la base de datos `tienda_musica` con PDO y escribir
 // cuatro consultas de lectura usando query() y fetchAll()/fetch().
 //
-// No hay pasos predefinidos. Estudia el Tema 14 y escribe el código
+// No hay pasos predefinidos. Estudia el Tema 7 y escribe el código
 // que produzca la salida indicada en cada sección.
 //
 // ============================================================
@@ -60,33 +63,35 @@ echo "=== Álbum con id = 6 ===\n";
 echo "\n";
 
 // ============================================================
-// Parte 4: Álbumes con nombre de artista (JOIN)
+// Parte 4: Álbumes con precio superior
 // ============================================================
-// Escribe una consulta que muestre el título del álbum y el nombre
-// del artista usando INNER JOIN. Ordena por nombre del artista.
+// Muestra todos los álbumes cuyo precio sea mayor a 10.00,
+// ordenados por precio descendente. Muestra título y precio.
 //
-// Salida esperada:
-// Abbey Road — The Beatles
-// Sgt. Pepper's — The Beatles
+// Salida esperada (varía con tus datos):
+// The Dark Side of the Moon — $13.99
+// OK Computer — $11.99
 // ...
 
-echo "=== Álbumes con artista ===\n";
+echo "=== Álbumes con precio > 10 ===\n";
 // Tu código aquí
 echo "\n";
 
 // ============================================================
-// Parte 5: Clientes con total de compras
+// Parte 5: Estadísticas
 // ============================================================
-// Muestra el nombre de cada cliente y la cantidad de compras
-// que realizó. Usa LEFT JOIN para incluir clientes con 0 compras.
-// Ordena por cantidad de compras de mayor a menor.
+// Muestra:
+//   - Total de artistas
+//   - Total de álbumes
+//   - Cantidad de álbumes disponibles (disponible = TRUE)
+// Usa COUNT(*) y fetchColumn().
 //
-// Salida esperada:
-// Laura Sánchez: 2 compras
-// Paula Vega: 1 compras
-// Marcos Díaz: 0 compras
+// Salida esperada (varía con tus datos):
+// Total de artistas:    8
+// Total de álbumes:     12
+// Álbumes disponibles:  11
 
-echo "=== Clientes con cantidad de compras ===\n";
+echo "=== Estadísticas ===\n";
 // Tu código aquí
 echo "\n";
 
@@ -136,30 +141,25 @@ if ($album) {
 }
 echo "\n";
 
-// Parte 4: Álbumes con artista (JOIN)
-echo "=== Álbumes con artista ===\n";
-$albumes = $pdo->query("
-    SELECT a.titulo, ar.nombre AS artista
-    FROM albumes a
-    INNER JOIN artistas ar ON a.artista_id = ar.id
-    ORDER BY ar.nombre, a.titulo
-")->fetchAll();
+// Parte 4: Álbumes con precio superior
+echo "=== Álbumes con precio > 10 ===\n";
+$albumes = $pdo->query(
+    "SELECT titulo, precio FROM albumes WHERE precio > 10
+     ORDER BY precio DESC"
+)->fetchAll();
 foreach ($albumes as $row) {
-    echo "{$row['titulo']} — {$row['artista']}\n";
+    echo "{$row['titulo']} — \${$row['precio']}\n";
 }
 echo "\n";
 
-// Parte 5: Clientes con total de compras
-echo "=== Clientes con cantidad de compras ===\n";
-$resumen = $pdo->query("
-    SELECT cl.nombre, COUNT(c.id) AS total_compras
-    FROM clientes cl
-    LEFT JOIN compras c ON cl.id = c.cliente_id
-    GROUP BY cl.id, cl.nombre
-    ORDER BY total_compras DESC
-")->fetchAll();
-foreach ($resumen as $row) {
-    echo "{$row['nombre']}: {$row['total_compras']} compras\n";
-}
+// Parte 5: Estadísticas
+echo "=== Estadísticas ===\n";
+$total_artistas = $pdo->query("SELECT COUNT(*) FROM artistas")->fetchColumn();
+$total_albumes  = $pdo->query("SELECT COUNT(*) FROM albumes")->fetchColumn();
+$disponibles    = $pdo->query("SELECT COUNT(*) FROM albumes WHERE disponible = TRUE")->fetchColumn();
+
+echo "Total de artistas:    $total_artistas\n";
+echo "Total de álbumes:     $total_albumes\n";
+echo "Álbumes disponibles:  $disponibles\n";
 echo "\n";
 */

@@ -91,4 +91,4 @@ Salida esperada de `SHOW TABLES`:
 - `id` usa `INT UNSIGNED NOT NULL AUTO_INCREMENT` en ambas tablas
 - `precio` es `DECIMAL(8,2)`, no `FLOAT` ni `INT` — los precios requieren decimales exactos
 - `disponible` tiene `DEFAULT TRUE` para que los álbumes nuevos estén disponibles por defecto
-- `artista_id` es solo un entero por ahora; la relación formal con `artistas` se agrega en el Ejercicio 8
+- `artista_id` es solo un entero por ahora; la relación formal con `artistas` se agrega en el Ejercicio 10

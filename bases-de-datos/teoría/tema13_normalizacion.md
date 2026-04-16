@@ -1,4 +1,4 @@
-# TEMA 10: Normalización
+# TEMA 13: Normalización
 
 ## OBJETIVO
 Diseñar tablas sin datos duplicados ni dependencias incorrectas, aplicando las tres primeras formas normales.

@@ -12,6 +12,8 @@ La analogía que usaremos a lo largo del módulo: **una biblioteca personal**. T
 
 ## Estructura del plan
 
+El módulo **alterna bloques de SQL con bloques de PHP + PDO**: en cuanto aprendes lo suficiente de SQL para ser útil, pasas a aplicarlo desde PHP, y luego vuelves a profundizar en SQL antes del siguiente bloque de PHP.
+
 Cada tema de teoría sigue este formato:
 
 1. **Explicación** del concepto con analogía
@@ -19,8 +21,12 @@ Cada tema de teoría sigue este formato:
 
 El ejercicio práctico está en su archivo separado dentro de la carpeta `ejercicios/`.
 
-Los temas 1–13 son archivos Markdown (`.md`) con comandos SQL y de terminal.
-Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrearchivo.php`.
+Los temas de SQL son archivos Markdown (`.md`) con comandos SQL y de terminal. Los temas de PHP son archivos `.php` que puedes ejecutar con `php nombrearchivo.php`.
+
+Orden de archivos:
+
+- **md (SQL):** temas 1, 2, 3, 4, 5, 6, 9, 10, 11, 13, 14, 15, 17
+- **php (PHP + PDO):** temas 7, 8, 12, 16, 18
 
 ---
 
@@ -72,7 +78,23 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 7: Tipos de datos y constraints
+## Tema 7: PHP y PDO — Conexión y consultas básicas
+
+**Objetivo:** Conectarse a MariaDB desde PHP y leer datos con PDO.
+
+**Contenido:** `new PDO(...)`, `setAttribute`, `query()`, `fetch()`, `fetchAll()`, `fetchColumn()`, manejo de errores con `try/catch`. Ejemplos sobre tablas planas (sin JOINs, aún sin claves foráneas).
+
+---
+
+## Tema 8: PHP y PDO — Prepared statements y seguridad
+
+**Objetivo:** Insertar, modificar y eliminar datos de forma segura desde PHP.
+
+**Contenido:** `prepare()` + `execute()` con parámetros nombrados, qué es la inyección SQL y cómo prevenirla, `lastInsertId()`, `rowCount()`, `exec()` para SQL sin parámetros.
+
+---
+
+## Tema 9: Tipos de datos y constraints
 
 **Objetivo:** Elegir el tipo de dato correcto y proteger la integridad de los datos.
 
@@ -80,7 +102,7 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 8: Claves foráneas y relaciones
+## Tema 10: Claves foráneas y relaciones
 
 **Objetivo:** Relacionar tablas entre sí y mantener integridad referencial.
 
@@ -88,7 +110,7 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 9: JOINs
+## Tema 11: JOINs
 
 **Objetivo:** Consultar datos de varias tablas al mismo tiempo.
 
@@ -96,7 +118,15 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 10: Normalización
+## Tema 12: PHP y PDO — Consultas con JOINs
+
+**Objetivo:** Ejecutar desde PHP las consultas con JOIN que aprendiste en SQL.
+
+**Contenido:** INNER JOIN y LEFT JOIN desde `query()` y desde `prepare()`, cómo usar alias de columnas al acceder al resultado, manejo de NULL con `??`, JOINs de tres tablas, patrón "LEFT JOIN + IS NULL" para detectar huecos.
+
+---
+
+## Tema 13: Normalización
 
 **Objetivo:** Diseñar tablas sin datos duplicados ni dependencias incorrectas.
 
@@ -104,7 +134,7 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 11: Índices y vistas
+## Tema 14: Índices y vistas
 
 **Objetivo:** Acelerar consultas con índices y simplificarlas con vistas.
 
@@ -112,7 +142,7 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 12: Transacciones
+## Tema 15: Transacciones
 
 **Objetivo:** Ejecutar varias operaciones como una unidad atómica: o todas pasan, o ninguna.
 
@@ -120,7 +150,15 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 13: Backup y restauración
+## Tema 16: PHP y PDO — Transacciones
+
+**Objetivo:** Aplicar las transacciones desde PHP usando los métodos de PDO.
+
+**Contenido:** `beginTransaction()`, `commit()`, `rollBack()`, el patrón estándar `try { ... $pdo->commit(); } catch (Throwable $e) { $pdo->rollBack(); throw $e; }`. Ejemplo completo: registrar un préstamo tocando `prestamos` y `libros` en una sola unidad atómica.
+
+---
+
+## Tema 17: Backup y restauración
 
 **Objetivo:** Hacer copias de seguridad de la base de datos con `mysqldump` y restaurarlas desde la terminal.
 
@@ -128,23 +166,7 @@ Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 14: PHP y PDO — Conexión y consultas básicas
-
-**Objetivo:** Conectarse a MariaDB desde PHP y leer datos con PDO.
-
-**Contenido:** `new PDO(...)`, `setAttribute`, `query()`, `fetchAll()`, manejo de errores con `try/catch`.
-
----
-
-## Tema 15: PHP y PDO — Prepared statements y seguridad
-
-**Objetivo:** Insertar y modificar datos de forma segura desde PHP.
-
-**Contenido:** `prepare()` + `execute()` con parámetros nombrados, qué es la inyección SQL y cómo prevenirla, `lastInsertId()`, `rowCount()`.
-
----
-
-## Tema 16: Proyecto integrador — OOP + Base de datos (patrón repositorio)
+## Tema 18: Proyecto integrador — OOP + Base de datos (patrón repositorio)
 
 **Objetivo:** Conectar el módulo de OOP con la base de datos usando el patrón repositorio.
 

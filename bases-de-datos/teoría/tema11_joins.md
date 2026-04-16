@@ -1,4 +1,4 @@
-# TEMA 9: JOINs — Consultar varias tablas a la vez
+# TEMA 11: JOINs — Consultar varias tablas a la vez
 
 ## OBJETIVO
 Combinar datos de varias tablas en una sola consulta con JOIN.

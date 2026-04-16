@@ -1,4 +1,4 @@
-# Ejercicio 8: Claves foráneas y relaciones
+# Ejercicio 10: Claves foráneas y relaciones
 
 ## Dominio
 

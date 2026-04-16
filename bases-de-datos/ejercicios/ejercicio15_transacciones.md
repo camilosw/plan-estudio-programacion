@@ -1,4 +1,4 @@
-# Ejercicio 12: Transacciones
+# Ejercicio 15: Transacciones
 
 ## Dominio
 
@@ -99,5 +99,5 @@ SELECT titulo, disponible FROM albumes WHERE titulo = 'Signos';
 **Puntos a comparar con tu solución:**
 - La transacción en la Operación 1 garantiza atomicidad: si el `UPDATE` falla (por ejemplo, por un error de red), el `INSERT` también se deshace — la tabla no queda con una compra sin stock actualizado
 - En la Operación 2, MariaDB hace el `ROLLBACK` automáticamente cuando una sentencia dentro de una transacción viola una clave foránea — pero es buena práctica llamarlo explícitamente para dejar claro el flujo
-- En PHP (Tema 14), el `ROLLBACK` se llama dentro del bloque `catch` de un `try/catch`, que es la forma correcta de manejar errores en código de aplicación
+- En PHP (Tema 16), el `ROLLBACK` se llama dentro del bloque `catch` de un `try/catch`, que es la forma correcta de manejar errores en código de aplicación
 - `COMMIT` solo guarda los cambios si todas las sentencias anteriores de la transacción tuvieron éxito

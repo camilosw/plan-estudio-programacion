@@ -1,8 +1,8 @@
-# Ejercicio 9: JOINs
+# Ejercicio 11: JOINs
 
 ## Dominio
 
-Tienda de música. Usamos `tienda_musica` con todas las tablas creadas hasta el Ejercicio 8.
+Tienda de música. Usamos `tienda_musica` con todas las tablas creadas hasta el Ejercicio 10.
 
 ---
 

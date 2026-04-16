@@ -1,4 +1,4 @@
-# TEMA 8: Claves foráneas y relaciones
+# TEMA 10: Claves foráneas y relaciones
 
 ## OBJETIVO
 Relacionar tablas entre sí con claves foráneas y entender cómo MariaDB protege la integridad referencial.

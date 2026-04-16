@@ -125,7 +125,7 @@ DESCRIBE libros;
 6 rows in set (0.001 sec)
 ```
 
-Nota: todavía no declaramos `autor_id` como clave foránea; eso lo hacemos en el Tema 8. Por ahora es un número entero normal.
+Nota: todavía no declaramos `autor_id` como clave foránea; eso lo hacemos en el Tema 10. Por ahora es un número entero normal.
 
 ## Ver todas las tablas de la base de datos
 

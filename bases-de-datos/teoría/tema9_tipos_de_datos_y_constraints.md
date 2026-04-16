@@ -1,4 +1,4 @@
-# TEMA 7: Tipos de datos y constraints
+# TEMA 9: Tipos de datos y constraints
 
 ## OBJETIVO
 Elegir el tipo de dato correcto para cada columna y usar constraints para proteger la integridad de los datos.

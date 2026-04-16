@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// TEMA 16: Proyecto integrador — OOP + Base de datos
+// TEMA 18: Proyecto integrador — OOP + Base de datos
 //          Patrón repositorio (DAO)
 // ============================================================
 //
@@ -25,7 +25,7 @@
 // más fácil de leer y más fácil de modificar.
 //
 // ANTES DE EJECUTAR:
-//   php tema16_integracion_oop_dao_repositorio.php
+//   php tema18_integracion_oop_dao_repositorio.php
 // ============================================================
 
 

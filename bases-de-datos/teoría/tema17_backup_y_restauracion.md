@@ -1,4 +1,4 @@
-# TEMA 13: Backup y restauración
+# TEMA 17: Backup y restauración
 
 ## OBJETIVO
 Hacer copias de seguridad de una base de datos con `mysqldump` y restaurarlas desde la línea de comandos.

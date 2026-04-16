@@ -1,4 +1,4 @@
-# TEMA 11: Índices y vistas
+# TEMA 14: Índices y vistas
 
 ## OBJETIVO
 Acelerar consultas con índices y simplificar consultas complejas con vistas.

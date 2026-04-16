@@ -1,4 +1,4 @@
-# TEMA 12: Transacciones
+# TEMA 15: Transacciones
 
 ## OBJETIVO
 Ejecutar varias operaciones SQL como una unidad atómica: o todas se completan, o ninguna.
@@ -196,7 +196,7 @@ SELECT @@autocommit;
 +--------------+
 ```
 
-En PHP con PDO, las transacciones funcionan igual, pero las verás en el Tema 15.
+En PHP con PDO, las transacciones funcionan igual, pero las verás en el Tema 16.
 
 ## SAVEPOINTS — puntos intermedios
 

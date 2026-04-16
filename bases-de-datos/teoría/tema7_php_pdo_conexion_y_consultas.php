@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// TEMA 14: PHP y PDO — Conexión y consultas básicas
+// TEMA 7: PHP y PDO — Conexión y consultas básicas
 // ============================================================
 //
 // OBJETIVO: Conectarse a MariaDB desde PHP usando PDO y
@@ -12,7 +12,7 @@
 //
 //   - Funciona con MariaDB, MySQL, PostgreSQL, SQLite y otros
 //     motores con el mismo código.
-//   - Tiene soporte nativo para prepared statements (Tema 15),
+//   - Tiene soporte nativo para prepared statements (Tema 8),
 //     que previenen inyección SQL.
 //   - Manejo claro de errores con excepciones.
 //
@@ -21,10 +21,13 @@
 //
 // ANTES DE EJECUTAR ESTE ARCHIVO:
 //   1. MariaDB debe estar corriendo: sudo service mariadb start
-//   2. La base de datos `biblioteca` debe existir con datos.
-//      (Creada y poblada en los Temas 2–9)
+//   2. La base de datos `biblioteca` debe existir con las tablas
+//      `autores` y `libros` pobladas (creadas en los Temas 4–6).
+//      En este punto las tablas son planas: `libros.autor_id`
+//      todavía no es una clave foránea formal (eso se ve en el
+//      Tema 10). Es solo un entero que coincide con `autores.id`.
 //   3. El usuario `sandra` debe tener acceso a `biblioteca`.
-//   4. Ejecutar: php tema14_php_pdo_conexion_y_consultas.php
+//   4. Ejecutar: php tema7_php_pdo_conexion_y_consultas.php
 // ============================================================
 
 // ============================================================
@@ -119,32 +122,13 @@ if ($libro) {
 echo "\n";
 
 // ============================================================
-// PARTE 4: Consulta con JOIN
-// ============================================================
-
-echo "=== Libros con el nombre de su autor ===\n";
-
-$sql = "SELECT l.titulo, a.nombre AS autor, l.anio_publicacion
-        FROM libros l
-        INNER JOIN autores a ON l.autor_id = a.id
-        ORDER BY a.nombre, l.anio_publicacion";
-
-$libros = $pdo->query($sql)->fetchAll();
-
-foreach ($libros as $libro) {
-    echo "$libro[titulo] — $libro[autor] ($libro[anio_publicacion])\n";
-}
-
-echo "\n";
-
-// ============================================================
-// PARTE 5: Contar registros
+// PARTE 4: Contar registros
 // ============================================================
 
 echo "=== Estadísticas ===\n";
 
-$total_libros   = $pdo->query("SELECT COUNT(*) FROM libros")->fetchColumn();
-$total_autores  = $pdo->query("SELECT COUNT(*) FROM autores")->fetchColumn();
+$total_libros       = $pdo->query("SELECT COUNT(*) FROM libros")->fetchColumn();
+$total_autores      = $pdo->query("SELECT COUNT(*) FROM autores")->fetchColumn();
 $libros_disponibles = $pdo->query("SELECT COUNT(*) FROM libros WHERE disponible = TRUE")->fetchColumn();
 
 echo "Total de libros:          $total_libros\n";
@@ -161,26 +145,26 @@ echo "Libros no disponibles:    " . ($total_libros - $libros_disponibles) . "\n"
 echo "\n";
 
 // ============================================================
-// PARTE 6: Iterar fila por fila con fetch() en un bucle
+// PARTE 5: Iterar fila por fila con fetch() en un bucle
 // ============================================================
 
 // Para conjuntos de datos grandes, es mejor traer una fila a la vez
 // en vez de cargar todo en memoria con fetchAll().
 
-echo "=== Socios activos ===\n";
+echo "=== Libros publicados a partir del año 1950 ===\n";
 
-$stmt = $pdo->query("SELECT nombre, email FROM socios WHERE activo = TRUE ORDER BY nombre");
+$stmt = $pdo->query("SELECT titulo, anio_publicacion FROM libros
+                     WHERE anio_publicacion >= 1950
+                     ORDER BY anio_publicacion");
 
-while ($socio = $stmt->fetch()) {
-    echo "- $socio[nombre] <$socio[email]>\n";
+while ($libro = $stmt->fetch()) {
+    echo "- $libro[titulo] ($libro[anio_publicacion])\n";
 }
 
-// Salida esperada:
-// - Ana Martínez <ana@ejemplo.com>
-// - Carlos Ruiz <carlos@ejemplo.com>
-// - Luis Torres <luis@ejemplo.com>
-// - María García <maria@ejemplo.com>
-// - Sofía Herrera <sofia@ejemplo.com>
+// Salida esperada (varía según los datos):
+// - El nombre de la rosa (1980)
+// - Cien años de soledad (1967)
+// - ...
 
 // ============================================================
 // RESUMEN DE MÉTODOS USADOS
@@ -191,20 +175,25 @@ while ($socio = $stmt->fetch()) {
 // $stmt->fetch()           — devuelve la siguiente fila (o false si no hay más)
 // $stmt->fetchColumn()     — devuelve el valor de la primera columna de la fila
 //
+// IMPORTANTE: en este tema todas las consultas tienen datos fijos
+// (sin valores del usuario). Cuando necesites usar datos externos
+// en un WHERE, usa prepared statements (Tema 8). Nunca concatenes
+// variables dentro de un string SQL.
+//
 // PRÓXIMO TEMA: prepared statements para consultas con datos del usuario.
 // ============================================================
 
 // ============================================================
 // EJERCICIO
 // ============================================================
-// 1. Mostrar todos los socios con su cantidad de préstamos
-//    (usa COUNT y GROUP BY junto con un LEFT JOIN).
+// 1. Mostrar los libros con más de 300 páginas, ordenados por año
+//    de publicación descendente.
 //
-// 2. Mostrar los libros que tienen más de 300 páginas,
-//    con el nombre del autor al lado.
+// 2. Contar cuántos libros hay del autor con id = 1 usando
+//    COUNT(*) y WHERE autor_id = 1.
 //
-// 3. Mostrar los 3 autores más longevos (mayor anio_nacimiento
-//    significa que son los más jóvenes — busca los más bajos).
+// 3. Mostrar los autores cuyo país comience con la letra 'A'
+//    (usa LIKE 'A%').
 //
-// (El archivo del ejercicio está en ejercicios/ejercicio14_...)
+// (El archivo del ejercicio está en ejercicios/ejercicio7_...)
 // ============================================================
