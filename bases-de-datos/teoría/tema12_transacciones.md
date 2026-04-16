@@ -196,7 +196,7 @@ SELECT @@autocommit;
 +--------------+
 ```
 
-En PHP con PDO, las transacciones funcionan igual, pero las verás en el Tema 14.
+En PHP con PDO, las transacciones funcionan igual, pero las verás en el Tema 15.
 
 ## SAVEPOINTS — puntos intermedios
 

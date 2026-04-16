@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// TEMA 13: PHP y PDO — Conexión y consultas básicas
+// TEMA 14: PHP y PDO — Conexión y consultas básicas
 // ============================================================
 //
 // OBJETIVO: Conectarse a MariaDB desde PHP usando PDO y
@@ -12,7 +12,7 @@
 //
 //   - Funciona con MariaDB, MySQL, PostgreSQL, SQLite y otros
 //     motores con el mismo código.
-//   - Tiene soporte nativo para prepared statements (Tema 14),
+//   - Tiene soporte nativo para prepared statements (Tema 15),
 //     que previenen inyección SQL.
 //   - Manejo claro de errores con excepciones.
 //
@@ -24,7 +24,7 @@
 //   2. La base de datos `biblioteca` debe existir con datos.
 //      (Creada y poblada en los Temas 2–9)
 //   3. El usuario `sandra` debe tener acceso a `biblioteca`.
-//   4. Ejecutar: php tema13_php_pdo_conexion_y_consultas.php
+//   4. Ejecutar: php tema14_php_pdo_conexion_y_consultas.php
 // ============================================================
 
 // ============================================================
@@ -206,5 +206,5 @@ while ($socio = $stmt->fetch()) {
 // 3. Mostrar los 3 autores más longevos (mayor anio_nacimiento
 //    significa que son los más jóvenes — busca los más bajos).
 //
-// (El archivo del ejercicio está en ejercicios/ejercicio13_...)
+// (El archivo del ejercicio está en ejercicios/ejercicio14_...)
 // ============================================================

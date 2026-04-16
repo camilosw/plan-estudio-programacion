@@ -1,13 +1,13 @@
 <?php
 // ============================================================
-// EJERCICIO 13: PHP y PDO — Conexión y consultas básicas
+// EJERCICIO 14: PHP y PDO — Conexión y consultas básicas
 // ============================================================
 // Dominio: Tienda de música
 //
 // Antes de ejecutar:
 //   - MariaDB corriendo: sudo service mariadb start
 //   - Base de datos `tienda_musica` con datos cargados (ejercicios 4-9)
-//   - Ejecutar: php ejercicio13_php_pdo_conexion_y_consultas.php
+//   - Ejecutar: php ejercicio14_php_pdo_conexion_y_consultas.php
 // ============================================================
 //
 // OBJETIVO
@@ -15,7 +15,7 @@
 // Conectarse a la base de datos `tienda_musica` con PDO y escribir
 // cuatro consultas de lectura usando query() y fetchAll()/fetch().
 //
-// No hay pasos predefinidos. Estudia el Tema 13 y escribe el código
+// No hay pasos predefinidos. Estudia el Tema 14 y escribe el código
 // que produzca la salida indicada en cada sección.
 //
 // ============================================================

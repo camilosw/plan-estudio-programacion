@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// TEMA 14: PHP y PDO — Prepared statements y seguridad
+// TEMA 15: PHP y PDO — Prepared statements y seguridad
 // ============================================================
 //
 // OBJETIVO: Insertar y modificar datos de forma segura usando
@@ -18,7 +18,7 @@
 // la inyección SQL.
 // ============================================================
 
-// Conexión (igual que en el Tema 13)
+// Conexión (igual que en el Tema 14)
 $pdo = new PDO(
     'mysql:host=127.0.0.1;dbname=biblioteca;charset=utf8mb4',
     'sandra',
@@ -247,5 +247,5 @@ echo "Libros de prueba eliminados.\n";
 //    cuyo autor contenga el texto dado.
 //    (Pista: el valor del parámetro debe ser "%$nombre_autor%")
 //
-// (El archivo del ejercicio está en ejercicios/ejercicio14_...)
+// (El archivo del ejercicio está en ejercicios/ejercicio15_...)
 // ============================================================

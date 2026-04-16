@@ -1,6 +1,6 @@
 <?php
 // ============================================================
-// TEMA 15: Proyecto integrador — OOP + Base de datos
+// TEMA 16: Proyecto integrador — OOP + Base de datos
 //          Patrón repositorio (DAO)
 // ============================================================
 //
@@ -25,7 +25,7 @@
 // más fácil de leer y más fácil de modificar.
 //
 // ANTES DE EJECUTAR:
-//   php tema15_integracion_oop_dao_repositorio.php
+//   php tema16_integracion_oop_dao_repositorio.php
 // ============================================================
 
 
@@ -391,5 +391,5 @@ echo "Libro de prueba eliminado.\n";
 // Para `eliminar`: antes de borrar, verificar con una consulta si el autor tiene
 // libros asociados. Si tiene, lanzar: new RuntimeException("No se puede eliminar...").
 //
-// (El archivo del ejercicio está en ejercicios/ejercicio15_...)
+// (El archivo del ejercicio está en ejercicios/ejercicio16_...)
 // ============================================================

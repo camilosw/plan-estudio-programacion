@@ -1,11 +1,11 @@
 <?php
 // ============================================================
-// EJERCICIO 15: Proyecto integrador — OOP + Base de datos
+// EJERCICIO 16: Proyecto integrador — OOP + Base de datos
 // ============================================================
 // Dominio: Tienda de música
 //
 // Antes de ejecutar:
-//   php ejercicio15_integracion_oop_dao_repositorio.php
+//   php ejercicio16_integracion_oop_dao_repositorio.php
 // ============================================================
 //
 // OBJETIVO
@@ -13,7 +13,7 @@
 // Implementa la clase AlbumRepositorio con los métodos indicados.
 // Las clases de dominio y la clase Conexion ya están dadas.
 //
-// No hay pasos predefinidos. Estudia el Tema 15 e implementa
+// No hay pasos predefinidos. Estudia el Tema 16 e implementa
 // los métodos para que las pruebas al final del archivo produzcan
 // la salida esperada.
 //

@@ -1,6 +1,7 @@
 # TEMA 3: El cliente de línea de comandos y HeidiSQL
 
 ## OBJETIVO
+
 Dominar los comandos básicos del cliente CLI de MariaDB, crear un usuario dedicado para el módulo y conectarse a la base de datos desde Windows con HeidiSQL.
 
 ## EXPLICACIÓN
@@ -21,7 +22,7 @@ Conectarse como root (administrador):
 sudo mariadb
 ```
 
-Conectarse como un usuario normal (con contraseña):
+Conectarse como un usuario normal y con contraseña (crearemos el usuario más adelante):
 
 ```bash
 mariadb -u sandra -p
@@ -53,7 +54,7 @@ SHOW DATABASES;
 +--------------------+
 ```
 
-Seleccionar una base de datos para trabajar en ella:
+Seleccionar una base de datos para trabajar en ella (por ahora no tenemos la base de datos biblioteca, así que solo estudia los comandos, no los ejecutes):
 
 ```sql
 USE biblioteca;
@@ -219,6 +220,7 @@ Paso 2: Crear una sesión de conexión
 Al abrir HeidiSQL aparece el "Gestor de sesiones". Haz clic en "Nueva" (esquina inferior izquierda).
 
 Configura los campos:
+
 - **Tipo de red:** MariaDB or MySQL (TCP/IP)
 - **Nombre de host / IP:** 127.0.0.1
 - **Usuario:** sandra
@@ -307,6 +309,7 @@ Salida esperada (aproximada):
 **3. Verificar la conexión desde HeidiSQL**
 
 Después de conectarte desde Windows con HeidiSQL, deberías ver en el panel izquierdo:
+
 - `biblioteca` (la base que creamos)
 - `information_schema`
 

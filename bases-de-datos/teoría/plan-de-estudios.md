@@ -19,8 +19,8 @@ Cada tema de teoría sigue este formato:
 
 El ejercicio práctico está en su archivo separado dentro de la carpeta `ejercicios/`.
 
-Los temas 1–12 son archivos Markdown (`.md`) con SQL puro.
-Los temas 13–15 son archivos PHP (`.php`) que puedes ejecutar con `php nombrearchivo.php`.
+Los temas 1–13 son archivos Markdown (`.md`) con comandos SQL y de terminal.
+Los temas 14–16 son archivos PHP (`.php`) que puedes ejecutar con `php nombrearchivo.php`.
 
 ---
 
@@ -120,7 +120,15 @@ Los temas 13–15 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 13: PHP y PDO — Conexión y consultas básicas
+## Tema 13: Backup y restauración
+
+**Objetivo:** Hacer copias de seguridad de la base de datos con `mysqldump` y restaurarlas desde la terminal.
+
+**Contenido:** `mysqldump` con sus opciones principales (`--single-transaction`, `--no-data`, `--databases`), restaurar con `mariadb < archivo.sql`, nombres de archivo con fecha, dónde guardar los backups desde WSL.
+
+---
+
+## Tema 14: PHP y PDO — Conexión y consultas básicas
 
 **Objetivo:** Conectarse a MariaDB desde PHP y leer datos con PDO.
 
@@ -128,7 +136,7 @@ Los temas 13–15 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 14: PHP y PDO — Prepared statements y seguridad
+## Tema 15: PHP y PDO — Prepared statements y seguridad
 
 **Objetivo:** Insertar y modificar datos de forma segura desde PHP.
 
@@ -136,7 +144,7 @@ Los temas 13–15 son archivos PHP (`.php`) que puedes ejecutar con `php nombrea
 
 ---
 
-## Tema 15: Proyecto integrador — OOP + Base de datos (patrón repositorio)
+## Tema 16: Proyecto integrador — OOP + Base de datos (patrón repositorio)
 
 **Objetivo:** Conectar el módulo de OOP con la base de datos usando el patrón repositorio.
 

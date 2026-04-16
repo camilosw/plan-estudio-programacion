@@ -1,11 +1,11 @@
 <?php
 // ============================================================
-// EJERCICIO 14: PHP y PDO — Prepared statements y seguridad
+// EJERCICIO 15: PHP y PDO — Prepared statements y seguridad
 // ============================================================
 // Dominio: Tienda de música
 //
 // Antes de ejecutar:
-//   php ejercicio14_php_pdo_prepared_statements_y_seguridad.php
+//   php ejercicio15_php_pdo_prepared_statements_y_seguridad.php
 // ============================================================
 //
 // OBJETIVO
@@ -13,7 +13,7 @@
 // Implementa cuatro funciones que usan prepared statements para
 // interactuar con la base de datos `tienda_musica`.
 //
-// No hay pasos predefinidos. Estudia el Tema 14 e implementa
+// No hay pasos predefinidos. Estudia el Tema 15 e implementa
 // cada función para que produzca la salida indicada.
 //
 // ============================================================

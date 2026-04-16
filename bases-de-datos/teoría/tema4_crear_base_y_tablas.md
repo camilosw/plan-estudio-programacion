@@ -24,6 +24,8 @@ BOOLEAN      — verdadero o falso (internamente es TINYINT(1): 0 o 1)
 
 ## Atributos especiales
 
+Al definir una columna se pueden agregar modificadores que cambian su comportamiento. Los más comunes son:
+
 ```
 PRIMARY KEY      — identifica de forma única cada fila; solo puede haber una por tabla
 AUTO_INCREMENT   — MariaDB asigna automáticamente el siguiente número (1, 2, 3...)

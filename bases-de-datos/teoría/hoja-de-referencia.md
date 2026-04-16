@@ -214,6 +214,36 @@ ROLLBACK TO SAVEPOINT sp1;
 
 ---
 
+## Backup y restauración (desde la terminal de WSL)
+
+### Hacer un backup
+
+```bash
+# Base de datos completa (estructura + datos)
+mysqldump -u sandra -p --single-transaction biblioteca > backup.sql
+
+# Con fecha en el nombre
+mysqldump -u sandra -p --single-transaction biblioteca > ~/backups/biblioteca_$(date +%Y-%m-%d).sql
+
+# Solo estructura (sin datos)
+mysqldump -u sandra -p --no-data biblioteca > estructura.sql
+
+# Varias bases de datos
+mysqldump -u sandra -p --databases biblioteca otra_bd > varias.sql
+```
+
+### Restaurar desde un backup
+
+```bash
+# Crear la base si no existe
+mariadb -u sandra -p -e "CREATE DATABASE IF NOT EXISTS biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+# Restaurar
+mariadb -u sandra -p biblioteca < backup.sql
+```
+
+---
+
 ## PHP con PDO
 
 ### Conexión
