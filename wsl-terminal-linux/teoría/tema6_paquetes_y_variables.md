@@ -1,13 +1,9 @@
-=========================================================
-TEMA 6: Paquetes, variables y zsh — El almacén de suministros
-=========================================================
+# TEMA 6: Paquetes, variables y zsh — El almacén de suministros
 
-OBJETIVO
---------
+## OBJETIVO
 Instalar software con `apt`, entender las variables de entorno, y configurar zsh con Oh My Zsh como shell mejorado.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### apt — El almacén de suministros
 

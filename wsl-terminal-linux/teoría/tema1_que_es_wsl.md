@@ -1,13 +1,9 @@
-=========================================================
-TEMA 1: ¿Qué es WSL? — Tu taller de herramientas
-=========================================================
+# TEMA 1: ¿Qué es WSL? — Tu taller de herramientas
 
-OBJETIVO
---------
+## OBJETIVO
 Entender qué es WSL, por qué lo necesitas como desarrolladora e instalarlo con Ubuntu en tu computadora Windows.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### ¿Qué problema resuelve WSL?
 

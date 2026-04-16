@@ -1,13 +1,9 @@
-=========================================================
-TEMA 2: La terminal — Tu mesa de trabajo
-=========================================================
+# TEMA 2: La terminal — Tu mesa de trabajo
 
-OBJETIVO
---------
+## OBJETIVO
 Entender qué es la terminal, leer el prompt con confianza y ejecutar los primeros comandos básicos.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### ¿Qué es la terminal?
 

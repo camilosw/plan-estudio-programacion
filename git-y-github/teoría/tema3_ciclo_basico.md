@@ -1,13 +1,9 @@
-=========================================================
-TEMA 3: El ciclo básico — add, commit, status
-=========================================================
+# TEMA 3: El ciclo básico — add, commit, status
 
-OBJETIVO
---------
+## OBJETIVO
 Aprender el flujo fundamental de Git: modificar archivos, prepararlos y guardar un punto en el historial.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### Los tres estados de Git
 
@@ -141,8 +137,7 @@ git add .
 
 Es práctico cuando tenés muchos archivos, pero hay que tener cuidado de no incluir archivos que no querés (como archivos temporales, contraseñas, etc.). Más adelante veremos cómo evitar eso con `.gitignore`.
 
-EJERCICIO
----------
+## EJERCICIO
 
 Usando el repositorio del tema anterior (`mi-proyecto`):
 

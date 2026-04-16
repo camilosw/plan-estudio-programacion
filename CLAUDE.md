@@ -4,12 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a programming teaching curriculum for learning from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are four modules:
+This is a programming teaching curriculum for learning from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are five modules:
 
 1. **OOP (classes and objects)** — using an **online store** as the unifying theme
 2. **Git and GitHub** — version control fundamentals, from installation to collaboration with Pull Requests
 3. **HTML and CSS** — building web pages from scratch, using **La Cafetería de Sandra** as the unifying theme
 4. **WSL and Linux Terminal** — setting up WSL, navigating the file system, permissions, package management, zsh, and VS Code integration — using **"Tu Taller de Herramientas"** as the unifying analogy
+5. **Bases de Datos con MariaDB** — relational databases from scratch: MariaDB on WSL, HeidiSQL, SQL, PHP PDO, and OOP integration — using **"Biblioteca personal"** as the unifying theme
 
 ## Structure
 
@@ -76,6 +77,42 @@ Key conventions for this module:
 - Theory files use the same banner format as the Git module (`===` headers, ALL-CAPS sections with dashed underlines) but **do NOT include an EJERCICIO section** — exercises are exclusively in the `ejercicios/` folder
 - Content uses neutral Spanish throughout (no Argentine voseo)
 - The unifying analogy is "Tu Taller de Herramientas": Windows=house, WSL=workshop, commands=tools, directories=shelves, permissions=locks, apt=supply store, VS Code=window between house and workshop
+
+### Module: Bases de Datos con MariaDB
+
+- `bases-de-datos/teoría/plan-de-estudios.md` — Curriculum plan
+- `bases-de-datos/teoría/tema1_que_es_una_base_de_datos.md` through `tema12_transacciones.md` — One Markdown file per SQL topic, with explanations and SQL examples with expected output (no exercise section in theory files)
+- `bases-de-datos/teoría/tema13_php_pdo_conexion_y_consultas.php` through `tema15_integracion_oop_dao_repositorio.php` — PHP files following the OOP module format: header comment block → working example code → exercise stub as a comment at the end
+- `bases-de-datos/teoría/hoja-de-referencia.md` — Quick-reference cheat sheet organized by category
+- `bases-de-datos/ejercicios/ejercicio1_que_es_una_base_de_datos.md` — Design exercise (reflexive, no SQL to run)
+- `bases-de-datos/ejercicios/ejercicio4_crear_base_y_tablas.md` through `ejercicio12_transacciones.md` — Exercise files using the **tienda de música** domain (different from the biblioteca domain in theory files). Format: domain context → objective without step-by-step instructions → solution at the end for comparison
+- `bases-de-datos/ejercicios/ejercicio13_php_pdo_conexion_y_consultas.php` through `ejercicio15_integracion_oop_dao_repositorio.php` — PHP exercise files with TODO stubs (tienda de música domain) and solution in a block comment at the end
+- **Topics 2 and 3 have no separate exercise file** — the theory files include a VERIFICACIÓN FINAL section at the end
+
+Topics: what is a relational DB → install MariaDB on WSL → CLI client + HeidiSQL → CREATE TABLE → INSERT/SELECT → UPDATE/DELETE/WHERE → data types + constraints → foreign keys + relations → JOINs → normalization → indexes + views → transactions → PHP PDO connection → prepared statements + security → OOP + repository pattern (integrating project).
+
+Key conventions for this module:
+- Content uses neutral Spanish throughout (no Argentine voseo)
+- Theory Markdown files use the same banner format as the WSL module (`===` headers, ALL-CAPS sections with dashed underlines) and do NOT include an exercise section — exercises are exclusively in `ejercicios/`
+- Theory PHP files (topics 13–15) follow the OOP module format: header comment block with explanation → working example code → solution stub as a block comment at the end
+- The unifying domain for **theory** is **Biblioteca personal**: tables `autores`, `libros`, `categorias`, `libros_categorias`, `socios`, `prestamos`
+- The unifying domain for **exercises** (topics 4–15) is **Tienda de música**: tables `artistas`, `albumes`, `canciones`, `generos`, `albumes_generos`, `clientes`, `compras`
+- Exercise format (topics 4–12): ## Dominio → ## Objetivo (goal without step-by-step) → ## Tu turno → ## Solución
+- Exercise format (topics 13–15): PHP file with TODO stubs and complete solution in a block comment `/* ... */` at the end
+- Consistent class names for PHP exercises: `Artista`, `Album`, `AlbumRepositorio`, `Conexion`
+- Credentials in examples: user `sandra`, theory database `biblioteca`, exercise database `tienda_musica`, password shown as placeholder `'tu_contraseña_aqui'`
+- GUI client: **HeidiSQL** (Windows) — documented in topic 3. DBeaver and MySQL Workbench mentioned briefly as alternatives
+- PHP API: **PDO** with `PDO::ATTR_EMULATE_PREPARES => false` and `PDO::ERRMODE_EXCEPTION`. `mysqli` is only mentioned as an alternative that exists
+
+## Running Database Module PHP Files
+
+Topics 13–15 and their exercises are standalone PHP scripts. They require MariaDB running and the respective database populated:
+
+```bash
+sudo service mariadb start
+php bases-de-datos/teoría/tema13_php_pdo_conexion_y_consultas.php
+php bases-de-datos/ejercicios/ejercicio13_php_pdo_conexion_y_consultas.php
+```
 
 ## Opening HTML Files
 

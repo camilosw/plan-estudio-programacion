@@ -1,13 +1,9 @@
-=========================================================
-TEMA 3: Navegación de archivos — Las estanterías del taller
-=========================================================
+# TEMA 3: Navegación de archivos — Las estanterías del taller
 
-OBJETIVO
---------
+## OBJETIVO
 Moverte por el sistema de archivos de Linux con confianza usando `pwd`, `ls` y `cd`, y entender la diferencia entre rutas absolutas y relativas.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### El árbol de directorios
 

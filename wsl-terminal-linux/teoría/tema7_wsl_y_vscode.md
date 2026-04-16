@@ -1,13 +1,9 @@
-=========================================================
-TEMA 7: WSL y VS Code — La ventana al taller
-=========================================================
+# TEMA 7: WSL y VS Code — La ventana al taller
 
-OBJETIVO
---------
+## OBJETIVO
 Entender el puente entre los sistemas de archivos de Windows y Linux, y trabajar con proyectos de WSL directamente desde VS Code.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### Dos mundos en una computadora
 

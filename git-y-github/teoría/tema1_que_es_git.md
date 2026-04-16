@@ -1,13 +1,9 @@
-=========================================================
-TEMA 1: ¿Qué es Git? — Control de versiones
-=========================================================
+# TEMA 1: ¿Qué es Git? — Control de versiones
 
-OBJETIVO
---------
+## OBJETIVO
 Entender qué es el control de versiones, por qué es útil y dejar Git instalado y configurado en tu computadora.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### ¿Qué problema resuelve Git?
 
@@ -111,8 +107,7 @@ git config user.email
 tu@email.com
 ```
 
-EJERCICIO
----------
+## EJERCICIO
 
 1. Instalá Git en tu computadora siguiendo las instrucciones de tu sistema operativo
 2. Verificá la instalación ejecutando `git --version` en la terminal

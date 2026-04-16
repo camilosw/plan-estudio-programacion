@@ -1,13 +1,9 @@
-=========================================================
-TEMA 4: Historial y navegación — log, diff, gitignore
-=========================================================
+# TEMA 4: Historial y navegación — log, diff, gitignore
 
-OBJETIVO
---------
+## OBJETIVO
 Ver el historial de cambios, comparar versiones y aprender a ignorar archivos que no queremos rastrear.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### git log — Ver el historial de commits
 
@@ -156,8 +152,7 @@ config_local.php
 
 Las líneas que empiezan con `#` son comentarios y Git las ignora.
 
-EJERCICIO
----------
+## EJERCICIO
 
 Usando el repositorio de los temas anteriores:
 

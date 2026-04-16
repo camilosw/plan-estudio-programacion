@@ -1,13 +1,9 @@
-=========================================================
-TEMA 5: Permisos y usuarios — Candados y llaves
-=========================================================
+# TEMA 5: Permisos y usuarios — Candados y llaves
 
-OBJETIVO
---------
+## OBJETIVO
 Entender el sistema de permisos de Linux, saber leer la salida de `ls -l` y modificar permisos con `chmod`.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### Cada archivo tiene un dueño y un candado
 

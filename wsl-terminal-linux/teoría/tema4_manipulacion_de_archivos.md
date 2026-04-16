@@ -1,13 +1,9 @@
-=========================================================
-TEMA 4: Manipulación de archivos — Organizar el taller
-=========================================================
+# TEMA 4: Manipulación de archivos — Organizar el taller
 
-OBJETIVO
---------
+## OBJETIVO
 Crear, copiar, mover y eliminar archivos y carpetas desde la terminal.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### En Linux todo es un archivo
 

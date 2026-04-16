@@ -1,13 +1,9 @@
-=========================================================
-TEMA 2: Tu primer repositorio — git init y git status
-=========================================================
+# TEMA 2: Tu primer repositorio — git init y git status
 
-OBJETIVO
---------
+## OBJETIVO
 Crear un repositorio Git y entender qué es la carpeta `.git` y el comando `git status`.
 
-EXPLICACIÓN
------------
+## EXPLICACIÓN
 
 ### ¿Qué es un repositorio?
 
@@ -111,8 +107,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Git lista todos los archivos nuevos que todavía no está rastreando.
 
-EJERCICIO
----------
+## EJERCICIO
 
 1. Crear una carpeta llamada `mi-proyecto`
 2. Entrar a la carpeta con `cd mi-proyecto`
