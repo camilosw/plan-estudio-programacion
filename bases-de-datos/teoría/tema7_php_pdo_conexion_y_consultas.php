@@ -34,12 +34,29 @@
 // PARTE 1: Conexión
 // ============================================================
 
+// LA CLASE PDO
+// `PDO` es una clase que ya viene con PHP. Para conectarse a la
+// base de datos se instancia con `new PDO(...)`, y el objeto que
+// se obtiene **representa la conexión activa**. Todas las operaciones
+// posteriores (consultas, prepared statements, transacciones) se
+// hacen llamando métodos sobre ese objeto: `$pdo->query(...)`,
+// `$pdo->prepare(...)`, `$pdo->beginTransaction()`, etc.
+//
+// El constructor recibe 4 argumentos, en este orden:
+//   1. DSN (string)      — qué motor, host, puerto, base de datos y charset.
+//   2. Usuario (string)  — el usuario de la base de datos.
+//   3. Contraseña (string).
+//   4. Opciones (array, opcional) — configuración del comportamiento del objeto.
+//
+// En los próximos ejemplos se usan los métodos de ese objeto.
+
 // Los parámetros de conexión
 $host     = '127.0.0.1';
 $puerto   = '3306';
 $nombre_bd = 'biblioteca';
 $usuario  = 'sandra';
-$contrasena = 'tu_contraseña_aqui'; // Cambia esto
+$contrasena = 'tu_contraseña_aqui'; // Cambia esto. En producción se usaría
+                                    // una variable de entorno
 
 // El DSN (Data Source Name) especifica el motor, host y base de datos
 $dsn = "mysql:host=$host;port=$puerto;dbname=$nombre_bd;charset=utf8mb4";
@@ -54,44 +71,46 @@ $opciones = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
-// Crear la conexión dentro de un try/catch para manejar errores
-try {
-    $pdo = new PDO($dsn, $usuario, $contrasena, $opciones);
-    echo "Conexión exitosa a la base de datos '$nombre_bd'.\n\n";
-} catch (PDOException $e) {
-    // Mostrar el mensaje de error y terminar el script
-    // En producción NO mostrarías este mensaje al usuario
-    echo "Error al conectar: " . $e->getMessage() . "\n";
-    exit(1);
-}
+// Crear la conexión
+$pdo = new PDO($dsn, $usuario, $contrasena, $opciones);
+echo "Conexión exitosa a la base de datos '$nombre_bd'.\n\n";
 
 // ============================================================
 // PARTE 2: Consulta simple — query()
 // ============================================================
 
-// query() sirve para consultas sin datos del usuario (sin WHERE dinámico).
-// Devuelve un objeto PDOStatement con los resultados.
-
 echo "=== Todos los autores ===\n";
 
+// Para obtener los datos de la base de datos, usamos el método `query` de la 
+// clase `PDO`, que retorna un objeto de tipo `PDOStatement`. En este ejemplo,
+// `$resultado` contiene una instancia de la clase `PDOStatement`.
 $resultado = $pdo->query("SELECT id, nombre, pais FROM autores ORDER BY nombre");
 
-// fetchAll() trae todos los registros como un array de arrays asociativos
+// EL OBJETO PDOStatement
+// `PDOStatement` es otra clase que viene con PHP. No se instancia
+// directamente: la devuelve PDO cuando ejecutas una consulta
+// (`$pdo->query(...)`) o preparas una sentencia (`$pdo->prepare(...)`,
+// Tema 8). El objeto **representa el resultado de una consulta** y
+// expone métodos para recorrer esas filas. En los próximos ejemplos verás 
+// estos métodos en acción.
+
+// fetchAll() es uno de los métodos de la clase `PDOStatememnt` y trae todos 
+// los registros como un array de arrays asociativos.
 $autores = $resultado->fetchAll();
 
 foreach ($autores as $autor) {
-    echo "[$autor[id]] $autor[nombre] — $autor[pais]\n";
+    echo "$autor[id] - $autor[nombre] — $autor[pais]\n";
 }
 
 // Salida esperada:
-// [6] Antoine de Saint-Exupéry — Francia
-// [9] Autor Sin Libros — España
-// [7] Fiódor Dostoyevski — Rusia
-// [5] Franz Kafka — República Checa
-// [1] Gabriel García Márquez — Colombia
-// [4] Isabel Allende — Chile
-// [3] Jorge Luis Borges — Argentina
-// [2] Umberto Eco — Italia
+// 6 - Antoine de Saint-Exupéry — Francia
+// 9 - Autor Sin Libros — España
+// 7 - Fiódor Dostoyevski — Rusia
+// 5 - Franz Kafka — República Checa
+// 1 - Gabriel García Márquez — Colombia
+// 4 - Isabel Allende — Chile
+// 3 - Jorge Luis Borges — Argentina
+// 2 - Umberto Eco — Italia
 
 echo "\n";
 
@@ -99,12 +118,15 @@ echo "\n";
 // PARTE 3: Traer un solo registro — fetch()
 // ============================================================
 
-// fetch() trae una fila a la vez. Útil cuando esperas un solo resultado.
+// fetch() es otro método de la clase `PDOStatement` y trae una fila a la vez. 
+// A diferencia de fetchAll() que retornaba un array de arrays asociativos,
+// fetch() retorna solamente un array asociativo. Útil cuando esperas un 
+// solo resultado.
 
 echo "=== Libro con id = 3 ===\n";
 
-$stmt = $pdo->query("SELECT titulo, anio_publicacion, paginas FROM libros WHERE id = 3");
-$libro = $stmt->fetch();
+$resultado = $pdo->query("SELECT titulo, anio_publicacion, paginas FROM libros WHERE id = 3");
+$libro = $resultado->fetch();
 
 if ($libro) {
     echo "Título: $libro[titulo]\n";
@@ -126,6 +148,27 @@ echo "\n";
 // ============================================================
 
 echo "=== Estadísticas ===\n";
+
+// fetchColumn() es otro método de la clase `PDOStatement`. A diferencia de
+// `fetch()` y `fetchAll()` (que devuelven arrays), `fetchColumn()` devuelve
+// directamente el valor de la primera columna de la siguiente fila, como un
+// escalar (número o string).
+//
+// ¿Por qué es ideal acá? `SELECT COUNT(*) FROM libros` devuelve una sola fila
+// con una sola columna. Si usáramos `fetch()` tendríamos que escribir algo como
+// `$fila = $stmt->fetch(); $total = $fila['COUNT(*)'];` — más código y una clave
+// poco prolija. Con `fetchColumn()` obtenemos el número directamente.
+//
+// ENCADENAMIENTO DE MÉTODOS
+// Observa que aquí no guardamos el `PDOStatement` en una variable intermedia:
+// `$pdo->query(...)->fetchColumn()` llama a `query()`, que devuelve un objeto
+// `PDOStatement`, y sobre ese objeto se llama `fetchColumn()` inmediatamente.
+// Es útil cuando solo necesitamos el valor una vez y no vamos a reutilizar el
+// statement.
+//
+// Usa `fetchColumn()` para consultas que devuelven un único valor:
+// `COUNT(*)`, `MAX(...)`, `MIN(...)`, `SUM(...)`, o un `SELECT columna FROM tabla
+// WHERE id = ?` donde solo interesa ese campo.
 
 $total_libros       = $pdo->query("SELECT COUNT(*) FROM libros")->fetchColumn();
 $total_autores      = $pdo->query("SELECT COUNT(*) FROM autores")->fetchColumn();
@@ -153,11 +196,11 @@ echo "\n";
 
 echo "=== Libros publicados a partir del año 1950 ===\n";
 
-$stmt = $pdo->query("SELECT titulo, anio_publicacion FROM libros
-                     WHERE anio_publicacion >= 1950
-                     ORDER BY anio_publicacion");
+$resultado = $pdo->query("SELECT titulo, anio_publicacion FROM libros
+                          WHERE anio_publicacion >= 1950
+                          ORDER BY anio_publicacion");
 
-while ($libro = $stmt->fetch()) {
+while ($libro = $resultado->fetch()) {
     echo "- $libro[titulo] ($libro[anio_publicacion])\n";
 }
 
@@ -165,6 +208,34 @@ while ($libro = $stmt->fetch()) {
 // - El nombre de la rosa (1980)
 // - Cien años de soledad (1967)
 // - ...
+
+// EL PATRÓN while ($fila = $resultado->fetch())
+// Esta línea combina dos cosas en una sola expresión:
+//
+//   1. Llama a fetch(), que devuelve la SIGUIENTE fila del resultado
+//      como array asociativo. Cada llamada avanza el cursor una fila (más 
+//      abajo se explica qué es el cursor).
+//   2. Asigna esa fila a $libro. El VALOR de la asignación (es decir,
+//      lo que se acaba de asignar) es lo que while evalúa como condición.
+//
+// Mientras fetch() devuelve una fila (un array), la condición es
+// verdadera y el bucle entra. Cuando ya no quedan filas, fetch()
+// devuelve false y el bucle termina.
+//
+// No confundir con ==: aquí hay un SOLO signo igual porque es una
+// asignación, no una comparación.
+//
+// ¿QUÉ ES EL CURSOR?
+// Cuando PDO ejecuta un SELECT, el resultado no se entrega todo
+// junto: queda "apuntado" por un marcador interno que recuerda
+// en qué fila va la lectura. Ese marcador se llama CURSOR. Se puede
+// imaginar como el dedo que se desliza por una lista de papel para
+// leer un ítem a la vez sin perder el lugar.
+//
+// Al principio el cursor está antes de la primera fila. Cada vez
+// que se llama a fetch(), el cursor avanza una posición y devuelve
+// la fila donde quedó parado. Cuando ya no hay más filas, fetch()
+// devuelve false.
 
 // ============================================================
 // RESUMEN DE MÉTODOS USADOS
