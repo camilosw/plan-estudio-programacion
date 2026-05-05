@@ -4,13 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a programming teaching curriculum for learning from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are five modules:
+This is a programming teaching curriculum for learning from scratch. The student has basic PHP knowledge (variables, arrays, functions). There are six modules:
 
 1. **OOP (classes and objects)** — using an **online store** as the unifying theme
 2. **Git and GitHub** — version control fundamentals, from installation to collaboration with Pull Requests
 3. **HTML and CSS** — building web pages from scratch, using **La Cafetería de Sandra** as the unifying theme
 4. **WSL and Linux Terminal** — setting up WSL, navigating the file system, permissions, package management, zsh, and VS Code integration — using **"Tu Taller de Herramientas"** as the unifying analogy
 5. **Bases de Datos con MariaDB** — relational databases from scratch: MariaDB on WSL, HeidiSQL, SQL, PHP PDO, and OOP integration — using **"Biblioteca personal"** as the unifying theme
+6. **JavaScript Fundamentos** — JavaScript language fundamentals (no DOM), from variables to async/await — using **"El Recetario de Sandra"** as the unifying theme
 
 ## Structure
 
@@ -105,6 +106,40 @@ Key conventions for this module:
 - Credentials in examples: user `sandra`, theory database `biblioteca`, exercise database `tienda_musica`, password shown as placeholder `'tu_contraseña_aqui'`
 - GUI client: **HeidiSQL** (Windows) — documented in topic 3. DBeaver and MySQL Workbench mentioned briefly as alternatives
 - PHP API: **PDO** with `PDO::ATTR_EMULATE_PREPARES => false` and `PDO::ERRMODE_EXCEPTION`. `mysqli` is only mentioned as an alternative that exists
+
+### Module: JavaScript Fundamentos
+
+- `javascript/teoría/plan-de-estudios.md` — Curriculum plan
+- `javascript/teoría/tema1_que_es_javascript.js` through `tema15_proyecto_integrador.js` — One JS file per topic, each containing explanatory comments, working example code, and an exercise at the end
+- `javascript/teoría/hoja-de-referencia.md` — Quick-reference cheat sheet organized by category
+- `javascript/ejercicios/ejercicio1_que_es_javascript.js` through `ejercicio15_proyecto_integrador.js` — Exercise files with TODO stubs and a solution in a block comment at the end
+
+Topics: what is JavaScript → variables and types → operators and conditionals → loops → functions → arrays → objects → arrays of objects → array methods I (forEach/map/filter/find) → array methods II (reduce/sort/some/every) → destructuring and spread/rest → classes → Date and time → promises and async/await → integrating project.
+
+Key conventions for this module:
+- Content uses neutral Spanish throughout (no Argentine voseo)
+- No PHP parallels — JavaScript is taught on its own terms
+- Theory files follow the OOP module format: header comment block with explanation → working code example → exercise as a comment block at the end
+- Exercise files follow the Bases de Datos PHP exercise format: header with domain → sections with "Tu código aquí" → solution in a block comment `/* ... */` at the end
+- The unifying domain for **theory** is **El Recetario de Sandra**: recipes with `nombre`, `categoria`, `tiempoMinutos`, `calificacion`, `ingredientes`, `disponible`
+- The unifying domain for **exercises** is **Videoclub**: movies with `titulo`, `director`, `genero`, `anio`, `duracion`, `calificacion`, `disponible`
+- Consistent recipe data across theory files: "Café con leche espumosa", "Tarta de chocolate", "Sándwich club", "Galletas de avena", "Cheesecake de frutos rojos", "Té chai latte", "Ensalada mediterránea", "Brownie con nueces"
+- Consistent movie data across exercise files: "El Padrino", "Volver al Futuro", "Toy Story", "El Secreto de sus Ojos", "Coco", "Inception", "Matar a un ruiseñor", "Mi vecino Totoro"
+- Variables use camelCase in Spanish: `nombreReceta`, `tiempoMinutos`, `calificacion`
+- `const` as default, `let` only when reassignment is needed, never `var`
+- `===` always (never `==`)
+- Each file is self-contained (no imports between files)
+- Classes: `Receta`, `RecetaPostre`, `RecetaBebida` (theory); `Pelicula`, `PeliculaAnimada`, `Videoclub` (exercises)
+
+## Running JavaScript Files
+
+Each JavaScript module file is a standalone script executed with Node.js:
+
+```bash
+node javascript/teoría/tema1_que_es_javascript.js
+```
+
+Every JS file must execute without errors and produce the expected output shown in its comments.
 
 ## Running Database Module PHP Files
 
