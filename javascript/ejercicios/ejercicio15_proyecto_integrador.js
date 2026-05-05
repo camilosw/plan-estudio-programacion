@@ -6,112 +6,95 @@
 // OBJETIVO: Construir un sistema completo de gestión de
 // videoclub usando todos los conceptos aprendidos.
 //
-// Este ejercicio integra:
-//   - Variables y tipos (tema 2)
-//   - Condicionales (tema 3)
-//   - Bucles (tema 4)
-//   - Funciones (tema 5)
-//   - Arrays y métodos (temas 6, 9, 10)
-//   - Objetos (tema 7)
-//   - Arrays de objetos (tema 8)
-//   - Desestructuración y spread (tema 11)
-//   - Clases y herencia (tema 12)
-//   - Fechas (tema 13)
-//   - Promesas y async/await (tema 14)
-//
 // EJECUCIÓN:
 //   node ejercicios/ejercicio15_proyecto_integrador.js
 // ============================================================
 
 // ============================================================
-// PASO 1: Clase Pelicula
+// PASO 1: Clase Movie
 // ============================================================
-// Crea una clase "Pelicula" con:
-//   - constructor: titulo, director, genero, anio, duracion, calificacion
-//   - propiedad privada #calificacion (getter + setter con validación 1-10)
-//   - propiedad "disponible" inicializada en true
-//   - propiedad "fechaIngreso" inicializada con new Date()
-//   - getter "duracionFormateada" que devuelva "Xh Ymin"
-//   - getter "esClasica" que devuelva true si anio < 1980
-//   - método "mostrar()" que imprima los datos formateados
+// Crea una clase "Movie" con:
+//   - constructor: title, director, genre, year, duration, rating
+//   - propiedad privada #rating (getter + setter con validación 1-10)
+//   - propiedad "available" inicializada en true
+//   - propiedad "addedAt" inicializada con new Date()
+//   - getter "formattedDuration" que devuelva "Xh Ymin"
+//   - getter "isClassic" que devuelva true si year < 1980
+//   - método "show()" que imprima los datos formateados
 
-// Escribe tu código aquí:
-
-
-
-// ============================================================
-// PASO 2: Clase PeliculaAnimada (herencia)
-// ============================================================
-// Crea una clase "PeliculaAnimada" que extienda Pelicula:
-//   - constructor adicional: estudio
-//   - sobreescribe "mostrar()" para incluir el estudio
-
-// Escribe tu código aquí:
+// Tu código aquí:
 
 
 
 // ============================================================
-// PASO 3: Clase Videoclub
+// PASO 2: Clase AnimatedMovie (herencia)
 // ============================================================
-// Crea una clase "Videoclub" con:
-//   - constructor: nombre
-//   - propiedad privada #peliculas (array vacío)
-//   - método "agregar(pelicula)"
-//   - método "buscar(titulo)" — usa find
-//   - método "disponibles()" — usa filter
-//   - método "porGenero(genero)" — usa filter
-//   - método "alquilar(titulo)" — cambia disponible a false, devuelve boolean
-//   - método "devolver(titulo)" — cambia disponible a true
-//   - método "topPeliculas(n)" — sort + slice, las mejores por calificación
-//   - método "resumenPorGenero()" — usa reduce, devuelve objeto con conteos
-//   - método "duracionTotal()" — usa reduce sobre disponibles
-//   - método "mostrarCatalogo()" — muestra todas usando forEach y desestructuración
+// Crea una clase "AnimatedMovie" que extienda Movie:
+//   - constructor adicional: studio
+//   - sobreescribe "show()" para incluir el estudio
 
-// Escribe tu código aquí:
+// Tu código aquí:
+
+
+
+// ============================================================
+// PASO 3: Clase VideoClub
+// ============================================================
+// Crea una clase "VideoClub" con:
+//   - constructor: name
+//   - propiedad privada #movies (array vacío)
+//   - método "add(movie)"
+//   - método "find(title)" — usa find
+//   - método "getAvailable()" — usa filter
+//   - método "getByGenre(genre)" — usa filter
+//   - método "rent(title)" — cambia available a false, devuelve boolean
+//   - método "returnMovie(title)" — cambia available a true
+//   - método "getTopMovies(n)" — sort + slice
+//   - método "getSummaryByGenre()" — usa reduce
+//   - método "getTotalDuration()" — usa reduce sobre disponibles
+//   - método "showCatalog()" — usa forEach con desestructuración
+
+// Tu código aquí:
 
 
 
 // ============================================================
 // PASO 4: Función async para cargar catálogo
 // ============================================================
-// Crea una función "cargarCatalogo()" que devuelva una promesa.
-// Después de 500ms, resuelve con un array de datos de películas
-// (objetos simples con titulo, director, genero, anio, duracion,
-// calificacion, y opcionalmente estudio).
-// Incluye al menos 6 películas (mezcla Pelicula y PeliculaAnimada).
+// Crea una función "loadCatalog()" que devuelva una promesa.
+// Después de 500ms, resuelve con un array de datos de películas.
+// Incluye al menos 6 películas (mezcla Movie y AnimatedMovie).
 
-// Escribe tu código aquí:
+// Tu código aquí:
 
 
 
 // ============================================================
-// PASO 5: Función async "iniciarVideoclub"
+// PASO 5: Función async "startVideoClub"
 // ============================================================
 // Crea una función async que:
 //   1. Muestre un encabezado decorado
 //   2. Cargue el catálogo con await
-//   3. Cree instancias de Pelicula/PeliculaAnimada según los datos
-//   4. Las agregue al videoclub
-//   5. Muestre el catálogo completo
-//   6. Busque una película específica y la muestre
-//   7. Muestre las películas de un género específico
-//   8. Alquile una película y verifique que ya no está disponible
-//   9. Devuelva la película y verifique que volvió a estar disponible
-//  10. Muestre el top 3 por calificación
-//  11. Muestre el resumen por género
-//  12. Muestre la duración total de películas disponibles
-//  13. Muestre la fecha del reporte formateada en español
+//   3. Cree instancias y las agregue al videoclub
+//   4. Muestre el catálogo completo
+//   5. Busque una película y la muestre
+//   6. Muestre películas de un género
+//   7. Alquile una película y verifique
+//   8. Devuelva la película y verifique
+//   9. Muestre el top 3
+//  10. Muestre resumen por género
+//  11. Muestre duración total
+//  12. Muestre la fecha del reporte
 
-// Escribe tu código aquí:
+// Tu código aquí:
 
 
 
 // ============================================================
 // PASO 6: Ejecutar
 // ============================================================
-// Llama a iniciarVideoclub()
 
-// Escribe tu código aquí:
+// Tu código aquí:
 
 
 
@@ -120,242 +103,233 @@
 // ============================================================
 /*
 // PASO 1
-class Pelicula {
-    #calificacion;
+class Movie {
+    #rating;
 
-    constructor(titulo, director, genero, anio, duracion, calificacion) {
-        this.titulo = titulo;
+    constructor(title, director, genre, year, duration, rating) {
+        this.title = title;
         this.director = director;
-        this.genero = genero;
-        this.anio = anio;
-        this.duracion = duracion;
-        this.#calificacion = calificacion;
-        this.disponible = true;
-        this.fechaIngreso = new Date();
+        this.genre = genre;
+        this.year = year;
+        this.duration = duration;
+        this.#rating = rating;
+        this.available = true;
+        this.addedAt = new Date();
     }
 
-    get calificacion() {
-        return this.#calificacion;
+    get rating() {
+        return this.#rating;
     }
 
-    set calificacion(valor) {
-        if (valor < 1 || valor > 10) {
+    set rating(value) {
+        if (value < 1 || value > 10) {
             console.log("  Error: la calificación debe ser entre 1 y 10");
             return;
         }
-        this.#calificacion = valor;
+        this.#rating = value;
     }
 
-    get duracionFormateada() {
-        const h = Math.floor(this.duracion / 60);
-        const m = this.duracion % 60;
+    get formattedDuration() {
+        const h = Math.floor(this.duration / 60);
+        const m = this.duration % 60;
         if (h === 0) return `${m}min`;
         return `${h}h ${m}min`;
     }
 
-    get esClasica() {
-        return this.anio < 1980;
+    get isClassic() {
+        return this.year < 1980;
     }
 
-    mostrar() {
-        const estado = this.disponible ? "✓" : "✗";
-        const clasica = this.esClasica ? " [Clásica]" : "";
-        console.log(`  ${estado} ${this.titulo} (${this.anio})${clasica}`);
-        console.log(`    ${this.genero} | ${this.director} | ${this.duracionFormateada} | ${this.#calificacion}★`);
+    show() {
+        const status = this.available ? "✓" : "✗";
+        const classic = this.isClassic ? " [Clásica]" : "";
+        console.log(`  ${status} ${this.title} (${this.year})${classic}`);
+        console.log(`    ${this.genre} | ${this.director} | ${this.formattedDuration} | ${this.#rating}★`);
     }
 }
 
 // PASO 2
-class PeliculaAnimada extends Pelicula {
-    constructor(titulo, director, anio, duracion, calificacion, estudio) {
-        super(titulo, director, "animación", anio, duracion, calificacion);
-        this.estudio = estudio;
+class AnimatedMovie extends Movie {
+    constructor(title, director, year, duration, rating, studio) {
+        super(title, director, "animación", year, duration, rating);
+        this.studio = studio;
     }
 
-    mostrar() {
-        super.mostrar();
-        console.log(`    Estudio: ${this.estudio}`);
+    show() {
+        super.show();
+        console.log(`    Estudio: ${this.studio}`);
     }
 }
 
 // PASO 3
-class Videoclub {
-    #peliculas;
+class VideoClub {
+    #movies;
 
-    constructor(nombre) {
-        this.nombre = nombre;
-        this.#peliculas = [];
+    constructor(name) {
+        this.name = name;
+        this.#movies = [];
     }
 
-    agregar(pelicula) {
-        this.#peliculas.push(pelicula);
+    add(movie) {
+        this.#movies.push(movie);
     }
 
-    buscar(titulo) {
-        return this.#peliculas.find(p =>
-            p.titulo.toLowerCase().includes(titulo.toLowerCase())
+    find(title) {
+        return this.#movies.find(m =>
+            m.title.toLowerCase().includes(title.toLowerCase())
         ) || null;
     }
 
-    disponibles() {
-        return this.#peliculas.filter(p => p.disponible);
+    getAvailable() {
+        return this.#movies.filter(m => m.available);
     }
 
-    porGenero(genero) {
-        return this.#peliculas.filter(p => p.genero === genero);
+    getByGenre(genre) {
+        return this.#movies.filter(m => m.genre === genre);
     }
 
-    alquilar(titulo) {
-        const pelicula = this.buscar(titulo);
-        if (pelicula && pelicula.disponible) {
-            pelicula.disponible = false;
+    rent(title) {
+        const movie = this.find(title);
+        if (movie && movie.available) {
+            movie.available = false;
             return true;
         }
         return false;
     }
 
-    devolver(titulo) {
-        const pelicula = this.buscar(titulo);
-        if (pelicula) {
-            pelicula.disponible = true;
+    returnMovie(title) {
+        const movie = this.find(title);
+        if (movie) {
+            movie.available = true;
         }
     }
 
-    topPeliculas(n = 3) {
-        return [...this.#peliculas]
-            .sort((a, b) => b.calificacion - a.calificacion)
+    getTopMovies(n = 3) {
+        return [...this.#movies]
+            .sort((a, b) => b.rating - a.rating)
             .slice(0, n);
     }
 
-    resumenPorGenero() {
-        return this.#peliculas.reduce((res, p) => {
-            res[p.genero] = (res[p.genero] || 0) + 1;
-            return res;
+    getSummaryByGenre() {
+        return this.#movies.reduce((result, m) => {
+            result[m.genre] = (result[m.genre] || 0) + 1;
+            return result;
         }, {});
     }
 
-    duracionTotal() {
-        return this.disponibles()
-            .reduce((total, p) => total + p.duracion, 0);
+    getTotalDuration() {
+        return this.getAvailable()
+            .reduce((total, m) => total + m.duration, 0);
     }
 
-    mostrarCatalogo() {
-        console.log(`\n  Catálogo: ${this.#peliculas.length} películas`);
+    showCatalog() {
+        console.log(`\n  Catálogo: ${this.#movies.length} películas`);
         console.log("  " + "─".repeat(40));
-        this.#peliculas.forEach(p => {
-            p.mostrar();
+        this.#movies.forEach(m => {
+            m.show();
             console.log("");
         });
     }
 }
 
 // PASO 4
-function cargarCatalogo() {
+function loadCatalog() {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve([
-                { titulo: "El Padrino", director: "Coppola", genero: "drama", anio: 1972, duracion: 175, calificacion: 9.2 },
-                { titulo: "Volver al Futuro", director: "Zemeckis", genero: "ciencia ficción", anio: 1985, duracion: 116, calificacion: 8.5 },
-                { titulo: "Toy Story", director: "Lasseter", genero: "animación", anio: 1995, duracion: 81, calificacion: 8.3, estudio: "Pixar" },
-                { titulo: "Inception", director: "Nolan", genero: "ciencia ficción", anio: 2010, duracion: 148, calificacion: 8.8 },
-                { titulo: "Coco", director: "Unkrich", genero: "animación", anio: 2017, duracion: 105, calificacion: 8.4, estudio: "Pixar" },
-                { titulo: "Mi vecino Totoro", director: "Miyazaki", genero: "animación", anio: 1988, duracion: 86, calificacion: 8.2, estudio: "Ghibli" },
-                { titulo: "El Secreto de sus Ojos", director: "Campanella", genero: "drama", anio: 2009, duracion: 129, calificacion: 8.0 },
-                { titulo: "Matar a un ruiseñor", director: "Mulligan", genero: "drama", anio: 1962, duracion: 129, calificacion: 8.3 }
+                { title: "El Padrino", director: "Coppola", genre: "drama", year: 1972, duration: 175, rating: 9.2 },
+                { title: "Volver al Futuro", director: "Zemeckis", genre: "ciencia ficción", year: 1985, duration: 116, rating: 8.5 },
+                { title: "Toy Story", director: "Lasseter", genre: "animación", year: 1995, duration: 81, rating: 8.3, studio: "Pixar" },
+                { title: "Inception", director: "Nolan", genre: "ciencia ficción", year: 2010, duration: 148, rating: 8.8 },
+                { title: "Coco", director: "Unkrich", genre: "animación", year: 2017, duration: 105, rating: 8.4, studio: "Pixar" },
+                { title: "Mi vecino Totoro", director: "Miyazaki", genre: "animación", year: 1988, duration: 86, rating: 8.2, studio: "Ghibli" },
+                { title: "El Secreto de sus Ojos", director: "Campanella", genre: "drama", year: 2009, duration: 129, rating: 8.0 },
+                { title: "Matar a un ruiseñor", director: "Mulligan", genre: "drama", year: 1962, duration: 129, rating: 8.3 }
             ]);
         }, 500);
     });
 }
 
 // PASO 5
-async function iniciarVideoclub() {
+async function startVideoClub() {
     console.log("╔════════════════════════════════════════╗");
     console.log("║        VIDEOCLUB SANDRA                ║");
     console.log("║        Sistema de gestión              ║");
     console.log("╚════════════════════════════════════════╝");
 
     console.log("\n  Cargando catálogo...");
-    const datos = await cargarCatalogo();
-    const videoclub = new Videoclub("Videoclub Sandra");
+    const data = await loadCatalog();
+    const club = new VideoClub("Videoclub Sandra");
 
-    datos.forEach(({ titulo, director, genero, anio, duracion, calificacion, estudio }) => {
-        if (estudio) {
-            videoclub.agregar(new PeliculaAnimada(titulo, director, anio, duracion, calificacion, estudio));
+    data.forEach(({ title, director, genre, year, duration, rating, studio }) => {
+        if (studio) {
+            club.add(new AnimatedMovie(title, director, year, duration, rating, studio));
         } else {
-            videoclub.agregar(new Pelicula(titulo, director, genero, anio, duracion, calificacion));
+            club.add(new Movie(title, director, genre, year, duration, rating));
         }
     });
 
-    console.log(`  ¡${datos.length} películas cargadas!`);
+    console.log(`  ¡${data.length} películas cargadas!`);
 
-    // Catálogo completo
     console.log("\n📋 CATÁLOGO COMPLETO");
     console.log("═".repeat(45));
-    videoclub.mostrarCatalogo();
+    club.showCatalog();
 
-    // Buscar
     console.log("🔍 BUSCAR: 'Inception'");
     console.log("─".repeat(45));
-    const encontrada = videoclub.buscar("Inception");
-    if (encontrada) encontrada.mostrar();
+    const found = club.find("Inception");
+    if (found) found.show();
 
-    // Por género
     console.log("\n🎨 PELÍCULAS DE ANIMACIÓN");
     console.log("─".repeat(45));
-    videoclub.porGenero("animación").forEach(p => {
-        console.log(`  - ${p.titulo} (${p.anio})`);
+    club.getByGenre("animación").forEach(m => {
+        console.log(`  - ${m.title} (${m.year})`);
     });
 
-    // Alquilar
     console.log("\n📀 ALQUILAR 'El Padrino'");
     console.log("─".repeat(45));
-    const exito = videoclub.alquilar("El Padrino");
-    console.log(`  Resultado: ${exito ? "✓ Alquilada" : "✗ No disponible"}`);
-    console.log(`  Disponibles ahora: ${videoclub.disponibles().length}`);
+    const success = club.rent("El Padrino");
+    console.log(`  Resultado: ${success ? "✓ Alquilada" : "✗ No disponible"}`);
+    console.log(`  Disponibles ahora: ${club.getAvailable().length}`);
 
-    // Devolver
     console.log("\n📥 DEVOLVER 'El Padrino'");
     console.log("─".repeat(45));
-    videoclub.devolver("El Padrino");
-    console.log(`  Disponibles ahora: ${videoclub.disponibles().length}`);
+    club.returnMovie("El Padrino");
+    console.log(`  Disponibles ahora: ${club.getAvailable().length}`);
 
-    // Top 3
     console.log("\n🏆 TOP 3 PELÍCULAS");
     console.log("─".repeat(45));
-    videoclub.topPeliculas(3).forEach((p, i) => {
-        console.log(`  ${i + 1}. ${p.titulo} — ${p.calificacion}★`);
+    club.getTopMovies(3).forEach((m, i) => {
+        console.log(`  ${i + 1}. ${m.title} — ${m.rating}★`);
     });
 
-    // Resumen por género
     console.log("\n📊 RESUMEN POR GÉNERO");
     console.log("─".repeat(45));
-    const { ...resumen } = videoclub.resumenPorGenero();
-    for (const [genero, cantidad] of Object.entries(resumen)) {
-        console.log(`  ${genero}: ${cantidad} películas`);
+    const summary = club.getSummaryByGenre();
+    for (const [genre, count] of Object.entries(summary)) {
+        console.log(`  ${genre}: ${count} películas`);
     }
 
-    // Duración total
     console.log("\n⏱  DURACIÓN TOTAL DISPONIBLES");
     console.log("─".repeat(45));
-    const totalMin = videoclub.duracionTotal();
-    const horas = Math.floor(totalMin / 60);
-    const minutos = totalMin % 60;
-    console.log(`  ${totalMin} minutos (${horas}h ${minutos}min)`);
+    const totalMin = club.getTotalDuration();
+    const hours = Math.floor(totalMin / 60);
+    const minutes = totalMin % 60;
+    console.log(`  ${totalMin} minutos (${hours}h ${minutes}min)`);
 
-    // Fecha del reporte
-    const ahora = new Date();
-    const fechaFormateada = ahora.toLocaleDateString("es-ES", {
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString("es-ES", {
         weekday: "long",
         day: "numeric",
         month: "long",
         year: "numeric"
     });
     console.log("\n═══════════════════════════════════════════");
-    console.log(`  Reporte generado: ${fechaFormateada}`);
+    console.log(`  Reporte generado: ${formattedDate}`);
     console.log("  ¡Gracias por usar Videoclub Sandra!");
     console.log("═══════════════════════════════════════════");
 }
 
 // PASO 6
-iniciarVideoclub();
+startVideoClub();
 */

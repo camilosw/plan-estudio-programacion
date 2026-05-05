@@ -11,26 +11,23 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const peliculas = [
-    { titulo: "El Padrino", director: "Coppola", genero: "drama", anio: 1972, duracion: 175, calificacion: 9.2, disponible: true },
-    { titulo: "Volver al Futuro", director: "Zemeckis", genero: "ciencia ficción", anio: 1985, duracion: 116, calificacion: 8.5, disponible: true },
-    { titulo: "Toy Story", director: "Lasseter", genero: "animación", anio: 1995, duracion: 81, calificacion: 8.3, disponible: true },
-    { titulo: "Inception", director: "Nolan", genero: "ciencia ficción", anio: 2010, duracion: 148, calificacion: 8.8, disponible: false }
+const movies = [
+    { title: "El Padrino", director: "Coppola", genre: "drama", year: 1972, duration: 175, rating: 9.2, available: true },
+    { title: "Volver al Futuro", director: "Zemeckis", genre: "ciencia ficción", year: 1985, duration: 116, rating: 8.5, available: true },
+    { title: "Toy Story", director: "Lasseter", genre: "animación", year: 1995, duration: 81, rating: 8.3, available: true },
+    { title: "Inception", director: "Nolan", genre: "ciencia ficción", year: 2010, duration: 148, rating: 8.8, available: false }
 ];
 
-const nuevasAdquisiciones = [
-    { titulo: "Coco", director: "Unkrich", genero: "animación", anio: 2017, duracion: 105, calificacion: 8.4, disponible: true },
-    { titulo: "Mi vecino Totoro", director: "Miyazaki", genero: "animación", anio: 1988, duracion: 86, calificacion: 8.2, disponible: true }
+const newArrivals = [
+    { title: "Coco", director: "Unkrich", genre: "animación", year: 2017, duration: 105, rating: 8.4, available: true },
+    { title: "Mi vecino Totoro", director: "Miyazaki", genre: "animación", year: 1988, duration: 86, rating: 8.2, available: true }
 ];
 
 // --- Parte 1: Desestructuración de objetos ---
 // Desestructura la primera película para obtener:
-//   - titulo
-//   - calificacion (renombrada como "rating")
-//   - genero
-//
-// Salida esperada:
-//   El Padrino — drama — Rating: 9.2
+//   - title
+//   - rating (renombrada como "score")
+//   - genre
 
 // Tu código aquí:
 
@@ -38,85 +35,46 @@ const nuevasAdquisiciones = [
 
 // --- Parte 2: Desestructuración con valor por defecto ---
 // Desestructura la tercera película y extrae:
-//   - titulo
-//   - director
-//   - idioma (no existe, usar "no especificado" por defecto)
-//
-// Salida esperada:
-//   Toy Story — Lasseter — Idioma: no especificado
+//   - title, director
+//   - language (no existe, usar "no especificado" por defecto)
 
 // Tu código aquí:
 
 
 
 // --- Parte 3: Desestructuración en forEach ---
-// Usa forEach con desestructuración en el callback para
-// mostrar cada película como "titulo (anio) — calificacion★".
-//
-// Salida esperada:
-//   El Padrino (1972) — 9.2★
-//   Volver al Futuro (1985) — 8.5★
-//   ...
+// Muestra cada película como "title (year) — rating★".
 
 // Tu código aquí:
 
 
 
 // --- Parte 4: Spread — combinar catálogos ---
-// Combina "peliculas" y "nuevasAdquisiciones" en un nuevo
-// array "catalogoCompleto" usando spread.
-// Muestra el total de películas.
-//
-// Salida esperada:
-//   Catálogo completo: 6 películas
+// Combina movies y newArrivals en fullCatalog.
 
 // Tu código aquí:
 
 
 
 // --- Parte 5: Spread — crear versión extendida ---
-// Crea una "versión extendida" de Inception clonando el
-// objeto y cambiando: duracion a 170, y agrega
-// subtitulo: "Versión del director".
-//
-// Verifica que el original no cambió.
-//
-// Salida esperada:
-//   Original: Inception — 148 min
-//   Extendida: Inception — 170 min — Versión del director
+// Crea una "versión extendida" de Inception: duration 170,
+// agrega subtitle: "Versión del director".
 
 // Tu código aquí:
 
 
 
 // --- Parte 6: Rest en función ---
-// Crea una función "crearMaraton" que reciba un nombre de
-// maratón y luego cualquier cantidad de títulos de películas
-// (rest). Muestra el nombre de la maratón y la lista.
-//
-// crearMaraton("Noche de clásicos", "El Padrino", "Matar a un ruiseñor")
-//
-// Salida esperada:
-//   === Noche de clásicos ===
-//   1. El Padrino
-//   2. Matar a un ruiseñor
-//   Total: 2 películas
+// Crea una función "createMarathon" que reciba un nombre
+// y luego cualquier cantidad de títulos (rest).
 
 // Tu código aquí:
 
 
 
 // --- Parte 7: Desestructuración de arrays ---
-// Del catalogoCompleto (si lo creaste en parte 4), extrae:
-//   - La primera película
-//   - La segunda película
-//   - El resto en un array "otras"
-// Muestra los títulos.
-//
-// Salida esperada:
-//   Primera: El Padrino
-//   Segunda: Volver al Futuro
-//   Otras: 4 películas
+// Del fullCatalog, extrae la primera, la segunda y el
+// resto en "others".
 
 // Tu código aquí:
 
@@ -127,44 +85,44 @@ const nuevasAdquisiciones = [
 // ============================================================
 /*
 // Parte 1
-const { titulo, calificacion: rating, genero } = peliculas[0];
-console.log(`${titulo} — ${genero} — Rating: ${rating}`);
+const { title, rating: score, genre } = movies[0];
+console.log(`${title} — ${genre} — Score: ${score}`);
 
 // Parte 2
-const { titulo: titulo3, director: dir3, idioma = "no especificado" } = peliculas[2];
-console.log(`\n${titulo3} — ${dir3} — Idioma: ${idioma}`);
+const { title: title3, director: dir3, language = "no especificado" } = movies[2];
+console.log(`\n${title3} — ${dir3} — Idioma: ${language}`);
 
 // Parte 3
 console.log("");
-peliculas.forEach(({ titulo, anio, calificacion }) => {
-    console.log(`${titulo} (${anio}) — ${calificacion}★`);
+movies.forEach(({ title, year, rating }) => {
+    console.log(`${title} (${year}) — ${rating}★`);
 });
 
 // Parte 4
-const catalogoCompleto = [...peliculas, ...nuevasAdquisiciones];
-console.log(`\nCatálogo completo: ${catalogoCompleto.length} películas`);
+const fullCatalog = [...movies, ...newArrivals];
+console.log(`\nCatálogo completo: ${fullCatalog.length} películas`);
 
 // Parte 5
-const inception = peliculas.find(p => p.titulo === "Inception");
-const inceptionExtendida = {
+const inception = movies.find(m => m.title === "Inception");
+const extendedEdition = {
     ...inception,
-    duracion: 170,
-    subtitulo: "Versión del director"
+    duration: 170,
+    subtitle: "Versión del director"
 };
-console.log(`\nOriginal: ${inception.titulo} — ${inception.duracion} min`);
-console.log(`Extendida: ${inceptionExtendida.titulo} — ${inceptionExtendida.duracion} min — ${inceptionExtendida.subtitulo}`);
+console.log(`\nOriginal: ${inception.title} — ${inception.duration} min`);
+console.log(`Extendida: ${extendedEdition.title} — ${extendedEdition.duration} min — ${extendedEdition.subtitle}`);
 
 // Parte 6
-function crearMaraton(nombre, ...titulos) {
-    console.log(`\n=== ${nombre} ===`);
-    titulos.forEach((t, i) => console.log(`${i + 1}. ${t}`));
-    console.log(`Total: ${titulos.length} películas`);
+function createMarathon(name, ...movieTitles) {
+    console.log(`\n=== ${name} ===`);
+    movieTitles.forEach((t, i) => console.log(`${i + 1}. ${t}`));
+    console.log(`Total: ${movieTitles.length} películas`);
 }
-crearMaraton("Noche de clásicos", "El Padrino", "Matar a un ruiseñor");
+createMarathon("Noche de clásicos", "El Padrino", "Matar a un ruiseñor");
 
 // Parte 7
-const [primera, segunda, ...otras] = catalogoCompleto;
-console.log(`\nPrimera: ${primera.titulo}`);
-console.log(`Segunda: ${segunda.titulo}`);
-console.log(`Otras: ${otras.length} películas`);
+const [firstMovie, secondMovie, ...others] = fullCatalog;
+console.log(`\nPrimera: ${firstMovie.title}`);
+console.log(`Segunda: ${secondMovie.title}`);
+console.log(`Otras: ${others.length} películas`);
 */

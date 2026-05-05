@@ -18,183 +18,156 @@
 
 // --- Crear arrays ---
 
-const ingredientes = ["harina", "azúcar", "huevos", "mantequilla"];
-const tiempos = [10, 60, 15, 30, 90];
-const mezcla = ["café", 2, true, null]; // Puede mezclar tipos (no recomendado)
+const ingredients = ["harina", "azúcar", "huevos", "mantequilla"];
+const times = [10, 60, 15, 30, 90];
+const mixed = ["café", 2, true, null]; // Puede mezclar tipos (no recomendado)
 
 console.log("--- Crear arrays ---");
-console.log(ingredientes);
-console.log(tiempos);
+console.log(ingredients);
+console.log(times);
 
 // Array vacío
-const nuevasRecetas = [];
-console.log("Array vacío:", nuevasRecetas);
+const newRecipes = [];
+console.log("Array vacío:", newRecipes);
 
 // --- Acceder por índice ---
 
 // Los índices empiezan en 0 (no en 1)
 console.log("\n--- Acceder por índice ---");
-console.log(`Primer ingrediente: ${ingredientes[0]}`);   // harina
-console.log(`Segundo ingrediente: ${ingredientes[1]}`);  // azúcar
-console.log(`Último ingrediente: ${ingredientes[ingredientes.length - 1]}`); // mantequilla
+console.log(`Primer ingrediente: ${ingredients[0]}`);   // harina
+console.log(`Segundo ingrediente: ${ingredients[1]}`);  // azúcar
+console.log(`Último ingrediente: ${ingredients[ingredients.length - 1]}`); // mantequilla
 
 // --- length ---
 
 console.log("\n--- length ---");
-console.log(`Total de ingredientes: ${ingredientes.length}`); // 4
-console.log(`Total de tiempos: ${tiempos.length}`);           // 5
+console.log(`Total de ingredientes: ${ingredients.length}`); // 4
+console.log(`Total de tiempos: ${times.length}`);           // 5
 
 // --- Modificar elementos ---
 
-const pasos = ["Mezclar", "Hornear", "Servir"];
+const steps = ["Mezclar", "Hornear", "Servir"];
 console.log("\n--- Modificar ---");
-console.log("Antes:", pasos);
+console.log("Antes:", steps);
 
-pasos[1] = "Hornear a 180°C";
-console.log("Después:", pasos);
-// Salida: [ 'Mezclar', 'Hornear a 180°C', 'Servir' ]
+steps[1] = "Hornear a 180°C";
+console.log("Después:", steps);
 
-// Nota: aunque pasos es const, podemos modificar su contenido.
+// Nota: aunque steps es const, podemos modificar su contenido.
 // const impide reasignar la variable, no modificar el array.
 
 // --- push y pop (final del array) ---
 
-const listaCompras = ["harina", "azúcar"];
+const shoppingList = ["harina", "azúcar"];
 
 console.log("\n--- push y pop ---");
-console.log("Inicio:", listaCompras);
+console.log("Inicio:", shoppingList);
 
-listaCompras.push("huevos");
-listaCompras.push("leche");
-console.log("Después de push:", listaCompras);
-// [ 'harina', 'azúcar', 'huevos', 'leche' ]
+shoppingList.push("huevos");
+shoppingList.push("leche");
+console.log("Después de push:", shoppingList);
 
-const ultimo = listaCompras.pop();
-console.log("pop devuelve:", ultimo); // "leche"
-console.log("Después de pop:", listaCompras);
-// [ 'harina', 'azúcar', 'huevos' ]
+const last = shoppingList.pop();
+console.log("pop devuelve:", last); // "leche"
+console.log("Después de pop:", shoppingList);
 
 // --- shift y unshift (inicio del array) ---
 
 console.log("\n--- shift y unshift ---");
 
-listaCompras.unshift("chocolate");
-console.log("Después de unshift:", listaCompras);
-// [ 'chocolate', 'harina', 'azúcar', 'huevos' ]
+shoppingList.unshift("chocolate");
+console.log("Después de unshift:", shoppingList);
 
-const primero = listaCompras.shift();
-console.log("shift devuelve:", primero); // "chocolate"
-console.log("Después de shift:", listaCompras);
-// [ 'harina', 'azúcar', 'huevos' ]
+const first = shoppingList.shift();
+console.log("shift devuelve:", first); // "chocolate"
+console.log("Después de shift:", shoppingList);
 
 // --- splice (agregar/eliminar en cualquier posición) ---
 
-const ingredientesTarta = ["harina", "azúcar", "huevos", "mantequilla", "chocolate"];
+const cakeIngredients = ["harina", "azúcar", "huevos", "mantequilla", "chocolate"];
 
 console.log("\n--- splice ---");
-console.log("Antes:", ingredientesTarta);
+console.log("Antes:", cakeIngredients);
 
 // Eliminar 1 elemento desde la posición 2
-const eliminado = ingredientesTarta.splice(2, 1);
-console.log("Eliminado:", eliminado); // [ 'huevos' ]
-console.log("Después:", ingredientesTarta);
-// [ 'harina', 'azúcar', 'mantequilla', 'chocolate' ]
+const removed = cakeIngredients.splice(2, 1);
+console.log("Eliminado:", removed);
+console.log("Después:", cakeIngredients);
 
 // Insertar sin eliminar (0 elementos eliminados)
-ingredientesTarta.splice(2, 0, "huevos", "leche");
-console.log("Después de insertar:", ingredientesTarta);
-// [ 'harina', 'azúcar', 'huevos', 'leche', 'mantequilla', 'chocolate' ]
+cakeIngredients.splice(2, 0, "huevos", "leche");
+console.log("Después de insertar:", cakeIngredients);
 
 // --- includes e indexOf ---
 
-const categorias = ["bebidas", "postres", "platos principales", "snacks"];
+const categories = ["bebidas", "postres", "platos principales", "snacks"];
 
 console.log("\n--- includes e indexOf ---");
-console.log(`¿Tiene postres? ${categorias.includes("postres")}`);     // true
-console.log(`¿Tiene sopas? ${categorias.includes("sopas")}`);         // false
+console.log(`¿Tiene postres? ${categories.includes("postres")}`);     // true
+console.log(`¿Tiene sopas? ${categories.includes("sopas")}`);         // false
 
-console.log(`Posición de "snacks": ${categorias.indexOf("snacks")}`); // 3
-console.log(`Posición de "sopas": ${categorias.indexOf("sopas")}`);   // -1 (no existe)
+console.log(`Posición de "snacks": ${categories.indexOf("snacks")}`); // 3
+console.log(`Posición de "sopas": ${categories.indexOf("sopas")}`);   // -1
 
 // --- join ---
 
 // Convierte un array en un string, uniendo con un separador.
 
-const pasosReceta = ["Mezclar ingredientes", "Verter en molde", "Hornear 30 min"];
+const recipeSteps = ["Mezclar ingredientes", "Verter en molde", "Hornear 30 min"];
 
 console.log("\n--- join ---");
-console.log(pasosReceta.join(" → "));
+console.log(recipeSteps.join(" → "));
 // Salida: Mezclar ingredientes → Verter en molde → Hornear 30 min
 
-console.log(pasosReceta.join("\n"));
-// Salida:
-// Mezclar ingredientes
-// Verter en molde
-// Hornear 30 min
+console.log(recipeSteps.join("\n"));
 
 // --- reverse ---
 
 console.log("\n--- reverse ---");
 const nums = [1, 2, 3, 4, 5];
-console.log("Original:", [...nums]); // Copiamos para mostrar el original
+console.log("Original:", [...nums]);
 nums.reverse();
-console.log("Invertido:", nums); // [ 5, 4, 3, 2, 1 ]
+console.log("Invertido:", nums);
 // Cuidado: reverse modifica el array original
 
 // --- concat ---
 
 // Combina dos o más arrays en uno nuevo (no modifica los originales).
 
-const bebidas = ["Café", "Té chai"];
-const postres = ["Tarta", "Cheesecake"];
+const drinks = ["Café", "Té chai"];
+const desserts = ["Tarta", "Cheesecake"];
 
 console.log("\n--- concat ---");
-const menuCompleto = bebidas.concat(postres);
-console.log("Menú completo:", menuCompleto);
-// [ 'Café', 'Té chai', 'Tarta', 'Cheesecake' ]
-console.log("Bebidas sigue igual:", bebidas); // [ 'Café', 'Té chai' ]
+const fullMenu = drinks.concat(desserts);
+console.log("Menú completo:", fullMenu);
+console.log("Bebidas sigue igual:", drinks);
 
 // --- slice ---
 
 // Extrae una porción del array SIN modificar el original.
 // slice(inicio, fin) — fin no se incluye
 
-const todosLosTiempos = [10, 60, 15, 30, 90, 8, 20, 45];
+const allTimes = [10, 60, 15, 30, 90, 8, 20, 45];
 
 console.log("\n--- slice ---");
-const primerosTres = todosLosTiempos.slice(0, 3);
-console.log("Primeros 3:", primerosTres); // [ 10, 60, 15 ]
+const firstThree = allTimes.slice(0, 3);
+console.log("Primeros 3:", firstThree); // [ 10, 60, 15 ]
 
-const ultimosDos = todosLosTiempos.slice(-2);
-console.log("Últimos 2:", ultimosDos);    // [ 20, 45 ]
+const lastTwo = allTimes.slice(-2);
+console.log("Últimos 2:", lastTwo);    // [ 20, 45 ]
 
-console.log("Original intacto:", todosLosTiempos);
+console.log("Original intacto:", allTimes);
 
 // --- Iterar con for y for...of ---
 
-const recetas = ["Café con leche", "Tarta de chocolate", "Sándwich club"];
+const recipeNames = ["Café con leche", "Tarta de chocolate", "Sándwich club"];
 
 console.log("\n--- Iterar con for ---");
-for (let i = 0; i < recetas.length; i++) {
-    console.log(`${i + 1}. ${recetas[i]}`);
+for (let i = 0; i < recipeNames.length; i++) {
+    console.log(`${i + 1}. ${recipeNames[i]}`);
 }
 
 console.log("\n--- Iterar con for...of ---");
-for (const receta of recetas) {
-    console.log(`• ${receta}`);
+for (const name of recipeNames) {
+    console.log(`• ${name}`);
 }
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// Tienes este array de ingredientes:
-//   const ingredientes = ["harina", "azúcar", "huevos"];
-//
-// 1. Agrega "mantequilla" al final y "chocolate" al inicio
-// 2. Muestra la cantidad total de ingredientes
-// 3. Elimina el ingrediente de la posición 2 con splice
-// 4. Verifica si "huevos" sigue en la lista con includes
-// 5. Une todos los ingredientes en un string separado por ", "
-// 6. Crea un nuevo array con solo los 2 primeros ingredientes
-//    usando slice
-// ============================================================

@@ -11,13 +11,13 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const titulo = "Inception";
-const anio = 2010;
-const duracionMinutos = 148;
-const calificacion = 8.8;
-const genero = "ciencia ficción";
-const disponible = false;
-const precioAlquiler = 3.50;
+const title = "Inception";
+const year = 2010;
+const durationMinutes = 148;
+const rating = 8.8;
+const genre = "ciencia ficción";
+const available = false;
+const rentalPrice = 3.50;
 
 // --- Parte 1: Clasificar por época ---
 // Clasifica la película según su año:
@@ -72,13 +72,11 @@ const precioAlquiler = 3.50;
 
 
 // --- Parte 5: Categoría por duración ---
-// Usa switch para clasificar por duración:
+// Usa if/else para clasificar por duración:
 //   - Menos de 90 min: "cortometraje"
 //   - 90–120 min: "estándar"
 //   - 121–150 min: "larga"
 //   - Más de 150 min: "muy larga"
-// Usa Math.floor(duracionMinutos / 30) como caso para el switch,
-// o usa if/else si lo prefieres.
 //
 // Salida esperada:
 //   Inception (148 min): película larga
@@ -105,59 +103,59 @@ const precioAlquiler = 3.50;
 // ============================================================
 /*
 // Parte 1
-let epoca;
-if (anio < 1980) {
-    epoca = "clásica";
-} else if (anio <= 1999) {
-    epoca = "moderna";
+let era;
+if (year < 1980) {
+    era = "clásica";
+} else if (year <= 1999) {
+    era = "moderna";
 } else {
-    epoca = "contemporánea";
+    era = "contemporánea";
 }
-console.log(`${titulo} (${anio}): película ${epoca}`);
+console.log(`${title} (${year}): película ${era}`);
 
 // Parte 2
-const estado = disponible ? "Disponible para alquiler" : "No disponible para alquiler";
-console.log(`\n${titulo}: ${estado}`);
+const status = available ? "Disponible para alquiler" : "No disponible para alquiler";
+console.log(`\n${title}: ${status}`);
 
 // Parte 3
-if (calificacion > 8.0 && duracionMinutos < 180) {
-    console.log(`\n${titulo}: ¡Recomendada!`);
+if (rating > 8.0 && durationMinutes < 180) {
+    console.log(`\n${title}: ¡Recomendada!`);
 } else {
-    console.log(`\n${titulo}: No cumple todos los criterios`);
+    console.log(`\n${title}: No cumple todos los criterios`);
 }
 
 // Parte 4
-const anioActual = 2026;
-const antiguedad = anioActual - anio;
-let descuento;
-if (antiguedad > 10) {
-    descuento = 20;
-} else if (antiguedad >= 5) {
-    descuento = 10;
+const currentYear = 2026;
+const age = currentYear - year;
+let discount;
+if (age > 10) {
+    discount = 20;
+} else if (age >= 5) {
+    discount = 10;
 } else {
-    descuento = 0;
+    discount = 0;
 }
-const precioFinal = precioAlquiler * (1 - descuento / 100);
-console.log(`\nPrecio original: $${precioAlquiler.toFixed(2)}`);
-console.log(`Descuento: ${descuento}%`);
-console.log(`Precio final: $${precioFinal.toFixed(2)}`);
+const finalPrice = rentalPrice * (1 - discount / 100);
+console.log(`\nPrecio original: $${rentalPrice.toFixed(2)}`);
+console.log(`Descuento: ${discount}%`);
+console.log(`Precio final: $${finalPrice.toFixed(2)}`);
 
 // Parte 5
-let categoriaDuracion;
-if (duracionMinutos < 90) {
-    categoriaDuracion = "cortometraje";
-} else if (duracionMinutos <= 120) {
-    categoriaDuracion = "estándar";
-} else if (duracionMinutos <= 150) {
-    categoriaDuracion = "larga";
+let durationCategory;
+if (durationMinutes < 90) {
+    durationCategory = "cortometraje";
+} else if (durationMinutes <= 120) {
+    durationCategory = "estándar";
+} else if (durationMinutes <= 150) {
+    durationCategory = "larga";
 } else {
-    categoriaDuracion = "muy larga";
+    durationCategory = "muy larga";
 }
-console.log(`\n${titulo} (${duracionMinutos} min): película ${categoriaDuracion}`);
+console.log(`\n${title} (${durationMinutes} min): película ${durationCategory}`);
 
 // Parte 6
 let emoji;
-switch (genero) {
+switch (genre) {
     case "drama": emoji = "🎭"; break;
     case "comedia": emoji = "😂"; break;
     case "accion": emoji = "💥"; break;
@@ -166,5 +164,5 @@ switch (genero) {
     case "animación": emoji = "🎨"; break;
     default: emoji = "🎬";
 }
-console.log(`\n${titulo} — ${emoji} ${genero}`);
+console.log(`\n${title} — ${emoji} ${genre}`);
 */

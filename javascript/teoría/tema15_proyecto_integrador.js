@@ -26,85 +26,85 @@
 // CLASES
 // ============================================================
 
-class Receta {
-    #calificacion;
+class Recipe {
+    #rating;
 
-    constructor(nombre, categoria, tiempoMinutos, calificacion, ingredientes = []) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.tiempoMinutos = tiempoMinutos;
-        this.#calificacion = calificacion;
-        this.ingredientes = ingredientes;
-        this.disponible = true;
-        this.fechaCreacion = new Date();
+    constructor(name, category, timeMinutes, rating, ingredients = []) {
+        this.name = name;
+        this.category = category;
+        this.timeMinutes = timeMinutes;
+        this.#rating = rating;
+        this.ingredients = ingredients;
+        this.available = true;
+        this.createdAt = new Date();
     }
 
-    get calificacion() {
-        return this.#calificacion;
+    get rating() {
+        return this.#rating;
     }
 
-    set calificacion(valor) {
-        if (valor < 1 || valor > 5) {
+    set rating(value) {
+        if (value < 1 || value > 5) {
             console.log("  Error: la calificación debe ser entre 1 y 5");
             return;
         }
-        this.#calificacion = valor;
+        this.#rating = value;
     }
 
-    get tiempoFormateado() {
-        const horas = Math.floor(this.tiempoMinutos / 60);
-        const minutos = this.tiempoMinutos % 60;
-        if (horas === 0) return `${minutos}min`;
-        return `${horas}h ${minutos}min`;
+    get formattedTime() {
+        const hours = Math.floor(this.timeMinutes / 60);
+        const minutes = this.timeMinutes % 60;
+        if (hours === 0) return `${minutes}min`;
+        return `${hours}h ${minutes}min`;
     }
 
-    get dificultad() {
-        if (this.tiempoMinutos <= 15) return "fácil";
-        if (this.tiempoMinutos <= 45) return "media";
+    get difficulty() {
+        if (this.timeMinutes <= 15) return "fácil";
+        if (this.timeMinutes <= 45) return "media";
         return "difícil";
     }
 
-    mostrar() {
-        const estado = this.disponible ? "✓" : "✗";
-        const fecha = this.fechaCreacion.toLocaleDateString("es-ES", {
+    show() {
+        const status = this.available ? "✓" : "✗";
+        const dateStr = this.createdAt.toLocaleDateString("es-ES", {
             day: "numeric",
             month: "short",
             year: "numeric"
         });
-        console.log(`  ${estado} ${this.nombre}`);
-        console.log(`    ${this.categoria} | ${this.tiempoFormateado} | ${this.#calificacion}★ | ${this.dificultad}`);
-        console.log(`    Ingredientes: ${this.ingredientes.join(", ") || "sin especificar"}`);
-        console.log(`    Creada: ${fecha}`);
+        console.log(`  ${status} ${this.name}`);
+        console.log(`    ${this.category} | ${this.formattedTime} | ${this.#rating}★ | ${this.difficulty}`);
+        console.log(`    Ingredientes: ${this.ingredients.join(", ") || "sin especificar"}`);
+        console.log(`    Creada: ${dateStr}`);
     }
 }
 
-class RecetaPostre extends Receta {
-    constructor(nombre, tiempoMinutos, calificacion, ingredientes, temperaturaCoccion) {
-        super(nombre, "postres", tiempoMinutos, calificacion, ingredientes);
-        this.temperaturaCoccion = temperaturaCoccion;
+class DessertRecipe extends Recipe {
+    constructor(name, timeMinutes, rating, ingredients, bakingTemp) {
+        super(name, "postres", timeMinutes, rating, ingredients);
+        this.bakingTemp = bakingTemp;
     }
 
-    mostrar() {
-        super.mostrar();
-        if (this.temperaturaCoccion > 0) {
-            console.log(`    Hornear a ${this.temperaturaCoccion}°C`);
+    show() {
+        super.show();
+        if (this.bakingTemp > 0) {
+            console.log(`    Hornear a ${this.bakingTemp}°C`);
         }
     }
 
-    necesitaHorno() {
-        return this.temperaturaCoccion > 0;
+    needsOven() {
+        return this.bakingTemp > 0;
     }
 }
 
-class RecetaBebida extends Receta {
-    constructor(nombre, tiempoMinutos, calificacion, ingredientes, esCaliente) {
-        super(nombre, "bebidas", tiempoMinutos, calificacion, ingredientes);
-        this.esCaliente = esCaliente;
+class DrinkRecipe extends Recipe {
+    constructor(name, timeMinutes, rating, ingredients, isHot) {
+        super(name, "bebidas", timeMinutes, rating, ingredients);
+        this.isHot = isHot;
     }
 
-    mostrar() {
-        super.mostrar();
-        console.log(`    Temperatura: ${this.esCaliente ? "caliente" : "fría"}`);
+    show() {
+        super.show();
+        console.log(`    Temperatura: ${this.isHot ? "caliente" : "fría"}`);
     }
 }
 
@@ -112,113 +112,111 @@ class RecetaBebida extends Receta {
 // DATOS DEL RECETARIO
 // ============================================================
 
-const recetas = [
-    new RecetaBebida(
+const recipes = [
+    new DrinkRecipe(
         "Café con leche espumosa", 10, 4.5,
         ["café molido", "leche", "azúcar"], true
     ),
-    new RecetaPostre(
+    new DessertRecipe(
         "Tarta de chocolate", 60, 4.8,
         ["chocolate", "harina", "huevos", "mantequilla", "azúcar"], 180
     ),
-    new Receta(
+    new Recipe(
         "Sándwich club", "platos principales", 15, 4.2,
         ["pan", "jamón", "queso", "lechuga", "tomate"]
     ),
-    new Receta(
+    new Recipe(
         "Galletas de avena", "snacks", 30, 4.0,
         ["avena", "miel", "mantequilla", "pasas"]
     ),
-    new RecetaPostre(
+    new DessertRecipe(
         "Cheesecake de frutos rojos", 90, 4.9,
         ["queso crema", "galletas", "frutos rojos", "azúcar", "gelatina"], 160
     ),
-    new RecetaBebida(
+    new DrinkRecipe(
         "Té chai latte", 8, 4.3,
         ["té negro", "canela", "cardamomo", "leche", "miel"], true
     ),
-    new Receta(
+    new Recipe(
         "Ensalada mediterránea", "platos principales", 20, 3.8,
         ["lechuga", "tomate", "pepino", "aceitunas", "queso feta"]
     ),
-    new RecetaPostre(
+    new DessertRecipe(
         "Brownie con nueces", 45, 4.6,
         ["chocolate", "nueces", "harina", "huevos", "mantequilla"], 175
     )
 ];
 
-// Marcar algunas como no disponibles
-recetas[2].disponible = false;
-recetas[7].disponible = false;
+recipes[2].available = false;
+recipes[7].available = false;
 
 // ============================================================
 // FUNCIONES DEL RECETARIO
 // ============================================================
 
-function buscarReceta(nombre) {
-    return recetas.find(r => r.nombre.toLowerCase().includes(nombre.toLowerCase()));
+function findRecipe(name) {
+    return recipes.find(r => r.name.toLowerCase().includes(name.toLowerCase()));
 }
 
-function filtrarPorCategoria(categoria) {
-    return recetas.filter(r => r.categoria === categoria);
+function filterByCategory(category) {
+    return recipes.filter(r => r.category === category);
 }
 
-function recetasRapidas(maxMinutos = 20) {
-    return recetas.filter(r => r.tiempoMinutos <= maxMinutos);
+function getQuickRecipes(maxMinutes = 20) {
+    return recipes.filter(r => r.timeMinutes <= maxMinutes);
 }
 
-function recetasDisponibles() {
-    return recetas.filter(r => r.disponible);
+function getAvailableRecipes() {
+    return recipes.filter(r => r.available);
 }
 
-function calificacionPromedio() {
-    const suma = recetas.reduce((total, r) => total + r.calificacion, 0);
-    return (suma / recetas.length).toFixed(1);
+function getAverageRating() {
+    const sum = recipes.reduce((total, r) => total + r.rating, 0);
+    return (sum / recipes.length).toFixed(1);
 }
 
-function resumenPorCategoria() {
-    return recetas.reduce((resultado, r) => {
-        const cat = r.categoria;
-        if (!resultado[cat]) {
-            resultado[cat] = { cantidad: 0, tiempoTotal: 0, sumaRating: 0 };
+function getSummaryByCategory() {
+    return recipes.reduce((result, r) => {
+        const cat = r.category;
+        if (!result[cat]) {
+            result[cat] = { count: 0, totalTime: 0, ratingSum: 0 };
         }
-        resultado[cat].cantidad++;
-        resultado[cat].tiempoTotal += r.tiempoMinutos;
-        resultado[cat].sumaRating += r.calificacion;
-        return resultado;
+        result[cat].count++;
+        result[cat].totalTime += r.timeMinutes;
+        result[cat].ratingSum += r.rating;
+        return result;
     }, {});
 }
 
-function topRecetas(n = 3) {
-    return [...recetas]
-        .filter(r => r.disponible)
-        .sort((a, b) => b.calificacion - a.calificacion)
+function getTopRecipes(n = 3) {
+    return [...recipes]
+        .filter(r => r.available)
+        .sort((a, b) => b.rating - a.rating)
         .slice(0, n);
 }
 
-function ajustarPorciones(receta, porcionesOriginales, porcionesDeseadas) {
-    const { nombre, ingredientes } = receta;
-    const factor = porcionesDeseadas / porcionesOriginales;
+function adjustServings(recipe, originalServings, desiredServings) {
+    const { name } = recipe;
+    const factor = desiredServings / originalServings;
     return {
-        nombre: `${nombre} (para ${porcionesDeseadas})`,
+        name: `${name} (para ${desiredServings})`,
         factor: factor.toFixed(1),
-        nota: `Multiplica cada cantidad por ${factor.toFixed(1)}`
+        note: `Multiplica cada cantidad por ${factor.toFixed(1)}`
     };
 }
 
-function agregarReceta(nuevaReceta) {
-    recetas.push(nuevaReceta);
-    return recetas.length;
+function addRecipe(newRecipe) {
+    recipes.push(newRecipe);
+    return recipes.length;
 }
 
-// Función asíncrona: simula cargar recetas destacadas desde un servidor
-function cargarDestacadasDelServidor() {
+function loadFeaturedFromServer() {
     return new Promise((resolve) => {
         setTimeout(() => {
-            const destacadas = recetas
-                .filter(r => r.calificacion >= 4.5 && r.disponible)
-                .map(({ nombre, calificacion }) => ({ nombre, calificacion }));
-            resolve(destacadas);
+            const featured = recipes
+                .filter(r => r.rating >= 4.5 && r.available)
+                .map(({ name, rating }) => ({ name, rating }));
+            resolve(featured);
         }, 800);
     });
 }
@@ -227,8 +225,7 @@ function cargarDestacadasDelServidor() {
 // FLUJO PRINCIPAL
 // ============================================================
 
-async function iniciarRecetario() {
-    // --- Encabezado ---
+async function startCookbook() {
     console.log("╔══════════════════════════════════════════╗");
     console.log("║     EL RECETARIO DE SANDRA               ║");
     console.log("║     Sistema de gestión de recetas         ║");
@@ -237,17 +234,17 @@ async function iniciarRecetario() {
     // --- Catálogo completo ---
     console.log("\n📋 CATÁLOGO COMPLETO");
     console.log("─".repeat(45));
-    recetas.forEach((receta, i) => {
+    recipes.forEach((recipe, i) => {
         console.log(`\n  Receta #${i + 1}:`);
-        receta.mostrar();
+        recipe.show();
     });
 
     // --- Buscar receta ---
     console.log("\n\n🔍 BUSCAR RECETA: 'chocolate'");
     console.log("─".repeat(45));
-    const encontrada = buscarReceta("chocolate");
-    if (encontrada) {
-        encontrada.mostrar();
+    const found = findRecipe("chocolate");
+    if (found) {
+        found.show();
     } else {
         console.log("  No se encontró la receta");
     }
@@ -255,84 +252,84 @@ async function iniciarRecetario() {
     // --- Filtrar por categoría ---
     console.log("\n\n☕ BEBIDAS");
     console.log("─".repeat(45));
-    const bebidas = filtrarPorCategoria("bebidas");
-    bebidas.forEach(r => {
-        console.log(`  ${r.nombre} — ${r.tiempoFormateado} — ${r.calificacion}★`);
+    const drinks = filterByCategory("bebidas");
+    drinks.forEach(r => {
+        console.log(`  ${r.name} — ${r.formattedTime} — ${r.rating}★`);
     });
 
     // --- Recetas rápidas ---
     console.log("\n\n⚡ RECETAS RÁPIDAS (≤ 15 min)");
     console.log("─".repeat(45));
-    const rapidas = recetasRapidas(15);
-    rapidas.forEach(r => {
-        console.log(`  ${r.nombre} — ${r.tiempoMinutos} min`);
+    const quick = getQuickRecipes(15);
+    quick.forEach(r => {
+        console.log(`  ${r.name} — ${r.timeMinutes} min`);
     });
 
     // --- Top 3 ---
     console.log("\n\n🏆 TOP 3 RECETAS DISPONIBLES");
     console.log("─".repeat(45));
-    const top = topRecetas(3);
+    const top = getTopRecipes(3);
     top.forEach((r, i) => {
-        console.log(`  ${i + 1}. ${r.nombre} — ${r.calificacion}★`);
+        console.log(`  ${i + 1}. ${r.name} — ${r.rating}★`);
     });
 
     // --- Ajustar porciones ---
     console.log("\n\n📐 AJUSTAR PORCIONES");
     console.log("─".repeat(45));
-    const tartaEncontrada = buscarReceta("Tarta");
-    if (tartaEncontrada) {
-        const ajuste = ajustarPorciones(tartaEncontrada, 8, 4);
-        console.log(`  ${ajuste.nombre}`);
-        console.log(`  ${ajuste.nota}`);
+    const cakeFound = findRecipe("Tarta");
+    if (cakeFound) {
+        const adjusted = adjustServings(cakeFound, 8, 4);
+        console.log(`  ${adjusted.name}`);
+        console.log(`  ${adjusted.note}`);
     }
 
     // --- Resumen por categoría ---
     console.log("\n\n📊 RESUMEN POR CATEGORÍA");
     console.log("─".repeat(45));
-    const resumen = resumenPorCategoria();
-    for (const [cat, datos] of Object.entries(resumen)) {
-        const promedioRating = (datos.sumaRating / datos.cantidad).toFixed(1);
-        console.log(`  ${cat}: ${datos.cantidad} recetas | ${datos.tiempoTotal} min total | ${promedioRating}★ promedio`);
+    const summary = getSummaryByCategory();
+    for (const [cat, data] of Object.entries(summary)) {
+        const avgRating = (data.ratingSum / data.count).toFixed(1);
+        console.log(`  ${cat}: ${data.count} recetas | ${data.totalTime} min total | ${avgRating}★ promedio`);
     }
 
     // --- Agregar nueva receta ---
     console.log("\n\n➕ AGREGAR NUEVA RECETA");
     console.log("─".repeat(45));
-    const nueva = new RecetaBebida(
+    const newRecipe = new DrinkRecipe(
         "Chocolate caliente", 12, 4.4,
         ["chocolate", "leche", "azúcar", "canela"], true
     );
-    const totalRecetas = agregarReceta(nueva);
-    console.log(`  Agregada: ${nueva.nombre}`);
-    console.log(`  Total de recetas: ${totalRecetas}`);
+    const totalRecipes = addRecipe(newRecipe);
+    console.log(`  Agregada: ${newRecipe.name}`);
+    console.log(`  Total de recetas: ${totalRecipes}`);
 
     // --- Estadísticas ---
     console.log("\n\n📈 ESTADÍSTICAS");
     console.log("─".repeat(45));
-    const disponibles = recetasDisponibles();
-    console.log(`  Total de recetas: ${recetas.length}`);
-    console.log(`  Disponibles: ${disponibles.length}`);
-    console.log(`  No disponibles: ${recetas.length - disponibles.length}`);
-    console.log(`  Calificación promedio: ${calificacionPromedio()}★`);
+    const availableList = getAvailableRecipes();
+    console.log(`  Total de recetas: ${recipes.length}`);
+    console.log(`  Disponibles: ${availableList.length}`);
+    console.log(`  No disponibles: ${recipes.length - availableList.length}`);
+    console.log(`  Calificación promedio: ${getAverageRating()}★`);
 
-    const todasBuenas = recetas.every(r => r.calificacion >= 3.5);
-    console.log(`  ¿Todas con rating ≥ 3.5? ${todasBuenas ? "Sí" : "No"}`);
+    const allGood = recipes.every(r => r.rating >= 3.5);
+    console.log(`  ¿Todas con rating ≥ 3.5? ${allGood ? "Sí" : "No"}`);
 
-    const algunaDificil = recetas.some(r => r.dificultad === "difícil");
-    console.log(`  ¿Alguna receta difícil? ${algunaDificil ? "Sí" : "No"}`);
+    const anyHard = recipes.some(r => r.difficulty === "difícil");
+    console.log(`  ¿Alguna receta difícil? ${anyHard ? "Sí" : "No"}`);
 
     // --- Cargar destacadas (async) ---
     console.log("\n\n🌐 CARGANDO DESTACADAS DEL SERVIDOR...");
     console.log("─".repeat(45));
-    const destacadas = await cargarDestacadasDelServidor();
-    console.log(`  Se cargaron ${destacadas.length} recetas destacadas:`);
-    destacadas.forEach(({ nombre, calificacion }) => {
-        console.log(`  ⭐ ${nombre} — ${calificacion}★`);
+    const featured = await loadFeaturedFromServer();
+    console.log(`  Se cargaron ${featured.length} recetas destacadas:`);
+    featured.forEach(({ name, rating }) => {
+        console.log(`  ⭐ ${name} — ${rating}★`);
     });
 
     // --- Despedida ---
-    const ahora = new Date();
-    const fechaFormateada = ahora.toLocaleDateString("es-ES", {
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString("es-ES", {
         weekday: "long",
         day: "numeric",
         month: "long",
@@ -340,10 +337,9 @@ async function iniciarRecetario() {
     });
 
     console.log("\n\n═══════════════════════════════════════════");
-    console.log(`  Reporte generado: ${fechaFormateada}`);
+    console.log(`  Reporte generado: ${formattedDate}`);
     console.log("  ¡Gracias por usar El Recetario de Sandra!");
     console.log("═══════════════════════════════════════════");
 }
 
-// --- Ejecutar ---
-iniciarRecetario();
+startCookbook();

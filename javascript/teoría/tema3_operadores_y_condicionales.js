@@ -21,18 +21,18 @@
 
 // --- Operadores aritméticos ---
 
-const precioPorPorcion = 2.50;
-const porciones = 8;
-const precioTotal = precioPorPorcion * porciones;
+const pricePerServing = 2.50;
+const servings = 8;
+const totalPrice = pricePerServing * servings;
 
 console.log("--- Operadores aritméticos ---");
-console.log(`Precio por porción: $${precioPorPorcion}`);
-console.log(`Porciones: ${porciones}`);
-console.log(`Precio total: $${precioTotal}`);       // 20
-console.log(`Mitad de precio: $${precioTotal / 2}`); // 10
+console.log(`Precio por porción: $${pricePerServing}`);
+console.log(`Porciones: ${servings}`);
+console.log(`Precio total: $${totalPrice}`);       // 20
+console.log(`Mitad de precio: $${totalPrice / 2}`); // 10
 
 // Módulo (resto de la división) — útil para saber si es par/impar
-console.log(`¿Porciones pares? ${porciones % 2 === 0}`); // true
+console.log(`¿Porciones pares? ${servings % 2 === 0}`); // true
 
 // Potencia
 console.log(`2 al cubo: ${2 ** 3}`); // 8
@@ -75,22 +75,22 @@ console.log(10 <= 9);  // false
 
 // --- Operadores lógicos ---
 
-const tiempoMinutos = 10;
-const calificacion = 4.5;
-const disponible = true;
+const timeMinutes = 10;
+const rating = 4.5;
+const available = true;
 
 console.log("\n--- Operadores lógicos ---");
 
 // && (AND): ambas condiciones deben ser verdaderas
-console.log(`¿Rápida y bien valorada? ${tiempoMinutos < 15 && calificacion > 4}`);
+console.log(`¿Rápida y bien valorada? ${timeMinutes < 15 && rating > 4}`);
 // Salida: true
 
 // || (OR): al menos una condición debe ser verdadera
-console.log(`¿Rápida o bien valorada? ${tiempoMinutos < 15 || calificacion > 4}`);
+console.log(`¿Rápida o bien valorada? ${timeMinutes < 15 || rating > 4}`);
 // Salida: true
 
 // ! (NOT): invierte el valor
-console.log(`¿No disponible? ${!disponible}`);
+console.log(`¿No disponible? ${!available}`);
 // Salida: false
 
 // --- Nullish coalescing (??) ---
@@ -98,23 +98,23 @@ console.log(`¿No disponible? ${!disponible}`);
 // El operador ?? devuelve el valor de la derecha SOLO si el
 // de la izquierda es null o undefined.
 
-const alergenoDefinido = "gluten";
-const alergenoNulo = null;
+const definedAllergen = "gluten";
+const nullAllergen = null;
 
 console.log("\n--- Nullish coalescing ---");
-console.log(alergenoDefinido ?? "Ninguno"); // "gluten"
-console.log(alergenoNulo ?? "Ninguno");     // "Ninguno"
+console.log(definedAllergen ?? "Ninguno"); // "gluten"
+console.log(nullAllergen ?? "Ninguno");     // "Ninguno"
 
 // --- if / else if / else ---
 
-const tiempoPreparacion = 60;
+const prepTime = 60;
 
 console.log("\n--- if / else if / else ---");
-console.log(`Tiempo de preparación: ${tiempoPreparacion} minutos`);
+console.log(`Tiempo de preparación: ${prepTime} minutos`);
 
-if (tiempoPreparacion <= 15) {
+if (prepTime <= 15) {
     console.log("Categoría: Receta rápida");
-} else if (tiempoPreparacion <= 45) {
+} else if (prepTime <= 45) {
     console.log("Categoría: Receta media");
 } else {
     console.log("Categoría: Receta elaborada");
@@ -122,16 +122,16 @@ if (tiempoPreparacion <= 15) {
 // Salida: Categoría: Receta elaborada
 
 // Ejemplo con varias condiciones
-const nombre = "Tarta de chocolate";
-const dificultad = "media";
-const rating = 4.8;
+const recipeName = "Tarta de chocolate";
+const difficulty = "media";
+const recipeRating = 4.8;
 
-if (rating >= 4.5 && dificultad !== "difícil") {
-    console.log(`${nombre}: ¡Receta destacada y accesible!`);
-} else if (rating >= 4.5) {
-    console.log(`${nombre}: Destacada pero desafiante`);
+if (recipeRating >= 4.5 && difficulty !== "difícil") {
+    console.log(`${recipeName}: ¡Receta destacada y accesible!`);
+} else if (recipeRating >= 4.5) {
+    console.log(`${recipeName}: Destacada pero desafiante`);
 } else {
-    console.log(`${nombre}: Receta normal`);
+    console.log(`${recipeName}: Receta normal`);
 }
 // Salida: Tarta de chocolate: ¡Receta destacada y accesible!
 
@@ -140,11 +140,11 @@ if (rating >= 4.5 && dificultad !== "difícil") {
 // switch es útil cuando comparas una variable contra varios
 // valores posibles. Cada caso termina con break.
 
-const categoria = "postres";
+const category = "postres";
 
 console.log("\n--- switch ---");
 
-switch (categoria) {
+switch (category) {
     case "bebidas":
         console.log("Sección: Barra de bebidas");
         break;
@@ -167,35 +167,13 @@ switch (categoria) {
 // Es una forma corta de escribir un if/else simple.
 // Sintaxis: condición ? valorSiTrue : valorSiFalse
 
-const estrellas = 4.9;
-const etiqueta = estrellas >= 4.5 ? "⭐ Destacada" : "Normal";
+const stars = 4.9;
+const label = stars >= 4.5 ? "⭐ Destacada" : "Normal";
 console.log("\n--- Operador ternario ---");
-console.log(`Calificación ${estrellas}: ${etiqueta}`);
+console.log(`Calificación ${stars}: ${label}`);
 // Salida: Calificación 4.9: ⭐ Destacada
 
-const tiempoReceta = 8;
-const tipo = tiempoReceta <= 15 ? "rápida" : "elaborada";
-console.log(`${tiempoReceta} minutos → receta ${tipo}`);
+const recipeTime = 8;
+const type = recipeTime <= 15 ? "rápida" : "elaborada";
+console.log(`${recipeTime} minutos → receta ${type}`);
 // Salida: 8 minutos → receta rápida
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// Tienes estos datos de una receta:
-//   const nombre = "Ensalada mediterránea";
-//   const tiempo = 20;
-//   const calorias = 250;
-//   const esVegetariana = true;
-//   const alergeno = null;
-//
-// 1. Usa el ternario para mostrar "Apta para vegetarianos" o
-//    "Contiene carne" según esVegetariana
-// 2. Usa if/else if/else para clasificar las calorías:
-//    - Menos de 200: "Baja en calorías"
-//    - Entre 200 y 400: "Calorías moderadas"
-//    - Más de 400: "Alta en calorías"
-// 3. Usa ?? para mostrar el alérgeno o "Sin alérgenos" si
-//    es null
-// 4. Usa switch para mostrar un emoji según la categoría
-//    de la receta
-// ============================================================

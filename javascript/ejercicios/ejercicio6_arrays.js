@@ -11,11 +11,11 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const peliculasDisponibles = ["El Padrino", "Volver al Futuro", "Toy Story", "Coco"];
-const peliculasAlquiladas = ["Inception", "El Secreto de sus Ojos"];
+const availableMovies = ["El Padrino", "Volver al Futuro", "Toy Story", "Coco"];
+const rentedMovies = ["Inception", "El Secreto de sus Ojos"];
 
 // --- Parte 1: Agregar y quitar ---
-// 1. Agrega "Mi vecino Totoro" al final de peliculasDisponibles
+// 1. Agrega "Mi vecino Totoro" al final de availableMovies
 // 2. Agrega "Matar a un ruiseñor" al inicio
 // 3. Quita la última película y muestra cuál fue
 // 4. Muestra el array resultante
@@ -32,11 +32,6 @@ const peliculasAlquiladas = ["Inception", "El Secreto de sus Ojos"];
 // Inserta "Brownie Wars" en la posición 2 (sin eliminar nada).
 // Luego elimina la película de la posición 3.
 // Muestra el array después de cada operación.
-//
-// Salida esperada:
-//   Después de insertar: [ ..., 'Brownie Wars', ... ]
-//   Eliminada: ...
-//   Después de eliminar: [ ... ]
 
 // Tu código aquí:
 
@@ -57,13 +52,9 @@ const peliculasAlquiladas = ["Inception", "El Secreto de sus Ojos"];
 
 
 // --- Parte 4: Combinar catálogos ---
-// Combina peliculasDisponibles y peliculasAlquiladas en un
-// nuevo array "catalogoCompleto" usando concat.
+// Combina availableMovies y rentedMovies en un nuevo array
+// "fullCatalog" usando concat.
 // Muestra el catálogo completo y la cantidad total.
-//
-// Salida esperada:
-//   Catálogo completo: [ ..., ..., ... ]
-//   Total de películas: ...
 
 // Tu código aquí:
 
@@ -73,28 +64,15 @@ const peliculasAlquiladas = ["Inception", "El Secreto de sus Ojos"];
 // Del catálogo completo, extrae las 3 primeras películas
 // usando slice.
 // Une todas las películas del catálogo con " | " usando join.
-//
-// Salida esperada:
-//   Primeras 3: [ ..., ..., ... ]
-//   Catálogo en texto: ... | ... | ... | ...
 
 // Tu código aquí:
 
 
 
 // --- Parte 6: Iterar ---
-// Recorre peliculasDisponibles con for...of y muestra cada
+// Recorre availableMovies con for...of y muestra cada
 // película con un bullet point.
 // Recorre con for clásico y muestra con número de posición.
-//
-// Salida esperada:
-//   • Matar a un ruiseñor
-//   • El Padrino
-//   ...
-//
-//   1. Matar a un ruiseñor
-//   2. El Padrino
-//   ...
 
 // Tu código aquí:
 
@@ -105,41 +83,41 @@ const peliculasAlquiladas = ["Inception", "El Secreto de sus Ojos"];
 // ============================================================
 /*
 // Parte 1
-peliculasDisponibles.push("Mi vecino Totoro");
-peliculasDisponibles.unshift("Matar a un ruiseñor");
-const quitada = peliculasDisponibles.pop();
-console.log("Quitada:", quitada);
-console.log("Disponibles:", peliculasDisponibles);
+availableMovies.push("Mi vecino Totoro");
+availableMovies.unshift("Matar a un ruiseñor");
+const removed = availableMovies.pop();
+console.log("Quitada:", removed);
+console.log("Disponibles:", availableMovies);
 
 // Parte 2
-peliculasDisponibles.splice(2, 0, "Brownie Wars");
-console.log("\nDespués de insertar:", peliculasDisponibles);
-const eliminada = peliculasDisponibles.splice(3, 1);
-console.log("Eliminada:", eliminada[0]);
-console.log("Después de eliminar:", peliculasDisponibles);
+availableMovies.splice(2, 0, "Brownie Wars");
+console.log("\nDespués de insertar:", availableMovies);
+const deleted = availableMovies.splice(3, 1);
+console.log("Eliminada:", deleted[0]);
+console.log("Después de eliminar:", availableMovies);
 
 // Parte 3
-console.log(`\n¿Está Coco? ${peliculasDisponibles.includes("Coco")}`);
-console.log(`¿Está Avatar? ${peliculasDisponibles.includes("Avatar")}`);
-console.log(`Posición de El Padrino: ${peliculasDisponibles.indexOf("El Padrino")}`);
+console.log(`\n¿Está Coco? ${availableMovies.includes("Coco")}`);
+console.log(`¿Está Avatar? ${availableMovies.includes("Avatar")}`);
+console.log(`Posición de El Padrino: ${availableMovies.indexOf("El Padrino")}`);
 
 // Parte 4
-const catalogoCompleto = peliculasDisponibles.concat(peliculasAlquiladas);
-console.log("\nCatálogo completo:", catalogoCompleto);
-console.log(`Total de películas: ${catalogoCompleto.length}`);
+const fullCatalog = availableMovies.concat(rentedMovies);
+console.log("\nCatálogo completo:", fullCatalog);
+console.log(`Total de películas: ${fullCatalog.length}`);
 
 // Parte 5
-const primeras3 = catalogoCompleto.slice(0, 3);
-console.log("\nPrimeras 3:", primeras3);
-console.log("Catálogo en texto:", catalogoCompleto.join(" | "));
+const firstThree = fullCatalog.slice(0, 3);
+console.log("\nPrimeras 3:", firstThree);
+console.log("Catálogo en texto:", fullCatalog.join(" | "));
 
 // Parte 6
 console.log("");
-for (const pelicula of peliculasDisponibles) {
-    console.log(`• ${pelicula}`);
+for (const movie of availableMovies) {
+    console.log(`• ${movie}`);
 }
 console.log("");
-for (let i = 0; i < peliculasDisponibles.length; i++) {
-    console.log(`${i + 1}. ${peliculasDisponibles[i]}`);
+for (let i = 0; i < availableMovies.length; i++) {
+    console.log(`${i + 1}. ${availableMovies[i]}`);
 }
 */

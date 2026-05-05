@@ -41,10 +41,6 @@ console.log("¡Hola, mundo!");
 console.log("========================================");
 console.log("   Bienvenida al Recetario de Sandra");
 console.log("========================================");
-// Salida:
-// ========================================
-//    Bienvenida al Recetario de Sandra
-// ========================================
 
 // --- Mostrar varios datos ---
 
@@ -52,10 +48,6 @@ console.log("========================================");
 console.log("Receta: Café con leche espumosa");
 console.log("Tiempo de preparación:", 10, "minutos");
 console.log("Porciones:", 2);
-// Salida:
-// Receta: Café con leche espumosa
-// Tiempo de preparación: 10 minutos
-// Porciones: 2
 
 // --- Comentarios ---
 
@@ -99,16 +91,3 @@ console.log("Ingredientes:\n- Harina\n- Azúcar\n- Huevos");
 // - Harina
 // - Azúcar
 // - Huevos
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// Crea un archivo llamado "mi_recetario.js" que muestre:
-//
-// 1. Un encabezado con tu nombre (usando === como decoración)
-// 2. El nombre de 3 recetas que te gusten
-// 3. Para cada receta, muestra el tiempo de preparación
-// 4. Al final, muestra el mensaje "¡Manos a la obra!"
-//
-// Ejecuta tu archivo con: node mi_recetario.js
-// ============================================================

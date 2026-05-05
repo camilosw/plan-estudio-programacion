@@ -11,109 +11,56 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const peliculas = [
-    { titulo: "El Padrino", director: "Coppola", genero: "drama", anio: 1972, duracion: 175, calificacion: 9.2, disponible: true },
-    { titulo: "Volver al Futuro", director: "Zemeckis", genero: "ciencia ficción", anio: 1985, duracion: 116, calificacion: 8.5, disponible: true },
-    { titulo: "Toy Story", director: "Lasseter", genero: "animación", anio: 1995, duracion: 81, calificacion: 8.3, disponible: true },
-    { titulo: "El Secreto de sus Ojos", director: "Campanella", genero: "drama", anio: 2009, duracion: 129, calificacion: 8.0, disponible: false },
-    { titulo: "Coco", director: "Unkrich", genero: "animación", anio: 2017, duracion: 105, calificacion: 8.4, disponible: true },
-    { titulo: "Inception", director: "Nolan", genero: "ciencia ficción", anio: 2010, duracion: 148, calificacion: 8.8, disponible: false },
-    { titulo: "Matar a un ruiseñor", director: "Mulligan", genero: "drama", anio: 1962, duracion: 129, calificacion: 8.3, disponible: true },
-    { titulo: "Mi vecino Totoro", director: "Miyazaki", genero: "animación", anio: 1988, duracion: 86, calificacion: 8.2, disponible: true }
+const movies = [
+    { title: "El Padrino", director: "Coppola", genre: "drama", year: 1972, duration: 175, rating: 9.2, available: true },
+    { title: "Volver al Futuro", director: "Zemeckis", genre: "ciencia ficción", year: 1985, duration: 116, rating: 8.5, available: true },
+    { title: "Toy Story", director: "Lasseter", genre: "animación", year: 1995, duration: 81, rating: 8.3, available: true },
+    { title: "El Secreto de sus Ojos", director: "Campanella", genre: "drama", year: 2009, duration: 129, rating: 8.0, available: false },
+    { title: "Coco", director: "Unkrich", genre: "animación", year: 2017, duration: 105, rating: 8.4, available: true },
+    { title: "Inception", director: "Nolan", genre: "ciencia ficción", year: 2010, duration: 148, rating: 8.8, available: false },
+    { title: "Matar a un ruiseñor", director: "Mulligan", genre: "drama", year: 1962, duration: 129, rating: 8.3, available: true },
+    { title: "Mi vecino Totoro", director: "Miyazaki", genre: "animación", year: 1988, duration: 86, rating: 8.2, available: true }
 ];
 
-// --- Parte 1: reduce — duración total ---
-// Calcula la duración total de todas las películas disponibles.
-//
-// Salida esperada:
-//   Duración total (disponibles): 692 minutos
-
+// --- Parte 1: reduce — duración total de disponibles ---
 // Tu código aquí:
 
 
 
 // --- Parte 2: reduce — calificación promedio ---
-// Calcula la calificación promedio de todas las películas.
-//
-// Salida esperada:
-//   Calificación promedio: 8.5
-
 // Tu código aquí:
 
 
 
 // --- Parte 3: reduce — contar por género ---
-// Crea un objeto que cuente películas por género.
-//
-// Salida esperada:
-//   { drama: 3, 'ciencia ficción': 2, animación: 3 }
-
 // Tu código aquí:
 
 
 
-// --- Parte 4: sort — por calificación ---
-// Ordena las películas por calificación de mayor a menor.
-// Muestra el ranking. (Trabaja sobre una copia del array)
-//
-// Salida esperada:
-//   1. El Padrino — 9.2
-//   2. Inception — 8.8
-//   3. Volver al Futuro — 8.5
-//   ...
-
-// Tu código aquí:
-
-
-
-// --- Parte 5: sort — por año ---
-// Ordena por año de la más antigua a la más reciente.
+// --- Parte 4: sort — por calificación descendente ---
 // (Trabaja sobre una copia)
-//
-// Salida esperada:
-//   Matar a un ruiseñor (1962)
-//   El Padrino (1972)
-//   ...
+// Tu código aquí:
 
+
+
+// --- Parte 5: sort — por año ascendente ---
 // Tu código aquí:
 
 
 
 // --- Parte 6: some y every ---
-// Responde estas preguntas:
-//   - ¿Hay alguna película con calificación >= 9?
-//   - ¿Hay alguna película de terror?
-//   - ¿Todas las películas tienen calificación > 7?
-//   - ¿Todas las películas están disponibles?
-//
-// Salida esperada:
-//   ¿Alguna con cal >= 9? true
-//   ¿Alguna de terror? false
-//   ¿Todas con cal > 7? true
-//   ¿Todas disponibles? false
-
+// ¿Alguna con cal >= 9? ¿Alguna de terror?
+// ¿Todas con cal > 7? ¿Todas disponibles?
 // Tu código aquí:
 
 
 
-// --- Parte 7: Encadenamiento ---
-// Obtén los títulos de las 3 mejores películas disponibles,
-// ordenadas por calificación descendente.
-//
-// Salida esperada:
-//   Top 3 disponibles: [ 'El Padrino', 'Volver al Futuro', 'Coco' ]
-
+// --- Parte 7: Encadenamiento — top 3 disponibles ---
 // Tu código aquí:
 
 
 
-// --- Parte 8: Encadenamiento avanzado ---
-// Calcula la duración total de las películas de animación
-// que estén disponibles.
-//
-// Salida esperada:
-//   Duración total animación disponible: 272 minutos
-
+// --- Parte 8: Encadenamiento — duración total animación disponible ---
 // Tu código aquí:
 
 
@@ -123,54 +70,54 @@ const peliculas = [
 // ============================================================
 /*
 // Parte 1
-const duracionDisponibles = peliculas
-    .filter(p => p.disponible)
-    .reduce((total, p) => total + p.duracion, 0);
-console.log(`Duración total (disponibles): ${duracionDisponibles} minutos`);
+const availableDuration = movies
+    .filter(m => m.available)
+    .reduce((total, m) => total + m.duration, 0);
+console.log(`Duración total (disponibles): ${availableDuration} minutos`);
 
 // Parte 2
-const sumaCalificaciones = peliculas.reduce((suma, p) => suma + p.calificacion, 0);
-const promedio = sumaCalificaciones / peliculas.length;
-console.log(`\nCalificación promedio: ${promedio.toFixed(1)}`);
+const ratingSum = movies.reduce((sum, m) => sum + m.rating, 0);
+const average = ratingSum / movies.length;
+console.log(`\nCalificación promedio: ${average.toFixed(1)}`);
 
 // Parte 3
-const conteoPorGenero = peliculas.reduce((conteo, p) => {
-    conteo[p.genero] = (conteo[p.genero] || 0) + 1;
-    return conteo;
+const countByGenre = movies.reduce((count, m) => {
+    count[m.genre] = (count[m.genre] || 0) + 1;
+    return count;
 }, {});
-console.log("\n", conteoPorGenero);
+console.log("\n", countByGenre);
 
 // Parte 4
 console.log("\n--- Por calificación ---");
-const porCalificacion = [...peliculas].sort((a, b) => b.calificacion - a.calificacion);
-porCalificacion.forEach((p, i) => {
-    console.log(`${i + 1}. ${p.titulo} — ${p.calificacion}`);
+const byRating = [...movies].sort((a, b) => b.rating - a.rating);
+byRating.forEach((m, i) => {
+    console.log(`${i + 1}. ${m.title} — ${m.rating}`);
 });
 
 // Parte 5
 console.log("\n--- Por año ---");
-const porAnio = [...peliculas].sort((a, b) => a.anio - b.anio);
-porAnio.forEach(p => console.log(`${p.titulo} (${p.anio})`));
+const byYear = [...movies].sort((a, b) => a.year - b.year);
+byYear.forEach(m => console.log(`${m.title} (${m.year})`));
 
 // Parte 6
 console.log("\n--- some / every ---");
-console.log(`¿Alguna con cal >= 9? ${peliculas.some(p => p.calificacion >= 9)}`);
-console.log(`¿Alguna de terror? ${peliculas.some(p => p.genero === "terror")}`);
-console.log(`¿Todas con cal > 7? ${peliculas.every(p => p.calificacion > 7)}`);
-console.log(`¿Todas disponibles? ${peliculas.every(p => p.disponible)}`);
+console.log(`¿Alguna con cal >= 9? ${movies.some(m => m.rating >= 9)}`);
+console.log(`¿Alguna de terror? ${movies.some(m => m.genre === "terror")}`);
+console.log(`¿Todas con cal > 7? ${movies.every(m => m.rating > 7)}`);
+console.log(`¿Todas disponibles? ${movies.every(m => m.available)}`);
 
 // Parte 7
 console.log("\n--- Top 3 disponibles ---");
-const top3 = [...peliculas]
-    .filter(p => p.disponible)
-    .sort((a, b) => b.calificacion - a.calificacion)
+const top3 = [...movies]
+    .filter(m => m.available)
+    .sort((a, b) => b.rating - a.rating)
     .slice(0, 3)
-    .map(p => p.titulo);
+    .map(m => m.title);
 console.log("Top 3 disponibles:", top3);
 
 // Parte 8
-const duracionAnimacion = peliculas
-    .filter(p => p.genero === "animación" && p.disponible)
-    .reduce((total, p) => total + p.duracion, 0);
-console.log(`\nDuración total animación disponible: ${duracionAnimacion} minutos`);
+const animatedDuration = movies
+    .filter(m => m.genre === "animación" && m.available)
+    .reduce((total, m) => total + m.duration, 0);
+console.log(`\nDuración total animación disponible: ${animatedDuration} minutos`);
 */

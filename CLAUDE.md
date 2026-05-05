@@ -119,17 +119,17 @@ Topics: what is JavaScript → variables and types → operators and conditional
 Key conventions for this module:
 - Content uses neutral Spanish throughout (no Argentine voseo)
 - No PHP parallels — JavaScript is taught on its own terms
-- Theory files follow the OOP module format: header comment block with explanation → working code example → exercise as a comment block at the end
+- Theory files follow the format: header comment block with explanation → working code example (no exercise section — exercises are exclusively in `ejercicios/`)
 - Exercise files follow the Bases de Datos PHP exercise format: header with domain → sections with "Tu código aquí" → solution in a block comment `/* ... */` at the end
 - The unifying domain for **theory** is **El Recetario de Sandra**: recipes with `nombre`, `categoria`, `tiempoMinutos`, `calificacion`, `ingredientes`, `disponible`
 - The unifying domain for **exercises** is **Videoclub**: movies with `titulo`, `director`, `genero`, `anio`, `duracion`, `calificacion`, `disponible`
 - Consistent recipe data across theory files: "Café con leche espumosa", "Tarta de chocolate", "Sándwich club", "Galletas de avena", "Cheesecake de frutos rojos", "Té chai latte", "Ensalada mediterránea", "Brownie con nueces"
 - Consistent movie data across exercise files: "El Padrino", "Volver al Futuro", "Toy Story", "El Secreto de sus Ojos", "Coco", "Inception", "Matar a un ruiseñor", "Mi vecino Totoro"
-- Variables use camelCase in Spanish: `nombreReceta`, `tiempoMinutos`, `calificacion`
+- Variables use English camelCase: `recipeName`, `timeMinutes`, `rating`
 - `const` as default, `let` only when reassignment is needed, never `var`
 - `===` always (never `==`)
 - Each file is self-contained (no imports between files)
-- Classes: `Receta`, `RecetaPostre`, `RecetaBebida` (theory); `Pelicula`, `PeliculaAnimada`, `Videoclub` (exercises)
+- Classes: `Recipe`, `DessertRecipe`, `DrinkRecipe` (theory); `Movie`, `AnimatedMovie`, `VideoClub` (exercises)
 
 ## Running JavaScript Files
 

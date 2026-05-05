@@ -11,13 +11,13 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const tituloPelicula = "Volver al Futuro";
+const movieTitle = "Volver al Futuro";
 const director = "  Robert Zemeckis  ";
-const anio = 1985;
-const duracionMinutos = 116;
-const calificacion = 8.5;
-const disponible = true;
-const secuela = null;
+const year = 1985;
+const durationMinutes = 116;
+const rating = 8.5;
+const available = true;
+const sequel = null;
 
 // --- Parte 1: Mostrar datos con template literals ---
 // Muestra todos los datos de la película usando template literals.
@@ -38,10 +38,10 @@ const secuela = null;
 // Muestra el tipo de cada variable.
 //
 // Salida esperada:
-//   tituloPelicula: string
-//   anio: number
-//   disponible: boolean
-//   secuela: object
+//   movieTitle: string
+//   year: number
+//   available: boolean
+//   sequel: object
 
 // Tu código aquí:
 
@@ -62,7 +62,7 @@ const secuela = null;
 
 
 // --- Parte 4: Métodos de strings ---
-// Usando tituloPelicula y director:
+// Usando movieTitle y director:
 // 1. Muestra el título en mayúsculas
 // 2. Muestra el director sin espacios extras (trim)
 // 3. ¿El título incluye "Futuro"?
@@ -99,36 +99,36 @@ const secuela = null;
 // ============================================================
 /*
 // Parte 1
-console.log(`Película: ${tituloPelicula}`);
+console.log(`Película: ${movieTitle}`);
 console.log(`Director: ${director.trim()}`);
-console.log(`Año: ${anio}`);
-console.log(`Duración: ${duracionMinutos} minutos (${(duracionMinutos / 60).toFixed(2)} horas)`);
-console.log(`Calificación: ${calificacion}/10`);
-console.log(`Disponible: ${disponible}`);
+console.log(`Año: ${year}`);
+console.log(`Duración: ${durationMinutes} minutos (${(durationMinutes / 60).toFixed(2)} horas)`);
+console.log(`Calificación: ${rating}/10`);
+console.log(`Disponible: ${available}`);
 
 // Parte 2
-console.log(`\ntituloPelicula: ${typeof tituloPelicula}`);
-console.log(`anio: ${typeof anio}`);
-console.log(`disponible: ${typeof disponible}`);
-console.log(`secuela: ${typeof secuela}`);
+console.log(`\nmovieTitle: ${typeof movieTitle}`);
+console.log(`year: ${typeof year}`);
+console.log(`available: ${typeof available}`);
+console.log(`sequel: ${typeof sequel}`);
 
 // Parte 3
-const calSobre5 = calificacion / 2;
-const calTexto = String(calSobre5);
-console.log(`\nCalificación sobre 5: ${calSobre5}`);
-console.log(`Tipo: ${typeof calTexto}`);
-const anioNumero = Number("1985");
-console.log(`1985 + 30 = ${anioNumero + 30}`);
+const ratingOver5 = rating / 2;
+const ratingText = String(ratingOver5);
+console.log(`\nCalificación sobre 5: ${ratingOver5}`);
+console.log(`Tipo: ${typeof ratingText}`);
+const yearNumber = Number("1985");
+console.log(`1985 + 30 = ${yearNumber + 30}`);
 
 // Parte 4
-console.log(`\nMayúsculas: ${tituloPelicula.toUpperCase()}`);
+console.log(`\nMayúsculas: ${movieTitle.toUpperCase()}`);
 console.log(`Director limpio: ${director.trim()}`);
-console.log(`¿Incluye "Futuro"? ${tituloPelicula.includes("Futuro")}`);
-console.log(`Posición de "al": ${tituloPelicula.indexOf("al")}`);
-console.log(`Primeras 6 letras: ${tituloPelicula.slice(0, 6)}`);
-console.log(`Reemplazado: ${tituloPelicula.replace("Futuro", "Pasado")}`);
-console.log(`Palabras:`, tituloPelicula.split(" "));
+console.log(`¿Incluye "Futuro"? ${movieTitle.includes("Futuro")}`);
+console.log(`Posición de "al": ${movieTitle.indexOf("al")}`);
+console.log(`Primeras 6 letras: ${movieTitle.slice(0, 6)}`);
+console.log(`Reemplazado: ${movieTitle.replace("Futuro", "Pasado")}`);
+console.log(`Palabras:`, movieTitle.split(" "));
 
 // Parte 5
-console.log(`\nSecuela: ${secuela ?? "No tiene secuela"}`);
+console.log(`\nSecuela: ${sequel ?? "No tiene secuela"}`);
 */

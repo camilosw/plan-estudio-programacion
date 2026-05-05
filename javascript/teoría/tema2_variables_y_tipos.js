@@ -24,22 +24,22 @@
 
 // --- const y let ---
 
-const nombreReceta = "Café con leche espumosa";
-const tiempoMinutos = 10;
+const recipeName = "Café con leche espumosa";
+const timeMinutes = 10;
 
-let porciones = 2;
-porciones = 4; // Podemos cambiar el valor porque usamos let
+let servings = 2;
+servings = 4; // Podemos cambiar el valor porque usamos let
 
-console.log("Receta:", nombreReceta);
-console.log("Tiempo:", tiempoMinutos, "minutos");
-console.log("Porciones:", porciones);
+console.log("Receta:", recipeName);
+console.log("Tiempo:", timeMinutes, "minutos");
+console.log("Porciones:", servings);
 // Salida:
 // Receta: Café con leche espumosa
 // Tiempo: 10 minutos
 // Porciones: 4
 
 // Si intentamos cambiar un const, JavaScript da un error:
-// nombreReceta = "Otra receta"; // TypeError: Assignment to constant variable
+// recipeName = "Otra receta"; // TypeError: Assignment to constant variable
 
 // --- ¿Por qué no usar var? ---
 
@@ -51,57 +51,57 @@ console.log("Porciones:", porciones);
 
 // JavaScript tiene 5 tipos de datos básicos (primitivos):
 
-const nombre = "Tarta de chocolate";  // string  (texto)
-const tiempo = 60;                    // number  (número entero)
-const precio = 4.50;                  // number  (número decimal)
-const disponible = true;              // boolean (verdadero/falso)
-const alergeno = null;                // null    (vacío intencional)
-let instruccionesEspeciales;          // undefined (sin valor asignado)
+const name = "Tarta de chocolate";     // string  (texto)
+const time = 60;                       // number  (número entero)
+const price = 4.50;                    // number  (número decimal)
+const available = true;                // boolean (verdadero/falso)
+const allergen = null;                 // null    (vacío intencional)
+let specialInstructions;               // undefined (sin valor asignado)
 
 console.log("\n--- Tipos de datos ---");
-console.log("nombre:", nombre);
-console.log("tiempo:", tiempo);
-console.log("precio:", precio);
-console.log("disponible:", disponible);
-console.log("alergeno:", alergeno);
-console.log("instrucciones:", instruccionesEspeciales);
+console.log("nombre:", name);
+console.log("tiempo:", time);
+console.log("precio:", price);
+console.log("disponible:", available);
+console.log("alérgeno:", allergen);
+console.log("instrucciones:", specialInstructions);
 // Salida:
 // --- Tipos de datos ---
 // nombre: Tarta de chocolate
 // tiempo: 60
 // precio: 4.5
 // disponible: true
-// alergeno: null
+// alérgeno: null
 // instrucciones: undefined
 
 // --- typeof: saber qué tipo tiene un dato ---
 
 console.log("\n--- typeof ---");
-console.log(typeof nombre);      // string
-console.log(typeof tiempo);      // number
-console.log(typeof precio);      // number
-console.log(typeof disponible);  // boolean
-console.log(typeof alergeno);    // object  (esto es un error histórico de JS)
-console.log(typeof instruccionesEspeciales); // undefined
+console.log(typeof name);       // string
+console.log(typeof time);       // number
+console.log(typeof price);      // number
+console.log(typeof available);  // boolean
+console.log(typeof allergen);   // object  (esto es un error histórico de JS)
+console.log(typeof specialInstructions); // undefined
 
 // --- Template literals (plantillas de texto) ---
 
 // En vez de concatenar con +, usamos backticks (`) y ${} para
 // insertar variables dentro del texto. Es más limpio y legible.
 
-const categoria = "postres";
-const calificacion = 4.8;
+const category = "postres";
+const rating = 4.8;
 
 // Forma antigua (concatenación con +):
-console.log("\n" + nombre + " — " + categoria + " — " + calificacion + "★");
+console.log("\n" + name + " — " + category + " — " + rating + "★");
 
 // Forma moderna (template literal):
-console.log(`${nombre} — ${categoria} — ${calificacion}★`);
+console.log(`${name} — ${category} — ${rating}★`);
 
 // Ambas producen: Tarta de chocolate — postres — 4.8★
 
 // Dentro de ${} puedes poner cualquier expresión:
-console.log(`Tiempo en horas: ${tiempo / 60}`);
+console.log(`Tiempo en horas: ${time / 60}`);
 // Salida: Tiempo en horas: 1
 
 // --- Conversión de tipos ---
@@ -111,21 +111,21 @@ console.log(`Tiempo en horas: ${tiempo / 60}`);
 console.log("\n--- Conversión de tipos ---");
 
 // String a número
-const textoTiempo = "45";
-const numeroTiempo = Number(textoTiempo);
-console.log(typeof textoTiempo, "→", typeof numeroTiempo);
+const timeText = "45";
+const timeNumber = Number(timeText);
+console.log(typeof timeText, "→", typeof timeNumber);
 // Salida: string → number
 
 // También puedes usar parseInt y parseFloat
-const entero = parseInt("30");
+const integer = parseInt("30");
 const decimal = parseFloat("4.5");
-console.log("Entero:", entero);   // 30
-console.log("Decimal:", decimal); // 4.5
+console.log("Entero:", integer);   // 30
+console.log("Decimal:", decimal);  // 4.5
 
 // Número a string
-const numeroPorciones = 6;
-const textoPorciones = String(numeroPorciones);
-console.log(typeof numeroPorciones, "→", typeof textoPorciones);
+const servingsNumber = 6;
+const servingsText = String(servingsNumber);
+console.log(typeof servingsNumber, "→", typeof servingsText);
 // Salida: number → string
 
 // Cuidado con la conversión automática (coerción):
@@ -138,59 +138,40 @@ console.log("5" - 3);  // 2    (resta como número)
 
 // Los strings tienen métodos integrados para manipular texto.
 
-const receta = "  Cheesecake de Frutos Rojos  ";
+const recipe = "  Cheesecake de Frutos Rojos  ";
 
 console.log("\n--- Métodos de strings ---");
 
 // Longitud del texto
-console.log(receta.length); // 30 (incluye los espacios)
+console.log(recipe.length); // 30 (incluye los espacios)
 
 // Mayúsculas y minúsculas
-console.log(receta.toUpperCase()); // "  CHEESECAKE DE FRUTOS ROJOS  "
-console.log(receta.toLowerCase()); // "  cheesecake de frutos rojos  "
+console.log(recipe.toUpperCase()); // "  CHEESECAKE DE FRUTOS ROJOS  "
+console.log(recipe.toLowerCase()); // "  cheesecake de frutos rojos  "
 
 // Quitar espacios al inicio y final
-console.log(receta.trim()); // "Cheesecake de Frutos Rojos"
+console.log(recipe.trim()); // "Cheesecake de Frutos Rojos"
 
 // Buscar dentro del texto
-console.log(receta.includes("Frutos"));  // true
-console.log(receta.includes("Limón"));   // false
+console.log(recipe.includes("Frutos"));  // true
+console.log(recipe.includes("Limón"));   // false
 
 // Posición de un texto (devuelve -1 si no lo encuentra)
-console.log(receta.trim().indexOf("Frutos")); // 14
+console.log(recipe.trim().indexOf("Frutos")); // 14
 
 // Extraer una porción del texto
-console.log(receta.trim().slice(0, 10)); // "Cheesecake"
+console.log(recipe.trim().slice(0, 10)); // "Cheesecake"
 
 // Reemplazar texto
-console.log(receta.trim().replace("Frutos Rojos", "Limón"));
+console.log(recipe.trim().replace("Frutos Rojos", "Limón"));
 // Salida: Cheesecake de Limón
 
 // Dividir texto en un array
-const ingredientes = "harina, azúcar, queso crema";
-const lista = ingredientes.split(", ");
-console.log(lista); // [ 'harina', 'azúcar', 'queso crema' ]
+const ingredientList = "harina, azúcar, queso crema";
+const items = ingredientList.split(", ");
+console.log(items); // [ 'harina', 'azúcar', 'queso crema' ]
 
 // Comprobar inicio y final
-const titulo = "Café con leche espumosa";
-console.log(titulo.startsWith("Café"));    // true
-console.log(titulo.endsWith("espumosa"));  // true
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// Crea variables para una receta con los siguientes datos:
-//   - nombre: "Galletas de avena" (const)
-//   - tiempo: 30 (const)
-//   - porciones: 12 (let)
-//   - dificultad: "fácil" (const)
-//   - sinGluten: false (const)
-//
-// 1. Muestra todos los datos usando template literals
-// 2. Cambia las porciones a 24 (doble receta) y muestra el
-//    nuevo valor
-// 3. Usa métodos de strings para:
-//    - Mostrar el nombre en mayúsculas
-//    - Comprobar si el nombre incluye "avena"
-//    - Extraer solo "Galletas" del nombre
-// ============================================================
+const title = "Café con leche espumosa";
+console.log(title.startsWith("Café"));    // true
+console.log(title.endsWith("espumosa"));  // true

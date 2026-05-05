@@ -23,11 +23,11 @@
 // La forma clásica de crear una función.
 // Se declara con la palabra function, seguida del nombre.
 
-function saludar() {
+function greet() {
     console.log("¡Bienvenida al Recetario de Sandra!");
 }
 
-saludar();
+greet();
 // Salida: ¡Bienvenida al Recetario de Sandra!
 
 // --- Parámetros y argumentos ---
@@ -35,29 +35,26 @@ saludar();
 // Los parámetros son los datos que la función necesita.
 // Los argumentos son los valores que le pasamos al llamarla.
 
-function mostrarReceta(nombre, tiempo) {
-    console.log(`${nombre} — ${tiempo} minutos`);
+function showRecipe(name, time) {
+    console.log(`${name} — ${time} minutos`);
 }
 
 console.log("\n--- Parámetros ---");
-mostrarReceta("Café con leche espumosa", 10);
-mostrarReceta("Tarta de chocolate", 60);
-// Salida:
-// Café con leche espumosa — 10 minutos
-// Tarta de chocolate — 60 minutos
+showRecipe("Café con leche espumosa", 10);
+showRecipe("Tarta de chocolate", 60);
 
 // --- Parámetros por defecto ---
 
 // Puedes darle un valor por defecto a un parámetro.
 // Si no se pasa un argumento, usa el valor por defecto.
 
-function mostrarRecetaConPorciones(nombre, tiempo, porciones = 4) {
-    console.log(`${nombre} — ${tiempo} min — ${porciones} porciones`);
+function showRecipeWithServings(name, time, servings = 4) {
+    console.log(`${name} — ${time} min — ${servings} porciones`);
 }
 
 console.log("\n--- Parámetros por defecto ---");
-mostrarRecetaConPorciones("Galletas de avena", 30, 12);
-mostrarRecetaConPorciones("Brownie con nueces", 45);
+showRecipeWithServings("Galletas de avena", 30, 12);
+showRecipeWithServings("Brownie con nueces", 45);
 // Salida:
 // Galletas de avena — 30 min — 12 porciones
 // Brownie con nueces — 45 min — 4 porciones (usa el default)
@@ -67,40 +64,40 @@ mostrarRecetaConPorciones("Brownie con nueces", 45);
 // return devuelve un valor al código que llamó a la función.
 // La función se detiene en el return.
 
-function calcularPrecioPorPorcion(precioTotal, porciones) {
-    return precioTotal / porciones;
+function calcPricePerServing(totalPrice, servings) {
+    return totalPrice / servings;
 }
 
-const precio = calcularPrecioPorPorcion(24, 8);
+const price = calcPricePerServing(24, 8);
 console.log("\n--- return ---");
-console.log(`Precio por porción: $${precio}`);
+console.log(`Precio por porción: $${price}`);
 // Salida: Precio por porción: $3
 
-function clasificarDificultad(tiempoMinutos, cantidadIngredientes) {
-    if (tiempoMinutos <= 15 && cantidadIngredientes <= 5) {
+function classifyDifficulty(timeMinutes, ingredientCount) {
+    if (timeMinutes <= 15 && ingredientCount <= 5) {
         return "fácil";
-    } else if (tiempoMinutos <= 45) {
+    } else if (timeMinutes <= 45) {
         return "media";
     } else {
         return "difícil";
     }
 }
 
-console.log(clasificarDificultad(10, 3));   // "fácil"
-console.log(clasificarDificultad(30, 8));   // "media"
-console.log(clasificarDificultad(90, 12));  // "difícil"
+console.log(classifyDifficulty(10, 3));   // "fácil"
+console.log(classifyDifficulty(30, 8));   // "media"
+console.log(classifyDifficulty(90, 12));  // "difícil"
 
 // --- Expresiones de función ---
 
 // Puedes guardar una función en una variable (constante).
 // Se llama "expresión de función".
 
-const formatearReceta = function(nombre, categoria, calificacion) {
-    return `${nombre} | ${categoria} | ${calificacion}★`;
+const formatRecipe = function(name, category, rating) {
+    return `${name} | ${category} | ${rating}★`;
 };
 
 console.log("\n--- Expresión de función ---");
-console.log(formatearReceta("Cheesecake de frutos rojos", "postres", 4.9));
+console.log(formatRecipe("Cheesecake de frutos rojos", "postres", 4.9));
 // Salida: Cheesecake de frutos rojos | postres | 4.9★
 
 // --- Arrow functions (funciones flecha) ---
@@ -109,47 +106,47 @@ console.log(formatearReceta("Cheesecake de frutos rojos", "postres", 4.9));
 // de la palabra function.
 
 // Forma completa:
-const calcularTiempoTotal = (tiempo1, tiempo2) => {
-    return tiempo1 + tiempo2;
+const calcTotalTime = (time1, time2) => {
+    return time1 + time2;
 };
 
 // Forma abreviada (cuando el cuerpo es una sola expresión,
 // el return es implícito):
-const sumarTiempos = (t1, t2) => t1 + t2;
+const addTimes = (t1, t2) => t1 + t2;
 
 // Con un solo parámetro, los paréntesis son opcionales:
-const esRapida = tiempo => tiempo <= 15;
+const isQuick = time => time <= 15;
 
 console.log("\n--- Arrow functions ---");
-console.log(`Total: ${calcularTiempoTotal(10, 60)} min`);
-console.log(`Suma: ${sumarTiempos(30, 45)} min`);
-console.log(`¿10 min es rápida? ${esRapida(10)}`);   // true
-console.log(`¿60 min es rápida? ${esRapida(60)}`);   // false
+console.log(`Total: ${calcTotalTime(10, 60)} min`);
+console.log(`Suma: ${addTimes(30, 45)} min`);
+console.log(`¿10 min es rápida? ${isQuick(10)}`);   // true
+console.log(`¿60 min es rápida? ${isQuick(60)}`);   // false
 
 // --- Scope (alcance) ---
 
 // Las variables tienen un alcance que determina dónde se
 // pueden usar.
 
-const recetario = "El Recetario de Sandra"; // Variable global
+const cookbookName = "El Recetario de Sandra"; // Variable global
 
-function mostrarInfo() {
-    const mensaje = "Información interna"; // Variable local
-    console.log(recetario); // Puede acceder a la global
-    console.log(mensaje);   // Puede acceder a su propia variable
+function showInfo() {
+    const message = "Información interna"; // Variable local
+    console.log(cookbookName); // Puede acceder a la global
+    console.log(message);      // Puede acceder a su propia variable
 }
 
 console.log("\n--- Scope ---");
-mostrarInfo();
-console.log(recetario); // Funciona: es global
-// console.log(mensaje); // Error: mensaje no está definida aquí
+showInfo();
+console.log(cookbookName); // Funciona: es global
+// console.log(message); // Error: message no está definida aquí
 
 // Scope de bloque: let y const solo existen dentro de { }
 if (true) {
-    const variableDeBloque = "Solo existo aquí dentro";
-    console.log(variableDeBloque); // Funciona
+    const blockVariable = "Solo existo aquí dentro";
+    console.log(blockVariable); // Funciona
 }
-// console.log(variableDeBloque); // Error: no existe fuera del if
+// console.log(blockVariable); // Error: no existe fuera del if
 
 // --- Closures (intro básica) ---
 
@@ -157,24 +154,24 @@ if (true) {
 // lugar donde fue creada, incluso después de que ese lugar
 // ya terminó de ejecutarse.
 
-function crearContador(nombre) {
-    let cuenta = 0;
+function createCounter(name) {
+    let count = 0;
     return function() {
-        cuenta++;
-        return `${nombre}: preparada ${cuenta} vez/veces`;
+        count++;
+        return `${name}: preparada ${count} vez/veces`;
     };
 }
 
-const contadorCafe = crearContador("Café con leche");
-const contadorTarta = crearContador("Tarta de chocolate");
+const coffeeCounter = createCounter("Café con leche");
+const cakeCounter = createCounter("Tarta de chocolate");
 
 console.log("\n--- Closures ---");
-console.log(contadorCafe());  // Café con leche: preparada 1 vez/veces
-console.log(contadorCafe());  // Café con leche: preparada 2 vez/veces
-console.log(contadorTarta()); // Tarta de chocolate: preparada 1 vez/veces
-console.log(contadorCafe());  // Café con leche: preparada 3 vez/veces
+console.log(coffeeCounter());  // Café con leche: preparada 1 vez/veces
+console.log(coffeeCounter());  // Café con leche: preparada 2 vez/veces
+console.log(cakeCounter());    // Tarta de chocolate: preparada 1 vez/veces
+console.log(coffeeCounter());  // Café con leche: preparada 3 vez/veces
 
-// Cada contador tiene su propia variable "cuenta" independiente.
+// Cada contador tiene su propia variable "count" independiente.
 
 // --- Funciones como valores ---
 
@@ -182,38 +179,15 @@ console.log(contadorCafe());  // Café con leche: preparada 3 vez/veces
 // en variables, pasarlas como argumentos o devolverlas como
 // resultado de otra función.
 
-function aplicarOperacion(a, b, operacion) {
-    return operacion(a, b);
+function applyOperation(a, b, operation) {
+    return operation(a, b);
 }
 
-const sumar = (a, b) => a + b;
-const multiplicar = (a, b) => a * b;
+const add = (a, b) => a + b;
+const multiply = (a, b) => a * b;
 
 console.log("\n--- Funciones como valores ---");
-console.log(`Sumar: ${aplicarOperacion(10, 5, sumar)}`);        // 15
-console.log(`Multiplicar: ${aplicarOperacion(10, 5, multiplicar)}`); // 50
+console.log(`Sumar: ${applyOperation(10, 5, add)}`);        // 15
+console.log(`Multiplicar: ${applyOperation(10, 5, multiply)}`); // 50
 
 // Esto es la base de los callbacks que veremos más adelante.
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// 1. Crea una función "ajustarPorciones" que reciba:
-//    - cantidadOriginal (número de ingrediente)
-//    - porcionesOriginales
-//    - porcionesDeseadas (con valor por defecto 4)
-//    Y devuelva la cantidad ajustada.
-//    Ejemplo: ajustarPorciones(200, 8, 4) → 100
-//
-// 2. Crea una arrow function "formatearTiempo" que reciba
-//    minutos y devuelva un string formateado:
-//    - 90 → "1h 30min"
-//    - 45 → "45min"
-//    - 120 → "2h 0min"
-//
-// 3. Crea una función "evaluarReceta" que reciba nombre,
-//    tiempo y calificación, y muestre:
-//    - Si calificación >= 4.5: "nombre: ★ Receta estrella ★"
-//    - Si no: "nombre: Buena receta"
-//    Usa la función clasificarDificultad dentro de ella.
-// ============================================================

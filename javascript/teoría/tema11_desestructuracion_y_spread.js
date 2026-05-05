@@ -22,185 +22,153 @@
 
 // --- Desestructuración de arrays ---
 
-const ingredientes = ["harina", "azúcar", "huevos", "mantequilla", "chocolate"];
+const ingredients = ["harina", "azúcar", "huevos", "mantequilla", "chocolate"];
 
-// Sin desestructuración:
-// const primero = ingredientes[0];
-// const segundo = ingredientes[1];
-
-// Con desestructuración:
-const [primero, segundo, tercero] = ingredientes;
+const [first, second, third] = ingredients;
 
 console.log("--- Desestructuración de arrays ---");
-console.log(`Primero: ${primero}`);   // harina
-console.log(`Segundo: ${segundo}`);   // azúcar
-console.log(`Tercero: ${tercero}`);   // huevos
+console.log(`Primero: ${first}`);   // harina
+console.log(`Segundo: ${second}`);  // azúcar
+console.log(`Tercero: ${third}`);   // huevos
 
 // Saltar elementos con comas
-const [, , tercer, cuarto] = ingredientes;
-console.log(`Tercer ingrediente: ${tercer}`);  // huevos
-console.log(`Cuarto ingrediente: ${cuarto}`);  // mantequilla
+const [, , thirdItem, fourthItem] = ingredients;
+console.log(`Tercer ingrediente: ${thirdItem}`);  // huevos
+console.log(`Cuarto ingrediente: ${fourthItem}`);  // mantequilla
 
 // Recoger el resto con ...
-const [principal, ...restantes] = ingredientes;
-console.log(`Principal: ${principal}`);   // harina
-console.log("Restantes:", restantes);     // ['azúcar', 'huevos', 'mantequilla', 'chocolate']
+const [main, ...remaining] = ingredients;
+console.log(`Principal: ${main}`);    // harina
+console.log("Restantes:", remaining); // ['azúcar', 'huevos', 'mantequilla', 'chocolate']
 
 // --- Desestructuración de objetos ---
 
-const receta = {
-    nombre: "Tarta de chocolate",
-    categoria: "postres",
-    tiempoMinutos: 60,
-    calificacion: 4.8,
-    disponible: true
+const recipe = {
+    name: "Tarta de chocolate",
+    category: "postres",
+    timeMinutes: 60,
+    rating: 4.8,
+    available: true
 };
 
-// Sin desestructuración:
-// const nombre = receta.nombre;
-// const categoria = receta.categoria;
-
-// Con desestructuración:
-const { nombre, categoria, tiempoMinutos } = receta;
+const { name, category, timeMinutes } = recipe;
 
 console.log("\n--- Desestructuración de objetos ---");
-console.log(`Nombre: ${nombre}`);       // Tarta de chocolate
-console.log(`Categoría: ${categoria}`); // postres
-console.log(`Tiempo: ${tiempoMinutos} min`); // 60
+console.log(`Nombre: ${name}`);       // Tarta de chocolate
+console.log(`Categoría: ${category}`); // postres
+console.log(`Tiempo: ${timeMinutes} min`); // 60
 
 // --- Renombrar al desestructurar ---
 
-// A veces el nombre de la propiedad no es conveniente
-const { nombre: nombreReceta, calificacion: rating } = receta;
+const { name: recipeName, rating: recipeRating } = recipe;
 
 console.log("\n--- Renombrar ---");
-console.log(`Receta: ${nombreReceta}`); // Tarta de chocolate
-console.log(`Rating: ${rating}`);       // 4.8
+console.log(`Receta: ${recipeName}`);   // Tarta de chocolate
+console.log(`Rating: ${recipeRating}`); // 4.8
 
 // --- Valores por defecto ---
 
-const recetaSimple = {
-    nombre: "Café con leche",
-    tiempoMinutos: 10
+const simpleRecipe = {
+    name: "Café con leche",
+    timeMinutes: 10
 };
 
-// Si la propiedad no existe, usa el valor por defecto
-const { nombre: n, dificultad = "fácil", porciones: p = 1 } = recetaSimple;
+const { name: n, difficulty = "fácil", servings = 1 } = simpleRecipe;
 
 console.log("\n--- Valores por defecto ---");
-console.log(`${n} — dificultad: ${dificultad} — porciones: ${p}`);
-// Salida: Café con leche — dificultad: fácil — porciones: 1
+console.log(`${n} — dificultad: ${difficulty} — porciones: ${servings}`);
 
 // --- Desestructuración anidada ---
 
-const recetaCompleta = {
-    nombre: "Cheesecake de frutos rojos",
-    ingredientePrincipal: {
-        nombre: "queso crema",
-        cantidad: 500,
-        unidad: "gramos"
+const fullRecipe = {
+    name: "Cheesecake de frutos rojos",
+    mainIngredient: {
+        name: "queso crema",
+        amount: 500,
+        unit: "gramos"
     }
 };
 
-const { ingredientePrincipal: { nombre: ingrediente, cantidad } } = recetaCompleta;
+const { mainIngredient: { name: ingredientName, amount } } = fullRecipe;
 
 console.log("\n--- Desestructuración anidada ---");
-console.log(`Ingrediente: ${ingrediente} — ${cantidad}`);
-// Salida: Ingrediente: queso crema — 500
+console.log(`Ingrediente: ${ingredientName} — ${amount}`);
 
 // --- Desestructuración en parámetros de función ---
 
-// Muy útil cuando una función recibe un objeto
-function mostrarReceta({ nombre, categoria, tiempoMinutos, calificacion }) {
-    console.log(`${nombre} | ${categoria} | ${tiempoMinutos} min | ${calificacion}★`);
+function showRecipe({ name, category, timeMinutes, rating }) {
+    console.log(`${name} | ${category} | ${timeMinutes} min | ${rating}★`);
 }
 
 console.log("\n--- En parámetros de función ---");
-mostrarReceta(receta);
-// Salida: Tarta de chocolate | postres | 60 min | 4.8★
+showRecipe(recipe);
 
-// También funciona con arrays en forEach, map, etc.
-const recetas = [
-    { nombre: "Café con leche", tiempoMinutos: 10, calificacion: 4.5 },
-    { nombre: "Brownie", tiempoMinutos: 45, calificacion: 4.6 },
-    { nombre: "Ensalada", tiempoMinutos: 20, calificacion: 3.8 }
+const recipes = [
+    { name: "Café con leche", timeMinutes: 10, rating: 4.5 },
+    { name: "Brownie", timeMinutes: 45, rating: 4.6 },
+    { name: "Ensalada", timeMinutes: 20, rating: 3.8 }
 ];
 
 console.log("\nCon forEach:");
-recetas.forEach(({ nombre, calificacion }) => {
-    console.log(`  ${nombre} — ${calificacion}★`);
+recipes.forEach(({ name, rating }) => {
+    console.log(`  ${name} — ${rating}★`);
 });
 
 // --- Spread en arrays ---
 
 console.log("\n--- Spread en arrays ---");
 
-// Clonar un array
 const original = [1, 2, 3];
-const copia = [...original];
-copia.push(4);
-console.log("Original:", original); // [1, 2, 3] — no cambió
-console.log("Copia:", copia);       // [1, 2, 3, 4]
+const copy = [...original];
+copy.push(4);
+console.log("Original:", original);
+console.log("Copia:", copy);
 
-// Combinar arrays
-const bebidas = ["Café con leche", "Té chai"];
-const postres = ["Tarta", "Cheesecake"];
-const menuCompleto = [...bebidas, ...postres];
-console.log("Menú completo:", menuCompleto);
-// ['Café con leche', 'Té chai', 'Tarta', 'Cheesecake']
+const drinks = ["Café con leche", "Té chai"];
+const desserts = ["Tarta", "Cheesecake"];
+const fullMenu = [...drinks, ...desserts];
+console.log("Menú completo:", fullMenu);
 
-// Insertar elementos en medio
 const base = ["harina", "azúcar"];
-const completo = [...base, "chocolate", "nueces", ...["leche", "huevos"]];
-console.log("Ingredientes completos:", completo);
+const complete = [...base, "chocolate", "nueces", ...["leche", "huevos"]];
+console.log("Ingredientes completos:", complete);
 
 // --- Spread en objetos ---
 
 console.log("\n--- Spread en objetos ---");
 
-// Clonar un objeto
-const recetaOriginal = {
-    nombre: "Galletas de avena",
-    tiempoMinutos: 30,
-    calificacion: 4.0
+const originalRecipe = {
+    name: "Galletas de avena",
+    timeMinutes: 30,
+    rating: 4.0
 };
 
-const recetaCopia = { ...recetaOriginal };
-recetaCopia.calificacion = 4.5;
-console.log("Original:", recetaOriginal.calificacion); // 4.0
-console.log("Copia:", recetaCopia.calificacion);       // 4.5
+const recipeCopy = { ...originalRecipe };
+recipeCopy.rating = 4.5;
+console.log("Original:", originalRecipe.rating); // 4.0
+console.log("Copia:", recipeCopy.rating);        // 4.5
 
-// Crear una variante (clonar + sobreescribir)
-const versionSinAzucar = {
-    ...recetaOriginal,
-    nombre: "Galletas de avena sin azúcar",
-    calificacion: 4.2
+const sugarFreeVersion = {
+    ...originalRecipe,
+    name: "Galletas de avena sin azúcar",
+    rating: 4.2
 };
-console.log("Variante:", versionSinAzucar);
-// { nombre: 'Galletas de avena sin azúcar', tiempoMinutos: 30, calificacion: 4.2 }
+console.log("Variante:", sugarFreeVersion);
 
-// Combinar objetos
-const datosBase = { nombre: "Brownie", categoria: "postres" };
-const datosExtra = { tiempoMinutos: 45, calificacion: 4.6 };
-const recetaFinal = { ...datosBase, ...datosExtra };
-console.log("Receta combinada:", recetaFinal);
+const baseData = { name: "Brownie", category: "postres" };
+const extraData = { timeMinutes: 45, rating: 4.6 };
+const finalRecipe = { ...baseData, ...extraData };
+console.log("Receta combinada:", finalRecipe);
 
 // --- Rest en parámetros de funciones ---
 
-// El operador rest (...) recoge argumentos "sobrantes" en un array.
-
-function mostrarMenu(titulo, ...recetasDelMenu) {
-    console.log(`\n=== ${titulo} ===`);
-    recetasDelMenu.forEach((r, i) => console.log(`${i + 1}. ${r}`));
+function showMenu(title, ...menuRecipes) {
+    console.log(`\n=== ${title} ===`);
+    menuRecipes.forEach((r, i) => console.log(`${i + 1}. ${r}`));
 }
 
 console.log("\n--- Rest en parámetros ---");
-mostrarMenu("Menú del día", "Café con leche", "Tarta de chocolate", "Ensalada");
-// Salida:
-// === Menú del día ===
-// 1. Café con leche
-// 2. Tarta de chocolate
-// 3. Ensalada
+showMenu("Menú del día", "Café con leche", "Tarta de chocolate", "Ensalada");
 
 // --- Intercambiar valores (swap) ---
 
@@ -211,31 +179,3 @@ console.log(`Antes: a=${a}, b=${b}`);
 
 [a, b] = [b, a];
 console.log(`Después: a=${a}, b=${b}`);
-// Salida: Después: a=segundo, b=primero
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// 1. Dado este objeto:
-//    const receta = {
-//        nombre: "Brownie con nueces",
-//        categoria: "postres",
-//        tiempoMinutos: 45,
-//        calificacion: 4.6,
-//        ingredientes: ["chocolate", "nueces", "harina"]
-//    };
-//
-//    Desestructura: nombre, calificacion (renombrándola a
-//    "rating"), y el primer ingrediente
-//
-// 2. Usa spread para crear una variante "Brownie sin nueces"
-//    (clona la receta pero cambia nombre y ingredientes)
-//
-// 3. Crea una función con rest que reciba un título y
-//    cualquier cantidad de ingredientes, y los muestre
-//    formateados
-//
-// 4. Dado un array de recetas, usa desestructuración dentro
-//    de un map para crear un array de strings:
-//    "NOMBRE: CALIFICACION★"
-// ============================================================

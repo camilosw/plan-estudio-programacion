@@ -21,258 +21,217 @@
 
 // --- Crear una clase ---
 
-class Receta {
-    constructor(nombre, categoria, tiempoMinutos, calificacion) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.tiempoMinutos = tiempoMinutos;
-        this.calificacion = calificacion;
-        this.disponible = true;
+class Recipe {
+    constructor(name, category, timeMinutes, rating) {
+        this.name = name;
+        this.category = category;
+        this.timeMinutes = timeMinutes;
+        this.rating = rating;
+        this.available = true;
     }
 }
 
-// Crear objetos (instancias) de la clase
-const cafe = new Receta("Café con leche espumosa", "bebidas", 10, 4.5);
-const tarta = new Receta("Tarta de chocolate", "postres", 60, 4.8);
+const coffee = new Recipe("Café con leche espumosa", "bebidas", 10, 4.5);
+const cake = new Recipe("Tarta de chocolate", "postres", 60, 4.8);
 
 console.log("--- Crear instancias ---");
-console.log(cafe);
-console.log(tarta);
+console.log(coffee);
+console.log(cake);
 
 // --- Métodos ---
 
-// Los métodos son funciones que pertenecen a la clase.
-// Se definen directamente en el cuerpo de la clase.
-
-class RecetaConMetodos {
-    constructor(nombre, categoria, tiempoMinutos, calificacion) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.tiempoMinutos = tiempoMinutos;
-        this.calificacion = calificacion;
-        this.disponible = true;
+class RecipeWithMethods {
+    constructor(name, category, timeMinutes, rating) {
+        this.name = name;
+        this.category = category;
+        this.timeMinutes = timeMinutes;
+        this.rating = rating;
+        this.available = true;
     }
 
-    mostrarResumen() {
-        const estado = this.disponible ? "Disponible" : "No disponible";
-        console.log(`${this.nombre} — ${this.categoria}`);
-        console.log(`  Tiempo: ${this.tiempoMinutos} min | ${this.calificacion}★ | ${estado}`);
+    showSummary() {
+        const status = this.available ? "Disponible" : "No disponible";
+        console.log(`${this.name} — ${this.category}`);
+        console.log(`  Tiempo: ${this.timeMinutes} min | ${this.rating}★ | ${status}`);
     }
 
-    esRapida() {
-        return this.tiempoMinutos <= 15;
+    isQuick() {
+        return this.timeMinutes <= 15;
     }
 
-    esDestacada() {
-        return this.calificacion >= 4.5;
+    isFeatured() {
+        return this.rating >= 4.5;
     }
 
-    clasificarDificultad() {
-        if (this.tiempoMinutos <= 15) return "fácil";
-        if (this.tiempoMinutos <= 45) return "media";
+    classifyDifficulty() {
+        if (this.timeMinutes <= 15) return "fácil";
+        if (this.timeMinutes <= 45) return "media";
         return "difícil";
     }
 }
 
-const brownie = new RecetaConMetodos("Brownie con nueces", "postres", 45, 4.6);
+const brownie = new RecipeWithMethods("Brownie con nueces", "postres", 45, 4.6);
 
 console.log("\n--- Métodos ---");
-brownie.mostrarResumen();
-console.log(`¿Es rápida? ${brownie.esRapida()}`);           // false
-console.log(`¿Es destacada? ${brownie.esDestacada()}`);      // true
-console.log(`Dificultad: ${brownie.clasificarDificultad()}`); // media
+brownie.showSummary();
+console.log(`¿Es rápida? ${brownie.isQuick()}`);
+console.log(`¿Es destacada? ${brownie.isFeatured()}`);
+console.log(`Dificultad: ${brownie.classifyDifficulty()}`);
 
 // --- Getters y setters ---
 
-// Los getters permiten acceder a un valor calculado como si
-// fuera una propiedad. Los setters permiten validar al
-// asignar un valor.
-
-class RecetaCompleta {
-    constructor(nombre, categoria, tiempoMinutos, calificacion) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.tiempoMinutos = tiempoMinutos;
-        this._calificacion = calificacion;
-        this.disponible = true;
+class FullRecipe {
+    constructor(name, category, timeMinutes, rating) {
+        this.name = name;
+        this.category = category;
+        this.timeMinutes = timeMinutes;
+        this._rating = rating;
+        this.available = true;
     }
 
-    get calificacion() {
-        return this._calificacion;
+    get rating() {
+        return this._rating;
     }
 
-    set calificacion(valor) {
-        if (valor < 1 || valor > 5) {
+    set rating(value) {
+        if (value < 1 || value > 5) {
             console.log("Error: la calificación debe ser entre 1 y 5");
             return;
         }
-        this._calificacion = valor;
+        this._rating = value;
     }
 
-    get tiempoFormateado() {
-        const horas = Math.floor(this.tiempoMinutos / 60);
-        const minutos = this.tiempoMinutos % 60;
-        if (horas === 0) return `${minutos}min`;
-        return `${horas}h ${minutos}min`;
+    get formattedTime() {
+        const hours = Math.floor(this.timeMinutes / 60);
+        const minutes = this.timeMinutes % 60;
+        if (hours === 0) return `${minutes}min`;
+        return `${hours}h ${minutes}min`;
     }
 }
 
-const cheesecake = new RecetaCompleta("Cheesecake de frutos rojos", "postres", 90, 4.9);
+const cheesecake = new FullRecipe("Cheesecake de frutos rojos", "postres", 90, 4.9);
 
 console.log("\n--- Getters y setters ---");
-console.log(`Tiempo: ${cheesecake.tiempoFormateado}`); // 1h 30min
-console.log(`Calificación: ${cheesecake.calificacion}`); // 4.9
+console.log(`Tiempo: ${cheesecake.formattedTime}`);
+console.log(`Calificación: ${cheesecake.rating}`);
 
-cheesecake.calificacion = 6; // Error: la calificación debe ser entre 1 y 5
-cheesecake.calificacion = 5;
-console.log(`Nueva calificación: ${cheesecake.calificacion}`); // 5
+cheesecake.rating = 6; // Error: la calificación debe ser entre 1 y 5
+cheesecake.rating = 5;
+console.log(`Nueva calificación: ${cheesecake.rating}`);
 
 // --- Herencia con extends y super ---
 
-// Una clase puede extender otra, heredando sus propiedades
-// y métodos. La clase hija puede agregar nuevos o modificar
-// los existentes.
-
-class RecetaBase {
-    constructor(nombre, categoria, tiempoMinutos, calificacion) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.tiempoMinutos = tiempoMinutos;
-        this.calificacion = calificacion;
+class BaseRecipe {
+    constructor(name, category, timeMinutes, rating) {
+        this.name = name;
+        this.category = category;
+        this.timeMinutes = timeMinutes;
+        this.rating = rating;
     }
 
-    mostrar() {
-        console.log(`${this.nombre} — ${this.categoria} — ${this.calificacion}★`);
+    show() {
+        console.log(`${this.name} — ${this.category} — ${this.rating}★`);
     }
 }
 
-class RecetaPostre extends RecetaBase {
-    constructor(nombre, tiempoMinutos, calificacion, temperaturaCoccion) {
-        super(nombre, "postres", tiempoMinutos, calificacion);
-        this.temperaturaCoccion = temperaturaCoccion;
+class DessertRecipe extends BaseRecipe {
+    constructor(name, timeMinutes, rating, bakingTemp) {
+        super(name, "postres", timeMinutes, rating);
+        this.bakingTemp = bakingTemp;
     }
 
-    mostrar() {
-        super.mostrar();
-        console.log(`  Hornear a ${this.temperaturaCoccion}°C`);
+    show() {
+        super.show();
+        console.log(`  Hornear a ${this.bakingTemp}°C`);
     }
 
-    necesitaHorno() {
-        return this.temperaturaCoccion > 0;
+    needsOven() {
+        return this.bakingTemp > 0;
     }
 }
 
-class RecetaBebida extends RecetaBase {
-    constructor(nombre, tiempoMinutos, calificacion, esCaliente) {
-        super(nombre, "bebidas", tiempoMinutos, calificacion);
-        this.esCaliente = esCaliente;
+class DrinkRecipe extends BaseRecipe {
+    constructor(name, timeMinutes, rating, isHot) {
+        super(name, "bebidas", timeMinutes, rating);
+        this.isHot = isHot;
     }
 
-    mostrar() {
-        const temp = this.esCaliente ? "caliente" : "fría";
-        super.mostrar();
+    show() {
+        const temp = this.isHot ? "caliente" : "fría";
+        super.show();
         console.log(`  Bebida ${temp}`);
     }
 }
 
 console.log("\n--- Herencia ---");
-const tartaHeredada = new RecetaPostre("Tarta de chocolate", 60, 4.8, 180);
-tartaHeredada.mostrar();
-console.log(`¿Necesita horno? ${tartaHeredada.necesitaHorno()}`);
+const inheritedCake = new DessertRecipe("Tarta de chocolate", 60, 4.8, 180);
+inheritedCake.show();
+console.log(`¿Necesita horno? ${inheritedCake.needsOven()}`);
 
-const chai = new RecetaBebida("Té chai latte", 8, 4.3, true);
-chai.mostrar();
+const chai = new DrinkRecipe("Té chai latte", 8, 4.3, true);
+chai.show();
 
 // --- Métodos estáticos ---
 
-// Un método estático pertenece a la clase, no a las instancias.
-// Se llama directamente en la clase: Clase.metodo()
-
-class RecetaUtil {
-    constructor(nombre, tiempoMinutos) {
-        this.nombre = nombre;
-        this.tiempoMinutos = tiempoMinutos;
+class RecipeUtil {
+    constructor(name, timeMinutes) {
+        this.name = name;
+        this.timeMinutes = timeMinutes;
     }
 
-    static compararPorTiempo(recetaA, recetaB) {
-        return recetaA.tiempoMinutos - recetaB.tiempoMinutos;
+    static compareByTime(recipeA, recipeB) {
+        return recipeA.timeMinutes - recipeB.timeMinutes;
     }
 
-    static crearRapida(nombre) {
-        return new RecetaUtil(nombre, 10);
+    static createQuick(name) {
+        return new RecipeUtil(name, 10);
     }
 }
 
 console.log("\n--- Métodos estáticos ---");
-const rapida = RecetaUtil.crearRapida("Tostada con aguacate");
-console.log(`${rapida.nombre} — ${rapida.tiempoMinutos} min`);
+const quick = RecipeUtil.createQuick("Tostada con aguacate");
+console.log(`${quick.name} — ${quick.timeMinutes} min`);
 
-const recetasUtil = [
-    new RecetaUtil("Tarta", 60),
-    new RecetaUtil("Café", 10),
-    new RecetaUtil("Ensalada", 20)
+const utilRecipes = [
+    new RecipeUtil("Tarta", 60),
+    new RecipeUtil("Café", 10),
+    new RecipeUtil("Ensalada", 20)
 ];
-recetasUtil.sort(RecetaUtil.compararPorTiempo);
-recetasUtil.forEach(r => console.log(`${r.tiempoMinutos} min — ${r.nombre}`));
+utilRecipes.sort(RecipeUtil.compareByTime);
+utilRecipes.forEach(r => console.log(`${r.timeMinutes} min — ${r.name}`));
 
 // --- Propiedades privadas (#) ---
 
-// Las propiedades que empiezan con # son privadas: solo se
-// pueden acceder desde dentro de la clase.
+class PrivateRecipe {
+    #rating;
+    #timesCooked;
 
-class RecetaConPrivadas {
-    #calificacion;
-    #vecesPreparada;
-
-    constructor(nombre, calificacion) {
-        this.nombre = nombre;
-        this.#calificacion = calificacion;
-        this.#vecesPreparada = 0;
+    constructor(name, rating) {
+        this.name = name;
+        this.#rating = rating;
+        this.#timesCooked = 0;
     }
 
-    preparar() {
-        this.#vecesPreparada++;
-        console.log(`${this.nombre} preparada (${this.#vecesPreparada} veces)`);
+    cook() {
+        this.#timesCooked++;
+        console.log(`${this.name} preparada (${this.#timesCooked} veces)`);
     }
 
-    get calificacion() {
-        return this.#calificacion;
+    get rating() {
+        return this.#rating;
     }
 
-    get vecesPreparada() {
-        return this.#vecesPreparada;
+    get timesCooked() {
+        return this.#timesCooked;
     }
 }
 
 console.log("\n--- Propiedades privadas ---");
-const galletasPriv = new RecetaConPrivadas("Galletas de avena", 4.0);
-galletasPriv.preparar();
-galletasPriv.preparar();
-console.log(`Calificación: ${galletasPriv.calificacion}`);
-console.log(`Veces preparada: ${galletasPriv.vecesPreparada}`);
+const privateCookies = new PrivateRecipe("Galletas de avena", 4.0);
+privateCookies.cook();
+privateCookies.cook();
+console.log(`Calificación: ${privateCookies.rating}`);
+console.log(`Veces preparada: ${privateCookies.timesCooked}`);
 
 // Esto daría error:
-// console.log(galletasPriv.#calificacion); // SyntaxError
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// 1. Crea una clase "Ingrediente" con:
-//    - constructor: nombre, cantidad, unidad
-//    - método "mostrar" que imprima "cantidad unidad de nombre"
-//      (ej: "500 gramos de harina")
-//
-// 2. Crea una clase "RecetaCafeteria" con:
-//    - constructor: nombre, categoria, tiempoMinutos
-//    - propiedad privada #calificacion (con getter y setter
-//      que valide entre 1 y 5)
-//    - un array de ingredientes (Ingrediente)
-//    - método "agregarIngrediente" que reciba un Ingrediente
-//    - método "mostrarReceta" que muestre nombre, categoría,
-//      tiempo y todos los ingredientes
-//
-// 3. Crea una clase "RecetaEspecial" que extienda
-//    RecetaCafeteria y agregue una propiedad "ocasion"
-//    (cumpleaños, navidad, etc.) y sobreescriba mostrarReceta
-//    para incluir la ocasión
-// ============================================================
+// console.log(privateCookies.#rating); // SyntaxError

@@ -11,101 +11,62 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const catalogo = [
-    { titulo: "El Padrino", genero: "drama", calificacion: 9.2, disponible: true },
-    { titulo: "Volver al Futuro", genero: "ciencia ficción", calificacion: 8.5, disponible: true },
-    { titulo: "Toy Story", genero: "animación", calificacion: 8.3, disponible: true },
-    { titulo: "Inception", genero: "ciencia ficción", calificacion: 8.8, disponible: false },
-    { titulo: "Coco", genero: "animación", calificacion: 8.4, disponible: true }
+const catalog = [
+    { title: "El Padrino", genre: "drama", rating: 9.2, available: true },
+    { title: "Volver al Futuro", genre: "ciencia ficción", rating: 8.5, available: true },
+    { title: "Toy Story", genre: "animación", rating: 8.3, available: true },
+    { title: "Inception", genre: "ciencia ficción", rating: 8.8, available: false },
+    { title: "Coco", genre: "animación", rating: 8.4, available: true }
 ];
 
 // --- Parte 1: Crear una promesa ---
-// Crea una función "buscarPelicula" que reciba un título y
+// Crea una función "findMovie" que reciba un título y
 // devuelva una promesa. Después de 500ms:
 //   - Si encuentra la película, resuelve con el objeto
 //   - Si no la encuentra, rechaza con un mensaje de error
 //
 // Prueba con .then/.catch para "Coco" y "Avatar".
-//
-// Salida esperada:
-//   Buscando "Coco"...
-//   Encontrada: Coco — animación — 8.4★
-//
-//   Buscando "Avatar"...
-//   Error: No se encontró "Avatar"
 
 // Tu código aquí:
 
 
 
 // --- Parte 2: async/await ---
-// Crea una función async "mostrarPelicula" que use await
+// Crea una función async "showMovie" que use await
 // para buscar una película y mostrar sus datos.
 // Maneja errores con try/catch.
-//
-// Llama a mostrarPelicula con "El Padrino" y con "Matrix".
-//
-// Salida esperada:
-//   --- El Padrino ---
-//   Género: drama
-//   Calificación: 9.2★
-//
-//   --- Matrix ---
-//   Error: No se encontró "Matrix"
 
 // Tu código aquí:
 
 
 
 // --- Parte 3: Simular alquiler ---
-// Crea una función "alquilarPelicula" que reciba un título
+// Crea una función "rentMovie" que reciba un título
 // y devuelva una promesa. Después de 300ms:
-//   - Si la película existe Y está disponible: resuelve con
-//     un mensaje de éxito
-//   - Si existe pero no está disponible: rechaza con
-//     "no está disponible"
-//   - Si no existe: rechaza con "no encontrada"
+//   - Si existe Y está disponible: resuelve
+//   - Si existe pero no disponible: rechaza
+//   - Si no existe: rechaza
 //
-// Prueba con async/await para "Toy Story", "Inception" y "Avatar".
-//
-// Salida esperada:
-//   Alquilar "Toy Story": ¡Alquilada con éxito!
-//   Alquilar "Inception": Error: Inception no está disponible
-//   Alquilar "Avatar": Error: Avatar no encontrada
+// Prueba con "Toy Story", "Inception" y "Avatar".
 
 // Tu código aquí:
 
 
 
 // --- Parte 4: Promise.all ---
-// Crea una función "verificarDisponibilidad" que reciba un
-// título y devuelva una promesa que se resuelve con
-// { titulo, disponible } después de 200ms.
-//
-// Usa Promise.all para verificar "El Padrino", "Inception"
-// y "Coco" en paralelo. Muestra los resultados.
-//
-// Salida esperada:
-//   Verificando disponibilidad...
-//   El Padrino: ✓ disponible
-//   Inception: ✗ no disponible
-//   Coco: ✓ disponible
+// Crea "checkAvailability" que reciba un título y devuelva
+// una promesa que se resuelve con { title, available }.
+// Usa Promise.all para verificar 3 películas en paralelo.
 
 // Tu código aquí:
 
 
 
 // --- Parte 5: Flujo completo ---
-// Crea una función async "sesionVideoclub" que:
+// Crea una función async "videoClubSession" que:
 //   1. Busque "Volver al Futuro" (await)
 //   2. Si la encuentra y está disponible, la alquile (await)
-//   3. Muestre un resumen del alquiler
-//
-// Salida esperada:
-//   1. Buscando película...
-//   2. Encontrada: Volver al Futuro
-//   3. Alquilando...
-//   4. ¡Alquiler completado! Disfruta Volver al Futuro
+//   3. Muestre un resumen
 
 // Tu código aquí:
 
@@ -116,56 +77,56 @@ const catalogo = [
 // ============================================================
 /*
 // Parte 1
-function buscarPelicula(titulo) {
+function findMovie(title) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const pelicula = catalogo.find(p => p.titulo === titulo);
-            if (pelicula) {
-                resolve(pelicula);
+            const movie = catalog.find(m => m.title === title);
+            if (movie) {
+                resolve(movie);
             } else {
-                reject(`No se encontró "${titulo}"`);
+                reject(`No se encontró "${title}"`);
             }
         }, 500);
     });
 }
 
-buscarPelicula("Coco")
-    .then(p => console.log(`Encontrada: ${p.titulo} — ${p.genero} — ${p.calificacion}★`))
+findMovie("Coco")
+    .then(m => console.log(`Encontrada: ${m.title} — ${m.genre} — ${m.rating}★`))
     .catch(err => console.log(`Error: ${err}`));
 
 setTimeout(() => {
-    buscarPelicula("Avatar")
-        .then(p => console.log(`Encontrada: ${p.titulo}`))
+    findMovie("Avatar")
+        .then(m => console.log(`Encontrada: ${m.title}`))
         .catch(err => console.log(`Error: ${err}`));
 }, 600);
 
 // Parte 2
-async function mostrarPelicula(titulo) {
+async function showMovie(title) {
     try {
-        const pelicula = await buscarPelicula(titulo);
-        console.log(`\n--- ${pelicula.titulo} ---`);
-        console.log(`Género: ${pelicula.genero}`);
-        console.log(`Calificación: ${pelicula.calificacion}★`);
+        const movie = await findMovie(title);
+        console.log(`\n--- ${movie.title} ---`);
+        console.log(`Género: ${movie.genre}`);
+        console.log(`Calificación: ${movie.rating}★`);
     } catch (error) {
-        console.log(`\n--- ${titulo} ---`);
+        console.log(`\n--- ${title} ---`);
         console.log(`Error: ${error}`);
     }
 }
 
 setTimeout(async () => {
-    await mostrarPelicula("El Padrino");
-    await mostrarPelicula("Matrix");
+    await showMovie("El Padrino");
+    await showMovie("Matrix");
 }, 1500);
 
 // Parte 3
-function alquilarPelicula(titulo) {
+function rentMovie(title) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const pelicula = catalogo.find(p => p.titulo === titulo);
-            if (!pelicula) {
-                reject(`${titulo} no encontrada`);
-            } else if (!pelicula.disponible) {
-                reject(`${titulo} no está disponible`);
+            const movie = catalog.find(m => m.title === title);
+            if (!movie) {
+                reject(`${title} no encontrada`);
+            } else if (!movie.available) {
+                reject(`${title} no está disponible`);
             } else {
                 resolve(`¡Alquilada con éxito!`);
             }
@@ -175,25 +136,25 @@ function alquilarPelicula(titulo) {
 
 setTimeout(async () => {
     console.log("\n--- Alquileres ---");
-    const pruebas = ["Toy Story", "Inception", "Avatar"];
-    for (const titulo of pruebas) {
+    const testTitles = ["Toy Story", "Inception", "Avatar"];
+    for (const title of testTitles) {
         try {
-            const resultado = await alquilarPelicula(titulo);
-            console.log(`Alquilar "${titulo}": ${resultado}`);
+            const result = await rentMovie(title);
+            console.log(`Alquilar "${title}": ${result}`);
         } catch (error) {
-            console.log(`Alquilar "${titulo}": Error: ${error}`);
+            console.log(`Alquilar "${title}": Error: ${error}`);
         }
     }
 }, 3000);
 
 // Parte 4
-function verificarDisponibilidad(titulo) {
+function checkAvailability(title) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            const pelicula = catalogo.find(p => p.titulo === titulo);
+            const movie = catalog.find(m => m.title === title);
             resolve({
-                titulo,
-                disponible: pelicula ? pelicula.disponible : false
+                title,
+                available: movie ? movie.available : false
             });
         }, 200);
     });
@@ -202,30 +163,30 @@ function verificarDisponibilidad(titulo) {
 setTimeout(async () => {
     console.log("\n--- Verificar disponibilidad ---");
     console.log("Verificando disponibilidad...");
-    const resultados = await Promise.all([
-        verificarDisponibilidad("El Padrino"),
-        verificarDisponibilidad("Inception"),
-        verificarDisponibilidad("Coco")
+    const results = await Promise.all([
+        checkAvailability("El Padrino"),
+        checkAvailability("Inception"),
+        checkAvailability("Coco")
     ]);
-    resultados.forEach(({ titulo, disponible }) => {
-        const estado = disponible ? "✓ disponible" : "✗ no disponible";
-        console.log(`${titulo}: ${estado}`);
+    results.forEach(({ title, available }) => {
+        const status = available ? "✓ disponible" : "✗ no disponible";
+        console.log(`${title}: ${status}`);
     });
 }, 5000);
 
 // Parte 5
-async function sesionVideoclub() {
+async function videoClubSession() {
     console.log("\n--- Sesión de videoclub ---");
     console.log("1. Buscando película...");
 
     try {
-        const pelicula = await buscarPelicula("Volver al Futuro");
-        console.log(`2. Encontrada: ${pelicula.titulo}`);
+        const movie = await findMovie("Volver al Futuro");
+        console.log(`2. Encontrada: ${movie.title}`);
 
-        if (pelicula.disponible) {
+        if (movie.available) {
             console.log("3. Alquilando...");
-            const resultado = await alquilarPelicula(pelicula.titulo);
-            console.log(`4. ¡Alquiler completado! Disfruta ${pelicula.titulo}`);
+            const result = await rentMovie(movie.title);
+            console.log(`4. ¡Alquiler completado! Disfruta ${movie.title}`);
         } else {
             console.log("3. No está disponible para alquiler");
         }
@@ -235,6 +196,6 @@ async function sesionVideoclub() {
 }
 
 setTimeout(() => {
-    sesionVideoclub();
+    videoClubSession();
 }, 6500);
 */

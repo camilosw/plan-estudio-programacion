@@ -11,7 +11,7 @@
 // ============================================================
 
 // --- Datos del videoclub (no modificar) ---
-const titulos = [
+const titles = [
     "El Padrino",
     "Volver al Futuro",
     "Toy Story",
@@ -22,8 +22,8 @@ const titulos = [
     "Mi vecino Totoro"
 ];
 
-const duraciones = [175, 116, 81, 129, 105, 148, 129, 86];
-const calificaciones = [9.2, 8.5, 8.3, 8.0, 8.4, 8.8, 8.3, 8.2];
+const durations = [175, 116, 81, 129, 105, 148, 129, 86];
+const ratings = [9.2, 8.5, 8.3, 8.0, 8.4, 8.8, 8.3, 8.2];
 
 // --- Parte 1: Listar con for clásico ---
 // Muestra cada película con su número usando un for clásico.
@@ -31,7 +31,6 @@ const calificaciones = [9.2, 8.5, 8.3, 8.0, 8.4, 8.8, 8.3, 8.2];
 // Salida esperada:
 //   1. El Padrino
 //   2. Volver al Futuro
-//   3. Toy Story
 //   ... (y así con todas)
 
 // Tu código aquí:
@@ -106,23 +105,23 @@ const calificaciones = [9.2, 8.5, 8.3, 8.0, 8.4, 8.8, 8.3, 8.2];
 /*
 // Parte 1
 console.log("--- Catálogo ---");
-for (let i = 0; i < titulos.length; i++) {
-    console.log(`${i + 1}. ${titulos[i]}`);
+for (let i = 0; i < titles.length; i++) {
+    console.log(`${i + 1}. ${titles[i]}`);
 }
 
 // Parte 2
-let totalDuracion = 0;
-for (const d of duraciones) {
-    totalDuracion += d;
+let totalDuration = 0;
+for (const d of durations) {
+    totalDuration += d;
 }
-console.log(`\nDuración total: ${totalDuracion} minutos`);
-console.log(`Duración promedio: ${(totalDuracion / duraciones.length).toFixed(1)} minutos`);
+console.log(`\nDuración total: ${totalDuration} minutos`);
+console.log(`Duración promedio: ${(totalDuration / durations.length).toFixed(1)} minutos`);
 
 // Parte 3
 let idx = 0;
-while (idx < duraciones.length) {
-    if (duraciones[idx] < 90) {
-        console.log(`\nPrimera película corta: ${titulos[idx]} (${duraciones[idx]} min)`);
+while (idx < durations.length) {
+    if (durations[idx] < 90) {
+        console.log(`\nPrimera película corta: ${titles[idx]} (${durations[idx]} min)`);
         break;
     }
     idx++;
@@ -130,36 +129,36 @@ while (idx < duraciones.length) {
 
 // Parte 4
 console.log("\nPelículas destacadas (> 8.4):");
-for (let i = 0; i < calificaciones.length; i++) {
-    if (calificaciones[i] <= 8.4) {
+for (let i = 0; i < ratings.length; i++) {
+    if (ratings[i] <= 8.4) {
         continue;
     }
-    console.log(`- ${titulos[i]} (${calificaciones[i]})`);
+    console.log(`- ${titles[i]} (${ratings[i]})`);
 }
 
 // Parte 5
-let cortas = 0;
-let normales = 0;
-let largas = 0;
-for (const d of duraciones) {
+let shortCount = 0;
+let normalCount = 0;
+let longCount = 0;
+for (const d of durations) {
     if (d < 100) {
-        cortas++;
+        shortCount++;
     } else if (d <= 140) {
-        normales++;
+        normalCount++;
     } else {
-        largas++;
+        longCount++;
     }
 }
-console.log(`\nCortas (< 100 min): ${cortas}`);
-console.log(`Normales (100-140 min): ${normales}`);
-console.log(`Largas (> 140 min): ${largas}`);
+console.log(`\nCortas (< 100 min): ${shortCount}`);
+console.log(`Normales (100-140 min): ${normalCount}`);
+console.log(`Largas (> 140 min): ${longCount}`);
 
 // Parte 6
-let mejorIndice = 0;
-for (let i = 1; i < calificaciones.length; i++) {
-    if (calificaciones[i] > calificaciones[mejorIndice]) {
-        mejorIndice = i;
+let bestIndex = 0;
+for (let i = 1; i < ratings.length; i++) {
+    if (ratings[i] > ratings[bestIndex]) {
+        bestIndex = i;
     }
 }
-console.log(`\nMejor película: ${titulos[mejorIndice]} — ${calificaciones[mejorIndice]}`);
+console.log(`\nMejor película: ${titles[bestIndex]} — ${ratings[bestIndex]}`);
 */

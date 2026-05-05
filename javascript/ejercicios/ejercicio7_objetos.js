@@ -11,9 +11,9 @@
 // ============================================================
 
 // --- Parte 1: Crear un objeto película ---
-// Crea un objeto "pelicula" con estas propiedades:
-//   titulo, director, genero, anio, duracionMinutos,
-//   calificacion, disponible
+// Crea un objeto "movie" con estas propiedades:
+//   title, director, genre, year, durationMinutes,
+//   rating, available
 // Usa los datos de "El Padrino".
 //
 // Muestra cada propiedad con template literals.
@@ -33,16 +33,10 @@
 
 // --- Parte 2: Modificar y agregar ---
 // 1. Cambia la calificación a 9.3
-// 2. Agrega la propiedad "idioma" con valor "inglés"
-// 3. Agrega la propiedad "premiosOscar" con valor 3
-// 4. Elimina la propiedad "disponible"
+// 2. Agrega la propiedad "language" con valor "inglés"
+// 3. Agrega la propiedad "oscars" con valor 3
+// 4. Elimina la propiedad "available"
 // 5. Muestra el objeto actualizado
-//
-// Salida esperada:
-//   Calificación actualizada: 9.3
-//   Idioma: inglés
-//   Premios Oscar: 3
-//   ¿Tiene 'disponible'? false
 
 // Tu código aquí:
 
@@ -50,8 +44,8 @@
 
 // --- Parte 3: Métodos ---
 // Agrega estos métodos al objeto:
-//   - esClasica(): devuelve true si el año es anterior a 1980
-//   - mostrarFicha(): muestra los datos formateados usando this
+//   - isClassic(): devuelve true si el año es anterior a 1980
+//   - showCard(): muestra los datos formateados usando this
 //
 // Salida esperada:
 //   ¿Es clásica? true
@@ -69,21 +63,16 @@
 //   - Cuántas propiedades tiene el objeto
 //   - Los nombres de todas las propiedades
 //   - Todos los valores
-//
-// Salida esperada:
-//   Propiedades: 7
-//   Nombres: [ 'titulo', 'director', ... ]
-//   Valores: [ 'El Padrino', 'Francis Ford Coppola', ... ]
 
 // Tu código aquí:
 
 
 
 // --- Parte 5: Objetos anidados ---
-// Crea un objeto "peliculaCompleta" que tenga:
-//   - titulo, anio, calificacion
-//   - director como objeto anidado: { nombre, nacionalidad }
-//   - reparto como array: ["Actor 1", "Actor 2", "Actor 3"]
+// Crea un objeto "detailedMovie" que tenga:
+//   - title, year, rating
+//   - director como objeto anidado: { name, nationality }
+//   - cast como array: ["Actor 1", "Actor 2", "Actor 3"]
 //
 // Accede al nombre del director y al segundo actor.
 //
@@ -113,73 +102,73 @@
 // ============================================================
 /*
 // Parte 1
-const pelicula = {
-    titulo: "El Padrino",
+const movie = {
+    title: "El Padrino",
     director: "Francis Ford Coppola",
-    genero: "drama",
-    anio: 1972,
-    duracionMinutos: 175,
-    calificacion: 9.2,
-    disponible: true
+    genre: "drama",
+    year: 1972,
+    durationMinutes: 175,
+    rating: 9.2,
+    available: true
 };
 
-console.log(`Título: ${pelicula.titulo}`);
-console.log(`Director: ${pelicula.director}`);
-console.log(`Género: ${pelicula.genero}`);
-console.log(`Año: ${pelicula.anio}`);
-console.log(`Duración: ${pelicula.duracionMinutos} min`);
-console.log(`Calificación: ${pelicula.calificacion}/10`);
-console.log(`Disponible: ${pelicula.disponible}`);
+console.log(`Título: ${movie.title}`);
+console.log(`Director: ${movie.director}`);
+console.log(`Género: ${movie.genre}`);
+console.log(`Año: ${movie.year}`);
+console.log(`Duración: ${movie.durationMinutes} min`);
+console.log(`Calificación: ${movie.rating}/10`);
+console.log(`Disponible: ${movie.available}`);
 
 // Parte 2
-pelicula.calificacion = 9.3;
-pelicula.idioma = "inglés";
-pelicula.premiosOscar = 3;
-delete pelicula.disponible;
-console.log(`\nCalificación actualizada: ${pelicula.calificacion}`);
-console.log(`Idioma: ${pelicula.idioma}`);
-console.log(`Premios Oscar: ${pelicula.premiosOscar}`);
-console.log(`¿Tiene 'disponible'? ${"disponible" in pelicula}`);
+movie.rating = 9.3;
+movie.language = "inglés";
+movie.oscars = 3;
+delete movie.available;
+console.log(`\nCalificación actualizada: ${movie.rating}`);
+console.log(`Idioma: ${movie.language}`);
+console.log(`Premios Oscar: ${movie.oscars}`);
+console.log(`¿Tiene 'available'? ${"available" in movie}`);
 
 // Parte 3
-pelicula.esClasica = function() {
-    return this.anio < 1980;
+movie.isClassic = function() {
+    return this.year < 1980;
 };
 
-pelicula.mostrarFicha = function() {
+movie.showCard = function() {
     console.log("--- Ficha ---");
-    console.log(`${this.titulo} (${this.anio})`);
+    console.log(`${this.title} (${this.year})`);
     console.log(`Director: ${this.director}`);
-    console.log(`Género: ${this.genero} | ${this.duracionMinutos} min | ${this.calificacion}/10`);
+    console.log(`Género: ${this.genre} | ${this.durationMinutes} min | ${this.rating}/10`);
 };
 
-console.log(`\n¿Es clásica? ${pelicula.esClasica()}`);
-pelicula.mostrarFicha();
+console.log(`\n¿Es clásica? ${movie.isClassic()}`);
+movie.showCard();
 
 // Parte 4
-console.log(`\nPropiedades: ${Object.keys(pelicula).length}`);
-console.log("Nombres:", Object.keys(pelicula));
-console.log("Valores:", Object.values(pelicula));
+console.log(`\nPropiedades: ${Object.keys(movie).length}`);
+console.log("Nombres:", Object.keys(movie));
+console.log("Valores:", Object.values(movie));
 
 // Parte 5
-const peliculaCompleta = {
-    titulo: "El Padrino",
-    anio: 1972,
-    calificacion: 9.2,
+const detailedMovie = {
+    title: "El Padrino",
+    year: 1972,
+    rating: 9.2,
     director: {
-        nombre: "Francis Ford Coppola",
-        nacionalidad: "estadounidense"
+        name: "Francis Ford Coppola",
+        nationality: "estadounidense"
     },
-    reparto: ["Marlon Brando", "Robert Duvall", "Al Pacino"]
+    cast: ["Marlon Brando", "Robert Duvall", "Al Pacino"]
 };
 
-console.log(`\nDirector: ${peliculaCompleta.director.nombre} (${peliculaCompleta.director.nacionalidad})`);
-console.log(`Segundo actor: ${peliculaCompleta.reparto[1]}`);
+console.log(`\nDirector: ${detailedMovie.director.name} (${detailedMovie.director.nationality})`);
+console.log(`Segundo actor: ${detailedMovie.cast[1]}`);
 
 // Parte 6
-const copia = { ...pelicula };
-copia.titulo = "El Padrino II";
-copia.anio = 1974;
-console.log(`\nOriginal: ${pelicula.titulo} (${pelicula.anio})`);
-console.log(`Copia: ${copia.titulo} (${copia.anio})`);
+const movieCopy = { ...movie };
+movieCopy.title = "El Padrino II";
+movieCopy.year = 1974;
+console.log(`\nOriginal: ${movie.title} (${movie.year})`);
+console.log(`Copia: ${movieCopy.title} (${movieCopy.year})`);
 */

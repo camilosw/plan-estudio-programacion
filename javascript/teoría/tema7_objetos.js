@@ -19,75 +19,72 @@
 
 // --- Crear un objeto literal ---
 
-const receta = {
-    nombre: "Café con leche espumosa",
-    categoria: "bebidas",
-    tiempoMinutos: 10,
-    porciones: 2,
-    calificacion: 4.5,
-    disponible: true
+const recipe = {
+    name: "Café con leche espumosa",
+    category: "bebidas",
+    timeMinutes: 10,
+    servings: 2,
+    rating: 4.5,
+    available: true
 };
 
 console.log("--- Objeto literal ---");
-console.log(receta);
+console.log(recipe);
 
 // --- Acceder a propiedades ---
 
 // Dot notation (notación de punto) — la más común
 console.log("\n--- Dot notation ---");
-console.log(receta.nombre);       // "Café con leche espumosa"
-console.log(receta.tiempoMinutos); // 10
+console.log(recipe.name);        // "Café con leche espumosa"
+console.log(recipe.timeMinutes); // 10
 
 // Bracket notation (notación de corchetes)
 // Útil cuando el nombre de la propiedad está en una variable
 // o tiene caracteres especiales
 console.log("\n--- Bracket notation ---");
-console.log(receta["categoria"]); // "bebidas"
+console.log(recipe["category"]); // "bebidas"
 
-const campo = "calificacion";
-console.log(receta[campo]);      // 4.5
+const field = "rating";
+console.log(recipe[field]);      // 4.5
 
 // --- Modificar propiedades ---
 
 console.log("\n--- Modificar ---");
-receta.calificacion = 4.7;
-console.log(`Nueva calificación: ${receta.calificacion}`);
+recipe.rating = 4.7;
+console.log(`Nueva calificación: ${recipe.rating}`);
 
 // --- Agregar propiedades ---
 
-receta.dificultad = "fácil";
-console.log("Dificultad agregada:", receta.dificultad);
+recipe.difficulty = "fácil";
+console.log("Dificultad agregada:", recipe.difficulty);
 
 // --- Eliminar propiedades ---
 
-delete receta.disponible;
-console.log("¿Tiene 'disponible'?", "disponible" in receta); // false
+delete recipe.available;
+console.log("¿Tiene 'available'?", "available" in recipe); // false
 
 // --- Métodos (funciones dentro de un objeto) ---
 
-const tartaDeChocolate = {
-    nombre: "Tarta de chocolate",
-    categoria: "postres",
-    tiempoMinutos: 60,
-    calificacion: 4.8,
+const chocolateCake = {
+    name: "Tarta de chocolate",
+    category: "postres",
+    timeMinutes: 60,
+    rating: 4.8,
 
-    mostrarResumen() {
-        console.log(`${this.nombre} — ${this.categoria}`);
-        console.log(`Tiempo: ${this.tiempoMinutos} min | ${this.calificacion}★`);
+    showSummary() {
+        console.log(`${this.name} — ${this.category}`);
+        console.log(`Tiempo: ${this.timeMinutes} min | ${this.rating}★`);
     },
 
-    esRapida() {
-        return this.tiempoMinutos <= 15;
+    isQuick() {
+        return this.timeMinutes <= 15;
     }
 };
 
 console.log("\n--- Métodos ---");
-tartaDeChocolate.mostrarResumen();
-// Salida:
-// Tarta de chocolate — postres
-// Tiempo: 60 min | 4.8★
+chocolateCake.showSummary();
 
-console.log(`¿Es rápida? ${tartaDeChocolate.esRapida()}`); // false
+console.log(`¿Es rápida? ${chocolateCake.isQuick()}`); // false
 
 // --- this ---
 
@@ -97,72 +94,59 @@ console.log(`¿Es rápida? ${tartaDeChocolate.esRapida()}`); // false
 // IMPORTANTE: this solo funciona en métodos escritos con la
 // sintaxis normal. NO funciona con arrow functions.
 
-const galletas = {
-    nombre: "Galletas de avena",
-    porciones: 12,
+const cookies = {
+    name: "Galletas de avena",
+    servings: 12,
 
     // Correcto: método con sintaxis normal
-    mostrar() {
-        console.log(`${this.nombre}: ${this.porciones} porciones`);
+    show() {
+        console.log(`${this.name}: ${this.servings} porciones`);
     },
 
     // Incorrecto: arrow function NO tiene su propio this
-    // mostrar: () => {
-    //     console.log(this.nombre); // undefined — no funciona
+    // show: () => {
+    //     console.log(this.name); // undefined — no funciona
     // }
 };
 
 console.log("\n--- this ---");
-galletas.mostrar(); // Galletas de avena: 12 porciones
+cookies.show(); // Galletas de avena: 12 porciones
 
 // --- Object.keys(), Object.values(), Object.entries() ---
 
 const brownie = {
-    nombre: "Brownie con nueces",
-    categoria: "postres",
-    tiempoMinutos: 45,
-    calificacion: 4.6
+    name: "Brownie con nueces",
+    category: "postres",
+    timeMinutes: 45,
+    rating: 4.6
 };
 
 console.log("\n--- Object.keys/values/entries ---");
 
-// keys: array con los nombres de las propiedades
 console.log("Propiedades:", Object.keys(brownie));
-// [ 'nombre', 'categoria', 'tiempoMinutos', 'calificacion' ]
-
-// values: array con los valores
 console.log("Valores:", Object.values(brownie));
-// [ 'Brownie con nueces', 'postres', 45, 4.6 ]
-
-// entries: array de pares [clave, valor]
 console.log("Entradas:", Object.entries(brownie));
-// [ ['nombre', 'Brownie...'], ['categoria', 'postres'], ... ]
 
 // --- Iterar con for...in ---
 
 console.log("\n--- for...in ---");
-for (const clave in brownie) {
-    console.log(`${clave}: ${brownie[clave]}`);
+for (const key in brownie) {
+    console.log(`${key}: ${brownie[key]}`);
 }
-// Salida:
-// nombre: Brownie con nueces
-// categoria: postres
-// tiempoMinutos: 45
-// calificacion: 4.6
 
 // --- Objetos anidados ---
 
-const recetaCompleta = {
-    nombre: "Cheesecake de frutos rojos",
-    categoria: "postres",
-    tiempoMinutos: 90,
-    porciones: 8,
-    ingredientePrincipal: {
-        nombre: "queso crema",
-        cantidad: 500,
-        unidad: "gramos"
+const fullRecipe = {
+    name: "Cheesecake de frutos rojos",
+    category: "postres",
+    timeMinutes: 90,
+    servings: 8,
+    mainIngredient: {
+        name: "queso crema",
+        amount: 500,
+        unit: "gramos"
     },
-    pasos: [
+    steps: [
         "Triturar las galletas para la base",
         "Mezclar el queso crema con azúcar",
         "Hornear a 160°C por 50 minutos",
@@ -171,11 +155,11 @@ const recetaCompleta = {
 };
 
 console.log("\n--- Objetos anidados ---");
-console.log(`Receta: ${recetaCompleta.nombre}`);
-console.log(`Ingrediente principal: ${recetaCompleta.ingredientePrincipal.nombre}`);
-console.log(`Cantidad: ${recetaCompleta.ingredientePrincipal.cantidad} ${recetaCompleta.ingredientePrincipal.unidad}`);
-console.log(`Primer paso: ${recetaCompleta.pasos[0]}`);
-console.log(`Total de pasos: ${recetaCompleta.pasos.length}`);
+console.log(`Receta: ${fullRecipe.name}`);
+console.log(`Ingrediente principal: ${fullRecipe.mainIngredient.name}`);
+console.log(`Cantidad: ${fullRecipe.mainIngredient.amount} ${fullRecipe.mainIngredient.unit}`);
+console.log(`Primer paso: ${fullRecipe.steps[0]}`);
+console.log(`Total de pasos: ${fullRecipe.steps.length}`);
 
 // --- Referencia vs valor ---
 
@@ -184,34 +168,14 @@ console.log(`Total de pasos: ${recetaCompleta.pasos.length}`);
 
 console.log("\n--- Referencia vs valor ---");
 
-const original = { nombre: "Café", tiempo: 10 };
-const copia = original; // NO es una copia, es la misma referencia
+const original = { name: "Café", time: 10 };
+const copy = original; // NO es una copia, es la misma referencia
 
-copia.tiempo = 15;
-console.log("Original:", original.tiempo); // 15 (también cambió)
+copy.time = 15;
+console.log("Original:", original.time); // 15 (también cambió)
 
 // Para hacer una copia real, usa el spread operator (...) o Object.assign
-const copiaReal = { ...original };
-copiaReal.tiempo = 20;
-console.log("Original:", original.tiempo);  // 15 (no cambió)
-console.log("Copia real:", copiaReal.tiempo); // 20
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// 1. Crea un objeto "receta" con estas propiedades:
-//    nombre, categoria, tiempoMinutos, calificacion, disponible
-//    y un ingrediente principal como objeto anidado (nombre,
-//    cantidad, unidad)
-//
-// 2. Agrega un método "mostrarFicha" que muestre todos los
-//    datos formateados usando this
-//
-// 3. Agrega un método "esDestacada" que devuelva true si la
-//    calificación es mayor o igual a 4.5
-//
-// 4. Usa Object.keys para mostrar cuántas propiedades tiene
-//    el objeto
-//
-// 5. Usa for...in para mostrar todas las propiedades y valores
-// ============================================================
+const realCopy = { ...original };
+realCopy.time = 20;
+console.log("Original:", original.time);  // 15 (no cambió)
+console.log("Copia real:", realCopy.time); // 20

@@ -16,192 +16,124 @@
 //   node teoría/tema10_metodos_de_arrays_2.js
 // ============================================================
 
-const recetas = [
-    { nombre: "Café con leche espumosa", categoria: "bebidas", tiempoMinutos: 10, calificacion: 4.5, disponible: true },
-    { nombre: "Tarta de chocolate", categoria: "postres", tiempoMinutos: 60, calificacion: 4.8, disponible: true },
-    { nombre: "Sándwich club", categoria: "platos principales", tiempoMinutos: 15, calificacion: 4.2, disponible: false },
-    { nombre: "Galletas de avena", categoria: "snacks", tiempoMinutos: 30, calificacion: 4.0, disponible: true },
-    { nombre: "Cheesecake de frutos rojos", categoria: "postres", tiempoMinutos: 90, calificacion: 4.9, disponible: true },
-    { nombre: "Té chai latte", categoria: "bebidas", tiempoMinutos: 8, calificacion: 4.3, disponible: true },
-    { nombre: "Ensalada mediterránea", categoria: "platos principales", tiempoMinutos: 20, calificacion: 3.8, disponible: true },
-    { nombre: "Brownie con nueces", categoria: "postres", tiempoMinutos: 45, calificacion: 4.6, disponible: false }
+const recipes = [
+    { name: "Café con leche espumosa", category: "bebidas", timeMinutes: 10, rating: 4.5, available: true },
+    { name: "Tarta de chocolate", category: "postres", timeMinutes: 60, rating: 4.8, available: true },
+    { name: "Sándwich club", category: "platos principales", timeMinutes: 15, rating: 4.2, available: false },
+    { name: "Galletas de avena", category: "snacks", timeMinutes: 30, rating: 4.0, available: true },
+    { name: "Cheesecake de frutos rojos", category: "postres", timeMinutes: 90, rating: 4.9, available: true },
+    { name: "Té chai latte", category: "bebidas", timeMinutes: 8, rating: 4.3, available: true },
+    { name: "Ensalada mediterránea", category: "platos principales", timeMinutes: 20, rating: 3.8, available: true },
+    { name: "Brownie con nueces", category: "postres", timeMinutes: 45, rating: 4.6, available: false }
 ];
 
 // --- reduce ---
 
-// reduce recorre el array y ACUMULA un resultado en un solo
-// valor. Recibe dos argumentos:
-//   1. Un callback con (acumulador, elementoActual)
-//   2. El valor inicial del acumulador
-
-// Sumar todos los tiempos
 console.log("--- reduce: sumar ---");
-const tiempoTotal = recetas.reduce((total, receta) => {
-    return total + receta.tiempoMinutos;
+const totalTime = recipes.reduce((total, recipe) => {
+    return total + recipe.timeMinutes;
 }, 0);
-console.log(`Tiempo total: ${tiempoTotal} minutos`);
-// Salida: Tiempo total: 278 minutos
+console.log(`Tiempo total: ${totalTime} minutos`);
 
-// Equivalente con for:
-// let tiempoTotal = 0;
-// for (const receta of recetas) {
-//     tiempoTotal += receta.tiempoMinutos;
-// }
-
-// Calcular el promedio
 console.log("\n--- reduce: promedio ---");
-const sumaCalificaciones = recetas.reduce((suma, r) => suma + r.calificacion, 0);
-const promedio = sumaCalificaciones / recetas.length;
-console.log(`Calificación promedio: ${promedio.toFixed(1)}★`);
-// Salida: Calificación promedio: 4.4★
+const ratingSum = recipes.reduce((sum, r) => sum + r.rating, 0);
+const average = ratingSum / recipes.length;
+console.log(`Calificación promedio: ${average.toFixed(1)}★`);
 
 // Contar por categoría (acumulador es un objeto)
 console.log("\n--- reduce: contar por categoría ---");
-const conteo = recetas.reduce((resultado, receta) => {
-    const cat = receta.categoria;
-    if (resultado[cat] === undefined) {
-        resultado[cat] = 0;
+const countByCategory = recipes.reduce((result, recipe) => {
+    const cat = recipe.category;
+    if (result[cat] === undefined) {
+        result[cat] = 0;
     }
-    resultado[cat]++;
-    return resultado;
+    result[cat]++;
+    return result;
 }, {});
-console.log(conteo);
-// { bebidas: 2, postres: 3, 'platos principales': 2, snacks: 1 }
+console.log(countByCategory);
 
 // Construir un resumen por categoría
 console.log("\n--- reduce: resumen por categoría ---");
-const resumen = recetas.reduce((resultado, receta) => {
-    const cat = receta.categoria;
-    if (resultado[cat] === undefined) {
-        resultado[cat] = { cantidad: 0, tiempoTotal: 0 };
+const summary = recipes.reduce((result, recipe) => {
+    const cat = recipe.category;
+    if (result[cat] === undefined) {
+        result[cat] = { count: 0, totalTime: 0 };
     }
-    resultado[cat].cantidad++;
-    resultado[cat].tiempoTotal += receta.tiempoMinutos;
-    return resultado;
+    result[cat].count++;
+    result[cat].totalTime += recipe.timeMinutes;
+    return result;
 }, {});
 
-for (const cat in resumen) {
-    const datos = resumen[cat];
-    console.log(`${cat}: ${datos.cantidad} recetas, ${datos.tiempoTotal} min total`);
+for (const cat in summary) {
+    const data = summary[cat];
+    console.log(`${cat}: ${data.count} recetas, ${data.totalTime} min total`);
 }
 
 // --- sort ---
 
-// sort ordena el array MODIFICANDO el original.
-// Sin argumento, ordena como texto (alfabéticamente).
-// Con una función comparadora, puedes definir el criterio.
-
-// La función comparadora recibe dos elementos (a, b):
-//   - Si retorna negativo: a va primero
-//   - Si retorna positivo: b va primero
-//   - Si retorna 0: no cambia el orden
-
 // Para no modificar el original, trabajamos con una copia
-const copiaRecetas = [...recetas];
+const sortedRecipes = [...recipes];
 
-// Ordenar por calificación (mayor a menor)
 console.log("\n--- sort: por calificación descendente ---");
-copiaRecetas.sort((a, b) => b.calificacion - a.calificacion);
-copiaRecetas.forEach(r => {
-    console.log(`${r.calificacion}★ — ${r.nombre}`);
+sortedRecipes.sort((a, b) => b.rating - a.rating);
+sortedRecipes.forEach(r => {
+    console.log(`${r.rating}★ — ${r.name}`);
 });
 
-// Ordenar por tiempo (menor a mayor)
 console.log("\n--- sort: por tiempo ascendente ---");
-const porTiempo = [...recetas];
-porTiempo.sort((a, b) => a.tiempoMinutos - b.tiempoMinutos);
-porTiempo.forEach(r => {
-    console.log(`${r.tiempoMinutos} min — ${r.nombre}`);
+const byTime = [...recipes];
+byTime.sort((a, b) => a.timeMinutes - b.timeMinutes);
+byTime.forEach(r => {
+    console.log(`${r.timeMinutes} min — ${r.name}`);
 });
 
-// Ordenar por nombre (alfabéticamente)
 console.log("\n--- sort: alfabético ---");
-const porNombre = [...recetas];
-porNombre.sort((a, b) => a.nombre.localeCompare(b.nombre));
-porNombre.forEach(r => console.log(`• ${r.nombre}`));
+const byName = [...recipes];
+byName.sort((a, b) => a.name.localeCompare(b.name));
+byName.forEach(r => console.log(`• ${r.name}`));
 
 // --- some ---
 
-// some comprueba si AL MENOS UN elemento cumple la condición.
-// Devuelve true/false.
-
 console.log("\n--- some ---");
-const hayPostres = recetas.some(r => r.categoria === "postres");
-console.log(`¿Hay postres? ${hayPostres}`); // true
+const hasDesserts = recipes.some(r => r.category === "postres");
+console.log(`¿Hay postres? ${hasDesserts}`);
 
-const haySopas = recetas.some(r => r.categoria === "sopas");
-console.log(`¿Hay sopas? ${haySopas}`); // false
+const hasSoups = recipes.some(r => r.category === "sopas");
+console.log(`¿Hay sopas? ${hasSoups}`);
 
-const hayRapida = recetas.some(r => r.tiempoMinutos < 10);
-console.log(`¿Hay receta de menos de 10 min? ${hayRapida}`); // true
+const hasQuick = recipes.some(r => r.timeMinutes < 10);
+console.log(`¿Hay receta de menos de 10 min? ${hasQuick}`);
 
 // --- every ---
 
-// every comprueba si TODOS los elementos cumplen la condición.
-// Devuelve true/false.
-
 console.log("\n--- every ---");
-const todasDisponibles = recetas.every(r => r.disponible);
-console.log(`¿Todas disponibles? ${todasDisponibles}`); // false
+const allAvailable = recipes.every(r => r.available);
+console.log(`¿Todas disponibles? ${allAvailable}`);
 
-const todasConRating = recetas.every(r => r.calificacion > 3);
-console.log(`¿Todas con rating > 3? ${todasConRating}`); // true
+const allRated = recipes.every(r => r.rating > 3);
+console.log(`¿Todas con rating > 3? ${allRated}`);
 
 // --- Encadenar métodos ---
 
-// Puedes encadenar métodos uno tras otro. Cada método devuelve
-// un array (excepto reduce, some, every, find) sobre el que
-// puedes seguir operando.
-
-// Top 3 recetas disponibles por calificación
 console.log("\n--- Encadenar: top 3 disponibles ---");
-const top3 = recetas
-    .filter(r => r.disponible)
-    .sort((a, b) => b.calificacion - a.calificacion)
+const top3 = recipes
+    .filter(r => r.available)
+    .sort((a, b) => b.rating - a.rating)
     .slice(0, 3)
-    .map(r => `${r.nombre} — ${r.calificacion}★`);
+    .map(r => `${r.name} — ${r.rating}★`);
 
-top3.forEach(ficha => console.log(ficha));
-// Salida:
-// Cheesecake de frutos rojos — 4.9★
-// Tarta de chocolate — 4.8★
-// Café con leche espumosa — 4.5★
+top3.forEach(card => console.log(card));
 
-// Nombres de recetas rápidas, en mayúsculas
 console.log("\n--- Encadenar: rápidas en mayúsculas ---");
-const rapidasMayusculas = recetas
-    .filter(r => r.tiempoMinutos <= 15)
-    .map(r => r.nombre.toUpperCase());
+const quickUppercase = recipes
+    .filter(r => r.timeMinutes <= 15)
+    .map(r => r.name.toUpperCase());
 
-console.log(rapidasMayusculas);
-// [ 'CAFÉ CON LECHE ESPUMOSA', 'SÁNDWICH CLUB', 'TÉ CHAI LATTE' ]
+console.log(quickUppercase);
 
-// Tiempo total solo de postres
 console.log("\n--- Encadenar: tiempo total de postres ---");
-const tiempoPostres = recetas
-    .filter(r => r.categoria === "postres")
-    .reduce((total, r) => total + r.tiempoMinutos, 0);
+const dessertTime = recipes
+    .filter(r => r.category === "postres")
+    .reduce((total, r) => total + r.timeMinutes, 0);
 
-console.log(`Tiempo total de postres: ${tiempoPostres} min`);
-// Salida: Tiempo total de postres: 195 min
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// Usando el array "recetas":
-//
-// 1. Usa reduce para calcular el tiempo promedio de todas
-//    las recetas
-//
-// 2. Usa sort para ordenar las recetas por tiempo de menor
-//    a mayor y muestra el resultado
-//
-// 3. Usa some para verificar si hay alguna receta con
-//    calificación perfecta (5.0)
-//
-// 4. Usa every para verificar si todas las recetas tienen
-//    nombre (propiedad nombre no vacía)
-//
-// 5. Encadena métodos para obtener los nombres de las
-//    recetas no disponibles, ordenados alfabéticamente
-// ============================================================
+console.log(`Tiempo total de postres: ${dessertTime} min`);

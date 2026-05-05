@@ -4,9 +4,9 @@
 
 | Sintaxis                 | Qué hace                                      |
 | ------------------------ | --------------------------------------------- |
-| `const nombre = "valor"` | Declara una constante (no se puede reasignar) |
-| `let contador = 0`       | Declara una variable que se puede reasignar   |
-| `typeof valor`           | Devuelve el tipo de dato como string          |
+| `const name = "valor"` | Declara una constante (no se puede reasignar) |
+| `let count = 0`        | Declara una variable que se puede reasignar   |
+| `typeof value`         | Devuelve el tipo de dato como string          |
 
 ## Tipos de datos
 

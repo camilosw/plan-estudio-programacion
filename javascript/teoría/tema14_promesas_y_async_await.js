@@ -27,13 +27,8 @@ console.log("--- Síncrono vs asíncrono ---");
 console.log("1. Pido un café");
 console.log("2. Elijo una mesa");
 console.log("3. Me siento");
-// En código síncrono, cada línea espera a que termine la anterior.
-// Todo se ejecuta en orden: 1, 2, 3.
 
 // --- setTimeout ---
-
-// setTimeout ejecuta una función DESPUÉS de un tiempo (en ms).
-// Es la forma más simple de ver código asíncrono.
 
 console.log("\n--- setTimeout ---");
 console.log("1. Pido un café");
@@ -44,44 +39,34 @@ setTimeout(() => {
 
 console.log("2. Mientras espero, elijo una mesa");
 
-// La salida será: 1, 2, 3 (no 1, 3, 2)
-// Porque setTimeout no detiene la ejecución.
-
 // --- setInterval ---
 
-// setInterval ejecuta una función repetidamente cada cierto tiempo.
-
 console.log("\n--- setInterval ---");
-let segundos = 0;
-const temporizador = setInterval(() => {
-    segundos++;
-    console.log(`Horneando... ${segundos} segundo(s)`);
-    if (segundos >= 3) {
-        clearInterval(temporizador);
+let seconds = 0;
+const timer = setInterval(() => {
+    seconds++;
+    console.log(`Horneando... ${seconds} segundo(s)`);
+    if (seconds >= 3) {
+        clearInterval(timer);
         console.log("¡Listo para sacar del horno!");
     }
-}, 500); // Cada 500ms (usamos 500ms en vez de 1000ms para que el ejemplo sea rápido)
+}, 500);
 
 // --- Callbacks y el problema del "callback hell" ---
 
-// Un callback es una función que se ejecuta cuando algo termina.
-// Pero si encadenas muchos, el código se vuelve difícil de leer.
-
-function prepararIngrediente(ingrediente, callback) {
+function prepareIngredient(ingredient, callback) {
     setTimeout(() => {
-        console.log(`✓ ${ingrediente} listo`);
+        console.log(`✓ ${ingredient} listo`);
         callback();
     }, 300);
 }
 
-// Esto se vuelve complicado con muchos pasos anidados:
 setTimeout(() => {
     console.log("\n--- Callback hell (ejemplo) ---");
-    prepararIngrediente("Harina", () => {
-        prepararIngrediente("Azúcar", () => {
-            prepararIngrediente("Huevos", () => {
+    prepareIngredient("Harina", () => {
+        prepareIngredient("Azúcar", () => {
+            prepareIngredient("Huevos", () => {
                 console.log("Todos los ingredientes listos");
-                // Imagina 10 pasos más... se vuelve inmanejable
             });
         });
     });
@@ -89,22 +74,19 @@ setTimeout(() => {
 
 // --- Promesas ---
 
-// Una promesa representa una operación que terminará en el
-// futuro. Puede resolverse (éxito) o rechazarse (error).
-
-function buscarReceta(nombre) {
+function findRecipe(name) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const recetas = {
-                "Café con leche": { nombre: "Café con leche espumosa", tiempo: 10, calificacion: 4.5 },
-                "Tarta": { nombre: "Tarta de chocolate", tiempo: 60, calificacion: 4.8 }
+            const recipes = {
+                "Café con leche": { name: "Café con leche espumosa", timeMinutes: 10, rating: 4.5 },
+                "Tarta": { name: "Tarta de chocolate", timeMinutes: 60, rating: 4.8 }
             };
 
-            const receta = recetas[nombre];
-            if (receta) {
-                resolve(receta);
+            const recipe = recipes[name];
+            if (recipe) {
+                resolve(recipe);
             } else {
-                reject(`No se encontró la receta "${nombre}"`);
+                reject(`No se encontró la receta "${name}"`);
             }
         }, 500);
     });
@@ -115,9 +97,9 @@ function buscarReceta(nombre) {
 setTimeout(() => {
     console.log("\n--- Promesas con .then/.catch ---");
 
-    buscarReceta("Tarta")
-        .then(receta => {
-            console.log(`Encontrada: ${receta.nombre} — ${receta.calificacion}★`);
+    findRecipe("Tarta")
+        .then(recipe => {
+            console.log(`Encontrada: ${recipe.name} — ${recipe.rating}★`);
         })
         .catch(error => {
             console.log(`Error: ${error}`);
@@ -126,10 +108,9 @@ setTimeout(() => {
             console.log("Búsqueda finalizada");
         });
 
-    // Ejemplo con error
-    buscarReceta("Sushi")
-        .then(receta => {
-            console.log(`Encontrada: ${receta.nombre}`);
+    findRecipe("Sushi")
+        .then(recipe => {
+            console.log(`Encontrada: ${recipe.name}`);
         })
         .catch(error => {
             console.log(`Error: ${error}`);
@@ -138,123 +119,96 @@ setTimeout(() => {
 
 // --- async / await ---
 
-// async/await es una forma más limpia de trabajar con promesas.
-// await "pausa" la función hasta que la promesa se resuelva.
-// Solo se puede usar dentro de una función marcada como async.
-
-async function buscarYMostrar() {
+async function searchAndShow() {
     console.log("\n--- async/await ---");
 
     try {
-        const receta = await buscarReceta("Café con leche");
-        console.log(`Encontrada: ${receta.nombre}`);
-        console.log(`Tiempo: ${receta.tiempo} min`);
-        console.log(`Calificación: ${receta.calificacion}★`);
+        const recipe = await findRecipe("Café con leche");
+        console.log(`Encontrada: ${recipe.name}`);
+        console.log(`Tiempo: ${recipe.timeMinutes} min`);
+        console.log(`Calificación: ${recipe.rating}★`);
     } catch (error) {
         console.log(`Error: ${error}`);
     }
 
-    // Ejemplo con error
     try {
-        const receta = await buscarReceta("Pizza");
-        console.log(receta);
+        const recipe = await findRecipe("Pizza");
+        console.log(recipe);
     } catch (error) {
         console.log(`Error capturado: ${error}`);
     }
 }
 
 setTimeout(() => {
-    buscarYMostrar();
+    searchAndShow();
 }, 7000);
 
 // --- Promise.all ---
 
-// Ejecuta varias promesas en paralelo y espera a que TODAS
-// terminen. Si alguna falla, todo falla.
-
-function verificarIngrediente(ingrediente) {
+function checkIngredient(ingredient) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            const disponible = ingrediente !== "azafrán";
-            resolve({ ingrediente, disponible });
+            const isAvailable = ingredient !== "azafrán";
+            resolve({ ingredient, available: isAvailable });
         }, 300);
     });
 }
 
-async function verificarTodosLosIngredientes() {
+async function checkAllIngredients() {
     console.log("\n--- Promise.all ---");
     console.log("Verificando ingredientes en paralelo...");
 
-    const resultados = await Promise.all([
-        verificarIngrediente("harina"),
-        verificarIngrediente("azúcar"),
-        verificarIngrediente("huevos"),
-        verificarIngrediente("azafrán")
+    const results = await Promise.all([
+        checkIngredient("harina"),
+        checkIngredient("azúcar"),
+        checkIngredient("huevos"),
+        checkIngredient("azafrán")
     ]);
 
-    resultados.forEach(({ ingrediente, disponible }) => {
-        const estado = disponible ? "✓ disponible" : "✗ no disponible";
-        console.log(`  ${ingrediente}: ${estado}`);
+    results.forEach(({ ingredient, available }) => {
+        const status = available ? "✓ disponible" : "✗ no disponible";
+        console.log(`  ${ingredient}: ${status}`);
     });
 
-    const todosDisponibles = resultados.every(r => r.disponible);
-    console.log(todosDisponibles
+    const allAvailable = results.every(r => r.available);
+    console.log(allAvailable
         ? "¡Todos los ingredientes disponibles!"
         : "Faltan ingredientes");
 }
 
 setTimeout(() => {
-    verificarTodosLosIngredientes();
+    checkAllIngredients();
 }, 9000);
 
 // --- Ejemplo práctico: simular carga de recetas ---
 
-function cargarRecetasDesdeBD() {
+function loadRecipesFromDB() {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve([
-                { nombre: "Café con leche espumosa", categoria: "bebidas", calificacion: 4.5 },
-                { nombre: "Tarta de chocolate", categoria: "postres", calificacion: 4.8 },
-                { nombre: "Galletas de avena", categoria: "snacks", calificacion: 4.0 }
+                { name: "Café con leche espumosa", category: "bebidas", rating: 4.5 },
+                { name: "Tarta de chocolate", category: "postres", rating: 4.8 },
+                { name: "Galletas de avena", category: "snacks", rating: 4.0 }
             ]);
         }, 800);
     });
 }
 
-async function iniciarRecetario() {
+async function startCookbook() {
     console.log("\n--- Ejemplo práctico ---");
     console.log("Cargando recetas...");
 
-    const recetas = await cargarRecetasDesdeBD();
-    console.log(`Se cargaron ${recetas.length} recetas:`);
+    const recipes = await loadRecipesFromDB();
+    console.log(`Se cargaron ${recipes.length} recetas:`);
 
-    recetas.forEach(r => {
-        console.log(`  ${r.nombre} — ${r.categoria} — ${r.calificacion}★`);
+    recipes.forEach(r => {
+        console.log(`  ${r.name} — ${r.category} — ${r.rating}★`);
     });
 
-    const destacadas = recetas.filter(r => r.calificacion >= 4.5);
-    console.log(`\nRecetas destacadas: ${destacadas.length}`);
+    const featured = recipes.filter(r => r.rating >= 4.5);
+    console.log(`\nRecetas destacadas: ${featured.length}`);
 }
 
 setTimeout(() => {
-    iniciarRecetario();
+    startCookbook();
 }, 11000);
-
-// ============================================================
-// EJERCICIO
-// ============================================================
-// 1. Crea una función "prepararReceta" que reciba un nombre
-//    y devuelva una promesa. Después de 1 segundo, la
-//    promesa se resuelve con el mensaje "nombre lista".
-//    Si el nombre está vacío, la promesa se rechaza.
-//    Usa .then/.catch para probarla.
-//
-// 2. Crea una función async "prepararMenu" que use await
-//    para preparar 3 recetas en secuencia (una después de
-//    otra) y muestre el resultado de cada una.
-//
-// 3. Crea 3 funciones que simulen verificar stock de
-//    ingredientes (cada una devuelve una promesa con un
-//    delay diferente). Usa Promise.all para verificar
-//    todas en paralelo y muestra cuáles están disponibles.
-// ============================================================
